@@ -1,0 +1,63 @@
+{
+    "name": "typo3/site-surfcamp-template",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "TYPO3 CMS Core Team",
+            "role": "Developer",
+            "homepage": "https://forge.typo3.org/projects/typo3cms-core"
+        },
+        {
+            "name": "The TYPO3 Community",
+            "role": "Contributor",
+            "homepage": "https://typo3.org/community/"
+        }
+    ],
+    "repositories": {
+        "local_packages": {
+            "type": "path",
+            "url": "local_packages/*"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "platform": {
+            "php": "8.2.0"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "typo3/cms-backend": "dev-main",
+        "typo3/cms-belog": "dev-main",
+        "typo3/cms-beuser": "dev-main",
+        "typo3/cms-core": "dev-main",
+        "typo3/cms-dashboard": "dev-main",
+        "typo3/cms-extbase": "dev-main",
+        "typo3/cms-extensionmanager": "dev-main",
+        "typo3/cms-filelist": "dev-main",
+        "typo3/cms-filemetadata": "dev-main",
+        "typo3/cms-fluid": "dev-main",
+        "typo3/cms-form": "dev-main",
+        "typo3/cms-frontend": "dev-main",
+        "typo3/cms-info": "dev-main",
+        "typo3/cms-install": "dev-main",
+        "typo3/cms-lowlevel": "dev-main",
+        "typo3/cms-rte-ckeditor": "dev-main",
+        "typo3/cms-scheduler": "dev-main",
+        "typo3/cms-seo": "dev-main",
+        "typo3/cms-setup": "dev-main",
+        "typo3/cms-tstemplate": "dev-main",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}

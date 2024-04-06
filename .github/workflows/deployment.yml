@@ -1,0 +1,60 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deployment:
+    name: Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup SSH Key
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh-auth.sock
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deployment_key
+          chmod 0600 ~/.ssh/deployment_key
+          ssh-keygen -p -P "${{ secrets.SSH_PASSPHRASE }}" -N "" -f ~/.ssh/deployment_key
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add ~/.ssh/deployment_key
+
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+
+      - name: Install Magallanes
+        run: |
+          composer global require "andres-montanez/magallanes" --no-progress --ansi
+          /home/runner/.composer/vendor/bin/mage version
+          mkdir -p ./.mage/logs
+
+      - name: Get Environment
+        id: environment
+        run: |
+          echo "target=$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//-/g')" >> $GITHUB_OUTPUT
+
+      - name: Deployment
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh-auth.sock
+        run: |
+          /home/runner/.composer/vendor/bin/mage deploy ${{ steps.environment.outputs.target }}
+
+      - name: Archive Logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: logs
+          path: .mage/logs
+
+      - name: Echo logs
+        run: find .mage/logs/ -type f -exec cat {} +
+        if: always()

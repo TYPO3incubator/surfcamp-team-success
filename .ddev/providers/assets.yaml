@@ -1,0 +1,44 @@
+environment_variables:
+  # todo: change to 1, 2, 3, 4, 5 or 6
+  #team: [1-6]
+  team: 1
+  git_url: git@github.com:TYPO3incubator/surfcamp-assets.git
+  branch: main
+  checkout_dir: /var/www/html/.ddev/.surfcamp-assets-downloads
+
+auth_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    ssh-add -l >/dev/null || ( echo "Please 'ddev auth ssh' before running this command." && exit 1 )
+
+db_pull_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    [ ! -d ${checkout_dir}/.git ] && git clone -n --filter=tree:0 ${git_url} ${checkout_dir}
+    cd ${checkout_dir}
+    [ -d ${checkout_dir}/.git ] && git -C ${checkout_dir} fetch origin
+    git -C ${checkout_dir} config advice.detachedHead false
+    git -C ${checkout_dir} sparse-checkout set --no-clone "team${team}surfcamptypo3com/"
+    git -C ${checkout_dir} checkout -f origin/main
+    cp "team${team}surfcamptypo3com/db/db.sql" /var/www/html/.ddev/.downloads/db.sql
+
+files_pull_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    [ ! -d ${checkout_dir}/.git ] && git clone -n --filter=tree:0 ${git_url} ${checkout_dir}
+    cd ${checkout_dir}
+    [ -d ${checkout_dir}/.git ] && git -C ${checkout_dir} fetch origin
+    git -C ${checkout_dir} config advice.detachedHead false
+    git -C ${checkout_dir} sparse-checkout set --no-clone "team${team}surfcamptypo3com/"
+    git -C ${checkout_dir} checkout -f origin/main
+    # temporary workaround until there are files in fileadmin
+    mkdir -p "${checkout_dir}/team${team}surfcamptypo3com/files/public/fileadmin/"
+
+files_import_command:
+  service: web
+  command: |
+    set -eu -o pipefail
+    rsync -avz --delete "${checkout_dir}/team${team}surfcamptypo3com/files/public/fileadmin/" /var/www/html/public/fileadmin/

@@ -1,0 +1,50 @@
+magephp:
+  log_dir: ./.mage/logs
+  composer:
+    path: composer
+  exclude:
+    - ./.ddev
+    - ./.git
+    - ./.github 
+    - ./.mage
+    - ./.vscode
+    - ./public/fileadmin
+    - ./public/typo3temp
+    - ./var
+    - ./.env
+    - ./.editorconfig
+    - ./.gitattributes
+    - ./.gitignore
+    - ./.mage.yml
+    - ./composer.json
+    - ./composer.lock
+    - ./LICENSE
+    - ./README.md
+  environments:
+    main:
+      user: surfcamp
+      from: ./
+      host_path: /srv/vhosts/team[1-6].surfcamp.typo3.com/site/mage
+      releases: 3
+      hosts:
+        - demo.surfcamp.typo3.com
+      pre-deploy:
+        - exec: { cmd: "composer install --no-dev --no-progress --optimize-autoloader"}
+      on-deploy:
+        - fs/link: { from: "../../../../shared/public/fileadmin", to: "public/fileadmin" }
+        - fs/link: { from: "../../../../shared/public/typo3conf", to: "public/typo3conf" }
+        - fs/link: { from: "../../../../shared/public/typo3temp", to: "public/typo3temp" }
+        - fs/link: { from: "../../../shared/var", to: "var" }
+        - fs/link: { from: "../../../shared/.env", to: ".env" }
+      on-release:
+      post-release:
+        - exec: { cmd: "[ -d ../../../cachetool ] || mkdir -p ../../../cachetool" }
+        - exec: { cmd: "[ -f ../../../cachetool/cachetool.phar ] || curl -o ../../../cachetool/cachetool.phar https://gordalina.github.io/cachetool/downloads/cachetool.phar && chmod +x ../../../cachetool/cachetool.phar" }
+        - exec: { cmd: "/usr/bin/php ../../../cachetool/cachetool.phar opcache:reset --fcgi=/var/run/team[1-6].surfcamp.typo3.com_fpm.sock --tmp-dir=/srv/vhosts/team[1-6].surfcamp.typo3.com/site/cachetool" }
+        - exec: { cmd: '/usr/bin/php ./bin/typo3 backend:lock', timeout: 9000 }
+        - exec: { cmd: '/usr/bin/php ./bin/typo3 extension:setup', timeout: 9000 }
+        - exec: { cmd: '/usr/bin/php ./bin/typo3 cache:flush', timeout: 9000 }
+        - exec: { cmd: '/usr/bin/php ./bin/typo3 cache:warmup', timeout: 9000 }
+        - exec: { cmd: '/usr/bin/php ./bin/typo3 upgrade:run', timeout: 9000 }
+        - exec: { cmd: '/usr/bin/php ./bin/typo3 backend:unlock', timeout: 9000 }
+      post-deploy:
