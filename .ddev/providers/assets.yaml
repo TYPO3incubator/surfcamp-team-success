@@ -39,4 +39,5 @@ files_import_command:
   service: web
   command: |
     set -eu -o pipefail
+    mkdir -p /var/www/html/public/fileadmin/
     rsync -avz --delete "${checkout_dir}/team${team}surfcamptypo3com/files/public/fileadmin/" /var/www/html/public/fileadmin/
