@@ -1,4 +1,4 @@
-name: site-surfcamp
+name: surfcamp-team6
 type: php
 docroot: public
 php_version: "8.2"
