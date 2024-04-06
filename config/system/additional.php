@@ -1,10 +1,10 @@
 <?php
 
-$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '/../../', '.env.dist');
+$dotenv = Dotenv\Dotenv::createMutable(__DIR__ . '/../../', '.env.dist');
 $dotenv->load();
 
 if (file_exists(__DIR__ . '/../../.env')) {
-    $dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '/../../');
+    $dotenv = Dotenv\Dotenv::createMutable(__DIR__ . '/../../');
     $dotenv->load();
 }
 
