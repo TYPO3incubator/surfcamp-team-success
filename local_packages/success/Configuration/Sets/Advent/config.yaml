@@ -1,0 +1,5 @@
+name: surfcamp/success-advent
+label: Advent landing page
+
+dependencies:
+  - surfcamp/success-landing-page

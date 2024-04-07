@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1fff6fe84bbefb43a58936205928a29",
+    "content-hash": "ff8720eb45085f42eea9d47d3529d926",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2180,6 +2180,33 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "surfcamp/success",
+            "version": "0.0.1",
+            "dist": {
+                "type": "path",
+                "url": "local_packages/success",
+                "reference": "ab8633e5ffc7563327368c432c0f8d03753ee44d"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "success"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Surfcamp\\Success\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "TYPO3 Sets for your success",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "symfony/cache",
@@ -5999,12 +6026,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/frontend.git",
-                "reference": "e64616d928b0fc22c27c2f1a10c98934796fa731"
+                "reference": "8c9f49b2c1ce1f57793f05dab3f4db2433074201"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/frontend/zipball/e64616d928b0fc22c27c2f1a10c98934796fa731",
-                "reference": "e64616d928b0fc22c27c2f1a10c98934796fa731",
+                "url": "https://api.github.com/repos/TYPO3-CMS/frontend/zipball/8c9f49b2c1ce1f57793f05dab3f4db2433074201",
+                "reference": "8c9f49b2c1ce1f57793f05dab3f4db2433074201",
                 "shasum": ""
             },
             "require": {
@@ -6057,7 +6084,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-04-07T09:49:20+00:00"
+            "time": "2024-04-07T17:26:46+00:00"
         },
         {
             "name": "typo3/cms-info",
@@ -7459,6 +7486,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "surfcamp/success": 20,
         "typo3/cms-backend": 20,
         "typo3/cms-belog": 20,
         "typo3/cms-beuser": 20,

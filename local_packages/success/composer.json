@@ -1,0 +1,17 @@
+{
+  "name": "surfcamp/success",
+  "type": "typo3-cms-extension",
+  "description" : "TYPO3 Sets for your success",
+  "license": "GPL-2.0-or-later",
+  "version": "0.0.1",
+  "autoload": {
+    "psr-4": {
+      "Surfcamp\\Success\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "success"
+    }
+  }
+}

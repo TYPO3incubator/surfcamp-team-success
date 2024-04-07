@@ -16,3 +16,5 @@ languages:
     languageId: 0
 rootPageId: 3
 websiteTitle: ''
+dependencies:
+  - surfcamp/success-advent

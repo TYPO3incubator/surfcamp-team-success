@@ -1,0 +1,5 @@
+name: surfcamp/success-product-launch
+label: Product launch landing page
+
+dependencies:
+  - surfcamp/success-landing-page

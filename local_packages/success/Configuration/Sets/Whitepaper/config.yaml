@@ -1,0 +1,5 @@
+name: surfcamp/success-whitepaper
+label: Whitepaper landing page
+
+dependencies:
+  - surfcamp/success-landing-page

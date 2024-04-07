@@ -1,0 +1,5 @@
+name: surfcamp/success-career
+label: Career landing page
+
+dependencies:
+  - surfcamp/success-landing-page

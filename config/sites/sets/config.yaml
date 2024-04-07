@@ -16,3 +16,5 @@ languages:
     languageId: 0
 rootPageId: 5
 websiteTitle: ''
+dependencies:
+  - surfcamp/success-sets

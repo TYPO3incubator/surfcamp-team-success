@@ -1,0 +1,6 @@
+settings:
+  foo.bar.baz:
+    label: 'My example baz setting'
+    description: 'Configure baz to be used in bar'
+    type: int
+    default: 5

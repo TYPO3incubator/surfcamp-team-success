@@ -16,3 +16,5 @@ languages:
     languageId: 0
 rootPageId: 2
 websiteTitle: ''
+dependencies:
+  - surfcamp/success-whitepaper
