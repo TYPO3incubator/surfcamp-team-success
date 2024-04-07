@@ -1,13 +1,4 @@
 <?php
-
-$dotenv = Dotenv\Dotenv::createMutable(__DIR__ . '/../../', '.env.dist');
-$dotenv->load();
-
-if (file_exists(__DIR__ . '/../../.env')) {
-    $dotenv = Dotenv\Dotenv::createMutable(__DIR__ . '/../../');
-    $dotenv->load();
-}
-
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], [
     'BE' => [
         'debug' => $_ENV['TYPO3_BE_DEBUG'] ?? 0,

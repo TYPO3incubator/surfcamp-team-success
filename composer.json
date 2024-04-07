@@ -28,13 +28,15 @@
         "sort-packages": true,
         "allow-plugins": {
             "typo3/class-alias-loader": true,
-            "typo3/cms-composer-installers": true
+            "typo3/cms-composer-installers": true,
+            "helhum/dotenv-connector": true
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.2",
+        "helhum/dotenv-connector": "^3.1",
         "typo3/cms-backend": "dev-main",
         "typo3/cms-belog": "dev-main",
         "typo3/cms-beuser": "dev-main",
@@ -54,8 +56,7 @@
         "typo3/cms-scheduler": "dev-main",
         "typo3/cms-seo": "dev-main",
         "typo3/cms-setup": "dev-main",
-        "typo3/cms-tstemplate": "dev-main",
-        "vlucas/phpdotenv": "^5.6"
+        "typo3/cms-tstemplate": "dev-main"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest"

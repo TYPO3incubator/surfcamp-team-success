@@ -3,7 +3,7 @@
 This Git repository is intended for use by our dedicated teams at the [TYPO3 Surfcamp](https://surfcamp.typo3.com/).
 
 The project is based on the current development branch of TYPO3 v13.x, using Composer. The configuration happens via
-`.env` thanks to the underlying package `vlucas/phpdotenv`.
+`.env` thanks to the underlying package `helum/dotenv-connector`. Please copy `.env.dist` to `.env`.
 
 Deploying the project is triggered by pushed onto the `main` branch via Github Actions, which triggers a Magallanes
 workflow that does the actual heavy work. Please note that the configuration needs adaption **per team-based** repository.
