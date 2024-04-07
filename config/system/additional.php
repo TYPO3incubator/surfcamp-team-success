@@ -1,4 +1,10 @@
 <?php
+
+// todo: remove when shared/.env is fixed on server
+$dotenv = new \Symfony\Component\Dotenv\Dotenv();
+$dotenv->load(__DIR__ . '/../../.env.dist');
+$dotenv->overload(__DIR__ . '/../../.env');
+
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], [
     'BE' => [
         'debug' => $_ENV['TYPO3_BE_DEBUG'] ?? 0,
