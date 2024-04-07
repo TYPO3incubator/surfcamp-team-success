@@ -1,0 +1,18 @@
+base: 'https://team6.surfcamp.typo3.com/advent-of-typo3'
+baseVariants:
+  -
+    base: 'https://surfcamp-team6.ddev.site/advent-of-typo3'
+    condition: 'applicationContext == "Development"'
+languages:
+  -
+    title: English
+    enabled: true
+    locale: en_US.UTF-8
+    hreflang: ''
+    base: /
+    websiteTitle: ''
+    navigationTitle: English
+    flag: us
+    languageId: 0
+rootPageId: 3
+websiteTitle: ''
