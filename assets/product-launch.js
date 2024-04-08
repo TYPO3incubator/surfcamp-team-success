@@ -1,1 +1,1 @@
-import '../local_packages/success/Resources/Public/StyleSheets/main.css';
+import './Scss/product-launch.scss'
