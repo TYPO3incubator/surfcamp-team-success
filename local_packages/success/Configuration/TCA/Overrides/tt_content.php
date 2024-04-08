@@ -351,8 +351,7 @@ $GLOBALS['TCA']['tx_success_faq']['ctrl']['security']['ignorePageTypeRestriction
 $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-    --palette--;;general,bodytext,media,
-    --palette--;;media',
+    --palette--;;general,bodytext,media,',
     'columnsOverrides' => [
         'bodytext' => [
             'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.text',
