@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" date="2011-10-17T20:22:32Z" product-name="cms">
+		<header/>
+		<body>
+			<trans-unit id="cards" resname="cards">
+				<source>Cards Element</source>
+			</trans-unit>
+			<trans-unit id="cards.description" resname="cards.description">
+				<source>Elements with a card repeater</source>
+			</trans-unit>
+			<trans-unit id="cards.single" resname="cards.single">
+				<source>Card</source>
+			</trans-unit>
+			<trans-unit id="cards.headline" resname="cards.headline">
+				<source>Card Headline</source>
+			</trans-unit>
+			<trans-unit id="cards.text" resname="cards.text">
+				<source>Card Content</source>
+			</trans-unit>
+			<trans-unit id="cards.media" resname="cards.media">
+				<source>Card Media</source>
+			</trans-unit>
+			<trans-unit id="cards.link" resname="cards.link">
+				<source>Card Button</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

@@ -130,3 +130,47 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'header', 'header_style', 'after:header_layout');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'headers', 'header_style', 'after:header_layout');
+
+// Cards Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards',
+        'value' => 'success_cards',
+        'icon' => 'content-card-group',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards.description',
+    ]
+);
+
+$tx_success_card = [
+    'tx_success_card' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards.single',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_card',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+            'minitems' => 1,
+            'maxitems' => 99,
+        ],
+    ]
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_card);
+
+$GLOBALS['TCA']['tt_content']['types']['success_cards'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,tx_success_card'
+];
+
+$GLOBALS['TCA']['tx_success_card']['ctrl']['security']['ignorePageTypeRestriction'] = true;
