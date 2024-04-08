@@ -1,0 +1,8 @@
+config.recordLinks.contentInModal {
+   forceLink = 0
+   typolink {
+      parameter.data = field:pid
+      ATagParams.data = field:uid
+      ATagParams.wrap = data-cid="|"
+   }
+}

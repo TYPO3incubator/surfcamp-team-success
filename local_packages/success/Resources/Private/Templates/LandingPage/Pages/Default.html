@@ -1,3 +1,10 @@
 {_all -> f:debug()}
 
 <h1>{page.title}</h1>
+
+<f:cObject typoscriptObjectPath="styles.content.get" data="{colPos: '0'}" />
+
+<div id="modal" class="modal">
+    <div class="modal-content" id="modal-content"></div>
+    <div id="loading-indicator" class="loading-indicator"></div>
+</div>
