@@ -1,4 +1,16 @@
-{_all -> f:debug()}
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
+    xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+>
+
+<f:asset.css identifier="theme-settings">
+    <s:themeVariablesProvider variables="{settings.ui.default}" />
+    <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".dark" />
+</f:asset.css>
+
+<div data-ui-theme="{settings.ui.theme}"></div>
 
 <h1>{page.title}</h1>
 
@@ -8,3 +20,4 @@
     <div class="modal-content" id="modal-content"></div>
     <div id="loading-indicator" class="loading-indicator"></div>
 </div>
+</html>

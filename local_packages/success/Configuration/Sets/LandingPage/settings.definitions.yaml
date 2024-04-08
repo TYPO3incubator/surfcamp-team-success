@@ -1,6 +1,38 @@
 settings:
-  foo.bar.baz:
-    label: 'My example baz setting'
-    description: 'Configure baz to be used in bar'
-    type: int
-    default: 5
+  ui.theme:
+    label: 'Theme'
+    description: 'Values: "system" | "light" | "dark" | "light:only" | "dark:only"'
+    type: string
+    default: system
+  ui.default.fonts.text:
+    label: 'Default theme: Text font'
+    type: string #could be stringlist ?!
+    default: 'sans-serif'
+  ui.default.fonts.heading:
+    label: 'Default theme: Headline font'
+    type: string #could be stringlist ?!
+    default: 'sans-serif'
+  ui.default.colors.primary:
+    label: 'Default theme: Headline font'
+    type: color
+    default: 'rgb(1 97 239)'
+
+# todo: implement definitions
+#    colors:
+#      default: rgb(16 16 16)
+#      heading: rgb(0 0 0)
+#      muted: rgb(16 16 16 / 66%)
+#      bgPage: rgb(255 255 255)
+#      primary: rgb(1 97 239)
+#      secondary: rgb(1 84 207)
+#      accent: rgb(109 40 217)
+#    dark:
+#      fonts: { }
+#      colors:
+#        default: rgb(229 236 246)
+#        heading: rgb(247, 248, 248)
+#        muted: rgb(229 236 246 / 66%)
+#        bgPage: rgb(3 6 32)
+#        primary: rgb(1 97 239)
+#        secondary: rgb(1 84 207)
+#        accent: rgb(109 40 217)
