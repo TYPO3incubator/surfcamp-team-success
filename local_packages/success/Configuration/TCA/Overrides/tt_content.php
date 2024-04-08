@@ -334,3 +334,45 @@ $GLOBALS['TCA']['tt_content']['types']['success_faq'] = [
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_faq'] = 'actions-question';
 $GLOBALS['TCA']['tx_success_faq']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+
+// Hero Banner Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero',
+        'value' => 'success_hero',
+        'icon' => 'install-test-image',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.description',
+    ]
+);
+
+$GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,bodytext,media,
+    --palette--;;media',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.text',
+            'config' => [
+                'type' => 'text',
+                'cols' => 50,
+                'rows' => 5,
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'custom'
+            ],
+        ],
+        'media' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.media',
+            'config' => [
+                'type' => 'file',
+                'allowed' => 'common-image-types',
+                'maxitems' => 1,
+            ],
+        ],
+    ],
+];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_hero'] = 'install-test-image';

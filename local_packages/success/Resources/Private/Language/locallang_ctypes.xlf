@@ -83,6 +83,19 @@
 				<source>Answer</source>
 			</trans-unit>
 
+			<trans-unit id="hero" resname="hero">
+				<source>Hero Banner</source>
+			</trans-unit>
+			<trans-unit id="hero.description" resname="hero.description">
+				<source>Hero banner, image with text on the side</source>
+			</trans-unit>
+			<trans-unit id="hero.text" resname="hero.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="hero.media" resname="hero.media">
+				<source>Media</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

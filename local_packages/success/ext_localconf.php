@@ -1,5 +1,10 @@
 <?php
 
+/***************
+ * Add custom RTE configurations
+ */
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['custom'] = 'EXT:success/Configuration/RTE/Custom.yaml';
+
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend'] = [
     'backendFavicon' => 'EXT:success/Resources/Public/Icons/surfcamp2.svg',
     'backendLogo' => 'EXT:success/Resources/Public/Icons/surfcamp2.svg',
