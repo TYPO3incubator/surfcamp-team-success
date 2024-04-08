@@ -57,6 +57,16 @@
 				<source>Images</source>
 			</trans-unit>
 
+			<trans-unit id="partner" resname="partner">
+				<source>Partner Logo Element</source>
+			</trans-unit>
+			<trans-unit id="partner.description" resname="partner.description">
+				<source>A list of partner logos</source>
+			</trans-unit>
+			<trans-unit id="partner.item" resname="partner.item">
+				<source>Logos</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

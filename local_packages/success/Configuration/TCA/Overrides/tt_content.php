@@ -255,3 +255,39 @@ $GLOBALS['TCA']['tt_content']['types']['success_gallery'] = [
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_gallery'] = 'content-image';
+
+// Partner Logo Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:partner',
+        'value' => 'success_partner',
+        'icon' => 'actions-briefcase',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:partner.description',
+    ]
+);
+
+$tx_success_partner = [
+    'tx_success_partner' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:partner.item',
+        'config' => [
+            'type' => 'file',
+            'allowed' => 'common-image-types',
+            'maxitems' => 2,
+        ],
+    ]
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_partner);
+
+$GLOBALS['TCA']['tt_content']['types']['success_partner'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,tx_success_partner'
+];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_partner'] = 'actions-briefcase';
