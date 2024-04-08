@@ -418,3 +418,48 @@ $GLOBALS['TCA']['tt_content']['types']['success_review'] = [
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_review'] = 'install-manage-maintainer';
 $GLOBALS['TCA']['tx_success_review']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+
+// Features Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features',
+        'value' => 'success_features',
+        'icon' => 'install-manage-features',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features.description',
+    ]
+);
+
+$tx_success_feature = [
+    'tx_success_feature' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_feature',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+            'minitems' => 2,
+            'maxitems' => 6,
+        ],
+    ]
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_feature);
+
+$GLOBALS['TCA']['tt_content']['types']['success_features'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,tx_success_feature'
+];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_features'] = 'install-manage-features';
+$GLOBALS['TCA']['tx_success_feature']['ctrl']['security']['ignorePageTypeRestriction'] = true;

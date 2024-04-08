@@ -112,6 +112,25 @@
 				<source>Quote</source>
 			</trans-unit>
 
+			<trans-unit id="features" resname="features">
+				<source>Features Element</source>
+			</trans-unit>
+			<trans-unit id="features.description" resname="features.description">
+				<source>A list of features with icons</source>
+			</trans-unit>
+			<trans-unit id="features.item" resname="features.item">
+				<source>Feature</source>
+			</trans-unit>
+			<trans-unit id="features.icon" resname="features.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="features.header" resname="features.header">
+				<source>Header</source>
+			</trans-unit>
+			<trans-unit id="features.text" resname="features.text">
+				<source>Text</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
