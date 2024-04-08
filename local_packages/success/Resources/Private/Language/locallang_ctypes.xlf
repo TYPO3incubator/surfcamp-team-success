@@ -25,6 +25,28 @@
 				<source>Card Button</source>
 			</trans-unit>
 
+			<trans-unit id="numbers" resname="numbers">
+				<source>Numbers Element</source>
+			</trans-unit>
+			<trans-unit id="numbers.description" resname="numbers.description">
+				<source>Counting numbers element</source>
+			</trans-unit>
+			<trans-unit id="numbers.counting" resname="numbers.counting">
+				<source>Items</source>
+			</trans-unit>
+			<trans-unit id="numbers.single" resname="numbers.single">
+				<source>Counting Number</source>
+			</trans-unit>
+			<trans-unit id="numbers.number" resname="numbers.number">
+				<source>Number</source>
+			</trans-unit>
+			<trans-unit id="numbers.suffix" resname="numbers.suffix">
+				<source>Suffix</source>
+			</trans-unit>
+			<trans-unit id="numbers.label" resname="numbers.label">
+				<source>Label</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

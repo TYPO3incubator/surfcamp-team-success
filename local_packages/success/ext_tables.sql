@@ -8,3 +8,9 @@ CREATE TABLE tx_success_card (
 	media       int(11) DEFAULT '0' NOT NULL,
 	link    varchar(255) DEFAULT '' NOT NULL
 );
+
+CREATE TABLE tx_success_number_item (
+	number       int(5) DEFAULT '0' NOT NULL,
+	suffix    varchar(11) DEFAULT '' NOT NULL,
+	label    varchar(255) DEFAULT '' NOT NULL
+);

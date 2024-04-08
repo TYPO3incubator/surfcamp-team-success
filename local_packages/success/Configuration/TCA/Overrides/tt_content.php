@@ -174,3 +174,47 @@ $GLOBALS['TCA']['tt_content']['types']['success_cards'] = [
 ];
 
 $GLOBALS['TCA']['tx_success_card']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+
+// Big Numbers Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers',
+        'value' => 'success_numbers',
+        'icon' => 'number',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.description',
+    ]
+);
+
+$tx_success_number_item = [
+    'tx_success_number_item' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.counting',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_number_item',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+            'minitems' => 3,
+            'maxitems' => 5,
+        ],
+    ]
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_number_item);
+
+$GLOBALS['TCA']['tt_content']['types']['success_numbers'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,tx_success_number_item'
+];
+
+$GLOBALS['TCA']['tx_success_number_item']['ctrl']['security']['ignorePageTypeRestriction'] = true;
