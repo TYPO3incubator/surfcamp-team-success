@@ -5,10 +5,11 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build --watch",
-		"preview": "vite preview"
+		"watch": "./node_modules/.bin/vite build --watch --mode development",
+		"build:development": "./node_modules/.bin/vite build --mode development",
+		"build:production": "./node_modules/.bin/vite build --mode production"
 	},
+
 	"engines": {
 		"node": "~18 || ~20",
 		"npm": ">=9.0.0 <11.0.0"
