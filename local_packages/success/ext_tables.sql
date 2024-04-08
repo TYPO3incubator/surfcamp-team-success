@@ -14,3 +14,8 @@ CREATE TABLE tx_success_number_item (
 	suffix    varchar(11) DEFAULT '' NOT NULL,
 	label    varchar(255) DEFAULT '' NOT NULL
 );
+
+CREATE TABLE tx_success_faq (
+	question   varchar(255) DEFAULT '' NOT NULL,
+	answer    varchar(255) DEFAULT '' NOT NULL
+);

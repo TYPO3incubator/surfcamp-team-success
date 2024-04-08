@@ -67,6 +67,22 @@
 				<source>Logos</source>
 			</trans-unit>
 
+			<trans-unit id="faq" resname="faq">
+				<source>FAQ Element</source>
+			</trans-unit>
+			<trans-unit id="faq.description" resname="faq.description">
+				<source>A list of frequently asked questions with answers</source>
+			</trans-unit>
+			<trans-unit id="faq.questions" resname="faq.questions">
+				<source>Questions</source>
+			</trans-unit>
+			<trans-unit id="faq.question" resname="faq.question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="faq.answer" resname="faq.answer">
+				<source>Answer</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

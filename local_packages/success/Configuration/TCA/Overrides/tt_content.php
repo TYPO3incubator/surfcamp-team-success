@@ -291,3 +291,46 @@ $GLOBALS['TCA']['tt_content']['types']['success_partner'] = [
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_partner'] = 'actions-briefcase';
+
+// FAQ element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq',
+        'value' => 'success_faq',
+        'icon' => 'actions-question',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq.description',
+    ]
+);
+
+$tx_success_faq = [
+    'tx_success_faq' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq.questions',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_faq',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+        ],
+    ]
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_faq);
+
+$GLOBALS['TCA']['tt_content']['types']['success_faq'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,tx_success_faq'
+];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_faq'] = 'actions-question';
+$GLOBALS['TCA']['tx_success_faq']['ctrl']['security']['ignorePageTypeRestriction'] = true;
