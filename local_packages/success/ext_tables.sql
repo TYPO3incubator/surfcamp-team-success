@@ -19,3 +19,8 @@ CREATE TABLE tx_success_faq (
 	question   varchar(255) DEFAULT '' NOT NULL,
 	answer    varchar(255) DEFAULT '' NOT NULL
 );
+
+CREATE TABLE tx_success_review (
+	name   varchar(255) DEFAULT '' NOT NULL,
+	review    varchar(255) DEFAULT '' NOT NULL
+);

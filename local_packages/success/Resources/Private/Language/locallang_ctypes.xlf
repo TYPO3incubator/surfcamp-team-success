@@ -96,6 +96,22 @@
 				<source>Media</source>
 			</trans-unit>
 
+			<trans-unit id="reviews" resname="reviews">
+				<source>Reviews</source>
+			</trans-unit>
+			<trans-unit id="reviews.description" resname="reviews.description">
+				<source>A list of reviews from the clients</source>
+			</trans-unit>
+			<trans-unit id="reviews.item" resname="reviews.item">
+				<source>Review</source>
+			</trans-unit>
+			<trans-unit id="reviews.name" resname="reviews.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="reviews.review" resname="reviews.review">
+				<source>Quote</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

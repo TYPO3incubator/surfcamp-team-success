@@ -375,3 +375,46 @@ $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_hero'] = 'install-test-image';
+
+// Reviews Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews',
+        'value' => 'success_review',
+        'icon' => 'install-manage-maintainer',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews.description',
+    ]
+);
+
+$tx_success_review = [
+    'tx_success_review' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_review',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+        ],
+    ]
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_review);
+
+$GLOBALS['TCA']['tt_content']['types']['success_review'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,tx_success_review'
+];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_review'] = 'install-manage-maintainer';
+$GLOBALS['TCA']['tx_success_review']['ctrl']['security']['ignorePageTypeRestriction'] = true;
