@@ -2,6 +2,7 @@ name: surfcamp-team6
 type: php
 docroot: public
 php_version: "8.2"
+nodejs_version: "20"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []

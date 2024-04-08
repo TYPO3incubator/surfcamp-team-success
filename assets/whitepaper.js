@@ -1,0 +1,1 @@
+import './Scss/whitepaper.scss'

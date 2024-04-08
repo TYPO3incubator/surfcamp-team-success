@@ -33,6 +33,38 @@ ddev auth ssh
 ddev pull assets
 ```
 
+## Use Vite.js [dev server for ddev](https://github.com/torenware/ddev-viteserve#getting-started)
+
+```
+ddev get torenware/ddev-viteserve
+ddev restart
+ddev vite-serve start
+```
+
+## Npm Scripts / Vite.js
+
+The frontend toolchain uses NPM and Vite.js with a few loaders to ...
+  * Compile scss to css (`assets/Scss`)
+  * Bundle javascript (`assets`)
+
+Watch for changes in js/scss files:
+
+```
+ddev npm run watch
+```
+
+Build JS, CSS for development use (not compressed/optimized):
+
+```
+ddev npm run build:development
+```
+
+Build JS, CSS for production use:
+
+```
+ddev npm run build:production
+```
+
 ### Contributing to the TYPO3 Core
 
 In case the team decides to, or needs to contribute to the TYPO3 core, this project can be "upgraded".
