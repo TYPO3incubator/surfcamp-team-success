@@ -1,1 +1,1 @@
-@import 'EXT:success/Configuration/Sets/Sets/TsConfig/Page/LinkBrowser/ContentInModal.tsconfig'
+@import 'EXT:success/Configuration/Sets/LandingPage/TsConfig/Page/LinkBrowser/ContentInModal.tsconfig'
