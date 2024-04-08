@@ -30,7 +30,7 @@ return [
             'config'  => [
                 'type' => 'input',
                 'cols' => 3,
-                'max'  => 3,
+                'max'  => 6,
                 'eval' => 'int',
             ],
         ],

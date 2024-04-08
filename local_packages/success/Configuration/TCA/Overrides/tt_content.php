@@ -173,6 +173,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_cards'] = [
     --palette--;;headers,tx_success_card'
 ];
 
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_cards'] = 'content-card-group';
 $GLOBALS['TCA']['tx_success_card']['ctrl']['security']['ignorePageTypeRestriction'] = true;
 
 // Big Numbers Element
@@ -217,6 +218,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_numbers'] = [
     --palette--;;headers,tx_success_number_item'
 ];
 
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_numbers'] = 'number';
 $GLOBALS['TCA']['tx_success_number_item']['ctrl']['security']['ignorePageTypeRestriction'] = true;
 
 // Gallery Element
@@ -251,3 +253,5 @@ $GLOBALS['TCA']['tt_content']['types']['success_gallery'] = [
     --palette--;;general,
     --palette--;;headers,tx_success_gallery_item'
 ];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_gallery'] = 'content-image';

@@ -29,8 +29,8 @@ return [
             'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards.headline',
             'config'  => [
                 'type' => 'input',
-                'cols' => 256,
-                'max'  => 256,
+                'cols' => 255,
+                'max'  => 255,
                 'eval' => 'trim',
             ],
         ],
@@ -49,7 +49,7 @@ return [
             'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards.media',
             'config' => [
                 'type' => 'file',
-                'maxitems' => 6,
+                'maxitems' => 1,
                 'allowed' => 'common-image-types'
             ],
         ],
