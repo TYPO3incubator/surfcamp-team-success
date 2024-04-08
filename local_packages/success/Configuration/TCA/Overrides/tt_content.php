@@ -218,3 +218,36 @@ $GLOBALS['TCA']['tt_content']['types']['success_numbers'] = [
 ];
 
 $GLOBALS['TCA']['tx_success_number_item']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+
+// Gallery Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:gallery',
+        'value' => 'success_gallery',
+        'icon' => 'content-image',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:gallery.description',
+    ]
+);
+
+$tx_success_gallery_item = [
+    'tx_success_gallery_item' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:gallery.item',
+        'config' => [
+            'type' => 'file',
+            'allowed' => 'common-image-types'
+        ],
+    ]
+];
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_gallery_item);
+
+$GLOBALS['TCA']['tt_content']['types']['success_gallery'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,tx_success_gallery_item'
+];

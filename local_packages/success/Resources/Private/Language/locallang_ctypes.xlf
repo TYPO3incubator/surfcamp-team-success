@@ -47,6 +47,16 @@
 				<source>Label</source>
 			</trans-unit>
 
+			<trans-unit id="gallery" resname="gallery">
+				<source>Image Gallery</source>
+			</trans-unit>
+			<trans-unit id="gallery.description" resname="gallery.description">
+				<source>A gallery of images</source>
+			</trans-unit>
+			<trans-unit id="gallery.item" resname="gallery.item">
+				<source>Images</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
