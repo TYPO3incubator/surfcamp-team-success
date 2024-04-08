@@ -16,7 +16,7 @@ return [
         'delete'                   => 'deleted',
         'searchFields'             => '',
         'typeicon_classes'         => [
-            'default' => 'content-card',
+            'default' => 'number',
         ],
         'versioningWS'=> true,
     ],
