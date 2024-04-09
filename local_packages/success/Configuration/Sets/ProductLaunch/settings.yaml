@@ -13,6 +13,7 @@ ui:
       lighttext: "black"
     setting:
       radius: "5px"
+      rotate: "3deg"
   dark:
     font: []
     color:

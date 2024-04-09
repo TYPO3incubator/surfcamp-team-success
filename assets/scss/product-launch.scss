@@ -12,7 +12,7 @@ html {
 
 @layer components {
     .btn {
-        @apply py-2 px-3 font-bold rounded transition-colors;
+        @apply inline-block py-2 px-5 font-bold rounded transition-colors;
 
         &:focus {
             @apply ring ring-2 ring-primary-200;
@@ -65,11 +65,11 @@ html {
     }
 
     .h1 {
-        @apply text-4xl font-bold font-heading;
+        @apply text-5xl font-bold font-heading;
     }
 
     .h2 {
-        @apply text-2xl font-bold font-heading;
+        @apply text-3xl font-bold font-heading;
     }
 
     .h3 {
@@ -87,5 +87,25 @@ html {
         &:focus {
             @apply ring ring-2 ring-offset-2 ring-primary-200;
         }
+    }
+
+    .background-primary {
+        @apply bg-primary-500 text-primarytext;
+    }
+
+    .background-secondary {
+        @apply bg-secondary-500 text-secondarytext;
+    }
+
+    .background-light {
+        @apply bg-light-500 text-lighttext;
+    }
+
+    .background-white {
+        @apply bg-white text-black;
+    }
+
+    .background-black {
+        @apply bg-black text-white;
     }
 }
