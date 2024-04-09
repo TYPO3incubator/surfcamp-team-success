@@ -3,6 +3,39 @@
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
+    xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
 >
+    <f:asset.css identifier="theme-settings">
+        <s:themeVariablesProvider variables="{settings.ui.default}" />
+        <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".dark" />
+    </f:asset.css>
+
     <vac:asset.vite entry="assets/product-launch.js"/>
+
+    <main class="font-base bg-light">
+        <div class="bg-white h-screen">
+            <div class="container mx-auto px-5">
+                <div class="my-5">
+                    <a href="#" class="btn btn-primary">Primary button</a>
+                </div>
+                <div class="my-5">
+                    <a href="#" class="btn btn-secondary">Secondary button</a>
+                </div>
+                <div class="my-5">
+                    <a href="#" class="btn btn-light">Light button</a>
+                </div>
+                <div class="my-5">
+                    <a href="#" class="btn btn-black">Black button</a>
+                </div>
+                <div class="my-5">
+                    <a href="#" class="btn btn-white">White button</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-primary h-screen"></div>
+        <div class="bg-light h-screen"></div>
+        <div class="bg-secondary h-screen"></div>
+    </main>
+
+    
 </html>

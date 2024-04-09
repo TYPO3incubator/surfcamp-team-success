@@ -1,0 +1,9 @@
+@layer base {
+    html {
+        font-size: 15px;
+
+        @screen lg {
+            font-size: 16px;
+        }
+    }
+}

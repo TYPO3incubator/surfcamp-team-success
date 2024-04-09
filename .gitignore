@@ -6,6 +6,7 @@
 *.idea
 *.project
 *.vscode
+.vite
 .env
 .DS_Store
 node_modules

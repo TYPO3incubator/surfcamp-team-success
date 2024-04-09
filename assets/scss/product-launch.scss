@@ -1,0 +1,28 @@
+@import 'base/global';
+@import 'base/reset';
+
+@layer components {
+    .btn {
+        @apply py-2 px-3 font-bold rounded;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-primarytext;
+    }
+
+    .btn-secondary {
+        @apply bg-secondary text-secondarytext;
+    }
+
+    .btn-light {
+        @apply bg-light text-lighttext;
+    }
+
+    .btn-white {
+        @apply bg-white text-black;
+    }
+
+    .btn-black {
+        @apply bg-black text-white;
+    }
+}

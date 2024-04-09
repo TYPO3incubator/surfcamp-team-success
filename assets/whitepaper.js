@@ -1,1 +1,1 @@
-import './Scss/whitepaper.scss'
+import './scss/whitepaper.scss'

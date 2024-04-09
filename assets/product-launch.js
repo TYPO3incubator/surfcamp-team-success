@@ -1,1 +1,1 @@
-import './Scss/product-launch.scss'
+import './scss/product-launch.scss'

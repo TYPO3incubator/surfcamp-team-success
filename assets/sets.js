@@ -1,1 +1,1 @@
-import './Scss/sets.scss'
+import './scss/sets.scss'

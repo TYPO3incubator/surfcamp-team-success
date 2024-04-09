@@ -1,1 +1,1 @@
-import './Scss/advent.scss'
+import './scss/advent.scss'

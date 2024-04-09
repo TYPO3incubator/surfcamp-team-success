@@ -27,12 +27,12 @@ return [
     ],
     'EXTENSIONS' => [
         'backend' => [
-            'backendFavicon' => '',
-            'backendLogo' => '',
-            'loginBackgroundImage' => '',
-            'loginFootnote' => '',
-            'loginHighlightColor' => '',
-            'loginLogo' => '',
+            'backendFavicon' => 'EXT:success/Resources/Public/Icons/surfcamp2.svg',
+            'backendLogo' => 'EXT:success/Resources/Public/Icons/surfcamp2.svg',
+            'loginBackgroundImage' => 'EXT:success/Resources/Public/Images/lapared.webp',
+            'loginFootnote' => 'Team Success',
+            'loginHighlightColor' => '#84b0a5',
+            'loginLogo' => 'EXT:success/Resources/Public/Icons/surfcamp1.svg',
             'loginLogoAlt' => '',
         ],
         'extensionmanager' => [
@@ -41,6 +41,11 @@ return [
         ],
         'scheduler' => [
             'maxLifetime' => '1440',
+        ],
+        'vite_asset_collector' => [
+            'defaultManifest' => '_assets/vite/.vite/manifest.json',
+            'devServerUri' => 'https://surfcamp-team6.ddev.site:5173',
+            'useDevServer' => true,
         ],
     ],
     'FE' => [

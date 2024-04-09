@@ -1,11 +1,29 @@
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js}"],
+  content: ["local_packages/success/**/*.html"],
   theme: {
+    fontFamily: {
+      base: ['Roboto', 'sans-serif'],
+      headline: ['Roboto', 'sans-serif'],
+    },
+    borderRadius: {
+      DEFAULT: 'var(--setting-radius)'
+    },
+    colors: {
+      black: 'black',
+      white: 'white',
+      transparent: 'transparent',
+      current: 'currentColor',
+      primary: 'var(--color-primary)',
+      primarytext: 'var(--color-primarytext)',
+      secondary: 'var(--color-secondary)',
+      secondarytext: 'var(--color-secondarytext)',
+      light: 'var(--color-light)',
+      lighttext: 'var(--color-lighttext)',
+    },
     extend: {},
   },
-  presets: [require('tailwind-base.config')],
 }
 
 // For later use when using different configs
