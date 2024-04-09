@@ -1,0 +1,20 @@
+prototypes:
+  standard:
+    finishersDefinition:
+      Notification:
+        implementationClassName: Surfcamp\Success\Domain\Finishers\NotificationFinisher
+        options:
+          templateName: Notification
+          templateRootPaths:
+            10: 'EXT:success/Resources/Private/Templates/LandingPage/Finishers/Notification/'
+        formEditor:
+          predefinedDefaults:
+            options:
+              message: ''
+        FormEngine:
+          label: formEditor.elements.Form.finisher.Notification.editor.header.label
+          elements:
+            message:
+              label: formEditor.elements.Form.finisher.Notification.editor.message.label
+              config:
+                type: text

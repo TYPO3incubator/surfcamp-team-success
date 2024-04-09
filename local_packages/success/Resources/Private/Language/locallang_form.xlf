@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:success/Resources/Private/Language/locallang_form.xlf" date="2011-10-17T20:22:33Z" product-name="lang">
+		<header/>
+		<body>
+			<trans-unit id="formEditor.elements.Form.finisher.Notification.editor.message.label" resname="page">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="formEditor.elements.Form.finisher.Notification.editor.message.fieldExplanationText" resname="page">
+				<source>The message to display as a notification</source>
+			</trans-unit>
+			<trans-unit id="formEditor.elements.Form.finisher.Notification.editor.header.label" resname="page">
+				<source>Notification</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
