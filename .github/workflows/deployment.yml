@@ -31,6 +31,18 @@ jobs:
         with:
           php-version: 8.2
 
+      - name: Setup Node
+          uses: actions/setup-node@v4
+          with:
+            node-version: '21'
+            check-latest: true
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Compile assets for production
+        run: npm run build:production
+
       - name: Install Magallanes
         run: |
           composer global require "andres-montanez/magallanes" --no-progress --ansi

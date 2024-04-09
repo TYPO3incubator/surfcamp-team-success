@@ -3,6 +3,7 @@
 @import 'base/typography';
 
 html {
+    background-color: #000;
     --color-primary-dark:  color-mix(in srgb,var(--color-primary),#000 15%);
     --color-primary-light:  color-mix(in srgb,var(--color-primary),#FFF 40%);
     --color-secondary-dark:  color-mix(in srgb,var(--color-secondary),#000 15%);
