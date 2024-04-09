@@ -15,6 +15,7 @@ const VITE_ENTRYPOINTS = [
   "assets/landing-page.js",
   "assets/product-launch.js",
   "assets/sets.js",
+  "assets/modal.js",
   "assets/whitepaper.js",
   "assets/scss/rte.scss",
 ];

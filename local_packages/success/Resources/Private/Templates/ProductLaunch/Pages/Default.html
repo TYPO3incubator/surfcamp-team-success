@@ -11,6 +11,7 @@
     </f:asset.css>
 
     <vac:asset.vite entry="assets/product-launch.js"/>
+    <vac:asset.vite entry="assets/modal.js"/>
 
     <main class="font-text bg-light">
         <div class="bg-white h-screen">
@@ -38,7 +39,7 @@
                     <a href="#" class="btn btn-light">Light button</a>
                 </div>
                 <div class="my-5">
-                    <a href="#" class="btn btn-black">Black button</a>
+                    <a href="#" data-cid="1" class="btn btn-black">Black button</a>
                 </div>
                 <div class="my-5">
                     <a href="#" class="btn btn-white">White button</a>
@@ -48,5 +49,14 @@
         <div class="bg-primary-500 h-screen"></div>
         <div class="bg-light-500 h-screen"></div>
         <div class="bg-secondary-500 h-screen"></div>
+        <div style="display:none">
+            <div id="c1">
+                This is a test for modal
+            </div>
+        </div>
     </main>
+    <div id="modal" class="modal">
+        <div class="modal-content" id="modal-content"></div>
+        <div id="loading-indicator" class="loading-indicator"></div>
+    </div>
 </html>
