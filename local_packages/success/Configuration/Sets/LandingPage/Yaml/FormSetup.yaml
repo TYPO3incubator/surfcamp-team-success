@@ -1,0 +1,15 @@
+imports:
+    - { resource: './Finishers/Notification.yaml' }
+    - { resource: './FormElements/Form.yaml' }
+
+formManager:
+  translationFiles:
+    20: 'EXT:success/Resources/Private/Language/locallang_form.xlf'
+prototypes:
+  standard:
+    formEditor:
+      translationFiles:
+        20: 'EXT:success/Resources/Private/Language/locallang_form.xlf'
+    formEngine:
+      translationFiles:
+        20: 'EXT:success/Resources/Private/Language/locallang_form.xlf'
