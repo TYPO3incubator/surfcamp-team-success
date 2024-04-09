@@ -4,15 +4,15 @@ settings:
     description: 'Values: "system" | "light" | "dark" | "light:only" | "dark:only"'
     type: string
     default: system
-  ui.default.fonts.text:
+  ui.default.font.text:
     label: 'Default theme: Text font'
     type: string #could be stringlist ?!
     default: 'sans-serif'
-  ui.default.fonts.heading:
+  ui.default.font.heading:
     label: 'Default theme: Headline font'
     type: string #could be stringlist ?!
     default: 'sans-serif'
-  ui.default.colors.primary:
+  ui.default.color.primary:
     label: 'Default theme: Headline font'
     type: color
     default: 'rgb(1 97 239)'

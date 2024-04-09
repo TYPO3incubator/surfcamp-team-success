@@ -1,0 +1,90 @@
+@import 'base/global';
+@import 'base/reset';
+@import 'base/typography';
+
+html {
+    --color-primary-dark:  color-mix(in srgb,var(--color-primary),#000 15%);
+    --color-primary-light:  color-mix(in srgb,var(--color-primary),#FFF 40%);
+    --color-secondary-dark:  color-mix(in srgb,var(--color-secondary),#000 15%);
+    --color-light-dark:  color-mix(in srgb,var(--color-light),#000 15%);
+}
+
+@layer components {
+    .btn {
+        @apply py-2 px-3 font-bold rounded transition-colors;
+
+        &:focus {
+            @apply ring ring-2 ring-primary-200;
+        }
+    }
+
+    .btn-primary {
+        @apply bg-primary-500 text-primarytext;
+
+        &:hover,
+        &:focus {
+            @apply bg-primary-700;
+        }
+    }
+
+    .btn-secondary {
+        @apply bg-secondary-500 text-secondarytext;
+
+        &:hover,
+        &:focus {
+            @apply bg-secondary-700;
+        }
+    }
+
+    .btn-light {
+        @apply bg-light-500 text-lighttext;
+
+        &:hover,
+        &:focus {
+            @apply bg-light-700;
+        }
+    }
+
+    .btn-white {
+        @apply bg-white text-black;
+
+        &:hover,
+        &:focus {
+            @apply bg-gray-100;
+        }
+    }
+
+    .btn-black {
+        @apply bg-black text-white;
+
+        &:hover,
+        &:focus {
+            @apply bg-gray-900;
+        }
+    }
+
+    .h1 {
+        @apply text-4xl font-bold font-heading;
+    }
+
+    .h2 {
+        @apply text-2xl font-bold font-heading;
+    }
+
+    .h3 {
+        @apply text-xl font-bold font-heading;
+    }
+
+    .rte a {
+        @apply underline;
+
+        &:hover,
+        &:focus {
+            @apply no-underline;
+        }
+
+        &:focus {
+            @apply ring ring-2 ring-offset-2 ring-primary-200;
+        }
+    }
+}

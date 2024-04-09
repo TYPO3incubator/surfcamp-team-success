@@ -1,1 +1,1 @@
-import './Scss/career.scss'
+import './scss/career.scss'

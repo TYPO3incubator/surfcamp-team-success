@@ -1,1 +1,1 @@
-import './Scss/landing-page.scss'
+import './scss/landing-page.scss'
