@@ -29,13 +29,15 @@
         "allow-plugins": {
             "typo3/class-alias-loader": true,
             "typo3/cms-composer-installers": true,
-            "helhum/dotenv-connector": true
+            "helhum/dotenv-connector": true,
+            "cweagans/composer-patches": true
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.2",
+        "cweagans/composer-patches": "^1.7",
         "helhum/dotenv-connector": "^3.1",
         "praetorius/vite-asset-collector": "^1.9",
         "surfcamp/success": "@dev",
@@ -62,5 +64,18 @@
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest"
-    }
+    },
+	"extra": {
+		"patches": {
+			"typo3/cms-fluid": {
+				"[FEATURE] Add Fluid RenderBlock ViewHelper #83718": "./patches/83718.diff"
+			},
+			"typo3/cms-core": {
+				"[FEATURE] Add record-based content resolving in Frontend #83638 - core": "patches/83638-core.diff"
+			},
+			"typo3/cms-frontend": {
+				"[FEATURE] Add record-based content resolving in Frontend #83638 - frontend": "patches/83638-frontend.diff"
+			}
+		}
+	}
 }

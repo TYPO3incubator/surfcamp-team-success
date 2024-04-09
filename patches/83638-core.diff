@@ -1,0 +1,505 @@
+From 271cd92d2c4f104ed8411952995259eafb9c5281 Mon Sep 17 00:00:00 2001
+From: Benni Mack <benni@typo3.org>
+Date: Tue, 19 Mar 2024 20:34:35 +0100
+Subject: [PATCH] [WIP][FEATURE] Add record-based content resolving in Frontend
+
+This change adds a new RecordCollector which is similar
+to CONTENT cObject, except that it does not render the records
+directly, but instead creates instances of a generic Record
+object, which only contains the DB fields relevant for the
+DB record - extracting system fields and defined TCA columns
+not relevant for a specific tt_content type.
+
+The slide functionality can now be defined in the Page Layout
+(Backend Layout), with a Enum defining to Collect, CollectReverse
+and a simple Slide logic.
+
+A new data processor for the Frontend is added, which
+utilizes the new RecordCollector, fetching content elements.
+
+* PageContentFetchingProcessor ("pageContent")
+
+Based on the page layout, and optional "identifier" property,
+all content can be put into "grouped" (based on the defined / used colPos)
+areas of blocks.
+
+This change also introduces a RecordFactory, a RawRecord and a Record
+class, which currently only holds relevant fields defined
+in TCA (and special properties) in it, which currently unresolved.
+
+ToDo:
+- Deal with overlays (maybe a VersionState and a LanguageState subobject)
+- Missing: A hook in ContentCollector.
+- Document enhanced backend layout functionality with slide / identifier
+
+Resolves: #?
+Releases: main
+Change-Id: I6a1a0efacefe8c83e86b9551b00199c93e284a28
+---
+
+diff --git a/Classes/Domain/RawRecord.php b/Classes/Domain/RawRecord.php
+new file mode 100644
+index 0000000..0b887ef
+--- /dev/null
++++ b/Classes/Domain/RawRecord.php
+@@ -0,0 +1,92 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Core\Domain;
++
++use TYPO3\CMS\Core\Utility\GeneralUtility;
++
++/**
++ * Holds all properties of a raw database row with unfiltered and unprocessed values.
++ *
++ * @todo: split up the properties in special / computed properties (such as _LOCALIZED_UID) and normal properties
++ *
++ * @internal not part of public API, as this needs to be streamlined and proven
++ */
++class RawRecord implements \ArrayAccess, RecordInterface
++{
++    /**
++     * @var array<string, mixed>
++     */
++    protected array $properties = [];
++    protected string $type = '';
++
++    protected int $uid;
++    protected int $pid;
++
++    public function __construct(int $uid, int $pid, array $properties, string $type)
++    {
++        $this->uid = $uid;
++        $this->pid = $pid;
++        $this->properties = $properties;
++        $this->type = $type;
++    }
++
++    public function getUid(): int
++    {
++        return $this->uid;
++    }
++
++    public function getPid(): int
++    {
++        return $this->pid;
++    }
++
++    public function getFullType(): string
++    {
++        return $this->type;
++    }
++
++    public function getType(): string
++    {
++        return GeneralUtility::revExplode('.', $this->type, 2)[1];
++    }
++
++    public function toArray(): array
++    {
++        return $this->properties;
++    }
++
++    public function offsetExists(mixed $offset): bool
++    {
++        return isset($this->properties[$offset]);
++    }
++
++    public function offsetGet(mixed $offset): mixed
++    {
++        return $this->properties[$offset] ?? null;
++    }
++
++    public function offsetSet(mixed $offset, mixed $value): void
++    {
++        throw new \InvalidArgumentException('Record properties cannot be set.', 1712139284);
++    }
++
++    public function offsetUnset(mixed $offset): void
++    {
++        throw new \InvalidArgumentException('Record properties cannot be unset.', 1712139283);
++    }
++}
+diff --git a/Classes/Domain/Record.php b/Classes/Domain/Record.php
+new file mode 100644
+index 0000000..56d347a
+--- /dev/null
++++ b/Classes/Domain/Record.php
+@@ -0,0 +1,121 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Core\Domain;
++
++/**
++ * Represents a record with all properties valid for this record type.
++ *
++ * @internal not part of public API, as this needs to be streamlined and proven
++ */
++class Record implements \ArrayAccess, RecordInterface
++{
++    protected array $properties = [];
++    protected array $specialProperties = [];
++    protected RawRecord $rawRecord;
++
++    public static function createFromPreparedRecord(RawRecord $rawRecord, array $properties, array $specialProperties = []): self
++    {
++        $obj = new self();
++        $obj->rawRecord = $rawRecord;
++        $obj->properties = $properties;
++        $obj->specialProperties = $specialProperties;
++        return $obj;
++    }
++
++    public function getUid(): int
++    {
++        return $this->rawRecord->getUid();
++    }
++
++    public function getPid(): int
++    {
++        return $this->rawRecord->getPid();
++    }
++
++    public function getLanguageId(): int
++    {
++        return $this->specialProperties['language']['id'] ?? 0;
++    }
++
++    public function getTranslationParent(): int
++    {
++        return $this->specialProperties['language']['translationParent'] ?? 0;
++    }
++
++    public function getFullType(): string
++    {
++        return $this->rawRecord->getFullType();
++    }
++
++    public function getType(): string
++    {
++        return $this->rawRecord->getType();
++    }
++
++    public function getMainType(): string
++    {
++        return explode('.', $this->rawRecord->getFullType())[0];
++    }
++
++    public function toArray(bool $includeSpecialProperties = false): array
++    {
++        if ($includeSpecialProperties) {
++            return $this->properties + $this->specialProperties;
++        }
++        return $this->properties;
++    }
++
++    public function offsetExists(mixed $offset): bool
++    {
++        return isset($this->properties[$offset]) || isset($this->rawRecord[$offset]);
++    }
++
++    public function offsetGet(mixed $offset): mixed
++    {
++        return $this->properties[$offset] ?? $this->rawRecord[$offset] ?? null;
++    }
++
++    public function offsetSet(mixed $offset, mixed $value): void
++    {
++        throw new \InvalidArgumentException('Record properties cannot be modified.', 1712139281);
++    }
++
++    public function offsetUnset(mixed $offset): void
++    {
++        throw new \InvalidArgumentException('Record properties cannot be unset.', 1712139282);
++    }
++
++    public function getRawRecord(): RawRecord
++    {
++        return $this->rawRecord;
++    }
++
++    /**
++     * @todo: find a better name - "overlaid uid"?.
++     */
++    public function getRawUid(): int
++    {
++        if (isset($this->rawRecord['_ORIG_uid'])) {
++            return (int)$this->rawRecord['_ORIG_uid'];
++        }
++        if (isset($this->rawRecord['_LOCALIZED_UID'])) {
++            return (int)$this->rawRecord['_LOCALIZED_UID'];
++        }
++        return $this->getUid();
++    }
++}
+diff --git a/Classes/Domain/RecordFactory.php b/Classes/Domain/RecordFactory.php
+new file mode 100644
+index 0000000..bae51a3
+--- /dev/null
++++ b/Classes/Domain/RecordFactory.php
+@@ -0,0 +1,200 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Core\Domain;
++
++use TYPO3\CMS\Core\Utility\GeneralUtility;
++
++/**
++ * Creates sanitized records out of TCA records.
++ *
++ * @internal not part of TYPO3 Core API yet.
++ */
++class RecordFactory
++{
++    public function createFromDatabaseRecord(string $table, array $record): Record
++    {
++        // Resolve CType from TCA tt_content
++        $tcaConfig = $GLOBALS['TCA'][$table];
++        $typeFieldName = $tcaConfig['ctrl']['type'] ?? null;
++        $typeValue = null;
++        if ($typeFieldName !== null) {
++            $typeValue = (string)$record[$typeFieldName];
++        }
++
++        $fullType = $table;
++        if ($table === 'tt_content') {
++            $fullType = 'content';
++        }
++        if ($typeFieldName !== null) {
++            $fullType .= '.' . $typeValue ?: 'default';
++        }
++
++        $rawRecord = new RawRecord((int)$record['uid'], (int)$record['pid'], $record, $fullType);
++
++        $allFieldNames = array_keys($tcaConfig['columns']);
++        $allowedFieldName = array_keys($GLOBALS['TCA'][$table]['columns']);
++
++        $relevantFieldNames = $this->findRelevantFieldsForSubSchema($tcaConfig, $typeValue);
++        $relevantFieldNames = array_intersect(array_keys($relevantFieldNames), $allowedFieldName);
++
++        $properties = [];
++        foreach ($record as $fieldName => $fieldValue) {
++            if (in_array($fieldName, $allFieldNames) && !in_array($fieldName, $relevantFieldNames)) {
++                continue;
++            }
++            $properties[$fieldName] = $fieldValue;
++        }
++
++        // Resolve language information
++        $specialProperties = [];
++        $languageField = $tcaConfig['ctrl']['languageField'] ?? null;
++        if ($languageField !== null) {
++            $specialProperties['language'] = [];
++            $specialProperties['language']['id'] = (int)$record[$languageField];
++            unset($properties[$languageField]);
++            $transOrigPointerField = $tcaConfig['ctrl']['transOrigPointerField'] ?? null;
++            if ($transOrigPointerField !== null) {
++                $specialProperties['language']['translationParent'] = (int)$record[$transOrigPointerField];
++                unset($properties[$transOrigPointerField]);
++            }
++            $translationSourceField = $tcaConfig['ctrl']['translationSource'] ?? null;
++            if ($translationSourceField !== null) {
++                $specialProperties['language']['translationSource'] = (int)$record[$translationSourceField];
++                unset($properties[$translationSourceField]);
++            }
++            unset($properties['l10n_state']);
++            unset($properties['transOrigDiffSourceField']);
++        }
++        if ($tcaConfig['ctrl']['versioningWS'] ?? false) {
++            $specialProperties['version'] = [
++                'workspaceId' => (int)$record['t3ver_wsid'],
++                'liveId' => (int)$record['t3ver_oid'],
++                'versioningState' => (int)$record['t3ver_state'],
++                'versioningStage' => (int)$record['t3ver_stage'],
++            ];
++            unset($properties['t3ver_wsid'], $properties['t3ver_oid'], $properties['t3ver_state'], $properties['t3ver_stage']);
++        }
++
++        // Resolve system fields
++        if ($tcaConfig['ctrl']['delete'] ?? false) {
++            $specialProperties['isDeleted'] = (bool)$properties[$tcaConfig['ctrl']['delete']];
++            unset($properties[$tcaConfig['ctrl']['delete']]);
++        }
++        if ($tcaConfig['ctrl']['crdate'] ?? false) {
++            $specialProperties['createdAt'] = new \DateTimeImmutable('@' . $properties[$tcaConfig['ctrl']['crdate']]);
++            unset($properties[$tcaConfig['ctrl']['crdate']]);
++        }
++        if ($tcaConfig['ctrl']['tstamp'] ?? false) {
++            $specialProperties['lastUpdatedAt'] = new \DateTimeImmutable('@' . $properties[$tcaConfig['ctrl']['tstamp']]);
++            unset($properties[$tcaConfig['ctrl']['tstamp']]);
++        }
++        if ($tcaConfig['ctrl']['descriptionColumn'] ?? false) {
++            $specialProperties['description'] = $properties[$tcaConfig['ctrl']['descriptionColumn']];
++            unset($properties[$tcaConfig['ctrl']['descriptionColumn']]);
++        }
++        if ($tcaConfig['ctrl']['sortby'] ?? false) {
++            $specialProperties['sorting'] = $properties[$tcaConfig['ctrl']['sortby']];
++            unset($properties[$tcaConfig['ctrl']['sortby']]);
++        }
++        if ($tcaConfig['ctrl']['editlock'] ?? false) {
++            $specialProperties['isLockedForEditing'] = (bool)$properties[$tcaConfig['ctrl']['editlock']];
++            unset($properties[$tcaConfig['ctrl']['editlock']]);
++        }
++        foreach ($tcaConfig['ctrl']['enablecolumns'] ?? [] as $columnType => $fieldName) {
++            switch ($columnType) {
++                case 'disabled':
++                    $specialProperties['isDisabled'] = (bool)$record[$fieldName];
++                    unset($properties[$fieldName]);
++                    break;
++                case 'starttime':
++                    $specialProperties['publishAt'] = new \DateTimeImmutable('@' . $record[$fieldName]);
++                    unset($properties[$fieldName]);
++                    break;
++                case 'endtime':
++                    $specialProperties['publishUntil'] = new \DateTimeImmutable('@' . $record[$fieldName]);
++                    unset($properties[$fieldName]);
++                    break;
++                case 'fe_group':
++                    $specialProperties['userGroupRestriction'] = GeneralUtility::intExplode(',', $record[$fieldName], true);
++                    unset($properties[$fieldName]);
++                    break;
++            }
++        }
++
++        if ($typeFieldName !== null) {
++            unset($properties[$typeFieldName]);
++        }
++        unset($properties['uid'], $properties['pid']);
++        return Record::createFromPreparedRecord($rawRecord, $properties, $specialProperties);
++    }
++
++    public function getSubschemaConfig(array $tcaForTable, ?string $subSchemaName): array
++    {
++        return $tcaForTable['types'][$subSchemaName ?? '1'] ?? $tcaForTable['types'][1] ?? $tcaForTable[0];
++    }
++
++    public function findRelevantFieldsForSubSchema(array $tcaForTable, ?string $subSchemaName): array
++    {
++        $fields = [];
++        $subSchemaConfig = $this->getSubschemaConfig($tcaForTable, $subSchemaName);
++        $showItemArray = GeneralUtility::trimExplode(',', $subSchemaConfig['showitem']);
++        foreach ($showItemArray as $aShowItemFieldString) {
++            [$fieldName, $fieldLabel, $paletteName] = GeneralUtility::trimExplode(';', $aShowItemFieldString . ';;;');
++            if ($fieldName === '--div--') {
++                // tabs are not of interest here
++                continue;
++            }
++            if ($fieldName === '--palette--' && !empty($paletteName)) {
++                // showitem references to a palette field. unpack the palette and process
++                // label overrides that may be in there.
++                if (!isset($tcaForTable['palettes'][$paletteName]['showitem'])) {
++                    // No palette with this name found? Skip it.
++                    continue;
++                }
++                $palettesArray = GeneralUtility::trimExplode(
++                    ',',
++                    $tcaForTable['palettes'][$paletteName]['showitem']
++                );
++                foreach ($palettesArray as $aPalettesString) {
++                    [$fieldName, $fieldLabel] = GeneralUtility::trimExplode(';', $aPalettesString . ';;');
++                    if (isset($tcaForTable['columns'][$fieldName])) {
++                        $fields[$fieldName] = $this->getFinalFieldConfiguration($fieldName, $tcaForTable, $subSchemaConfig, $fieldLabel);
++                    }
++                }
++            } elseif (isset($tcaForTable['columns'][$fieldName])) {
++                $fields[$fieldName] = $this->getFinalFieldConfiguration($fieldName, $tcaForTable, $subSchemaConfig, $fieldLabel);
++            }
++        }
++        return $fields;
++    }
++
++    /**
++     * Handles the label and possible columnsOverrides
++     */
++    public function getFinalFieldConfiguration($fieldName, array $schemaConfiguration, array $subSchemaConfiguration, ?string $fieldLabel = null): array
++    {
++        $fieldConfiguration = $schemaConfiguration['columns'][$fieldName] ?? [];
++        if (isset($subSchemaConfiguration['columnsOverrides'][$fieldName])) {
++            $fieldConfiguration = array_replace_recursive($fieldConfiguration, $subSchemaConfiguration['columnsOverrides'][$fieldName]);
++        }
++        if (!empty($fieldLabel)) {
++            $fieldConfiguration['label'] = $fieldLabel;
++        }
++        return $fieldConfiguration;
++    }
++}
+diff --git a/Classes/Domain/RecordInterface.php b/Classes/Domain/RecordInterface.php
+new file mode 100644
+index 0000000..9d6743e
+--- /dev/null
++++ b/Classes/Domain/RecordInterface.php
+@@ -0,0 +1,29 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Core\Domain;
++
++/**
++ * An interface for database / TCA records.
++ */
++interface RecordInterface
++{
++    public function getUid(): int;
++    public function getPid(): int;
++    public function getFullType(): string;
++    public function getType(): string;
++}

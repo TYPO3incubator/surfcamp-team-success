@@ -1,0 +1,109 @@
+From 4ebb4de14443c42a2cfa3b6da37b96f812dd9c21 Mon Sep 17 00:00:00 2001
+From: Benni Mack <benni@typo3.org>
+Date: Tue, 09 Apr 2024 15:29:45 +0200
+Subject: [PATCH] [WIP][FEATURE] Add Fluid RenderBlock ViewHelper
+
+A new ViewHelper for Fluid is introduced, which is called
+"<f:renderBlock>" and utilizes a Record object, and instantiates
+a new View with an automatic template detected by the
+Record Type (e.g. "Content/Textpic.html" for "content.textpic"
+record type).
+
+Resolves: ?
+Releases: main
+Change-Id: I21ef6f9955d3c0a40bab85d6cdc29581984f39a0
+---
+
+diff --git a/Classes/ViewHelpers/RenderBlockViewHelper.php b/Classes/ViewHelpers/RenderBlockViewHelper.php
+new file mode 100644
+index 0000000..ebded23
+--- /dev/null
++++ b/Classes/ViewHelpers/RenderBlockViewHelper.php
+@@ -0,0 +1,87 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Fluid\ViewHelpers;
++
++use TYPO3\CMS\Core\Domain\RecordInterface;
++use TYPO3\CMS\Core\Utility\GeneralUtility;
++use TYPO3\CMS\Fluid\View\StandaloneView;
++use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
++use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
++use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
++use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
++use TYPO3Fluid\Fluid\View\Exception\InvalidTemplateResourceException;
++
++/**
++ * ViewHelper to render a block from a record
++ */
++final class RenderBlockViewHelper extends AbstractViewHelper
++{
++    use CompileWithRenderStatic;
++
++    /**
++     * @var bool
++     */
++    protected $escapeOutput = false;
++
++    public function initializeArguments(): void
++    {
++        parent::initializeArguments();
++        $this->registerArgument('data', RecordInterface::class, 'Block data', false, []);
++    }
++
++    /**
++     * @return mixed
++     */
++    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
++    {
++        $data = $arguments['data'];
++
++        $view = $renderingContext->getViewHelperVariableContainer()->getView();
++        if (!$view) {
++            throw new Exception(
++                'The f:renderBlock ViewHelper was used in a context where the ViewHelperVariableContainer does not contain ' .
++                'a reference to the View. Normally this is taken care of by the TemplateView, so most likely this ' .
++                'error is because you overrode AbstractTemplateView->initializeRenderingContext() and did not call ' .
++                '$renderingContext->getViewHelperVariableContainer()->setView($this) or parent::initializeRenderingContext. ' .
++                'This is an issue you must fix in your code as f:renderBlock is fully unable to render anything without a View.'
++            );
++        }
++        $subView = GeneralUtility::makeInstance(StandaloneView::class);
++        $r = clone $view->getRenderingContext();
++        $subView->setRequest($renderingContext->getRequest());
++        $subView->getRenderingContext()->setTemplatePaths($r->getTemplatePaths());
++        $subView->setTemplate(str_replace('.', '/', $data->getFullType()));
++        // @todo: consider using the same variables
++        $subView->assign('record', $data);
++        try {
++            $content = $subView->render();
++        } catch (InvalidTemplateResourceException) {
++            // Render via TypoScript as fallback
++            /** @var CObjectViewHelper $cObjectViewHelper */
++            $cObjectViewHelper = $view->getViewHelperResolver()->createViewHelperInstance('f', 'cObject');
++            $blockType = $data->getFullType();
++            if (str_starts_with($blockType, 'content')) {
++                $blockType = 'tt_' . $blockType;
++            }
++            $cObjectViewHelper->setArguments(['typoscriptObjectPath' => $blockType, 'data' => $data->toArray()]);
++            $cObjectViewHelper->setRenderingContext($subView->getRenderingContext());
++            $content = $cObjectViewHelper->render();
++        }
++        return $content;
++    }
++}

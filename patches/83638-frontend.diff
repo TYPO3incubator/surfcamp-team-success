@@ -1,0 +1,433 @@
+From 271cd92d2c4f104ed8411952995259eafb9c5281 Mon Sep 17 00:00:00 2001
+From: Benni Mack <benni@typo3.org>
+Date: Tue, 19 Mar 2024 20:34:35 +0100
+Subject: [PATCH] [WIP][FEATURE] Add record-based content resolving in Frontend
+
+This change adds a new RecordCollector which is similar
+to CONTENT cObject, except that it does not render the records
+directly, but instead creates instances of a generic Record
+object, which only contains the DB fields relevant for the
+DB record - extracting system fields and defined TCA columns
+not relevant for a specific tt_content type.
+
+The slide functionality can now be defined in the Page Layout
+(Backend Layout), with a Enum defining to Collect, CollectReverse
+and a simple Slide logic.
+
+A new data processor for the Frontend is added, which
+utilizes the new RecordCollector, fetching content elements.
+
+* PageContentFetchingProcessor ("pageContent")
+
+Based on the page layout, and optional "identifier" property,
+all content can be put into "grouped" (based on the defined / used colPos)
+areas of blocks.
+
+This change also introduces a RecordFactory, a RawRecord and a Record
+class, which currently only holds relevant fields defined
+in TCA (and special properties) in it, which currently unresolved.
+
+ToDo:
+- Deal with overlays (maybe a VersionState and a LanguageState subobject)
+- Missing: A hook in ContentCollector.
+- Document enhanced backend layout functionality with slide / identifier
+
+Resolves: #?
+Releases: main
+Change-Id: I6a1a0efacefe8c83e86b9551b00199c93e284a28
+---
+diff --git a/Classes/Content/ContentSlideMode.php b/Classes/Content/ContentSlideMode.php
+new file mode 100644
+index 0000000..65f5dac
+--- /dev/null
++++ b/Classes/Content/ContentSlideMode.php
+@@ -0,0 +1,36 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Frontend\Content;
++
++enum ContentSlideMode
++{
++    case None;
++    case Slide;
++    case Collect;
++    case CollectReverse;
++
++    public static function tryFrom(?string $slideMode): ContentSlideMode
++    {
++        return match ($slideMode) {
++            'slide' => self::Slide,
++            'collect' => self::Collect,
++            'collectReverse' => self::CollectReverse,
++            default => self::None,
++        };
++    }
++}
+diff --git a/Classes/Content/RecordCollector.php b/Classes/Content/RecordCollector.php
+new file mode 100644
+index 0000000..687e508
+--- /dev/null
++++ b/Classes/Content/RecordCollector.php
+@@ -0,0 +1,81 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Frontend\Content;
++
++use TYPO3\CMS\Core\Domain\RecordFactory;
++use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
++
++/**
++ * Executes a SQL query, and retrieves TCA-based records for Frontend rendering.
++ */
++class RecordCollector
++{
++    public function __construct(protected readonly RecordFactory $recordFactory) {}
++
++    public function collect(
++        string $table,
++        array $select,
++        ContentSlideMode $slideMode,
++        ContentObjectRenderer $contentObjectRenderer
++    ): array {
++        $slideCollectReverse = false;
++        $collect = false;
++        switch ($slideMode) {
++            case ContentSlideMode::Slide:
++                $slide = true;
++                break;
++            case ContentSlideMode::Collect:
++                $slide = true;
++                $collect = true;
++                break;
++            case ContentSlideMode::CollectReverse:
++                $slide = true;
++                $collect = true;
++                $slideCollectReverse = true;
++                break;
++            default:
++                $slide = false;
++        }
++        $again = false;
++        $totalRecords = [];
++
++        do {
++            $recordsOnPid = $contentObjectRenderer->getRecords($table, $select);
++            $recordsOnPid = array_map(
++                function ($record) use ($table) {
++                    return $this->recordFactory->createFromDatabaseRecord($table, $record);
++                },
++                $recordsOnPid
++            );
++
++            if ($slideCollectReverse) {
++                $totalRecords = array_merge($totalRecords, $recordsOnPid);
++            } else {
++                $totalRecords = array_merge($recordsOnPid, $totalRecords);
++            }
++            if ($slide) {
++                $select['pidInList'] = $contentObjectRenderer->getSlidePids($select['pidInList'] ?? '', $select['pidInList.'] ?? []);
++                if (isset($select['pidInList.'])) {
++                    unset($select['pidInList.']);
++                }
++                $again = $select['pidInList'] !== '';
++            }
++        } while ($again && $slide && ($recordsOnPid === [] || $collect));
++        return $totalRecords;
++    }
++}
+diff --git a/Classes/Content/RecordEnricher.php b/Classes/Content/RecordEnricher.php
+new file mode 100644
+index 0000000..8e19937
+--- /dev/null
++++ b/Classes/Content/RecordEnricher.php
+@@ -0,0 +1,95 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Frontend\Content;
++
++use TYPO3\CMS\Core\Domain\Record;
++use TYPO3\CMS\Core\Domain\RecordFactory;
++use TYPO3\CMS\Core\Service\FlexFormService;
++use TYPO3\CMS\Core\Utility\GeneralUtility;
++use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
++use TYPO3\CMS\Frontend\Resource\FileCollector;
++
++/**
++ * Enriches a record with resolved properties from relations.
++ * It's like a DataMapper approach
++ */
++class RecordEnricher
++{
++
++    public function __construct(
++        protected readonly RecordFactory $recordFactory
++    )
++    {
++    }
++
++    public function createResolvedRecordFromRecord(Record $record): ResolvedRecord
++    {
++        $resolvedProperties = [];
++        $mainType = $record->getMainType();
++        if ($mainType === 'content') {
++            $mainType = 'tt_content';
++        }
++        $tcaSchema = $GLOBALS['TCA'][$mainType];
++        $subSchemaConfig = $this->recordFactory->getSubschemaConfig($tcaSchema, $record->getType());
++        foreach ($record->toArray() as $fieldName => $fieldValue) {
++            $fieldConfiguration = $this->recordFactory->getFinalFieldConfiguration($fieldName, $tcaSchema, $subSchemaConfig);
++            switch ($fieldConfiguration['config']['type']) {
++                case 'file':
++                    /** @var FileCollector $fileCollector */
++                    $fileCollector = GeneralUtility::makeInstance(FileCollector::class);
++                    $fileCollector->addFilesFromRelation($mainType, $fieldName, $record->getRawRecord()->toArray());
++                    $resolvedProperties[$fieldName] = $fileCollector->getFiles();
++                    if ((int)($fieldConfiguration['config']['maxitems'] ?? 0) === 1) {
++                        $resolvedProperties[$fieldName] = reset($resolvedProperties[$fieldName]);
++                    }
++                    break;
++                case 'inline':
++                case 'select':
++                    if (!isset($config['foreign_table']) || !isset($config['foreign_field'])) {
++                        break;
++                    }
++                    $selectConfiguration = [
++                        'where' => $config['foreign_field'] . '=' . (int)$record->getRawUid(),
++                    ];
++                    if (isset($GLOBALS['TCA'][$config['foreign_table']]['ctrl']['sortby'])) {
++                        $selectConfiguration[$fieldName]['config']['sortBy'] = $GLOBALS['TCA'][$config['foreign_table']]['ctrl']['sortby'];
++                    } elseif (isset($GLOBALS['TCA'][$config['foreign_table']]['ctrl']['default_sortby'])) {
++                        $selectConfiguration[$fieldName]['config']['sortBy'] = $GLOBALS['TCA'][$config['foreign_table']]['ctrl']['default_sortby'];
++                    }
++
++                    $cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
++                    $cObj->start($record->getRawRecord()->toArray(), $record->getMainType());
++                    $resolvedProperties[$fieldName] = GeneralUtility::makeInstance(RecordCollector::class)->collect(
++                        $config['foreign_table'],
++                        $selectConfiguration,
++                        ContentSlideMode::None,
++                        $cObj
++                    );
++                    if ((int)($fieldConfiguration['config']['maxitems'] ?? 0) === 1) {
++                        $resolvedProperties[$fieldName] = reset($resolvedProperties[$fieldName]);
++                    }
++                    break;
++                case 'flex':
++                    $resolvedProperties[$fieldName] = GeneralUtility::makeInstance(FlexFormService::class)->convertFlexFormContentToArray($fieldValue);
++                    break;
++            }
++        }
++        return new ResolvedRecord($record, $resolvedProperties);
++    }
++
++}
+diff --git a/Classes/Content/ResolvedRecord.php b/Classes/Content/ResolvedRecord.php
+new file mode 100644
+index 0000000..75df2c7
+--- /dev/null
++++ b/Classes/Content/ResolvedRecord.php
+@@ -0,0 +1,62 @@
++<?php
++declare(strict_types=1);
++
++namespace TYPO3\CMS\Frontend\Content;
++
++
++use TYPO3\CMS\Core\Domain\RecordInterface;
++
++class ResolvedRecord implements RecordInterface
++{
++    public function __construct(
++        protected readonly RecordInterface $record,
++        protected readonly array $resolvedProperties
++    ) {}
++
++    public function getUid(): int
++    {
++        return $this->record->getUid();
++    }
++
++    public function getPid(): int
++    {
++        return $this->record->getPid();
++    }
++
++    public function getFullType(): string
++    {
++        return $this->record->getFullType();
++    }
++
++    public function getType(): string
++    {
++        return $this->record->getType();
++    }
++
++
++    public function toArray(): array
++    {
++        return array_replace($this->record->toArray(), $this->resolvedProperties);
++    }
++
++    public function offsetExists(mixed $offset): bool
++    {
++        return isset($this->properties[$offset]) || isset($this->record[$offset]);
++    }
++
++    public function offsetGet(mixed $offset): mixed
++    {
++        return $this->properties[$offset] ?? $this->record[$offset] ?? null;
++    }
++
++    public function offsetSet(mixed $offset, mixed $value): void
++    {
++        throw new \InvalidArgumentException('Record properties cannot be modified.', 1712139281);
++    }
++
++    public function offsetUnset(mixed $offset): void
++    {
++        throw new \InvalidArgumentException('Record properties cannot be unset.', 1712139282);
++    }
++
++}
+diff --git a/Classes/DataProcessing/PageContentFetchingProcessor.php b/Classes/DataProcessing/PageContentFetchingProcessor.php
+new file mode 100644
+index 0000000..3e96805
+--- /dev/null
++++ b/Classes/DataProcessing/PageContentFetchingProcessor.php
+@@ -0,0 +1,79 @@
++<?php
++
++declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
++
++namespace TYPO3\CMS\Frontend\DataProcessing;
++
++use TYPO3\CMS\Core\Page\PageLayoutResolver;
++use TYPO3\CMS\Frontend\Content\ContentSlideMode;
++use TYPO3\CMS\Frontend\Content\RecordCollector;
++use TYPO3\CMS\Frontend\Content\RecordEnricher;
++use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
++use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
++
++/**
++ * All-in-one data processor that loads all content from the current page layout into
++ * the template with a given identifier for each colPos, also respecting slideMode or
++ * collect options based on the page layouts content columns.
++ */
++class PageContentFetchingProcessor implements DataProcessorInterface
++{
++    public function __construct(
++        protected readonly RecordCollector $contentCollector,
++        protected readonly RecordEnricher $recordEnricher,
++        protected readonly PageLayoutResolver $pageLayoutResolver,
++    ) {}
++
++    public function process(
++        ContentObjectRenderer $cObj,
++        array $contentObjectConfiguration,
++        array $processorConfiguration,
++        array $processedData
++    ) {
++        if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
++            return $processedData;
++        }
++        $pageInformation = $cObj->getRequest()->getAttribute('frontend.page.information');
++        $pageLayout = $this->pageLayoutResolver->getLayoutForPage(
++            $pageInformation->getPageRecord(),
++            $pageInformation->getRootLine()
++        );
++
++        $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, 'content');
++        foreach ($pageLayout->getContentAreas() as $contentAreaData) {
++            if (!isset($contentAreaData['colPos'])) {
++                continue;
++            }
++            // Find automated information from TCA
++            $items = $this->contentCollector->collect(
++                'tt_content',
++                [
++                    'where' => 'colPos=' . (int)$contentAreaData['colPos'],
++                    'orderBy' => 'sorting',
++                ],
++                ContentSlideMode::tryFrom($contentAreaData['slideMode'] ?? null),
++                $cObj,
++            );
++            if ($processorConfiguration['enrich'] ?? true) {
++                $items = array_map(fn($item) => $this->recordEnricher->createResolvedRecordFromRecord($item), $items);
++            }
++            $contentAreaData['blocks'] = $items;
++            $contentAreaName = $contentAreaData['identifier'] ?? 'column' . $contentAreaData['colPos'];
++            $processedData[$targetVariableName][$contentAreaName] = $contentAreaData;
++        }
++        return $processedData;
++    }
++}
+diff --git a/Configuration/Services.yaml b/Configuration/Services.yaml
+index 54cfbd6..f2ab892 100644
+--- a/Configuration/Services.yaml
++++ b/Configuration/Services.yaml
+@@ -193,3 +193,7 @@
+   TYPO3\CMS\Frontend\DataProcessing\SplitProcessor:
+     tags:
+       - { name: 'data.processor', identifier: 'split' }
++
++  TYPO3\CMS\Frontend\DataProcessing\PageContentFetchingProcessor:
++    tags:
++      - { name: 'data.processor', identifier: 'pageContent' }
