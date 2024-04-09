@@ -6,4 +6,8 @@
             font-size: 16px;
         }
     }
+
+    :focus-visible {
+        outline: none;
+    }
 }

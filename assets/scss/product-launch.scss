@@ -4,6 +4,7 @@
 
 html {
     --color-primary-dark:  color-mix(in srgb,var(--color-primary),#000 15%);
+    --color-primary-light:  color-mix(in srgb,var(--color-primary),#FFF 40%);
     --color-secondary-dark:  color-mix(in srgb,var(--color-secondary),#000 15%);
     --color-light-dark:  color-mix(in srgb,var(--color-light),#000 15%);
 }
@@ -13,7 +14,7 @@ html {
         @apply py-2 px-3 font-bold rounded transition-colors;
 
         &:focus {
-            @apply ring ring-4 ring-light-500;
+            @apply ring ring-2 ring-primary-200;
         }
     }
 
@@ -80,6 +81,10 @@ html {
         &:hover,
         &:focus {
             @apply no-underline;
+        }
+
+        &:focus {
+            @apply ring ring-2 ring-offset-2 ring-primary-200;
         }
     }
 }

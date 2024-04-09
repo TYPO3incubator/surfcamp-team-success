@@ -22,6 +22,7 @@ export default {
       transparent: 'transparent',
       current: 'currentColor',
       primary: {
+        '200': 'var(--color-primary-light)',
         '500': 'var(--color-primary)',
         '700': 'var(--color-primary-dark)',
       },
