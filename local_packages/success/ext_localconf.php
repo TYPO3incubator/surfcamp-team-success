@@ -6,7 +6,7 @@
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['custom'] = 'EXT:success/Configuration/RTE/Custom.yaml';
 
 // Include vite generated manifest file (global)
-$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['defaultManifest'] = 'EXT:success/Resources/Public/Vite/.vite/manifest.json';
+// $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['defaultManifest'] = 'EXT:success/Resources/Public/Vite/.vite/manifest.json';
 
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend'] = [
     'backendFavicon' => 'EXT:success/Resources/Public/Icons/surfcamp2.svg',
