@@ -23,7 +23,7 @@ class ThemeVariablesProviderViewHelper extends AbstractViewHelper
         }
 
         $content = $arguments['selector'] . ' {' . LF;
-        $content .= self::buildVariables($arguments['variables']);
+        $content .= self::buildVariables($arguments['variables'], $arguments['prefix'] ?? '');
         $content .= '}';
 
         return $content;
