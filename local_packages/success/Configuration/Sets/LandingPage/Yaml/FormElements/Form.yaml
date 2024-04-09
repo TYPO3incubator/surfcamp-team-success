@@ -1,0 +1,33 @@
+prototypes:
+  standard:
+    formElementsDefinition:
+      Form:
+        renderingOptions:
+          translation:
+            translationFiles:
+              10: 'EXT:success/Resources/Private/Language/locallang_form.xlf'
+        formEditor:
+          editors:
+            900:
+              selectOptions:
+                100:
+                  value: Notification
+                  label: formEditor.elements.Form.finisher.Notification.editor.header.label
+          propertyCollections:
+            finishers:
+              100:
+                identifier: Notification
+                editors:
+                  100:
+                    identifier: header
+                    templateName: Inspector-CollectionElementHeaderEditor
+                    label: formEditor.elements.Form.finisher.Notification.editor.header.label
+                  300:
+                    identifier: message
+                    templateName: Inspector-TextareaEditor
+                    label: formEditor.elements.Form.finisher.Notification.editor.message.label
+                    propertyPath: options.message
+                    fieldExplanationText: formEditor.elements.Form.finisher.Notification.editor.message.fieldExplanationText
+                  9999:
+                    identifier: removeButton
+                    templateName: Inspector-RemoveElementEditor

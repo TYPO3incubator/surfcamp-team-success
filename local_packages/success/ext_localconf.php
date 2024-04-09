@@ -13,3 +13,18 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend'] = [
     'loginHighlightColor' => '#84b0a5',
     'loginFootnote' => 'Team Success',
 ];
+
+
+call_user_func(static function () {
+
+    // Add module configuration
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
+        'module.tx_form {
+    settings {
+        yamlConfigurations {
+            110 = EXT:success/Configuration/Sets/LandingPage/Yaml/FormSetup.yaml
+        }
+    }
+}'
+    );
+});
