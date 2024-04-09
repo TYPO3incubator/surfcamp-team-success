@@ -1,11 +1,13 @@
 
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
+
 export default {
   content: ["local_packages/success/**/*.html"],
   theme: {
     fontFamily: {
-      base: ['Roboto', 'sans-serif'],
-      headline: ['Roboto', 'sans-serif'],
+      text: ['var(--font-text)'],
+      heading: ['var(--font-heading)'],
     },
     borderRadius: {
       DEFAULT: 'var(--setting-radius)'
@@ -13,13 +15,26 @@ export default {
     colors: {
       black: 'black',
       white: 'white',
+      gray: {
+        '100': '#eee',
+        '900': '#333'
+      },
       transparent: 'transparent',
       current: 'currentColor',
-      primary: 'var(--color-primary)',
+      primary: {
+        '500': 'var(--color-primary)',
+        '700': 'var(--color-primary-dark)',
+      },
+      secondary: {
+        '500': 'var(--color-secondary)',
+        '700': 'var(--color-secondary-dark)',
+      },
+      light: {
+        '500': 'var(--color-light)',
+        '700': 'var(--color-light-dark)',
+      },
       primarytext: 'var(--color-primarytext)',
-      secondary: 'var(--color-secondary)',
       secondarytext: 'var(--color-secondarytext)',
-      light: 'var(--color-light)',
       lighttext: 'var(--color-lighttext)',
     },
     extend: {},

@@ -16,7 +16,7 @@ const VITE_ENTRYPOINTS = [
   "assets/product-launch.js",
   "assets/sets.js",
   "assets/whitepaper.js",
-  "assets/Scss/rte.scss",
+  "assets/scss/rte.scss",
 ];
 
 // Output path for generated assets

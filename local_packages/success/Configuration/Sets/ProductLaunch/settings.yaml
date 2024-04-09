@@ -2,8 +2,8 @@ ui:
   theme: "system"
   default:
     font:
-      text: "Roboto"
-      heading: "Roboto"
+      text: "Roboto, sans-serif"
+      heading: "Roboto, sans-serif"
     color:
       primary: "rgb(235, 183, 35)"
       secondary: "rgb(94, 13, 25)"
