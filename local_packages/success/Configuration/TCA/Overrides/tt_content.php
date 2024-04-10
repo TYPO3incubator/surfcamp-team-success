@@ -58,21 +58,35 @@ overline;LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:overline,
 ';
 
 // Text Media
-$GLOBALS['TCA']['tt_content']['types']['textmedia']['showitem'] ='
---div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
---palette--;;general,
---palette--;;headers, bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
---div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
---linebreak--, imageorient;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient_formlabel,
---div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
---palette--;;frames,
---div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
---palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
---palette--;;hidden,
---palette--;;access,
---div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
---div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-';
+$GLOBALS['TCA']['tt_content']['types']['textmedia'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers, bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
+    --linebreak--, imageorient;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient_formlabel,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.text',
+            'config' => [
+                'type' => 'text',
+                'cols' => 50,
+                'rows' => 5,
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'custom'
+            ],
+        ],
+    ],
+];
 
 // Image orient options
 $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
