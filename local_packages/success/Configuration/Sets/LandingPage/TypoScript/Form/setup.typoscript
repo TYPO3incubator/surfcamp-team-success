@@ -1,0 +1,7 @@
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            110 = EXT:success/Configuration/Sets/LandingPage/Yaml/FormSetup.yaml
+        }
+    }
+}

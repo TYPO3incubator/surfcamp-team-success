@@ -1,14 +1,94 @@
+# Default processing options
 imports:
   - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
   - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Custom configuration for rte
 editor:
   config:
-    toolbar:
-      - { name: styles, items: ['Bold','Italic'] }
-      - { name: links, items: ['Link', 'Unlink'] } # Add link and unlink buttons
+    allowedContent: true
+    contentsCss: "EXT:success/Resources/Public/StyleSheets/rte.css"
 
-    buttons:
-      - { name: 'Bold', command: 'bold', icon: 'bold', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:bold' }
-      - { name: 'Italic', command: 'italic', icon: 'italic', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:italic' }
-      - { name: 'Link', command: 'link', icon: 'link', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:link' }
-      - { name: 'Unlink', command: 'unlink', icon: 'unlink', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:unlink' }
+    stylesSet:
+      - name: "Primary Button"
+        element: "a"
+        attributes:
+          class: "btn btn-primary"
+      - name: "Secondary Button"
+        element: "a"
+        attributes:
+          class: "btn btn-secondary"
+      - name: "Light Button"
+        element: "a"
+        attributes:
+          class: "btn btn-light"
+      - name: "Black Button"
+        element: "a"
+        attributes:
+          class: "btn btn-black"
+      - name: "White Button"
+        element: "a"
+        attributes:
+          class: "btn btn-white"
+      - name: "Link"
+        element: "a"
+        attributes:
+          class: "link"
+
+    format_tags: "p;h1;h2;h3;h4;h5;h6"
+
+    toolbar:
+      items:
+        - style
+        - heading
+        - '|'
+        - bold
+        - italic
+        - underline
+        - strikethrough
+        - subscript
+        - superscript
+        - '|'
+        - bulletedList
+        - numberedList
+        - blockQuote
+        - '|'
+        - alignment
+        - '|'
+        - link
+        - '|'
+        - sourceEditing
+        - horizontalLine
+
+    justifyClasses:
+      - text-start
+      - text-center
+      - text-end
+
+    extraPlugins:
+      - justify
+      - find
+      - bidi
+      - templates
+      - wordcount
+      - textColor
+
+    removeButtons:
+      #      - Anchor
+      - Underline
+      - Strike
+      - Table # Remove table button so that the template must be used
+      - Image
+      - Templates
+      #      - Styles
+      - JustifyBlock
+    templates: "default"
+
+    templates_replaceContent: false
+
+processing:
+  allowTags:
+    - div
+    - a
+    - small

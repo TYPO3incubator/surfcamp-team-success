@@ -12,9 +12,9 @@ const VITE_TYPO3_ROOT = "./";
 const VITE_ENTRYPOINTS = [
   "assets/advent.js",
   "assets/career.js",
-  "assets/landing-page.js",
   "assets/product-launch.js",
   "assets/sets.js",
+  "assets/modal.js",
   "assets/whitepaper.js",
   "assets/scss/rte.scss",
   "assets/js/accordion.js",

@@ -1,12 +1,9 @@
 @import 'EXT:form/Configuration/TypoScript/setup.typoscript'
-
-@import 'EXT:success/Configuration/Sets/LandingPage/TypoScript/RecordLinks/ContentInModal.typoscript
+@import 'EXT:success/Configuration/Sets/LandingPage/TypoScript/RecordLinks/contentInModal.typoscript
+@import 'EXT:success/Configuration/Sets/LandingPage/TypoScript/Form/confirmation.typoscript
 
 page = PAGE
 page {
     10 = PAGEVIEW
     10.paths.100 = EXT:success/Resources/Private/Templates/LandingPage/
 }
-
-page.includeJSFooter.success_modal = EXT:success/Resources/Public/JavaScript/modal.js
-page.includeCSS.success_modal = EXT:success/Resources/Public/StyleSheets/modal.css

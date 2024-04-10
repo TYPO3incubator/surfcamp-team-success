@@ -1,0 +1,14 @@
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+editor:
+  config:
+    toolbar:
+      - { name: styles, items: ['Bold','Italic'] }
+      - { name: links, items: ['Link', 'Unlink'] } # Add link and unlink buttons
+
+    buttons:
+      - { name: 'Bold', command: 'bold', icon: 'bold', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:bold' }
+      - { name: 'Italic', command: 'italic', icon: 'italic', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:italic' }
+      - { name: 'Link', command: 'link', icon: 'link', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:link' }
+      - { name: 'Unlink', command: 'unlink', icon: 'unlink', label: 'LLL:EXT:rte_ckeditor/Resources/Private/Language/locallang_plugins.xlf:unlink' }

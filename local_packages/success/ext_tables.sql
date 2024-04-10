@@ -1,5 +1,6 @@
 CREATE TABLE tt_content (
-	overline varchar(255) DEFAULT '' NOT NULL
+	overline varchar(255) DEFAULT '' NOT NULL,
+	header_style varchar(255) DEFAULT '' NOT NULL
 );
 
 CREATE TABLE tx_success_card (

@@ -45,7 +45,7 @@ return [
         'vite_asset_collector' => [
             'defaultManifest' => '_assets/vite/.vite/manifest.json',
             'devServerUri' => 'https://surfcamp-team6.ddev.site:5173',
-            'useDevServer' => true,
+            'useDevServer' => 'auto',
         ],
     ],
     'FE' => [
