@@ -17,6 +17,7 @@ const VITE_ENTRYPOINTS = [
   "assets/sets.js",
   "assets/whitepaper.js",
   "assets/scss/rte.scss",
+  "assets/js/accordion.js",
 ];
 
 // Output path for generated assets

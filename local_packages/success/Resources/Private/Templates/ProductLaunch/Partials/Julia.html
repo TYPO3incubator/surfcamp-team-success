@@ -244,9 +244,7 @@
                         Lorem Ipsum
                     </div>
                 </div>
-                
             </div>
-
         </div>
     </div>
 </div>
@@ -281,11 +279,33 @@
     </div>
 </div>
 
-<div class="background-light py-12">
+<vac:asset.vite entry="assets/js/accordion.js"/>
+<div class="background-primary py-12">
     <div class="container px-5 mx-auto">
         <div class="h2">FAQs</div>
 
         <div class="mt-8">
+            <div class="mt-5">
+                <button data-accordion-toggle="accordion-1" class="focus:ring focus:ring-2 focus:ring-primary-200 accordion-button-js background-white rounded w-full text-left font-bold px-4 py-2 flex justify-between items-center" aria-expanded="false">
+                    Here is a question right?
+                    <span aria-hidden="true" class="accordion-plus-js rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&plus;</span>
+                    <span aria-hidden="true" class="accordion-minus-js hidden rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&minus;</span>
+                </button>
+                <div id="accordion-1" class="accordion-content-js rte rounded-b background-white px-4 py-2 border-t border-light-500" style="display: none;">
+                    Lorem ipsum
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <button data-accordion-toggle="accordion-2" class="focus:ring focus:ring-2 focus:ring-primary-200 accordion-button-js background-white rounded w-full text-left font-bold px-4 py-2 flex justify-between items-center" aria-expanded="false">
+                    Here is a question right?
+                    <span aria-hidden="true" class="accordion-plus-js rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&plus;</span>
+                    <span aria-hidden="true" class="accordion-minus-js hidden rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&minus;</span>
+                </button>
+                <div id="accordion-2" class="accordion-content-js rte rounded-b background-white px-4 py-2 border-t border-light-500" style="display: none;">
+                    Lorem ipsum
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -325,6 +345,10 @@
             </div>
         </div>
     </div>
-    
 </div>
 
+<div class="py-5">
+    <div class="container px-5 mx-auto">
+        &copy; {settings.ui.default.setting.name} {f:format.date(format: '%Y', date:'now')}
+    </div>
+</div>
