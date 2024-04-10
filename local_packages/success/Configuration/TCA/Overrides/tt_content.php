@@ -360,7 +360,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
                 'cols' => 50,
                 'rows' => 5,
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'custom'
+                'richtextConfiguration' => 'minimal'
             ],
         ],
         'media' => [
