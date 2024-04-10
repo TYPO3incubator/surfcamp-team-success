@@ -3,7 +3,7 @@ ui:
   name: "Surfboard Company"
   layout:
     navigation:
-      position: "bellow"
+      position: "below"
       isVisible: true
     radius: "5px"
     rotate: "3deg"

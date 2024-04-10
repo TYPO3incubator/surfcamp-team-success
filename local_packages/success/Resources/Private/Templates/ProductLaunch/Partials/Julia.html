@@ -1,7 +1,7 @@
 
-<f:render partial="Header" arguments="{ settings: settings }"/>
-
 <div class="background-black relative min-h-screen flex items-center">
+    <f:render partial="Header" arguments="{ settings: settings }"/>
+
     <img alt="ALT_TEXT" class="object-cover w-full h-full brightness-50 absolute top-0 left-0" src="https://picsum.photos/1600/900" />
     <div class="container px-5 py-12 mx-auto z-10 relative">
         <div class="grid gap-5 md:grid-cols-2">
@@ -16,9 +16,10 @@
     </div>
 </div>
 
-<f:render partial="Header" arguments="{ settings: settings }"/>
-<div class="background-light py-12 min-h-screen flex items-center">
-    <div class="container px-5 mx-auto">
+<div class="background-light relative pb-12 min-h-screen flex items-center">
+    <f:render partial="Header" arguments="{ settings: settings }"/>
+
+    <div class="container px-5 mx-auto mt-[6rem]">
         <div class="grid gap-5 md:grid-cols-2">
             <div class="flex items-center">
                 <div>
@@ -39,7 +40,7 @@
 </div>
 
 <div class="background-secondary">
-    <div class="container px-5 mx-auto">
+    <div class="container px-5 mx-auto mt-[6rem]">
         <div class="grid md:grid-cols-3">
             <div class="min-h-20">
                 <img alt="ALT_TEXT" class="object-cover w-full h-full brightness-50" src="https://picsum.photos/300/300" />
@@ -281,6 +282,55 @@
 <div class="background-primary py-12">
     <div class="container px-5 mx-auto">
         <div class="h2">Contact Form</div>
+
+        <fieldset>
+            <label>
+                Input type text
+                <input class="form-control" id="text" type="text">
+            </label>
+
+            <label>
+                Input type url
+                <input class="form-control" id="url" type="url">
+            </label>
+
+            <label>
+                Input type email
+                <input class="form-control" id="email" type="email">
+            </label>
+
+            <label class="block">
+                Input type number
+                <input class="form-control" id="number" type="number">
+            </label>
+
+            <label class="block">
+                Input type date
+                <input class="form-control" id="date" type="date">
+            </label>
+
+            <label class="block">
+                Input type tel
+                <input class="form-control" id="tel" type="tel">
+            </label>
+
+
+            <label class="flex gap-2 items-center">
+                <input type="checkbox" class="form-checkbox" id="checkbox" type="text" />
+                Input type checkbox
+            </label>
+
+            <label class="flex gap-2 items-center">
+                <input type="radio" class="form-radio" id="radio" type="text" />
+                Input type radio
+            </label>
+
+            <label for="story" class="block">
+                Tell us your story:
+                <textarea id="story" name="story" rows="5" cols="4" class="form-control"></textarea>
+            </label>
+
+        </fieldset>
 
         <div class="mt-8">
         </div>
