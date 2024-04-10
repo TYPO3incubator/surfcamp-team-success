@@ -8,6 +8,7 @@ imports:
 editor:
   config:
     allowedContent: true
+    contentsCss: "EXT:success/Resources/Public/StyleSheets/rte.css"
 
     stylesSet:
       - name: "Primary Button"
