@@ -1,4 +1,3 @@
-
 <html
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
@@ -13,42 +12,40 @@
     <vac:asset.vite entry="assets/product-launch.js"/>
     <vac:asset.vite entry="assets/modal.js"/>
 
-    <main class="font-text bg-light">
-        <div class="bg-white h-screen">
+    <main class="font-text background-light">
+        <div class="background-white">
             <div class="container mx-auto px-5">
-                <div class="my-5">
+                <div class="py-5">
                     <span class="h1">Heading 1</span>
                 </div>
-                <div class="my-5">
+                <div class="py-5">
                     <span class="h2">Heading 2</span>
                 </div>
-                <div class="my-5">
+                <div class="py-5">
                     <span class="h3">Heading 3</span>
                 </div>
-                <div class="my-5 rte">
+                <div class="py-5 rte">
                     <p>Lorem ipsum dolor sit <a href="#">amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
 
-                <div class="my-5">
+                <div class="py-5">
                     <a href="#" class="btn btn-primary">Primary button</a>
                 </div>
-                <div class="my-5">
+                <div class="py-5">
                     <a href="#" class="btn btn-secondary">Secondary button</a>
                 </div>
-                <div class="my-5">
+                <div class="py-5">
                     <a href="#" class="btn btn-light">Light button</a>
                 </div>
-                <div class="my-5">
+                <div class="py-5">
                     <a href="#" data-cid="1" class="btn btn-black">Black button</a>
                 </div>
-                <div class="my-5">
+                <div class="py-5">
                     <a href="#" class="btn btn-white">White button</a>
                 </div>
             </div>
         </div>
-        <div class="bg-primary-500 h-screen"></div>
-        <div class="bg-light-500 h-screen"></div>
-        <div class="bg-secondary-500 h-screen"></div>
+        <f:render partial="Julia" />
         <div style="display:none">
             <div id="c1">
                 This is a test for modal
