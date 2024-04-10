@@ -50,8 +50,8 @@ return [
                 'type' => 'text',
                 'cols' => 50,
                 'rows' => 5,
-                'max'  => 255,
-                'eval' => 'trim',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'minimal'
             ],
         ],
     ],
