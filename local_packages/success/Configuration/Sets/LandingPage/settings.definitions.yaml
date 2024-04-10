@@ -1,4 +1,30 @@
 settings:
+#  ui.info:
+#    label: "Site owners information"
+#    owner:
+#      name:
+#        label: "Name/Company Name"
+#        type: string
+#        value: "Surfcompany GmbH"
+#      street:
+#        label: "Street + Housenumber"
+#        type: string
+#      city:
+#        label: "ZIP, City"
+#        type: string
+#      phone:
+#        label: "Phonenumber"
+#        type: string
+#      mail:
+#        label: "Mail address"
+#        type: string
+#      imprint:
+#        label: "Imprint Information"
+#        type: string(URL) | TYPO3 PageId (Select-Helper)
+#      dataPrivacy:
+#        label: "Data Privacy Information"
+#        type: string(URL) | TYPO3 PageId (Select-Helper)
+#    logo:
   ui.theme:
     label: 'Theme'
     description: 'Values: "system" | "light" | "dark" | "light:only" | "dark:only"'
@@ -16,6 +42,13 @@ settings:
     label: 'Default theme: Headline font'
     type: color
     default: 'rgb(1 97 239)'
+  ui.footer:
+    maxCols:
+      label: 'Max Footer columns'
+      description: 'Values:Label | 4:auto  | 3:3 | 2:2 | 1:1'
+      type: stringList
+      default: 'auto'
+
 
 # todo: implement definitions
 #    colors:
