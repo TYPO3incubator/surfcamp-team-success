@@ -6,3 +6,7 @@ services:
 
   Surfcamp\Success\:
     resource: '../Classes/*'
+
+  Surfcamp\Success\DataProcessing\PageContentFetchingProcessor:
+    tags:
+      - { name: 'data.processor', identifier: 'pageContentSuccess' }
