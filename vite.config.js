@@ -14,7 +14,6 @@ const VITE_ENTRYPOINTS = [
   "assets/career.js",
   "assets/product-launch.js",
   "assets/sets-promotion.js",
-  "assets/modal.js",
   "assets/whitepaper.js",
   "assets/scss/rte.scss",
 ];
