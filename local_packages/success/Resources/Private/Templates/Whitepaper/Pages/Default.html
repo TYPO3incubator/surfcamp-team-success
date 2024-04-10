@@ -1,11 +1,12 @@
 <html
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:sfs="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
     xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
 >
 <vac:asset.vite entry="assets/whitepaper.js"/>
 
 <f:for as="block" each="{content.column0.blocks}">
-    <f:renderBlock data="{block}" />
+    <sfs:renderBlock data="{block}" />
 </f:for>
 </html>

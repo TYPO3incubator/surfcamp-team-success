@@ -110,7 +110,7 @@ return [
             ],
         ],
         'devIPmask' => '',
-        'displayErrors' => 0,
+        'displayErrors' => 1,
         'encryptionKey' => '<set in dotenv>',
         'exceptionalErrors' => 4096,
         'sitename' => 'Surfcamp Template',

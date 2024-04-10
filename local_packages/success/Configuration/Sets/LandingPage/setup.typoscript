@@ -7,5 +7,5 @@ page = PAGE
 page {
     10 = PAGEVIEW
     10.paths.100 = EXT:success/Resources/Private/Templates/LandingPage/
-    10.dataProcessing.10 = pageContent
+    10.dataProcessing.10 = pageContentSuccess
 }
