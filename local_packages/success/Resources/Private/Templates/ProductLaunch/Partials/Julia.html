@@ -121,7 +121,7 @@
                 </div>
                 <div class="p-5">
                     <div class="font-bold text-lg mb-2">Heading</div>
-                    <div>Lorem Ipsum</div>  
+                    <div>Lorem Ipsum</div>
                     <div class="mt-5">
                         <a class="btn btn-primary" href="#">Nice one!</a>
                     </div>
@@ -203,27 +203,27 @@
         <div class="h2 mb-10">Customer Reviews</div>
         <div class="grid gap-5 md:grid-cols-3">
             <div class="flex items-center">
-                <div class="background-white p-5 rounded w-full relative">
+                <blockquote class="background-white p-5 rounded w-full relative">
                     <span class="text-7xl text-primary-500 font-bold absolute right-5 -top-4">&rdquo;</span>
-                    <div class="text-lg">Lorem Ipsum</div>
-                    <div class="font-bold mt-5">Jane Doe</div>
-                </div>
+                    <p class="text-lg">Lorem Ipsum</p>
+                    <footer class="font-bold mt-5">Jane Doe</footer>
+                </blockquote>
             </div>
 
             <div class="flex items-center">
-                <div class="background-white p-5 rounded w-full relative">
+                <blockquote class="background-white p-5 rounded w-full relative">
                     <span class="text-7xl text-primary-500 font-bold absolute right-5 -top-4">&rdquo;</span>
-                    <div class="text-lg">Lorem Ipsum Lorem Ipsum and even more lorem ipsum</div>
-                    <div class="font-bold mt-5">Jane Doe</div>
-                </div>
+                    <p class="text-lg">Lorem Ipsum Lorem Ipsum and even more lorem ipsum</p>
+                    <footer class="font-bold mt-5">Jane Doe</footer>
+                </blockquote>
             </div>
 
             <div class="flex items-center">
-                <div class="background-white p-5 rounded w-full relative">
+                <blockquote class="background-white p-5 rounded w-full relative">
                     <span class="text-7xl text-primary-500 font-bold absolute right-5 -top-4">&rdquo;</span>
-                    <div class="text-lg">Lorem Ipsum</div>
-                    <div class="font-bold mt-5">Jane Doe</div>
-                </div>
+                    <p class="text-lg">Lorem Ipsum</p>
+                    <footer class="font-bold mt-5">Jane Doe</footer>
+                </blockquote>
             </div>
         </div>
     </div>
@@ -279,33 +279,30 @@
     </div>
 </div>
 
-<vac:asset.vite entry="assets/js/accordion.js"/>
 <div class="background-primary py-12">
     <div class="container px-5 mx-auto">
         <div class="h2">FAQs</div>
 
         <div class="mt-8">
-            <div class="mt-5">
-                <button data-accordion-toggle="accordion-1" class="focus:ring focus:ring-2 focus:ring-primary-200 accordion-button-js background-white rounded w-full text-left font-bold px-4 py-2 flex justify-between items-center" aria-expanded="false">
+            <details class="mt-5">
+                <summary class="transifocus:ring-2 focus:ring-primary-200 background-white rounded w-full text-left font-bold px-4 py-2 flex justify-between items-center">
                     Here is a question right?
-                    <span aria-hidden="true" class="accordion-plus-js rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&plus;</span>
-                    <span aria-hidden="true" class="accordion-minus-js hidden rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&minus;</span>
-                </button>
-                <div id="accordion-1" class="accordion-content-js rte rounded-b background-white px-4 py-2 border-t border-light-500" style="display: none;">
+                    <span aria-hidden="true" class="rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">+</span>
+                </summary>
+                <article class="rte rounded-b background-white px-4 py-2 border-t border-light-500">
                     Lorem ipsum
-                </div>
-            </div>
+                </article>
+            </details>
 
-            <div class="mt-5">
-                <button data-accordion-toggle="accordion-2" class="focus:ring focus:ring-2 focus:ring-primary-200 accordion-button-js background-white rounded w-full text-left font-bold px-4 py-2 flex justify-between items-center" aria-expanded="false">
+            <details class="mt-5">
+                <summary class="focus:ring-2 focus:ring-primary-200 background-white rounded w-full text-left font-bold px-4 py-2 flex justify-between items-center">
                     Here is a question right?
-                    <span aria-hidden="true" class="accordion-plus-js rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&plus;</span>
-                    <span aria-hidden="true" class="accordion-minus-js hidden rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&minus;</span>
-                </button>
-                <div id="accordion-2" class="accordion-content-js rte rounded-b background-white px-4 py-2 border-t border-light-500" style="display: none;">
+                    <span aria-hidden="true" class="rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">+</span>
+                </summary>
+                <article class="rte rounded-b background-white px-4 py-2 border-t border-light-500">
                     Lorem ipsum
-                </div>
-            </div>
+                </article>
+            </details>
         </div>
     </div>
 </div>
