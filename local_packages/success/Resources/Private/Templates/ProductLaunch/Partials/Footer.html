@@ -1,5 +1,21 @@
 <footer class="py-5 container px-5 mx-auto">
+    <div class="grid-cols-{settings.ui.footer.maxCols}">
+        <div class="contact-information">
+            {settings.ui.info.owner.name}
+            {settings.ui.info.owner.street}
+            {settings.ui.info.owner.city}
+            {settings.ui.info.owner.phone}
+            {settings.ui.info.owner.mail}
+        </div>
+
+        <div class="legal-information">
+            {settings.ui.info.owner.imprint}
+            {settings.ui.info.owner.dataPrivacy}
+        </div>
+    </div>
+
     &copy; {settings.ui.info.owner.name} {f:format.date(format: '%Y', date:'now')}
+
 
     {_all -> f:debug()}
 </footer>

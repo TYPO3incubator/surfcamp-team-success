@@ -49,11 +49,11 @@ settings:
     label: 'Default theme: Headline font'
     type: color
     default: 'rgb(1 97 239)'
-#  ui.footer.maxCols:
-#    label: 'Max Footer columns'
-#    description: 'Values:Label | 4:auto  | 3:3 | 2:2 | 1:1'
-#    type: stringList
-#    default: 'auto'
+  ui.footer.maxCols:
+    label: 'Max Footer columns'
+    description: 'Values:Label | auto:auto | 4:4  | 3:3 | 2:2 | 1:1'
+    type: string #could be stringlist ?!
+    default: 'auto'
 
 
 # todo: implement definitions

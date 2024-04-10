@@ -20,8 +20,6 @@ ui:
       primary: "rgb(235, 183, 35)"
       secondary: "rgb(94, 13, 25)"
       light: "rgb(255, 249, 232)"
-#  footer:
-#    maxCols: 4
 #    storagePid: 123456
 
 
@@ -36,3 +34,5 @@ ui:
       mail: "surfcompany@beachwaves.com"
       imprint: "https://mainpage.com/imprint"
       dataPrivacy: "https://mainpage.com/dataprivacy"
+#  footer:
+#    maxCols: '3'
