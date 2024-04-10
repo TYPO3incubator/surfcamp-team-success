@@ -6,7 +6,7 @@ prototypes:
         options:
           templateName: Notification
           templateRootPaths:
-            10: 'EXT:success/Resources/Private/Templates/LandingPage/Finishers/Notification/'
+            10: 'EXT:success/Resources/Private/Templates/_LandingPage/Finishers/Notification/'
         formEditor:
           predefinedDefaults:
             options:
