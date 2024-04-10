@@ -9,4 +9,4 @@ services:
 
   Surfcamp\Success\DataProcessing\PageContentFetchingProcessor:
     tags:
-      - { name: 'data.processor', identifier: 'pageContentSuccess' }
+      - { name: 'data.processor', identifier: 'successContent' }
