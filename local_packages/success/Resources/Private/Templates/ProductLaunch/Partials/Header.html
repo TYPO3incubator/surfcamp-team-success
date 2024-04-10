@@ -1,0 +1,38 @@
+<!-- TODO: If logo is missing, but alt is provided - display plain text -->
+
+<header class="relative">
+    <f:if condition="{settings.ui.layout.navigation.position} === 'below'">
+    <f:then>
+        <div class="w-full absolute top-0 left-0 z-10 container px-5 py-3">
+            <f:render partial="Logo" />
+
+            <f:if condition="{settings.ui.layout.navigation.isVisible}">
+                <f:then>
+                    <div class="container mt-2 mx-auto text-white">
+                        <f:render partial="Navigation" />
+                    </div>
+                </f:then>
+            </f:if>
+        </div>
+    </f:then>
+
+    <f:else>
+        <div class="relative">
+            <div class="w-full absolute top-0 left-0 z-10">
+                <div class="container px-5 mx-auto text-black py-3">
+                    <div class="flex justify-between items-center gap-2">
+                        <f:render partial="Logo" />
+
+                        <f:if condition="{settings.ui.layout.navigation.isVisible}">
+                            <f:then>
+                                <f:render partial="Navigation" />
+                            </f:then>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:else>
+</f:if>
+
+</header>

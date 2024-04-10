@@ -8,12 +8,12 @@ export default {
       heading: ['var(--font-heading)'],
     },
     borderRadius: {
-      DEFAULT: 'var(--setting-radius)',
+      DEFAULT: 'var(--radius)',
       'full': '999px'
     },
     rotate: {
-      right: 'var(--setting-rotate)',
-      left: 'calc(var(--setting-rotate) * (-1))'
+      right: 'var(--rotate)',
+      left: 'calc(var(--rotate) * (-1))'
     },
     colors: {
       black: 'black',

@@ -1,19 +1,5 @@
-<div class="relative">
-    <div class="w-full absolute top-0 left-0 z-10">
-        <div class="container px-5 mx-auto text-white py-3">
-            <div class="flex justify-between">
-                <div>
-                    Logo
-                </div>
-                <nav>
-                    <a href="#" class="font-bold text-lg uppercase p-2 m-1 transition-colors hover:text-primary-500 focus:text-primary-500">Menu 1</a>
-                    <a href="#" class="font-bold text-lg uppercase p-2 m-1 transition-colors hover:text-primary-500 focus:text-primary-500">Menu 2</a>
-                    <a href="#" class="font-bold text-lg uppercase p-2 m-1 transition-colors hover:text-primary-500 focus:text-primary-500">Menu 3</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
+
+<f:render partial="Header" arguments="{ settings: settings }"/>
 
 <div class="background-black relative min-h-screen flex items-center">
     <img alt="ALT_TEXT" class="object-cover w-full h-full brightness-50 absolute top-0 left-0" src="https://picsum.photos/1600/900" />
@@ -30,22 +16,7 @@
     </div>
 </div>
 
-<div class="relative">
-    <div class="w-full absolute top-0 left-0 z-10">
-        <div class="container px-5 mx-auto text-black py-3">
-            <div class="flex justify-between">
-                <div>
-                    Logo
-                </div>
-                <nav>
-                    <a href="#" class="font-bold text-lg uppercase p-2 m-1 transition-colors hover:text-primary-500 focus:text-primary-500">Menu 1</a>
-                    <a href="#" class="font-bold text-lg uppercase p-2 m-1 transition-colors hover:text-primary-500 focus:text-primary-500">Menu 2</a>
-                    <a href="#" class="font-bold text-lg uppercase p-2 m-1 transition-colors hover:text-primary-500 focus:text-primary-500">Menu 3</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
+<f:render partial="Header" arguments="{ settings: settings }"/>
 <div class="background-light py-12 min-h-screen flex items-center">
     <div class="container px-5 mx-auto">
         <div class="grid gap-5 md:grid-cols-2">
@@ -345,5 +316,5 @@
 </div>
 
 <footer class="py-5 container px-5 mx-auto">
-    &copy; {settings.ui.default.setting.name} {f:format.date(format: '%Y', date:'now')}
+    &copy; {settings.ui.name} {f:format.date(format: '%Y', date:'now')}
 </footer>
