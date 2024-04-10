@@ -1,30 +1,37 @@
 settings:
-#  ui.info:
+#  ui.info.owner:
 #    label: "Site owners information"
-#    owner:
-#      name:
-#        label: "Name/Company Name"
-#        type: string
-#        value: "Surfcompany GmbH"
-#      street:
-#        label: "Street + Housenumber"
-#        type: string
-#      city:
-#        label: "ZIP, City"
-#        type: string
-#      phone:
-#        label: "Phonenumber"
-#        type: string
-#      mail:
-#        label: "Mail address"
-#        type: string
-#      imprint:
-#        label: "Imprint Information"
-#        type: string(URL) | TYPO3 PageId (Select-Helper)
-#      dataPrivacy:
-#        label: "Data Privacy Information"
-#        type: string(URL) | TYPO3 PageId (Select-Helper)
-#    logo:
+#    type: section
+  ui.info.owner.name:
+    label: "Name/Company Name"
+    type: string
+    default: ""
+  ui.info.owner.street:
+    label: "Street + Housenumber"
+    type: string
+    default: ""
+  ui.info.owner.city:
+    label: "ZIP, City"
+    type: string
+    default: ""
+  ui.info.owner.phone:
+    label: "Phone number"
+    type: string
+    default: ""
+  ui.info.owner.mail:
+    label: "Mail address"
+    type: string
+    default: ""
+  ui.info.owner.imprint:
+    label: "Imprint Information"
+    type: string #string(URL) | TYPO3 PageId (Select-Helper)
+    default: ""
+  ui.info.owner.dataPrivacy:
+    label: "Data Privacy Information"
+    type: string #string(URL) | TYPO3 PageId (Select-Helper)
+    default: ""
+#    ui.info.logo: todo
+#    ui.info.favicon: todo
   ui.theme:
     label: 'Theme'
     description: 'Values: "system" | "light" | "dark" | "light:only" | "dark:only"'

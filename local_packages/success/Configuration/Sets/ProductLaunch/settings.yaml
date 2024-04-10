@@ -14,7 +14,6 @@ ui:
     setting:
       radius: "5px"
       rotate: "3deg"
-      name: 'Surfboard Company'
   dark:
     font: []
     color:
@@ -24,3 +23,16 @@ ui:
 #  footer:
 #    maxCols: 4
 #    storagePid: 123456
+
+
+# DUMMYDATA
+#todo replace this values by backend ui input
+  info:
+    owner:
+      name: "Surfcompany Ltd."
+      street: "Carretera Matorral 1"
+      city: "35610 Puerto del Rosario, España"
+      phone: "+34 32 16 8"
+      mail: "surfcompany@beachwaves.com"
+      imprint: "https://mainpage.com/imprint"
+      dataPrivacy: "https://mainpage.com/dataprivacy"
