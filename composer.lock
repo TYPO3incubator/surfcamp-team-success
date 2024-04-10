@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dafea8d515a0d14817b04f8bc8d03dfc",
+    "content-hash": "577d00ca3f020982a3a77bd59fc4dc52",
     "packages": [
+        {
+            "name": "b13/backendpreviews",
+            "version": "dev-v13-compat",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/b13/backendpreviews.git",
+                "reference": "a846ba65f1cc6b34eb675912d9b8adcdca3b4585"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/b13/backendpreviews/zipball/a846ba65f1cc6b34eb675912d9b8adcdca3b4585",
+                "reference": "a846ba65f1cc6b34eb675912d9b8adcdca3b4585",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ~8.0",
+                "typo3/cms-core": "^10.4 || ^11.5 || ^12.1 || ^13.0"
+            },
+            "suggest": {
+                "b13/listelements": "*"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "backendpreviews"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "B13\\Backendpreviews\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Enhanced Fluid based backend element previews",
+            "support": {
+                "issues": "https://github.com/b13/backendpreviews/issues",
+                "source": "https://github.com/b13/backendpreviews/tree/v13-compat"
+            },
+            "time": "2024-04-10T16:48:24+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "2.0.8",
@@ -7535,6 +7578,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "b13/backendpreviews": 20,
         "surfcamp/success": 20,
         "typo3/cms-backend": 20,
         "typo3/cms-belog": 20,
