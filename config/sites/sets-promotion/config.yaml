@@ -17,4 +17,4 @@ languages:
 rootPageId: 5
 websiteTitle: ''
 dependencies:
-  - surfcamp/success-sets
+  - surfcamp/success-sets-promotion

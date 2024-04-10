@@ -1,0 +1,5 @@
+name: surfcamp/success-sets-promotion
+label: TYPO3 sets landing page
+
+dependencies:
+  - surfcamp/success-landing-page
