@@ -67,9 +67,6 @@
     },
 	"extra": {
 		"patches": {
-			"typo3/cms-fluid": {
-				"[FEATURE] Add Fluid RenderBlock ViewHelper #83718": "./patches/83718.diff"
-			},
 			"typo3/cms-core": {
 				"[FEATURE] Add record-based content resolving in Frontend #83638 - core": "patches/83638-core.diff"
 			},

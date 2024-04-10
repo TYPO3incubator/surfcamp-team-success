@@ -1,4 +1,4 @@
-From 271cd92d2c4f104ed8411952995259eafb9c5281 Mon Sep 17 00:00:00 2001
+From 81371c02f69d84208949ebf9183c44dd6417b6b9 Mon Sep 17 00:00:00 2001
 From: Benni Mack <benni@typo3.org>
 Date: Tue, 19 Mar 2024 20:34:35 +0100
 Subject: [PATCH] [WIP][FEATURE] Add record-based content resolving in Frontend
@@ -167,10 +167,10 @@ index 0000000..687e508
 +}
 diff --git a/Classes/Content/RecordEnricher.php b/Classes/Content/RecordEnricher.php
 new file mode 100644
-index 0000000..8e19937
+index 0000000..9a8ee71
 --- /dev/null
 +++ b/Classes/Content/RecordEnricher.php
-@@ -0,0 +1,95 @@
+@@ -0,0 +1,92 @@
 +<?php
 +
 +declare(strict_types=1);
@@ -203,12 +203,9 @@ index 0000000..8e19937
 + */
 +class RecordEnricher
 +{
-+
 +    public function __construct(
 +        protected readonly RecordFactory $recordFactory
-+    )
-+    {
-+    }
++    ) {}
 +
 +    public function createResolvedRecordFromRecord(Record $record): ResolvedRecord
 +    {
@@ -268,23 +265,41 @@ index 0000000..8e19937
 +}
 diff --git a/Classes/Content/ResolvedRecord.php b/Classes/Content/ResolvedRecord.php
 new file mode 100644
-index 0000000..75df2c7
+index 0000000..0f1fab4
 --- /dev/null
 +++ b/Classes/Content/ResolvedRecord.php
-@@ -0,0 +1,62 @@
+@@ -0,0 +1,94 @@
 +<?php
++
 +declare(strict_types=1);
++
++/*
++ * This file is part of the TYPO3 CMS project.
++ *
++ * It is free software; you can redistribute it and/or modify it under
++ * the terms of the GNU General Public License, either version 2
++ * of the License, or any later version.
++ *
++ * For the full copyright and license information, please read the
++ * LICENSE.txt file that was distributed with this source code.
++ *
++ * The TYPO3 project - inspiring people to share!
++ */
 +
 +namespace TYPO3\CMS\Frontend\Content;
 +
-+
++use TYPO3\CMS\Core\Domain\RawRecord;
++use TYPO3\CMS\Core\Domain\Record;
 +use TYPO3\CMS\Core\Domain\RecordInterface;
 +
-+class ResolvedRecord implements RecordInterface
++/**
++ * A record that contains the resolved properties (from relations).
++ */
++readonly class ResolvedRecord implements RecordInterface, \ArrayAccess
 +{
 +    public function __construct(
-+        protected readonly RecordInterface $record,
-+        protected readonly array $resolvedProperties
++        protected RecordInterface $record,
++        protected array $properties
 +    ) {}
 +
 +    public function getUid(): int
@@ -307,10 +322,14 @@ index 0000000..75df2c7
 +        return $this->record->getType();
 +    }
 +
++    public function getMainType(): string
++    {
++        return $this->record->getMainType();
++    }
 +
 +    public function toArray(): array
 +    {
-+        return array_replace($this->record->toArray(), $this->resolvedProperties);
++        return array_replace($this->record->toArray(), $this->properties);
 +    }
 +
 +    public function offsetExists(mixed $offset): bool
@@ -333,6 +352,16 @@ index 0000000..75df2c7
 +        throw new \InvalidArgumentException('Record properties cannot be unset.', 1712139282);
 +    }
 +
++    public function getRawRecord(): RawRecord
++    {
++        if ($this->record instanceof RawRecord) {
++            return $this->record;
++        }
++        if ($this->record instanceof Record) {
++            return $this->record->getRawRecord();
++        }
++        throw new \RuntimeException('ResolvedRecord does not contain a RawRecord.', 1616420133);
++    }
 +}
 diff --git a/Classes/DataProcessing/PageContentFetchingProcessor.php b/Classes/DataProcessing/PageContentFetchingProcessor.php
 new file mode 100644
