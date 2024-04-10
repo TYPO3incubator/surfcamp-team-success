@@ -18,6 +18,8 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend'] = [
     'loginFootnote' => 'Team Success',
 ];
 
+$GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'success/Configuration/TypoScript/';
+
 
 #TODO This is a workaround only because currently it is not possible to add it through a set
 call_user_func(static function () {
@@ -25,11 +27,11 @@ call_user_func(static function () {
     // Add module configuration
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
         'module.tx_form {
-            settings {
-                yamlConfigurations {
-                    110 = EXT:success/Configuration/Sets/LandingPage/Yaml/FormSetup.yaml
-                }
-            }
-        }'
+    settings {
+        yamlConfigurations {
+            110 = EXT:success/Configuration/Sets/_LandingPage/Yaml/FormSetup.yaml
+        }
+    }
+}'
     );
 });

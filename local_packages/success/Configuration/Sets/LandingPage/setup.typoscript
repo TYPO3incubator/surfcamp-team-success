@@ -1,9 +1,0 @@
-@import 'EXT:form/Configuration/TypoScript/setup.typoscript'
-@import 'EXT:success/Configuration/Sets/LandingPage/TypoScript/RecordLinks/contentInModal.typoscript
-@import 'EXT:success/Configuration/Sets/LandingPage/TypoScript/Form/confirmation.typoscript
-
-page = PAGE
-page {
-    10 = PAGEVIEW
-    10.paths.100 = EXT:success/Resources/Private/Templates/LandingPage/
-}
