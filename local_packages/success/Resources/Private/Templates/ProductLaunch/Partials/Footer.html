@@ -21,7 +21,7 @@
                 <f:for each="{footer}" as="footerElements">
                     <f:if condition="{footerElements.data.bodytext}">
                         <div class="footer-content-container">
-                            <f:if condition="{footerElements.data.header}"><span class="footer-headline font-bold text-lg">{footerElements.data.header}</span></f:if>
+                            <f:if condition="{footerElements.data.header}"><span class="footer-headline font-bold text-lg block mb-3">{footerElements.data.header}</span></f:if>
                             <f:if condition="{footerElements.data.bodytext}"><f:format.raw>{footerElements.data.bodytext}</f:format.raw></f:if>
                         </div>
                     </f:if>
