@@ -1,0 +1,6 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:if condition="!{buttonStyle}">
+        <f:variable name="buttonStyle" value="primary" />
+    </f:if>
+    <f:link.typolink parameter="{buttonLink}" class="btn btn-{buttonStyle}">{buttonLabel}</f:link.typolink>
+</html>
