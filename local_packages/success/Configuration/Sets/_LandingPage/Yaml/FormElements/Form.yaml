@@ -3,6 +3,8 @@ prototypes:
     formElementsDefinition:
       Form:
         renderingOptions:
+          partialRootPaths:
+            20: 'EXT:success/Resources/Private/Templates/_LandingPage/Partials/Forms/'
           translation:
             translationFiles:
               10: 'EXT:success/Resources/Private/Language/locallang_form.xlf'
