@@ -106,4 +106,48 @@ html {
     .form-radio {
         @apply h-5 w-5 accent-secondary-500;
     }
+
+    .space-before {
+        &-extra-small {
+            @apply pt-4;
+        }
+
+        &-small {
+            @apply pt-8;
+        }
+
+        &-medium {
+            @apply pt-12;
+        }
+
+        &-large {
+            @apply pt-16;
+        }
+
+        &-extra-large {
+            @apply pt-20;
+        }
+    }
+
+    .space-after {
+        &-extra-small {
+            @apply pt-4;
+        }
+
+        &-small {
+            @apply pt-8;
+        }
+
+        &-medium {
+            @apply pt-12;
+        }
+
+        &-large {
+            @apply pt-16;
+        }
+
+        &-extra-large {
+            @apply pt-20;
+        }
+    }
 }

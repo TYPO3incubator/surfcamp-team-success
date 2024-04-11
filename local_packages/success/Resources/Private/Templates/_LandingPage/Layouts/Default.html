@@ -4,7 +4,17 @@
     xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
     xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
 >
-<div id="c{data.uid}" class="{data.space_before_class} {data.space_after_class}">
+<f:variable name="background"></f:variable>
+<f:switch expression="{data.layout}">
+    <f:case value="1"><f:variable name="background">background-primary</f:variable></f:case>
+    <f:case value="2"><f:variable name="background">background-secondary</f:variable></f:case>
+    <f:case value="3"><f:variable name="background">background-light</f:variable></f:case>
+    <f:case value="4"><f:variable name="background">background-white</f:variable></f:case>
+    <f:case value="5"><f:variable name="background">background-black</f:variable></f:case>
+    <f:defaultCase></f:defaultCase>
+</f:switch>
+
+<div id="c{data.uid}" class="{background} space-before-{data.space_before_class} space-before-{data.space_after_class}">
     <f:render section="Main" />
 </div>
 </html>

@@ -86,23 +86,23 @@ $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'] = [
     ],
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.primary',
-        'value' => 'background-primary',
+        'value' => 1,
     ],
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.secondary',
-        'value' => 'background-secondary',
+        'value' => 2,
     ],
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.light',
-        'value' => 'background-light',
+        'value' => 3,
     ],
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.white',
-        'value' => 'background-white',
+        'value' => 4,
     ],
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.black',
-        'value' => 'background-black',
+        'value' => 5,
     ],
 ];
 
