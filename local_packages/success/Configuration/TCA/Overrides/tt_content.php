@@ -79,6 +79,33 @@ $GLOBALS['TCA']['tt_content']['palettes']['button'] = [
     'showitem' => 'button_link, button_label, button_style,',
 ];
 
+$GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'] = [
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.default',
+        'value' => 0,
+    ],
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.primary',
+        'value' => 1,
+    ],
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.secondary',
+        'value' => 2,
+    ],
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.light',
+        'value' => 3,
+    ],
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.white',
+        'value' => 4,
+    ],
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:layout.black',
+        'value' => 5,
+    ],
+];
+
 // Image orient options
 $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
     [

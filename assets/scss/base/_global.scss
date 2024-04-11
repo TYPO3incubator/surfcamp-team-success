@@ -149,4 +149,48 @@ html {
     .required {
         @apply text-error;
     }
+
+    .space-before {
+        &-extra-small {
+            @apply pt-4;
+        }
+
+        &-small {
+            @apply pt-8;
+        }
+
+        &-medium {
+            @apply pt-12;
+        }
+
+        &-large {
+            @apply pt-16;
+        }
+
+        &-extra-large {
+            @apply pt-20;
+        }
+    }
+
+    .space-after {
+        &-extra-small {
+            @apply pb-4;
+        }
+
+        &-small {
+            @apply pb-8;
+        }
+
+        &-medium {
+            @apply pb-12;
+        }
+
+        &-large {
+            @apply pb-16;
+        }
+
+        &-extra-large {
+            @apply pb-20;
+        }
+    }
 }

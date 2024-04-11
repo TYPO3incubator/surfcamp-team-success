@@ -54,6 +54,25 @@
 				<source>White</source>
 			</trans-unit>
 
+			<trans-unit id="layout.default" resname="layout.default">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="layout.primary" resname="layout.primary">
+				<source>Background Primary</source>
+			</trans-unit>
+			<trans-unit id="layout.secondary" resname="layout.secondary">
+				<source>Background Secondary</source>
+			</trans-unit>
+			<trans-unit id="layout.light" resname="layout.light">
+				<source>Background Light</source>
+			</trans-unit>
+			<trans-unit id="layout.black" resname="layout.black">
+				<source>Background Black</source>
+			</trans-unit>
+			<trans-unit id="layout.white" resname="layout.white">
+				<source>Background White</source>
+			</trans-unit>
+
 			<trans-unit id="cards" resname="cards">
 				<source>Cards</source>
 			</trans-unit>
