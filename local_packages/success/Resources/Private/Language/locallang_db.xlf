@@ -3,8 +3,59 @@
 	<file source-language="en" datatype="plaintext" date="2011-10-17T20:22:32Z" product-name="cms">
 		<header/>
 		<body>
+			<trans-unit id="linkhandler.modal_content" resname="linkhandler.modal_content">
+				<source>Content in Modal</source>
+			</trans-unit>
+
+			<trans-unit id="overline" resname="overline">
+				<source>Overline</source>
+			</trans-unit>
+			<trans-unit id="header_style" resname="header_style">
+				<source>Style</source>
+			</trans-unit>
+			<trans-unit id="header_style.default" resname="header_style.default">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="header_style.lovely" resname="header_style.lovely">
+				<source>Lovely</source>
+			</trans-unit>
+			<trans-unit id="header_style.fancy" resname="header_style.fancy">
+				<source>Fancy</source>
+			</trans-unit>
+			<trans-unit id="header_style.rainbow" resname="header_style.rainbow">
+				<source>Over the rainbow</source>
+			</trans-unit>
+
+			<trans-unit id="button" resname="button">
+				<source>Button</source>
+			</trans-unit>
+			<trans-unit id="button_label" resname="button_label">
+				<source>Button Label</source>
+			</trans-unit>
+			<trans-unit id="button_link" resname="button_link">
+				<source>Button Link</source>
+			</trans-unit>
+			<trans-unit id="button_style" resname="button_style">
+				<source>Button Style</source>
+			</trans-unit>
+			<trans-unit id="button_style.primary" resname="button_style.primary">
+				<source>Primary</source>
+			</trans-unit>
+			<trans-unit id="button_style.secondary" resname="button_style.secondary">
+				<source>Secondary</source>
+			</trans-unit>
+			<trans-unit id="button_style.light" resname="button_style.light">
+				<source>Light</source>
+			</trans-unit>
+			<trans-unit id="button_style.black" resname="button_style.black">
+				<source>Black</source>
+			</trans-unit>
+			<trans-unit id="button_style.white" resname="button_style.white">
+				<source>White</source>
+			</trans-unit>
+
 			<trans-unit id="cards" resname="cards">
-				<source>Cards Element</source>
+				<source>Cards</source>
 			</trans-unit>
 			<trans-unit id="cards.description" resname="cards.description">
 				<source>Elements with a card repeater</source>
