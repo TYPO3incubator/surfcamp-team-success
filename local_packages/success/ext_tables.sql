@@ -6,10 +6,11 @@ CREATE TABLE tt_content
 
 CREATE TABLE tx_success_card
 (
-	headline varchar(255) DEFAULT '' NOT NULL,
-	text     text,
-	media    int(11) DEFAULT '0' NOT NULL,
-	link     varchar(2048),
+	headline  varchar(255) DEFAULT '' NOT NULL,
+	text      text,
+	media     int(11) DEFAULT '0' NOT NULL,
+-- 	link      varchar(2048),
+-- 	link_text varchar(255) DEFAULT '' NOT NULL
 );
 
 CREATE TABLE tx_success_number_item
@@ -22,18 +23,18 @@ CREATE TABLE tx_success_number_item
 CREATE TABLE tx_success_faq
 (
 	question varchar(255) DEFAULT '' NOT NULL,
-	answer   varchar(255) DEFAULT '' NOT NULL
+	answer   text
 );
 
 CREATE TABLE tx_success_review
 (
 	name   varchar(255) DEFAULT '' NOT NULL,
-	review varchar(255) DEFAULT '' NOT NULL
+	review text
 );
 
 CREATE TABLE tx_success_feature
 (
 	icon   int(11) DEFAULT '0' NOT NULL,
 	header varchar(255) DEFAULT '' NOT NULL,
-	text   varchar(255) DEFAULT '' NOT NULL
+	text   text
 );

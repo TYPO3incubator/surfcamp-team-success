@@ -1,0 +1,6 @@
+mod.web_layout.tt_content.preview.view {
+  layoutRootPaths.10 = EXT:success/Resources/Private/Templates/Backend/Layouts
+  partialRootPaths.10 = EXT:success/Resources/Private/Templates/Backend/Partials
+  templateRootPaths.10 = EXT:success/Resources/Private/Templates/Backend/Templates
+}
+mod.web_layout.tt_content.preview.template.success_partner = SuccessPartner

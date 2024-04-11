@@ -14,4 +14,22 @@
     summary::-webkit-details-marker {
         display: none;
     }
+
+    ::selection {
+        @apply text-lighttext bg-light-500;
+    }
+
+    .background-light {
+        ::selection {
+            @apply text-black bg-white;
+        }
+    }
+
+    .background-white {
+        ::selection {
+            @apply text-lighttext bg-light-500;
+        }
+    }
+
+    
 }

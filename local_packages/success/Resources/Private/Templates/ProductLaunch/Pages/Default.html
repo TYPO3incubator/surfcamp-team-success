@@ -9,8 +9,8 @@
         <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".dark" />
     </f:asset.css>
 
+    <vac:asset.vite entry="assets/global.js"/>
     <vac:asset.vite entry="assets/product-launch.js"/>
-    <vac:asset.vite entry="assets/modal.js"/>
 
     <main class="font-text background-light">
         <div class="background-white">
@@ -53,7 +53,9 @@
         </div>
     </main>
     <div id="modal" class="modal">
-        <div class="modal-content" id="modal-content"></div>
-        <div id="loading-indicator" class="loading-indicator"></div>
+        <div class="container mx-auto px-5">
+            <div class="modal-content" id="modal-content"></div>
+            <div id="loading-indicator" class="loading-indicator"></div>
+        </div>
     </div>
 </html>

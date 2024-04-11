@@ -10,13 +10,8 @@ const VITE_TYPO3_ROOT = "./";
 
 // Vite input files (relative to TYPO3 root path)
 const VITE_ENTRYPOINTS = [
-  "assets/advent.js",
-  "assets/career.js",
+  "assets/global.js",
   "assets/product-launch.js",
-  "assets/sets-promotion.js",
-  "assets/modal.js",
-  "assets/whitepaper.js",
-  "assets/scss/rte.scss",
 ];
 
 // Output path for generated assets

@@ -1,5 +1,5 @@
-import './scss/components/_modal.scss'
-import './scss/components/_notify.scss'
+import '../scss/components/_modal.scss'
+import '../scss/components/_notify.scss'
 
 // Function to open modal and load content
 const handleForm = (event, form, modalContent, cid) => {
