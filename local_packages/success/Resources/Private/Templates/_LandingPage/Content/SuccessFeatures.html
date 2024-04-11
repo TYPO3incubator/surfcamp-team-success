@@ -5,23 +5,17 @@
 <f:layout name="Default"/>
 <f:section name="Main">
 <div class="background-secondary relative">
-    <f:if condition="{data.media}">
+    <f:if condition="{data.assets}">
         <div class="aspect-video md:aspect-auto relative md:static">
-            <f:image image="{data.media.0}" class="object-cover h-full absolute right-0 md:left-0 w-full md:w-1/3" width="600"></f:image>
+            <f:image image="{data.assets.0}" class="object-cover h-full absolute right-0 md:left-0 brightness-50 w-full md:w-1/3" width="600"></f:image>
         </div>
     </f:if>
 
     <div class="container px-5 mx-auto">
-        <div class="{f:if(condition: data.media, then: 'grid md:grid-cols-3')}">
-            <f:if condition="{data.media}">
-                <div class="min-h-20">
-                    <f:image image="{data.media.0}" class="object-cover w-full h-full brightness-50" width="600"></f:image>
-                </div>
-            </f:if>
-
+        <div class="{f:if(condition: data.assets, then: 'grid md:grid-cols-3')}">            
             <div></div>
 
-            <div class="{f:if(condition: data.media, then: 'md:col-span-2')} py-5 md:p-10 flex items-center">
+            <div class="{f:if(condition: data.assets, then: 'md:col-span-2')} py-5 md:p-10 flex items-center">
                 <div>
                     <f:render partial="Content/Header"
                         arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>

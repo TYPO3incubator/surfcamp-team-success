@@ -42,5 +42,10 @@ export default {
       lighttext: 'var(--color-lighttext)',
     },
     extend: {},
+    safelist: [
+      'heading-xxl',
+      'heading-xl',
+      'heading-lg',
+    ]
   },
 }

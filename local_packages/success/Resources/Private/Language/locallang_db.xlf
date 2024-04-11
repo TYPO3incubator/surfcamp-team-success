@@ -16,14 +16,14 @@
 			<trans-unit id="header_style.default" resname="header_style.default">
 				<source>Default</source>
 			</trans-unit>
-			<trans-unit id="header_style.lovely" resname="header_style.lovely">
-				<source>Lovely</source>
+			<trans-unit id="header_style.heading-xxl" resname="header_style.heading-xxl">
+				<source>Heading XXLarge</source>
 			</trans-unit>
-			<trans-unit id="header_style.fancy" resname="header_style.fancy">
-				<source>Fancy</source>
+			<trans-unit id="header_style.heading-xl" resname="header_style.heading-xl">
+				<source>Heading XLarge</source>
 			</trans-unit>
-			<trans-unit id="header_style.rainbow" resname="header_style.rainbow">
-				<source>Over the rainbow</source>
+			<trans-unit id="header_style.heading-lg" resname="header_style.heading-lg">
+				<source>Heading Large</source>
 			</trans-unit>
 
 			<trans-unit id="button" resname="button">
