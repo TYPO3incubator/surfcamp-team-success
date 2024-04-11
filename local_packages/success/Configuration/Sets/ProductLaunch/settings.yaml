@@ -1,6 +1,9 @@
 ui:
   theme: "system"
   name: "Surfboard Company"
+  font:
+    text: "roboto"
+    heading: "roboto-slab"
   layout:
     navigation:
       position: "below"
@@ -9,7 +12,7 @@ ui:
     rotate: "3deg"
     font:
       text: "Roboto, sans-serif"
-      heading: "Roboto, sans-serif"
+      heading: "Roboto Slab, serif"
   light:
     color:
       primary: "rgb(235, 183, 35)"

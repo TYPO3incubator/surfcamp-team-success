@@ -10,6 +10,8 @@
         <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".dark" />
     </f:asset.css>
 
+    <f:render partial="Typography" arguments="{fonts: settings.ui.font}"></f:render>
+
     <vac:asset.vite entry="assets/global.js"/>
     <vac:asset.vite entry="assets/product-launch.js"/>
 
