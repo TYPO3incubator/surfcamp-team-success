@@ -8,71 +8,81 @@
     <vac:asset.vite entry="assets/js/mobile-navigation.js"/>
 
     <header class="absolute top-0 left-0 z-50 w-full">
-        <f:if condition="{settings.ui.layout.navigation.position} == 'below'">
-            <f:then>
-                <div class="w-full px-5 py-3 lg:block flex items-center justify-between gap-2">
-                    <f:render section="Logo" arguments="{data: data}" />
-                    <f:if condition="{settings.ui.layout.navigation.isVisible}">
-                        <f:then>
-                            <div class="mt-2 text-black">
-                                <f:render section="NavigationLinks" arguments="{data: data}"/>
-                                <f:render section="HamburgerMenuButton" arguments="{data: data}"/>
-                            </div>
-                        </f:then>
-                    </f:if>
-                </div>
-            </f:then>
-            <f:else>
-                <div class="relative">
-                    <div class="w-full absolute top-0 left-0 z-10">
-                        <div class="px-5 text-black py-3">
-                            <div class="flex justify-between items-center gap-2">
-                                <f:render section="Logo" arguments="{data: data}" />
-                                <f:if condition="{settings.ui.layout.navigation.isVisible}">
-                                    <f:then>
-                                        <f:render section="NavigationLinks" arguments="{data: data}"/>
-                                        <f:render section="HamburgerMenuButton" arguments="{data: data}"/>
-                                    </f:then>
-                                </f:if>
-                            </div>
+        
+        <div class="container px-5 py-4 mx-auto">
+            <div class="flex justify-between items-center">
+                <f:render section="Logo" arguments="{data: data}" />
+                <f:render section="HamburgerMenuButton" arguments="{data: data}"/>
+                <f:render section="NavigationMobile" arguments="{data: data}"/>
+
+                <f:if condition="{settings.ui.layout.navigation.position} == 'beside'">
+                    <f:if condition="{data.tx_success_menu_item}">
+                        <div class="hidden md:block">
+                            <f:render section="NavigationDesktop" arguments="{data: data}"/>
                         </div>
+                    </f:if>
+                </f:if>
+            </div>
+
+            <f:if condition="{settings.ui.layout.navigation.position} == 'below'">
+                <f:if condition="{data.tx_success_menu_item}">
+                    <div class="hidden md:block md:mt-2">
+                        <f:render section="NavigationDesktop" arguments="{data: data}"/>
                     </div>
-                </div>
-            </f:else>
-        </f:if>
+                </f:if>
+            </f:if>
+        </div>
     </header>
 </f:section>
+
 <f:section name="Logo">
     <f:if condition="{data.assets}">
         <a href="/" title="Home" class="inline-block min-w-24">
-            <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-auto"/>
+            <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-10 object-contain object-left"/>
         </a>
     </f:if>
 </f:section>
-<f:section name="NavigationLinks">
-    <f:if condition="{data.tx_success_menu_item}">
-        <ul class="flex gap-4 items-center">
+
+<f:section name="NavigationDesktop">
+    <ul class="hidden md:flex gap-4 items-center -mx-2">
+        <f:for each="{data.tx_success_menu_item}" as="menuItem">
+            <li>
+                <f:link.typolink parameter="{menuItem.link}" class="font-heading font-bold text-lg uppercase transition-colors hover:text-primary-500 focus:text-primary-500 focus:ring focus:ring-2 focus:ring-primary-200 p-1">
+                    {menuItem.label}
+                </f:link.typolink>
+            </li>
+        </f:for>
+    </ul>
+</f:section>
+
+<f:section name="NavigationMobile">
+    <nav class="navigation hidden absolute top-0 left-0 background-{settings.ui.layout.pagebg} w-full h-screen overflow-y-auto flex items-center">
+        <ul class="text-center container px-5 mx-auto">
             <f:for each="{data.tx_success_menu_item}" as="menuItem">
-                <li class="p-2 lg:pl-0 m-1 lg:ml-0">
-                    <f:link.typolink parameter="{menuItem.link}" class="font-bold text-lg uppercase transition-colors hover:text-primary-500 focus:text-primary-500">
+                <li class="my-3">
+                    <f:link.typolink parameter="{menuItem.link}" class="font-heading font-bold text-lg uppercase transition-colors hover:text-primary-500 focus:text-primary-500 focus:ring focus:ring-2 focus:ring-primary-200 p-1">
                         {menuItem.label}
                     </f:link.typolink>
                 </li>
             </f:for>
         </ul>
-    </f:if>
+    </nav>
 </f:section>
+
 <f:section name="HamburgerMenuButton">
     <button
-        class="hamburger-menu-button lg:hidden ml-auto h-5"
+        class="hamburger-menu-button md:hidden ml-auto h-5 z-50"
         title="Menu"
     >
-    <span aria-hidden="true" class="hamburger-menu-open w-5 flex flex-col justify-between gap-1">
-        <span class="block h-1 w-full bg-black"></span>
-        <span class="block h-1 w-full bg-black"></span>
-        <span class="block h-1 w-full bg-black"></span>
+    <span aria-hidden="true" class="pointer-events-none hamburger-menu-open w-6 flex flex-col justify-between gap-[0.4rem]">
+        <span class="block w-full border-b border-b-2 border-black"></span>
+        <span class="block w-full border-b border-b-2 border-black"></span>
+        <span class="block w-full border-b border-b-2 border-black"></span>
     </span>
-        <span aria-hidden="true" class="hamburger-menu-close hidden">&#10006;</span>
+        <span aria-hidden="true" class="hamburger-menu-close hidden relative">
+            <span class="block w-7 border-b border-b-2 border-black rotate-[-45deg]"></span>
+            <span class="block w-7 border-b border-b-2 border-black rotate-[45deg] absolute top-4"></span>
+        </span>
     </button>
 </f:section>
 </html>

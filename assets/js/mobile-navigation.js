@@ -9,7 +9,7 @@ function toggleMobileNavigation() {
     // Function to update icon visibility based on the 'active' state of navigation
     function updateIconVisibility() {
       navs.forEach((nav) => {
-        const isActive = nav.classList.contains("active");
+        const isActive = !nav.classList.contains("hidden");
         if (open && close) {
           open.classList.toggle('hidden', isActive);
           close.classList.toggle('hidden', !isActive);
@@ -21,7 +21,8 @@ function toggleMobileNavigation() {
     if (!menu.dataset.initialized) {
       menu.addEventListener("click", function() {
         // Toggle 'active' class on all navigation elements
-        navs.forEach((nav) => nav.classList.toggle("active"));
+        navs.forEach((nav) => nav.classList.toggle("hidden"));
+        document.body.classList.toggle('overflow-hidden');
         updateIconVisibility();
       });
 

@@ -2,7 +2,7 @@ ui:
   theme: "system"
   layout:
     navigation:
-      position: "below"
+      position: "beside"
       isVisible: true
     radius: "5px"
     rotate: "3deg"

@@ -87,13 +87,17 @@ html {
         @apply bg-black text-white;
     }
 
+    /*
     .navigation {
-        @apply  static lg:block lg:visible lg:opacity-100;
+        @apply static lg:block lg:visible lg:opacity-100;
+
         &.active {
-            @apply transition-all opacity-100 bg-white visible fixed z-50 top-0 left-0 w-full h-svh;
+            @apply transition-all opacity-100 bg-white visible fixed z-50 top-0 left-0 w-screen h-full min-h-screen;
+
             & ul {
                 @apply flex flex-col gap-2;
             }
+
             & .hamburger-menu-button {
                 @apply absolute top-3 right-2 z-50;
             }
@@ -102,6 +106,8 @@ html {
             @apply hidden lg:flex;
         }
     }
+
+    */
 
     .form {
         &-label {
