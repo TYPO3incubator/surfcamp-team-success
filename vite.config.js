@@ -12,6 +12,15 @@ const VITE_TYPO3_ROOT = "./";
 const VITE_ENTRYPOINTS = [
   "assets/global.js",
   "assets/product-launch.js",
+  "assets/fonts/comic-neue.js",
+  "assets/fonts/lato.js",
+  "assets/fonts/merriweather.js",
+  "assets/fonts/noto-serif.js",
+  "assets/fonts/oswald.js",
+  "assets/fonts/playpen-sans.js",
+  "assets/fonts/roboto-mono.js",
+  "assets/fonts/roboto-slab.js",
+  "assets/fonts/roboto.js",
 ];
 
 // Output path for generated assets
