@@ -1,2 +1,2 @@
-import './scss/advent.scss'
+import './scss/global.scss'
 import './javascript/modal.js'
