@@ -15,27 +15,11 @@
 
     <main class="font-text background-light">
         <f:for as="block" each="{content.column0.blocks}">
-            <s:renderBlock data="{block}" />
+            <div id="c{block.uid}">
+                <s:renderBlock data="{block}" />
+            </div>
         </f:for>
-        <div class="background-white">
-            <div class="container mx-auto px-5">
-                <div class="py-5">
-                    <a href="#" data-cid="1" class="btn btn-black">Modal test</a>
-                </div>
-            </div>
-        </div>
-
-        <div style="display:none">
-            <div id="c1">
-                This is a test for modal
-            </div>
-        </div>
     </main>
     <f:render partial="Footer" arguments="{_all}" />
-    <div id="modal" class="modal">
-        <div class="container mx-auto px-5">
-            <div class="modal-content" id="modal-content"></div>
-            <div id="loading-indicator" class="loading-indicator"></div>
-        </div>
-    </div>
+    <f:render partial="Page/Modal" />
 </html>

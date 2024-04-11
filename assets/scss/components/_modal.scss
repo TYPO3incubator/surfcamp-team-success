@@ -8,8 +8,22 @@ body.modal-open {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.modal .container {
+    position: relative;
+}
+
 .modal-content {
     @apply bg-white rounded text-black my-[15%] p-5 shadow-lg;
+}
+
+.modal-close {
+    position: absolute;
+    top: -20px;
+    @apply bg-white rounded-full text-black w-6 h-6 right-0 text-center align-middle cursor-pointer;
+
+    &:hover {
+        @apply bg-black text-white;
+    }
 }
 
 .loading-indicator {

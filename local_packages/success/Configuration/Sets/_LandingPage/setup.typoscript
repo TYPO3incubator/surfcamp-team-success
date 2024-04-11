@@ -1,7 +1,7 @@
 @import 'EXT:success/Configuration/TypoScript/setup.typoscript'
 @import 'EXT:form/Configuration/TypoScript/setup.typoscript'
 @import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/RecordLinks/contentInModal.typoscript'
-@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/Form/confirmation.typoscript'
+@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/Form/setup.typoscript'
 
 page = PAGE
 page {

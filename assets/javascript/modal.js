@@ -77,6 +77,13 @@ const openModal = (link) => {
     .catch(error => console.error('Error loading content:', error));
 };
 
+// Close modal function
+const closeModal = () => {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+  document.body.classList.remove('modal-open');
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   // Get all links with data-cid attribute
   const links = document.querySelectorAll('[data-cid]');
@@ -93,8 +100,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modal');
   modal.addEventListener('click', (event) => {
     if (event.target === modal) {
-      modal.style.display = 'none';
-      document.body.classList.remove('modal-open'); // Allow scrolling on background
+      closeModal();
+    }
+  });
+
+  // Close modal when close button is clicked
+  const closeButton = document.querySelector('.modal-close');
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      closeModal();
+    });
+  }
+
+  // Close modal when pressing the Esc key
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeModal();
     }
   });
 });

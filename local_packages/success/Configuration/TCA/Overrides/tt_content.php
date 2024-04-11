@@ -172,7 +172,6 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
                 'collapseAll' => 1,
                 'expandSingle' => 0,
                 'useSortable' => 1,
-//                'enabledControls' => 1,
             ],
             'minitems' => 1,
             'maxitems' => 99,
@@ -302,11 +301,10 @@ $GLOBALS['TCA']['tt_content']['types']['success_cards'] = [
     --palette--;;access,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-    '
+    ',
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_cards'] = 'content-card-group';
-$GLOBALS['TCA']['tx_success_card']['ctrl']['security']['ignorePageTypeRestriction'] = true;
 
 // Big Numbers Element
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -315,7 +313,7 @@ $GLOBALS['TCA']['tx_success_card']['ctrl']['security']['ignorePageTypeRestrictio
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers',
         'value' => 'success_numbers',
-        'icon' => 'number',
+        'icon' => 'content-widget-number',
         'group' => 'default',
         'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers.description',
     ]
@@ -325,11 +323,20 @@ $GLOBALS['TCA']['tt_content']['types']['success_numbers'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,tx_success_number_item'
+    --palette--;;headers,
+    --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers, tx_success_number_item,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
 ];
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_numbers'] = 'number';
-$GLOBALS['TCA']['tx_success_number_item']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_numbers'] = 'content-widget-number';
 
 // Gallery Element
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -348,7 +355,17 @@ $GLOBALS['TCA']['tt_content']['types']['success_gallery'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,assets'
+    --palette--;;headers,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_gallery'] = 'content-image';
@@ -360,7 +377,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_gallery'] = '
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:partner',
         'value' => 'success_partner',
-        'icon' => 'actions-briefcase',
+        'icon' => 'install-manage-maintainer',
         'group' => 'default',
         'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:partner.description',
     ]
@@ -370,10 +387,20 @@ $GLOBALS['TCA']['tt_content']['types']['success_partner'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,assets'
+    --palette--;;headers,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
 ];
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_partner'] = 'actions-briefcase';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_partner'] = 'install-manage-maintainer';
 
 // FAQ element
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -382,7 +409,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_partner'] = '
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq',
         'value' => 'success_faq',
-        'icon' => 'actions-question',
+        'icon' => 'actions-question-circle-alt',
         'group' => 'default',
         'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq.description',
     ]
@@ -392,11 +419,20 @@ $GLOBALS['TCA']['tt_content']['types']['success_faq'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,tx_success_faq'
+    --palette--;;headers,
+    --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq, tx_success_faq,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
 ];
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_faq'] = 'actions-question';
-$GLOBALS['TCA']['tx_success_faq']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_faq'] = 'actions-question-circle-alt';
 
 // Hero Banner Element
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -457,7 +493,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_hero'] = 'ins
     [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews',
         'value' => 'success_review',
-        'icon' => 'install-manage-maintainer',
+        'icon' => 'content-certificate',
         'group' => 'default',
         'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews.description',
     ]
@@ -467,11 +503,20 @@ $GLOBALS['TCA']['tt_content']['types']['success_review'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,tx_success_review'
+    --palette--;;headers,
+    --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews, tx_success_review,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
 ];
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_review'] = 'install-manage-maintainer';
-$GLOBALS['TCA']['tx_success_review']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_review'] = 'content-certificate';
 
 // Features Element
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -490,8 +535,17 @@ $GLOBALS['TCA']['tt_content']['types']['success_features'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,tx_success_feature'
+    --palette--;;headers,
+    --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features, tx_success_feature,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_features'] = 'install-manage-features';
-$GLOBALS['TCA']['tx_success_feature']['ctrl']['security']['ignorePageTypeRestriction'] = true;

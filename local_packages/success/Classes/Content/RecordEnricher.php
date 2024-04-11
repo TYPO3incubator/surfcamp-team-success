@@ -69,9 +69,9 @@ class RecordEnricher
                             'where' => $fieldConfiguration['config']['foreign_field'] . '=' . (int)$record->getRawUid(),
                         ];
                         if (isset($GLOBALS['TCA'][$fieldConfiguration['config']['foreign_table']]['ctrl']['sortby'])) {
-                            $selectConfiguration[$fieldName]['config']['sortBy'] = $GLOBALS['TCA'][$fieldConfiguration['config']['foreign_table']]['ctrl']['sortby'];
+                            $selectConfiguration['orderBy'] = $GLOBALS['TCA'][$fieldConfiguration['config']['foreign_table']]['ctrl']['sortby'];
                         } elseif (isset($GLOBALS['TCA'][$fieldConfiguration['config']['foreign_table']]['ctrl']['default_sortby'])) {
-                            $selectConfiguration[$fieldName]['config']['sortBy'] = $GLOBALS['TCA'][$fieldConfiguration['config']['foreign_table']]['ctrl']['default_sortby'];
+                            $selectConfiguration['orderBy'] = $GLOBALS['TCA'][$fieldConfiguration['config']['foreign_table']]['ctrl']['default_sortby'];
                         }
 
                         $cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
