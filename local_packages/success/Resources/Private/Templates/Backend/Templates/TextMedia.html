@@ -1,0 +1,66 @@
+<html>
+    <style>
+        .textmedia-container {
+            display: flex;
+            gap: 20px;
+            background: rgb(255, 249, 232);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+
+        .media-file {
+            width: 50%;
+        }
+
+        .overline {
+            font-size: 14px;
+        }
+
+        .headline {
+            font-size: 24px;
+        }
+
+        .subline {
+            font-size: 18px;
+        }
+
+        .textcontent {
+            font-size: 16px;
+        }
+    </style>
+    <div class="textmedia-container">
+        <f:if condition="{imageorient} == 1">
+            <f:then>
+                <f:render section="Media" arguments="{_all}" />
+                <f:render section="Text" arguments="{_all}" />
+            </f:then>
+            <f:else>
+                <f:render section="Text" arguments="{_all}" />
+                <f:render section="Media" arguments="{_all}" />
+            </f:else>
+        </f:if>
+    </div>
+
+    <f:section name="Text">
+        <div class="text">
+            <span class="overline">{overline}</span>
+            <span class="headline">{header}</span>
+            <p class="subline">{subheader}</p>
+            <div><f:format.raw>{bodytext}</f:format.raw></div>
+        </div>
+    </f:section>
+
+    <f:section name="Media">
+        <div class="media-file">
+            <f:image image="{allAssets.0}" />
+        </div>
+    </f:section>
+</html>

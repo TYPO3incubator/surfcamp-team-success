@@ -1,0 +1,68 @@
+<html xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers">
+    <style>
+        .number-container {
+            display: flex;
+            flex-direction: column;
+            background: rgb(255, 249, 232);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .headline {
+            font-size: 24px;
+        }
+
+        .subline {
+            font-size: 18px;
+        }
+
+        .numbers {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid wheat;
+            border-radius: 15px;
+            padding: 15px;
+        }
+
+        .number {
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 1px solid black;
+        }
+    </style>
+
+    <div class="number-container">
+        <div class="content">
+            <span class="overline">{overline}</span>
+            <span class="headline">{header}</span>
+            <p class="subline">{subheader}</p>
+        </div>
+        <div class="numbers">
+            <f:for each="{s:previewAssets(localUid: uid, foreignTable: 'tx_success_number_item', foreignField: 'parentid')}" as="number">
+                <f:render section="Number" arguments="{number}" />
+            </f:for>
+        </div>
+    </div>
+
+    <f:section name="Number">
+        <div class="item">
+            <span class="number">{number}{suffix}</span>
+            <span class="label">{label}</span>
+        </div>
+    </f:section>
+</html>
