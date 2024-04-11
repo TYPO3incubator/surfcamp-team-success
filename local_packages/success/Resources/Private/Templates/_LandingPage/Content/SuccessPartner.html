@@ -2,6 +2,8 @@
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
+<f:layout name="Default"/>
+<f:section name="Main">
 <div class="mt-8">
     <f:render partial="Content/Header"
               arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
@@ -15,4 +17,5 @@
         </f:if>
     </div>
 </div>
+</f:section>
 </html>

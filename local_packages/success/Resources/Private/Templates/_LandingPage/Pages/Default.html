@@ -11,17 +11,11 @@
 </f:asset.css>
 
 <div data-ui-theme="{settings.ui.theme}"></div>
-
-{_all -> f:debug()}
-
-<h1>{page.title}</h1>
-
-<f:cObject typoscriptObjectPath="styles.content.get" data="{colPos: '0'}" />
-
-<div id="modal" class="modal">
-    <div class="container mx-auto px-5">
-        <div class="modal-content" id="modal-content"></div>
-        <div id="loading-indicator" class="loading-indicator"></div>
-    </div>
-</div>
+<main class="font-text background-light">
+    <f:for as="block" each="{content.column0.blocks}">
+        <s:renderBlock data="{block}" />
+    </f:for>
+</main>
+<f:render partial="Footer" arguments="{_all}" />
+<f:render partial="Page/Modal" />
 </html>

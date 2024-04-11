@@ -2,6 +2,8 @@
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
+<f:layout name="Default"/>
+<f:section name="Main">
 <div class="background-black relative min-h-screen flex items-center">
     <f:if condition="{data.assets}">
         <f:image image="{data.assets.0}" class="object-cover w-full h-full brightness-50 absolute top-0 left-0" width="1400"></f:image>
@@ -24,5 +26,5 @@
         </div>
     </div>
 </div>
-
+</f:section>
 </html>

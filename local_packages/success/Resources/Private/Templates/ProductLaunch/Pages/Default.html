@@ -17,9 +17,7 @@
 
     <main class="font-text background-{settings.ui.layout.pagebg}">
         <f:for as="block" each="{content.column0.blocks}">
-            <div id="c{block.uid}">
-                <s:renderBlock data="{block}" />
-            </div>
+            <s:renderBlock data="{block}" />
         </f:for>
     </main>
     <f:render partial="Footer" arguments="{_all}" />
