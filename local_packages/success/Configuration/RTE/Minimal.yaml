@@ -3,8 +3,34 @@ imports:
   - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
 editor:
   config:
+    contentsCss: "EXT:success/Resources/Public/StyleSheets/rte.css"
+    stylesSet:
+      - name: "Primary Button"
+        element: "a"
+        attributes:
+          class: "btn btn-primary"
+      - name: "Secondary Button"
+        element: "a"
+        attributes:
+          class: "btn btn-secondary"
+      - name: "Light Button"
+        element: "a"
+        attributes:
+          class: "btn btn-light"
+      - name: "Black Button"
+        element: "a"
+        attributes:
+          class: "btn btn-black"
+      - name: "White Button"
+        element: "a"
+        attributes:
+          class: "btn btn-white"
+      - name: "Link"
+        element: "a"
+        attributes:
+          class: "link"
     toolbar:
-      - { name: styles, items: ['Bold','Italic'] }
+      - { name: styles, items: ['style', 'Bold','Italic'] }
       - { name: links, items: ['Link', 'Unlink'] } # Add link and unlink buttons
 
     buttons:

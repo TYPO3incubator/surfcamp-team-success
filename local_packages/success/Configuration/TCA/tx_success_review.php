@@ -21,7 +21,7 @@ return [
         'versioningWS'=> true,
     ],
     'types'     => [
-        '1' => ['showitem' => 'name, reviews'],
+        '1' => ['showitem' => 'name, review'],
     ],
     'columns'   => [
         'name' => [
@@ -38,10 +38,11 @@ return [
             'exclude' => 0,
             'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews.review',
             'config'  => [
-                'type' => 'input',
-                'cols' => 255,
-                'max'  => 255,
-                'eval' => 'trim',
+                'type' => 'text',
+                'cols' => 50,
+                'rows' => 5,
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'minimal'
             ],
         ],
     ],

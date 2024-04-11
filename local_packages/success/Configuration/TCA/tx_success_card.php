@@ -54,12 +54,5 @@ return [
                 'allowed' => 'common-image-types'
             ],
         ],
-        'link' => [
-            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards.link',
-            'config' => [
-                'type' => 'link',
-                'allowedTypes' => ['page', 'url', 'record'],
-            ]
-        ]
     ],
 ];

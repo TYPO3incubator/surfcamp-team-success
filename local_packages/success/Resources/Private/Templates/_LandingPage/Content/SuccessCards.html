@@ -1,0 +1,37 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+<div class="background-light py-12">
+    <div class="container px-5 mx-auto">
+        <div class="grid gap-5 md:grid-cols-3">
+            <f:if condition="{data.tx_success_card}">
+                <f:for each="{data.tx_success_card}" as="card">
+                    <div class="background-white rounded overflow-hidden">
+                        <div class="aspect-video">
+                            <f:if condition="{card.media}">
+                                <f:image src="{card.media.uid}" treatIdAsReference="1" class="object-cover h-full w-full" width="300" />
+                            </f:if>
+                        </div>
+                        <div class="p-5">
+                            <f:if condition="{card.headline}">
+                                <div class="font-bold text-lg mb-2">{card.headline}</div>
+                            </f:if>
+                            <f:if condition="{card.text}">
+                                <div>{card.text -> f:format.html()}</div>
+                            </f:if>
+                            <f:if condition="{card.link}">
+                                <div class="mt-5">
+                                    <f:link.typolink class="btn btn-primary" parameter="{card.link}" parts-as="linkParts">
+                                        {linkParts.title}
+                                    </f:link.typolink>
+                                </div>
+                            </f:if>
+                        </div>
+                    </div>
+                </f:for>
+            </f:if>
+        </div>
+    </div>
+</div>
+</html>

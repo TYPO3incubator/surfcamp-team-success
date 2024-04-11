@@ -1,0 +1,11 @@
+@import 'EXT:success/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:form/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/RecordLinks/contentInModal.typoscript'
+@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/Form/confirmation.typoscript'
+
+page = PAGE
+page {
+    10 = PAGEVIEW
+    10.paths.100 = EXT:success/Resources/Private/Templates/_LandingPage/
+    10.dataProcessing.10 = successContent
+}
