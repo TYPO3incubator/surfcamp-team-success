@@ -12,7 +12,7 @@
     </f:if>
 
     <div class="container px-5 mx-auto">
-        <div class="{f:if(condition: data.assets, then: 'grid md:grid-cols-3')}">            
+        <div class="{f:if(condition: data.assets, then: 'grid md:grid-cols-3')}">
             <div></div>
 
             <div class="{f:if(condition: data.assets, then: 'md:col-span-2')} py-5 md:p-10 flex items-center">
@@ -39,7 +39,7 @@
 
                             <div>
                                 <h3 class="heading-lg my-1">{feature.header}</h3>
-                                <div>{feature.text -> f:format.html()}</div>
+                                <div>{feature.text -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
                             </div>
                         </div>
                     </f:for>

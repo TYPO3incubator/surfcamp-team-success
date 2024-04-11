@@ -19,7 +19,7 @@
                                   class="shrink-0 rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">&plus;</span>
                         </summary>
                         <article class="rte rounded background-white px-4 py-2 border-t border-t-2 border-light-500">
-                            <f:format.html>{faqItem.answer}</f:format.html>
+                            <f:format.html parseFuncTSPath="lib.parseFunc">{faqItem.answer}</f:format.html>
                         </article>
                     </details>
                 </f:for>

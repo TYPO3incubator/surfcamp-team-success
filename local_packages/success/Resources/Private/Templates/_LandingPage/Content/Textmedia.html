@@ -27,7 +27,7 @@
             <f:render partial="Content/Header"
                       arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
             <div class="rte mt-8">
-                <f:format.html>{data.bodytext}</f:format.html>
+                <f:format.html parseFuncTSPath="lib.parseFunc">{data.bodytext}</f:format.html>
             </div>
         </div>
     </div>

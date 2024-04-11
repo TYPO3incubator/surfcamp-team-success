@@ -115,7 +115,7 @@
                 <f:if condition="{feature.media}"><img class="feature-media" src="{feature.media}"></f:if>
                 <f:if condition="{feature.header}"><span class="feature-headline">{feature.header}</span></f:if>
             </div>
-            <f:if condition="{feature.text}"><span class="textcontent"><f:format.raw>{feature.text}</f:format.raw></span></f:if>
+            <f:if condition="{feature.text}"><span class="textcontent"><f:format.html parseFuncTSPath="lib.parseFunc">{feature.text}</f:format.html></span></f:if>
         </div>
     </f:section>
 </html>

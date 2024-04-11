@@ -20,7 +20,7 @@
             <div class="list-group list-group-flush">
                 <f:for each="{contentElements}" as="content">
                     <a href="{content.url}"  class="t3js-pageLink list-group-item list-group-item-action {f:if(condition: content.isSelected, then: ' active')}">
-                        {content.icon -> f:format.raw()} {content.title -> f:format.raw()}
+                        {content.icon} {content.title}
                     </a>
                 </f:for>
             </div>

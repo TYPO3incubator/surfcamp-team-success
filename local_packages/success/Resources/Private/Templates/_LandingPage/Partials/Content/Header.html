@@ -6,34 +6,34 @@
 <f:switch expression="{headerLayout}">
     <f:case value="1">
         <h1 class="{headerStyle}">
-            {header -> f:format.raw()}
+            {header}
         </h1>
     </f:case>
     <f:case value="2">
         <h2 class="{headerStyle}">
-            {header -> f:format.raw()}
+            {header}
         </h2>
     </f:case>
     <f:case value="3">
         <h3 class="{headerStyle}">
-            {header -> f:format.raw()}
+            {header)}
         </h3>
     </f:case>
     <f:case value="4">
         <h4 class="{headerStyle}">
-            {header -> f:format.raw()}
+            {header}
         </h4>
     </f:case>
     <f:case value="5">
         <h5 class="{headerStyle}">
-            {header -> f:format.raw()}
+            {header}
         </h5>
     </f:case>
     <f:case value="100">
     </f:case>
     <f:defaultCase>
         <span class="{headerStyle}">
-            {header -> f:format.raw()}
+            {header}
         </span>
     </f:defaultCase>
 </f:switch>
