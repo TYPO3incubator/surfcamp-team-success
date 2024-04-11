@@ -1,1 +1,2 @@
 page.10.paths.200 = EXT:success/Resources/Private/Templates/ProductLaunch/
+page.shortcutIcon = EXT:success/Resources/Public/Icons/Extension.svg
