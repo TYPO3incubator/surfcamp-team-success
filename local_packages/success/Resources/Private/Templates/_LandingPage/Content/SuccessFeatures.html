@@ -19,7 +19,9 @@
 
             <div class="{f:if(condition: data.media, then: 'md:col-span-2')} py-5 md:p-10 flex items-center">
                 <div>
-                    <div class="h2">TODO {data.header}</div>
+                    <f:render partial="Content/Header"
+                        arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
+        
                     <f:for each="{data.tx_success_feature}" as="feature">
                         <div class="mt-8 sm:flex">
                             <f:if condition="{feature.icon}">
