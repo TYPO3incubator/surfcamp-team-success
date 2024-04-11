@@ -6,7 +6,7 @@ defined('TYPO3') or die();
 
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq.question',
+        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq.question',
         'label'                    => 'question',
         'hideTable'                => true,
         'tstamp'                   => 'tstamp',
@@ -25,8 +25,7 @@ return [
     ],
     'columns'   => [
         'question' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq.question',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq.question',
             'config'  => [
                 'type' => 'input',
                 'cols' => 255,
@@ -35,8 +34,7 @@ return [
             ],
         ],
         'answer' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq.answer',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq.answer',
             'config'  => [
                 'type' => 'text',
                 'cols' => 50,

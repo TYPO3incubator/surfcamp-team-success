@@ -6,7 +6,7 @@ defined('TYPO3') or die();
 
 return [
     'ctrl'      => [
-        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.single',
+        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers.single',
         'label'                    => 'number',
         'hideTable'                => true,
         'tstamp'                   => 'tstamp',
@@ -25,8 +25,7 @@ return [
     ],
     'columns'   => [
         'number' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.number',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers.number',
             'config'  => [
                 'type' => 'input',
                 'cols' => 3,
@@ -35,8 +34,7 @@ return [
             ],
         ],
         'suffix' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.suffix',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers.suffix',
             'config'  => [
                 'type' => 'input',
                 'cols' => 10,
@@ -45,8 +43,7 @@ return [
             ],
         ],
         'label' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.label',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers.label',
             'config'  => [
                 'type' => 'input',
                 'cols' => 255,

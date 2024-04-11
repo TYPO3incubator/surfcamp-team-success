@@ -51,41 +51,20 @@ layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:layout_form
 --linebreak--, space_before_class;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_before_class_formlabel, space_after_class;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:space_after_class_formlabel,';
 
 $GLOBALS['TCA']['tt_content']['palettes']['headers']['showitem'] = '
-overline;LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:overline,
+overline;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:overline,
 --linebreak--, header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
---linebreak--, header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel, header_style;LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style,
+--linebreak--, header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel, header_style;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style,
 --linebreak--, subheader;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:subheader_formlabel
 ';
 
-// Text Media
-$GLOBALS['TCA']['tt_content']['types']['textmedia'] = [
-    'showitem' => '
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-    --palette--;;general,
-    --palette--;;headers, bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
-    --linebreak--, imageorient;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient_formlabel,
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
-    --palette--;;frames,
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-    --palette--;;hidden,
-    --palette--;;access,
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-    ',
-    'columnsOverrides' => [
-        'bodytext' => [
-            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.text',
-            'config' => [
-                'type' => 'text',
-                'cols' => 50,
-                'rows' => 5,
-                'enableRichtext' => true,
-                'richtextConfiguration' => 'custom'
-            ],
-        ],
-    ],
+$GLOBALS['TCA']['tt_content']['palettes']['header']['showitem'] = '
+header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
+--linebreak--, header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel, header_style;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style,
+';
+
+$GLOBALS['TCA']['tt_content']['palettes']['button'] = [
+    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button',
+    'showitem' => 'button_link, button_label, button_style,',
 ];
 
 // Image orient options
@@ -105,63 +84,85 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', [
     'header_style' => [
-        'exclude' => 1,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:tt_content.header_style',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'default' => 'default',
             'items' => [
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.default',
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.default',
                     'value' => 'default'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.h1',
-                    'value' => 'h1'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.lovely',
+                    'value' => 'lovely'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.h2',
-                    'value' => 'h2'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.fancy',
+                    'value' => 'fancy'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.h3',
-                    'value' => 'h3'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.rainbow',
+                    'value' => 'rainbow'
                 ]
             ]
         ]
     ],
     'overline' => [
-        'exclude' => 1,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:tt_content.overline',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:overline',
         'config' => [
             'type' => 'input',
             'max' => 255,
             'size' => 50,
         ],
     ],
-]);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'header', 'header_style', 'after:header_layout');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'headers', 'header_style', 'after:header_layout');
-
-// Cards Element
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'CType',
-    [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards',
-        'value' => 'success_cards',
-        'icon' => 'content-card-group',
-        'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards.description',
-    ]
-);
-
-$tx_success_card = [
+    'button_link' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_link',
+        'config' => [
+            'type' => 'link',
+            'allowedTypes' => ['page', 'url', 'record'],
+        ]
+    ],
+    'button_label' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_label',
+        'config' => [
+            'type' => 'input',
+            'max' => 50,
+        ],
+    ],
+    'button_style' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 'primary',
+            'items' => [
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.primary',
+                    'value' => 'primary'
+                ],
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.secondary',
+                    'value' => 'secondary'
+                ],
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.light',
+                    'value' => 'light'
+                ],
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.black',
+                    'value' => 'black'
+                ],
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.white',
+                    'value' => 'white'
+                ]
+            ]
+        ],
+    ],
     'tx_success_card' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:cards.single',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:cards.single',
         'config' => [
             'type' => 'inline',
             'foreign_table' => 'tx_success_card',
@@ -171,42 +172,14 @@ $tx_success_card = [
                 'collapseAll' => 1,
                 'expandSingle' => 0,
                 'useSortable' => 1,
+//                'enabledControls' => 1,
             ],
             'minitems' => 1,
             'maxitems' => 99,
         ],
-    ]
-];
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_card);
-
-$GLOBALS['TCA']['tt_content']['types']['success_cards'] = [
-    'showitem' => '
-    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-    --palette--;;general,
-    --palette--;;headers,tx_success_card'
-];
-
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_cards'] = 'content-card-group';
-$GLOBALS['TCA']['tx_success_card']['ctrl']['security']['ignorePageTypeRestriction'] = true;
-
-// Big Numbers Element
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-    'tt_content',
-    'CType',
-    [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers',
-        'value' => 'success_numbers',
-        'icon' => 'number',
-        'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.description',
-    ]
-);
-
-$tx_success_number_item = [
+    ],
     'tx_success_number_item' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:numbers.counting',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers.counting',
         'config' => [
             'type' => 'inline',
             'foreign_table' => 'tx_success_number_item',
@@ -220,10 +193,133 @@ $tx_success_number_item = [
             'minitems' => 3,
             'maxitems' => 5,
         ],
-    ]
+    ],
+    'tx_success_faq' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq.questions',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_faq',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+        ],
+    ],
+    'tx_success_review' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_review',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+        ],
+    ],
+    'tx_success_feature' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_feature',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+            'minitems' => 2,
+            'maxitems' => 6,
+        ],
+    ],
+]);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'header', 'header_style', 'after:header_layout');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'headers', 'header_style', 'after:header_layout');
+
+// Text Media
+$GLOBALS['TCA']['tt_content']['types']['textmedia'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers, bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
+    --palette--;;button,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
+    --linebreak--, imageorient;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient_formlabel,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.text',
+            'config' => [
+                'type' => 'text',
+                'cols' => 50,
+                'rows' => 5,
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'custom'
+            ],
+        ],
+    ],
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_number_item);
+// Cards Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:cards',
+        'value' => 'success_cards',
+        'icon' => 'content-card-group',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:cards.description',
+    ]
+);
+
+$GLOBALS['TCA']['tt_content']['types']['success_cards'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers,
+    --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:cards, tx_success_card,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    '
+];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_cards'] = 'content-card-group';
+$GLOBALS['TCA']['tx_success_card']['ctrl']['security']['ignorePageTypeRestriction'] = true;
+
+// Big Numbers Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers',
+        'value' => 'success_numbers',
+        'icon' => 'number',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:numbers.description',
+    ]
+);
 
 $GLOBALS['TCA']['tt_content']['types']['success_numbers'] = [
     'showitem' => '
@@ -240,32 +336,19 @@ $GLOBALS['TCA']['tx_success_number_item']['ctrl']['security']['ignorePageTypeRes
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:gallery',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:gallery',
         'value' => 'success_gallery',
         'icon' => 'content-image',
         'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:gallery.description',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:gallery.description',
     ]
 );
-
-$tx_success_gallery_item = [
-    'tx_success_gallery_item' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:gallery.item',
-        'config' => [
-            'type' => 'file',
-            'allowed' => 'common-image-types'
-        ],
-    ]
-];
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_gallery_item);
 
 $GLOBALS['TCA']['tt_content']['types']['success_gallery'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,tx_success_gallery_item'
+    --palette--;;headers,assets'
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_gallery'] = 'content-image';
@@ -275,33 +358,19 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_gallery'] = '
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:partner',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:partner',
         'value' => 'success_partner',
         'icon' => 'actions-briefcase',
         'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:partner.description',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:partner.description',
     ]
 );
-
-$tx_success_partner = [
-    'tx_success_partner' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:partner.item',
-        'config' => [
-            'type' => 'file',
-            'allowed' => 'common-image-types',
-            'maxitems' => 2,
-        ],
-    ]
-];
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_partner);
 
 $GLOBALS['TCA']['tt_content']['types']['success_partner'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
-    --palette--;;headers,tx_success_partner'
+    --palette--;;headers,assets'
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_partner'] = 'actions-briefcase';
@@ -311,33 +380,13 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_partner'] = '
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq',
         'value' => 'success_faq',
         'icon' => 'actions-question',
         'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq.description',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:faq.description',
     ]
 );
-
-$tx_success_faq = [
-    'tx_success_faq' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:faq.questions',
-        'config' => [
-            'type' => 'inline',
-            'foreign_table' => 'tx_success_faq',
-            'foreign_field' => 'parentid',
-            'foreign_table_field' => 'parenttable',
-            'appearance' => [
-                'collapseAll' => 1,
-                'expandSingle' => 0,
-                'useSortable' => 1,
-            ],
-        ],
-    ]
-];
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_faq);
 
 $GLOBALS['TCA']['tt_content']['types']['success_faq'] = [
     'showitem' => '
@@ -354,21 +403,32 @@ $GLOBALS['TCA']['tx_success_faq']['ctrl']['security']['ignorePageTypeRestriction
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero',
         'value' => 'success_hero',
         'icon' => 'install-test-image',
         'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.description',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.description',
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-    --palette--;;general,bodytext,media,',
+    --palette--;;general,
+    --palette--;;header, bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
+    --palette--;;button,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,',
     'columnsOverrides' => [
         'bodytext' => [
-            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.text',
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.text',
             'config' => [
                 'type' => 'text',
                 'cols' => 50,
@@ -378,7 +438,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
             ],
         ],
         'media' => [
-            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:hero.media',
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.media',
             'config' => [
                 'type' => 'file',
                 'allowed' => 'common-image-types',
@@ -395,33 +455,13 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_hero'] = 'ins
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews',
         'value' => 'success_review',
         'icon' => 'install-manage-maintainer',
         'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews.description',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews.description',
     ]
 );
-
-$tx_success_review = [
-    'tx_success_review' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews',
-        'config' => [
-            'type' => 'inline',
-            'foreign_table' => 'tx_success_review',
-            'foreign_field' => 'parentid',
-            'foreign_table_field' => 'parenttable',
-            'appearance' => [
-                'collapseAll' => 1,
-                'expandSingle' => 0,
-                'useSortable' => 1,
-            ],
-        ],
-    ]
-];
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_review);
 
 $GLOBALS['TCA']['tt_content']['types']['success_review'] = [
     'showitem' => '
@@ -438,35 +478,13 @@ $GLOBALS['TCA']['tx_success_review']['ctrl']['security']['ignorePageTypeRestrict
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features',
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features',
         'value' => 'success_features',
         'icon' => 'install-manage-features',
         'group' => 'default',
-        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features.description',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features.description',
     ]
 );
-
-$tx_success_feature = [
-    'tx_success_feature' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features',
-        'config' => [
-            'type' => 'inline',
-            'foreign_table' => 'tx_success_feature',
-            'foreign_field' => 'parentid',
-            'foreign_table_field' => 'parenttable',
-            'appearance' => [
-                'collapseAll' => 1,
-                'expandSingle' => 0,
-                'useSortable' => 1,
-            ],
-            'minitems' => 2,
-            'maxitems' => 6,
-        ],
-    ]
-];
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $tx_success_feature);
 
 $GLOBALS['TCA']['tt_content']['types']['success_features'] = [
     'showitem' => '
