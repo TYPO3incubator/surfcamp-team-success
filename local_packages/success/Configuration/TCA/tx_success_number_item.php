@@ -107,7 +107,7 @@ return [
                 'type' => 'input',
                 'cols' => 3,
                 'max' => 6,
-                'eval' => 'int',
+                'eval' => 'int,required',
             ],
         ],
         'suffix' => [
