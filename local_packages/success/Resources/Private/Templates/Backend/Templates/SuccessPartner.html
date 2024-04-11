@@ -1,0 +1,57 @@
+<html xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers">
+    <style>
+        .partner-container {
+            display: flex;
+            flex-direction: column;
+            background: rgb(255, 249, 232);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .headline {
+            font-size: 24px;
+        }
+
+        .subline {
+            font-size: 18px;
+        }
+
+        .partners {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .logo-item {
+            border-radius: 15px;
+            border: 2px solid wheat;
+            box-shadow: none;
+        }
+    </style>
+
+    <div class="partner-container">
+        <div class="content">
+            <span class="overline">{overline}</span>
+            <span class="headline">{header}</span>
+            <p class="subline">{subheader}</p>
+        </div>
+        <div class="partners">
+            <f:for each="{allAssets}" as="media">
+                <f:render section="Media" arguments="{_all}" />
+            </f:for>
+        </div>
+    </div>
+
+    <f:section name="Media">
+        <div class="logo-item">
+            <f:image image="{media}" />
+        </div>
+    </f:section>
+</html>

@@ -1,0 +1,121 @@
+<html xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers">
+    <style>
+        .feature-container {
+            display: flex;
+            flex-direction: column;
+            background: rgb(255, 249, 232);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .headline {
+            font-size: 24px;
+        }
+
+        .subline {
+            font-size: 18px;
+        }
+
+        .feature-headline {
+            font-size: 18px;
+            padding: 15px 15px 0 15px;
+        }
+
+        .textcontent {
+            font-size: 16px;
+            padding: 0 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border: 2px solid wheat;
+            border-radius: 15px;
+            box-shadow: none;
+        }
+
+        .feature-header {
+            display: flex;
+            gap: 10px;
+        }
+
+        .feature-media {
+            width: 56px;
+            height: auto;
+        }
+
+        .feature-container .btn {
+            border-radius: 5px;
+            padding: .5rem .75rem;
+            font-weight: 700;
+            transition-property: color,background-color,border-color,text-decoration-color,fill,stroke;
+            transition-timing-function: cubic-bezier(.4,0,.2,1);
+            transition-duration: .15s
+        }
+
+        .feature-container .btn-primary {
+            background-color: rgb(235, 183, 35);
+            color: black;
+        }
+
+        .feature-container .btn-secondary {
+            background-color: rgb(94, 13, 25);
+            color: white;
+        }
+
+        .feature-container .btn-light {
+            background-color: rgb(255, 249, 232);
+            color: black;
+        }
+
+        .feature-container .btn-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(0 0 0 / var(--tw-text-opacity))
+        }
+
+        .feature-container .btn-black {
+            --tw-bg-opacity: 1;
+            background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity))
+        }
+    </style>
+
+    <div class="feature-container">
+        <div class="content">
+            <span class="overline">{overline}</span>
+            <span class="headline">{header}</span>
+            <p class="subline">{subheader}</p>
+        </div>
+        <div class="features">
+            <f:for each="{s:previewAssets(localUid: uid, foreignTable: 'tx_success_feature', foreignField: 'parentid', hasMedia: 'true')}" as="feature">
+                <f:render section="feature" arguments="{_all}" />
+            </f:for>
+        </div>
+    </div>
+
+    <f:section name="feature">
+        <div class="feature feature-item">
+            <div class="feature-header">
+                <img class="feature-media" src="{feature.media}">
+                <span class="feature-headline">{feature.header}</span>
+            </div>
+            <span class="textcontent"><f:format.raw>{feature.text}</f:format.raw></span>
+        </div>
+    </f:section>
+</html>
