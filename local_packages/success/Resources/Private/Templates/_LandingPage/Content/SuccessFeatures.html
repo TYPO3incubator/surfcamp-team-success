@@ -3,12 +3,14 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
 <div class="background-secondary relative">
-    <div class="aspect-video md:aspect-auto relative md:static">
-        <img alt="ALT_TEXT" class="object-cover h-full absolute right-0 md:left-0 w-full md:w-1/3" src="https://picsum.photos/400/200" />
-    </div>
+    <f:if condition="{data.media}">
+        <div class="aspect-video md:aspect-auto relative md:static">
+            <f:image image="{data.media.0}" class="object-cover h-full absolute right-0 md:left-0 w-full md:w-1/3" width="600"></f:image>
+        </div>
+    </f:if>
 
     <div class="container px-5 mx-auto">
-        <div class="{f:if(condition: data.media, then: 'grid md:grid-cols-3')} grid md:grid-cols-3">
+        <div class="{f:if(condition: data.media, then: 'grid md:grid-cols-3')}">
             <f:if condition="{data.media}">
                 <div class="min-h-20">
                     <f:image image="{data.media.0}" class="object-cover w-full h-full brightness-50" width="600"></f:image>
