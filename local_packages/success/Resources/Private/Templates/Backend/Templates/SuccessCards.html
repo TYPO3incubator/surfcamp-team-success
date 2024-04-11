@@ -1,4 +1,6 @@
-<html xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+      data-namespace-typo3-fluid="true">
     <style>
         .card-container {
             display: flex;
@@ -104,7 +106,7 @@
         <div class="card card-item">
             <f:if condition="{media}"><f:image class="card-media" src="{media}" width="400" /></f:if>
             <f:if condition="{headline}"><span class="card-headline">{headline}</span></f:if>
-            <f:if condition="{bodytext}"><span class="textcontent"><f:format.html parseFuncTSPath="lib.parseFunc">{bodytext -> f:format.crop(maxCharacters: '300')}</f:format.html></span></f:if>
+            <f:if condition="{bodytext}"><span class="textcontent">{bodytext -> f:format.stripTags() -> f:format.crop(maxCharacters: '300')}</span></f:if>
         </div>
     </f:section>
 </html>

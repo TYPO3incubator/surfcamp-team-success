@@ -1,5 +1,7 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers">
-    <style>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<style>
         .faq-container {
             display: flex;
             flex-direction: column;
@@ -123,12 +125,10 @@
 
     <f:section name="Faq">
         <div class="faq-item">
-            <f:if condition="{faq.question}"><span class="faq-question"><f:format.html parseFuncTSPath="lib.parseFunc">{faq.question}</f:format.html></span></f:if>
+            <f:if condition="{faq.question}"><span class="faq-question">{faq.question}</span></f:if>
             <f:if condition="{faq.answer}">
                 <input class="faq-expand" type="checkbox" >
-                <div class="faq-answer">
-                    <f:format.html parseFuncTSPath="lib.parseFunc">{faq.answer}</f:format.html>
-                </div>
+                <div class="faq-answer">{faq.answer -> f:format.stripTags()->f:format.crop(maxCharacters: '300')}</div>
             </f:if>
         </div>
     </f:section>
