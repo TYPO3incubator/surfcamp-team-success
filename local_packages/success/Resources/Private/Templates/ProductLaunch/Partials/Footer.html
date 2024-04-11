@@ -16,18 +16,19 @@
                     {f:variable(name: 'gridCount', value: '{settings.footer.maxCols}')}
                 </f:else>
             </f:if>
-    
+
             <div class="footer-contents grid gap-5 md:grid-cols-{gridCount}">
                 <f:for each="{footer}" as="footerElements">
                     <f:if condition="{footerElements.data.bodytext}">
                         <div class="footer-content-container flex">
-                            <f:format.raw>{footerElements.data.bodytext}</f:format.raw>
+                            <f:if condition="{footerElements.data.header}"><span class="footer-headline">{footerElements.data.header}</span></f:if>
+                            <f:if condition="{footerElements.data.bodytext}"><f:format.raw>{footerElements.data.bodytext}</f:format.raw></f:if>
                         </div>
                     </f:if>
                 </f:for>
             </div>
         </f:if>
-    
+
         <div class="legal-footer grid md:grid-cols-2 gap-3 mt-5">
             <span class="copyright flex">
                 &copy; {settings.info.owner.name} {f:format.date(format: '%Y', date:'now')}
@@ -44,5 +45,5 @@
             </div>
         </div>
     </div>
-    
+
 </footer>
