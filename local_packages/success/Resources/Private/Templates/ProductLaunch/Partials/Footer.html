@@ -1,43 +1,48 @@
-<footer class="footer py-5 container px-5 mx-auto">
-    <f:if condition="{footer -> f:count()} != '0'">
-        <f:if condition="{settings.footer.maxCols} == 'auto'">
-            <f:then>
-                <f:if condition="{footer -> f:count()} > 4">
-                    <f:then>
-                        {f:variable(name: 'gridCount', value: '4')}
-                    </f:then>
-                    <f:else>
-                        {f:variable(name: 'gridCount', value: '{footer -> f:count()}')}
-                    </f:else>
-                </f:if>
-            </f:then>
-            <f:else>
-                {f:variable(name: 'gridCount', value: '{settings.footer.maxCols}')}
-            </f:else>
+<footer class="py-5 background-{settings.ui.layout.footerbg}">
+    <div class="container px-5 mx-auto">
+        <f:if condition="{footer -> f:count()} != '0'">
+            <f:if condition="{settings.footer.maxCols} == 'auto'">
+                <f:then>
+                    <f:if condition="{footer -> f:count()} > 4">
+                        <f:then>
+                            {f:variable(name: 'gridCount', value: '4')}
+                        </f:then>
+                        <f:else>
+                            {f:variable(name: 'gridCount', value: '{footer -> f:count()}')}
+                        </f:else>
+                    </f:if>
+                </f:then>
+                <f:else>
+                    {f:variable(name: 'gridCount', value: '{settings.footer.maxCols}')}
+                </f:else>
+            </f:if>
+    
+            <div class="footer-contents grid gap-5 md:grid-cols-{gridCount}">
+                <f:for each="{footer}" as="footerElements">
+                    <f:if condition="{footerElements.data.bodytext}">
+                        <div class="footer-content-container flex">
+                            <f:format.raw>{footerElements.data.bodytext}</f:format.raw>
+                        </div>
+                    </f:if>
+                </f:for>
+            </div>
         </f:if>
-
-        <div class="footer-contents grid gap-5 md:grid-cols-{gridCount} py-12">
-            <f:for each="{footer}" as="footerElements">
-                <div class="footer-content-container flex">
-                    <f:format.raw>{footerElements.data.bodytext}</f:format.raw>
-                </div>
-            </f:for>
-        </div>
-    </f:if>
-
-    <div class="legal-footer grid md:grid-cols-2 gap-5 py-12">
-        <span class="copyright flex">
-            &copy; {settings.info.owner.name} {f:format.date(format: '%Y', date:'now')}
-        </span>
-        <div class="flex legal-container md:justify-end">
-            <f:link.typolink parameter="{settings.info.owner.imprint}" class="imprint pl-4"
-                             title="{f:translate(key: 'imprint.label', extensionName: 'success')}">
-                {f:translate(key: 'imprint.label', extensionName: 'success')}
-            </f:link.typolink>
-            <f:link.typolink parameter="{settings.info.owner.dataPrivacy}" class="data-privacy pl-4"
-                             title="{f:translate(key: 'dataPrivacy.label', extensionName: 'success')}">
-                {f:translate(key: 'dataPrivacy.label', extensionName: 'success')}
-            </f:link.typolink>
+    
+        <div class="legal-footer grid md:grid-cols-2 gap-3 mt-5">
+            <span class="copyright flex">
+                &copy; {settings.info.owner.name} {f:format.date(format: '%Y', date:'now')}
+            </span>
+            <div class="flex legal-container md:justify-end -mx-3">
+                <f:link.typolink parameter="{settings.info.owner.imprint}" class="imprint mx-2 px-1 hover:underline foucs:ring focus:ring-2 focus:ring-primary-200"
+                                 title="{f:translate(key: 'imprint.label', extensionName: 'success')}">
+                    {f:translate(key: 'imprint.label', extensionName: 'success')}
+                </f:link.typolink>
+                <f:link.typolink parameter="{settings.info.owner.dataPrivacy}" class="data-privacy mx-2 px-1 hover:underline foucs:ring focus:ring-2 focus:ring-primary-200"
+                                 title="{f:translate(key: 'dataPrivacy.label', extensionName: 'success')}">
+                    {f:translate(key: 'dataPrivacy.label', extensionName: 'success')}
+                </f:link.typolink>
+            </div>
         </div>
     </div>
+    
 </footer>

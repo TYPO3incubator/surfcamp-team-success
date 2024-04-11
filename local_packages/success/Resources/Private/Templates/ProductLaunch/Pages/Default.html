@@ -15,7 +15,7 @@
     <vac:asset.vite entry="assets/global.js"/>
     <vac:asset.vite entry="assets/product-launch.js"/>
 
-    <main class="font-text background-light">
+    <main class="font-text background-{settings.ui.layout.pagebg}">
         <f:for as="block" each="{content.column0.blocks}">
             <div id="c{block.uid}">
                 <s:renderBlock data="{block}" />

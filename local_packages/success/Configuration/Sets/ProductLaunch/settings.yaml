@@ -9,6 +9,8 @@ ui:
       isVisible: true
     radius: "5px"
     rotate: "3deg"
+    pagebg: "light"
+    footerbg: "light"
     font:
       text: "Roboto, sans-serif"
       heading: "Roboto Slab, serif"
