@@ -42,3 +42,9 @@ CREATE TABLE tx_success_feature
 	header varchar(255) DEFAULT '' NOT NULL,
 	text   text
 );
+
+CREATE TABLE tx_success_menu_item
+(
+	label  varchar(255) DEFAULT '' NOT NULL,
+	button_link  varchar(2048)
+);
