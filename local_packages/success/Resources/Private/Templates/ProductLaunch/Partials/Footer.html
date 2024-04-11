@@ -1,28 +1,29 @@
 <footer class="footer py-5 container px-5 mx-auto">
+    <f:if condition="{footer -> f:count()} != '0'">
+        <f:if condition="{settings.footer.maxCols} == 'auto'">
+            <f:then>
+                <f:if condition="{footer -> f:count()} > 4">
+                    <f:then>
+                        {f:variable(name: 'gridCount', value: '4')}
+                    </f:then>
+                    <f:else>
+                        {f:variable(name: 'gridCount', value: '{footer -> f:count()}')}
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                {f:variable(name: 'gridCount', value: '{settings.footer.maxCols}')}
+            </f:else>
+        </f:if>
 
-    <f:if condition="{settings.footer.maxCols} == 'auto'">
-        <f:then>
-            <f:if condition="{footer -> f:count()} > 4">
-                <f:then>
-                    {f:variable(name: 'gridCount', value: '4')}
-                </f:then>
-                <f:else>
-                    {f:variable(name: 'gridCount', value: '{footer -> f:count()}')}
-                </f:else>
-            </f:if>
-        </f:then>
-        <f:else>
-            {f:variable(name: 'gridCount', value: '{settings.footer.maxCols}')}
-        </f:else>
+        <div class="footer-contents grid gap-5 md:grid-cols-{gridCount} py-12">
+            <f:for each="{footer}" as="footerElements">
+                <div class="footer-content-container flex">
+                    <f:format.raw>{footerElements.data.bodytext}</f:format.raw>
+                </div>
+            </f:for>
+        </div>
     </f:if>
-
-    <div class="footer-contents grid gap-5 md:grid-cols-{gridCount} py-12">
-        <f:for each="{footer}" as="footerElements">
-            <div class="footer-content-container flex">
-                <f:format.raw>{footerElements.data.bodytext}</f:format.raw>
-            </div>
-        </f:for>
-    </div>
 
     <div class="legal-footer grid md:grid-cols-2 gap-5 py-12">
         <span class="copyright flex">
