@@ -107,4 +107,12 @@ html {
     .background-black {
         @apply bg-black text-white;
     }
+
+    .legal-container {
+        justify-content: right;
+
+        > * {
+            padding: 0 0 0 1rem;
+        }
+    }
 }

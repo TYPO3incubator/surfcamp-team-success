@@ -1,32 +1,16 @@
 settings:
-#  ui.info.owner:
+#  info.owner:
 #    label: "Site owners information"
 #    type: section
-  ui.info.owner.name:
+  info.owner.name:
     label: "Name/Company Name"
     type: string
     default: ""
-  ui.info.owner.street:
-    label: "Street + Housenumber"
-    type: string
-    default: ""
-  ui.info.owner.city:
-    label: "ZIP, City"
-    type: string
-    default: ""
-  ui.info.owner.phone:
-    label: "Phone number"
-    type: string
-    default: ""
-  ui.info.owner.mail:
-    label: "Mail address"
-    type: string
-    default: ""
-  ui.info.owner.imprint:
+  info.owner.imprint:
     label: "Imprint Information"
     type: string #string(URL) | TYPO3 PageId (Select-Helper)
     default: ""
-  ui.info.owner.dataPrivacy:
+  info.owner.dataPrivacy:
     label: "Data Privacy Information"
     type: string #string(URL) | TYPO3 PageId (Select-Helper)
     default: ""
@@ -49,11 +33,17 @@ settings:
     label: 'Default theme: Headline font'
     type: color
     default: 'rgb(1 97 239)'
-  ui.footer.maxCols:
+  footer.maxCols:
     label: 'Max Footer columns'
     description: 'Values:Label | auto:auto | 4:4  | 3:3 | 2:2 | 1:1'
     type: string #could be stringlist ?!
     default: 'auto'
+  footer.pageId:
+    label: 'Footer Page Id'
+    type: int #would be great to have a visual choice for a page
+    default: ''
+
+
 
 
 # todo: implement definitions

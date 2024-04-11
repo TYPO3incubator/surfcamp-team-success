@@ -25,14 +25,11 @@ ui:
 
 # DUMMYDATA
 #todo replace this values by backend ui input
-  info:
-    owner:
-      name: "Surfcompany Ltd."
-      street: "Carretera Matorral 1"
-      city: "35610 Puerto del Rosario, España"
-      phone: "+34 32 16 8"
-      mail: "surfcompany@beachwaves.com"
-      imprint: "https://mainpage.com/imprint"
-      dataPrivacy: "https://mainpage.com/dataprivacy"
-#  footer:
-#    maxCols: '3'
+info:
+  owner:
+    name: "Surfcompany Ltd."
+    imprint: "https://mainpage.com/imprint"
+    dataPrivacy: "https://mainpage.com/dataprivacy"
+footer:
+  maxCols: '3'
+  pageId: 3
