@@ -66,20 +66,19 @@ final class RenderBlockViewHelper extends AbstractViewHelper
         }
         $subView = GeneralUtility::makeInstance(StandaloneView::class);
         $r = clone $view->getRenderingContext();
+
         $subView->setRequest($renderingContext->getRequest());
         $subView->getRenderingContext()->setTemplatePaths($r->getTemplatePaths());
-        $templateNameParts = explode('.', $data->getFullType());
-        if(count($templateNameParts) == 2) {
-            $templateName = ucfirst($templateNameParts[0]) . '/' . GeneralUtility::underscoredToUpperCamelCase($templateNameParts[1]);
+        if (count($templateNameParts = explode('.', $data->getFullType())) === 2) {
+            $subView->getRenderingContext()->setControllerName(ucfirst($templateNameParts[0]));
+            $subView->getRenderingContext()->setControllerAction(GeneralUtility::underscoredToLowerCamelCase($templateNameParts[1]));
         }
 
-        $subView->setTemplate($templateName);
-        // @todo: consider using the same variables
         $subView->assign('data', $data->toArray(true));
         $subView->assign('context', $context);
         try {
             $content = $subView->render();
-        } catch (InvalidTemplateResourceException) {
+        } catch (InvalidTemplateResourceException $ex) {
             // Render via TypoScript as fallback
             /** @var CObjectViewHelper $cObjectViewHelper */
             $cObjectViewHelper = $view->getViewHelperResolver()->createViewHelperInstance('f', 'cObject');
