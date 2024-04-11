@@ -22,6 +22,8 @@ const VITE_ENTRYPOINTS = [
   "assets/fonts/roboto-mono.js",
   "assets/fonts/roboto-slab.js",
   "assets/fonts/roboto.js",
+  "assets/fonts/roboto.js",
+  "assets/js/mobile-navigation.js",
 ];
 
 // Output path for generated assets

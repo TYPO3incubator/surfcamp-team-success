@@ -73,7 +73,7 @@ final class RenderBlockViewHelper extends AbstractViewHelper
             $subView->getRenderingContext()->setControllerName(ucfirst($templateNameParts[0]));
             $subView->getRenderingContext()->setControllerAction(GeneralUtility::underscoredToLowerCamelCase($templateNameParts[1]));
         }
-
+        $subView->assign('settings', $renderingContext->getVariableProvider()->get('settings'));
         $subView->assign('data', $data->toArray(true));
         $subView->assign('rawData', $data->getRecord()->getRawRecord()->toArray());
         $subView->assign('context', $context);
