@@ -117,16 +117,16 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
                     'value' => 'default'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.lovely',
-                    'value' => 'lovely'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.h1',
+                    'value' => 'h1'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.fancy',
-                    'value' => 'fancy'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.h2',
+                    'value' => 'h2'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.rainbow',
-                    'value' => 'rainbow'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_ttc.xlf:header_style.h3',
+                    'value' => 'h3'
                 ]
             ]
         ]
