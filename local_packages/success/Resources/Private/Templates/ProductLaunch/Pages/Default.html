@@ -5,12 +5,14 @@
     xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
 >
     <f:asset.css identifier="theme-settings">
-        <s:themeVariablesProvider variables="{settings.ui.layout}" />
+        <s:fontMapping>
+            <s:themeVariablesProvider variables="{settings.ui.layout}" />
+        </s:fontMapping>
         <s:themeVariablesProvider variables="{settings.ui.light}" />
         <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".dark" />
     </f:asset.css>
 
-    <f:render partial="Typography" arguments="{fonts: settings.ui.font}"></f:render>
+    <f:render partial="Typography" arguments="{fonts: settings.ui.layout.font}"></f:render>
 
     <vac:asset.vite entry="assets/global.js"/>
     <vac:asset.vite entry="assets/product-launch.js"/>
@@ -22,4 +24,5 @@
     </main>
     <f:render partial="Footer" arguments="{_all}" />
     <f:render partial="Page/Modal" />
+    <span class="heading-xxl heading-xl heading-lg"></span>
 </html>

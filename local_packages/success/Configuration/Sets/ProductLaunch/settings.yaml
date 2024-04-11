@@ -1,8 +1,5 @@
 ui:
   theme: "system"
-  font:
-    text: "roboto"
-    heading: "roboto-slab"
   layout:
     navigation:
       position: "below"
@@ -12,8 +9,8 @@ ui:
     pagebg: "light"
     footerbg: "light"
     font:
-      text: "Roboto, sans-serif"
-      heading: "Roboto Slab, serif"
+      text: "roboto"
+      heading: "roboto-slab"
   light:
     color:
       primary: "rgb(235, 183, 35)"
