@@ -1,6 +1,5 @@
 ui:
   theme: "system"
-  name: "Surfboard Company"
   font:
     text: "roboto"
     heading: "roboto-slab"
@@ -28,3 +27,13 @@ ui:
       secondary: "rgb(94, 13, 25)"
       light: "rgb(255, 249, 232)"
 
+# DUMMYDATA
+#todo replace this values by backend ui input
+info:
+  owner:
+    name: "Surfcompany Ltd."
+    imprint: "https://mainpage.com/imprint"
+    dataPrivacy: "https://mainpage.com/dataprivacy"
+footer:
+  maxCols: '3'
+  pageId: 7
