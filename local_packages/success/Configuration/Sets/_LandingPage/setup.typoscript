@@ -8,4 +8,18 @@ page {
     10 = PAGEVIEW
     10.paths.100 = EXT:success/Resources/Private/Templates/_LandingPage/
     10.dataProcessing.10 = successContent
+    10.dataProcessing.20 = database-query
+    10.dataProcessing.20 {
+      table = tt_content
+      orderBy = sorting
+      pidInList = {$footer.pageId}
+      as = footer
+      // recursively process the images in the records with the FilesProcessor
+      dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+          references.fieldName = assets
+        }
+      }
+    }
 }

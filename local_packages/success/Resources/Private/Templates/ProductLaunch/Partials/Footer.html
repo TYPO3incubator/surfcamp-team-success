@@ -1,18 +1,33 @@
-<footer class="py-5 container px-5 mx-auto">
-    <div class="grid-cols-{settings.footer.maxCols}">
-        <!-- load contents here-->
+<footer class="footer py-5 container px-5 mx-auto">
 
+    <f:if condition="{settings.footer.maxCols} == 'auto'">
+        <f:then>
+            {f:variable(name: 'gridCount', value: '{footer -> f:count()}')}
+        </f:then>
+        <f:else>
+            {f:variable(name: 'gridCount', value: '{settings.footer.maxCols}')}
+        </f:else>
+    </f:if>
+
+    <div class="footer-contents grid gap-5 md:grid-cols-{gridCount}">
+        <f:for each="{footer}" as="footerElements">
+            <div class="footer-content-container flex">
+                <f:format.raw>{footerElements.data.bodytext}</f:format.raw>
+            </div>
+        </f:for>
     </div>
 
-    <div class="legal-footer grid grid-cols-2 gap-5">
+    <div class="legal-footer grid md:grid-cols-2 gap-5">
         <span class="copyright flex">
             &copy; {settings.info.owner.name} {f:format.date(format: '%Y', date:'now')}
         </span>
-        <div class="flex legal-container">
-            <f:link.typolink parameter="{settings.info.owner.imprint}" class="imprint" title="{f:translate(key: 'imprint.label', extensionName: 'success')}">
+        <div class="flex legal-container md:justify-end">
+            <f:link.typolink parameter="{settings.info.owner.imprint}" class="imprint pl-4"
+                             title="{f:translate(key: 'imprint.label', extensionName: 'success')}">
                 {f:translate(key: 'imprint.label', extensionName: 'success')}
             </f:link.typolink>
-            <f:link.typolink parameter="{settings.info.owner.imprint}" class="data-privacy" title="{f:translate(key: 'dataPrivacy.label', extensionName: 'success')}">
+            <f:link.typolink parameter="{settings.info.owner.imprint}" class="data-privacy pl-4"
+                             title="{f:translate(key: 'dataPrivacy.label', extensionName: 'success')}">
                 {f:translate(key: 'dataPrivacy.label', extensionName: 'success')}
             </f:link.typolink>
         </div>
