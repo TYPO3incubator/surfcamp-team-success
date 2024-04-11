@@ -1,0 +1,37 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+<div class="background-secondary">
+    <div class="container px-5 mx-auto">
+        <div class="{f:if(condition: data.media, then: 'grid md:grid-cols-3')}">
+            <f:if condition="{data.media}">
+                <div class="min-h-20">
+                    <f:image image="{data.media.0}" class="object-cover w-full h-full brightness-50" width="600"></f:image>
+                </div>
+            </f:if>
+            
+
+            <div class="{f:if(condition: data.media, then: 'md:col-span-2')} py-5 md:p-10 flex items-center">
+                <div>
+                    <div class="h2">TODO {data.header}</div>
+
+                    <f:for each="{data.tx_success_feature}" as="feature">
+                        <div class="mt-8 sm:flex">
+                            <span class="background-primary rounded-full p-2 w-8 h-8 mb-3 sm:mb-0 sm:mr-3 flex items-center justify-center">
+                                <f:if condition="{feature.icon}">
+                                    <f:image image="{feature.icon}" class="w-full h-full object-cover" width="20"></f:image>
+                                </f:if>
+                            </span>
+                            <div>
+                                <h3 class="h3 my-1">{feature.header}</h3>
+                                <div>{feature.text -> f:format.html()}</div>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

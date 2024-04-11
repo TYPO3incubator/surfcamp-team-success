@@ -12,6 +12,10 @@
     <vac:asset.vite entry="assets/global.js"/>
     <vac:asset.vite entry="assets/product-launch.js"/>
 
+    <f:for as="block" each="{content.column0.blocks}">
+        <s:renderBlock data="{block}" />
+    </f:for>
+
     <main class="font-text background-light">
         <div class="background-white">
             <div class="container mx-auto px-5">

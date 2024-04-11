@@ -1,0 +1,27 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+<div class="background-black relative min-h-screen flex items-center">
+    <f:if condition="{data.media}">
+        <f:image image="{data.media.0}" class="object-cover w-full h-full brightness-50 absolute top-0 left-0" width="1400"></f:image>
+    </f:if>
+    <div class="container px-5 py-12 mx-auto z-10 relative">
+        <div class="grid gap-5 md:grid-cols-2">
+            <div>
+                <div class="h1 mb-3">
+                    TODO Headline
+                </div>
+                <f:if condition="{data.bodytext}">
+                    <div class="rte">{data.bodytext -> f:format.html()}</div>
+                </f:if>
+                
+                <div class="mt-5">
+                    <a href="#" class="btn btn-primary">TODO Button</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
