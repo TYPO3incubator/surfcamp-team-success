@@ -1,0 +1,28 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+<div class="background-primary py-12">
+    <div class="container px-5 mx-auto">
+        <f:render partial="Content/Header"
+                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
+        <f:if condition="{data.tx_success_faq}">
+            <div class="mt-8">
+                <f:for each="{data.tx_success_faq}" as="faqItem">
+                    <details class="mt-5">
+                        <summary
+                            class="transifocus:ring-2 focus:ring-primary-200 background-white rounded w-full text-left font-bold px-4 py-2 flex justify-between items-center">
+                            {faqItem.question}
+                            <span aria-hidden="true"
+                                  class="rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">+</span>
+                        </summary>
+                        <article class="rte rounded-b background-white px-4 py-2 border-t border-light-500">
+                            <f:format.html>{faqItem.answer}</f:format.html>
+                        </article>
+                    </details>
+                </f:for>
+            </div>
+        </f:if>
+    </div>
+</div>
+</html>
