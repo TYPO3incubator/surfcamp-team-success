@@ -6,7 +6,7 @@ defined('TYPO3') or die();
 
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features.item',
+        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features.item',
         'label'                    => 'header',
         'hideTable'                => true,
         'tstamp'                   => 'tstamp',
@@ -25,8 +25,7 @@ return [
     ],
     'columns'   => [
         'icon' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features.icon',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features.icon',
             'config' => [
                 'type' => 'file',
                 'maxitems' => 1,
@@ -34,8 +33,7 @@ return [
             ],
         ],
         'header' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features.header',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features.header',
             'config'  => [
                 'type' => 'input',
                 'cols' => 255,
@@ -44,8 +42,7 @@ return [
             ],
         ],
         'text' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:features.text',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features.text',
             'config'  => [
                 'type' => 'text',
                 'cols' => 50,

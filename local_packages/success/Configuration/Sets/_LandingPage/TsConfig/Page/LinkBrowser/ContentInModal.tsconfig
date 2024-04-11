@@ -1,7 +1,7 @@
 TCEMAIN.linkHandler {
    contentInModal {
       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-      label = LLL:EXT:success/Resources/Private/Language/locallang_browse_links.xlf:contentInModal
+      label = LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:linkhandler.modal_content
       configuration {
           table = tt_content
       }

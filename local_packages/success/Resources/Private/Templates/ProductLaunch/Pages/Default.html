@@ -5,7 +5,8 @@
     xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
 >
     <f:asset.css identifier="theme-settings">
-        <s:themeVariablesProvider variables="{settings.ui.default}" />
+        <s:themeVariablesProvider variables="{settings.ui.layout}" />
+        <s:themeVariablesProvider variables="{settings.ui.light}" />
         <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".dark" />
     </f:asset.css>
 
@@ -13,39 +14,16 @@
     <vac:asset.vite entry="assets/product-launch.js"/>
 
     <main class="font-text background-light">
+        <f:for as="block" each="{content.column0.blocks}">
+            <s:renderBlock data="{block}" />
+        </f:for>
         <div class="background-white">
             <div class="container mx-auto px-5">
                 <div class="py-5">
-                    <span class="h1">Heading 1</span>
-                </div>
-                <div class="py-5">
-                    <span class="h2">Heading 2</span>
-                </div>
-                <div class="py-5">
-                    <span class="h3">Heading 3</span>
-                </div>
-                <div class="py-5 rte">
-                    <p>Lorem ipsum dolor sit <a href="#">amet</a>, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
-
-                <div class="py-5">
-                    <a href="#" class="btn btn-primary">Primary button</a>
-                </div>
-                <div class="py-5">
-                    <a href="#" class="btn btn-secondary">Secondary button</a>
-                </div>
-                <div class="py-5">
-                    <a href="#" class="btn btn-light">Light button</a>
-                </div>
-                <div class="py-5">
-                    <a href="#" data-cid="1" class="btn btn-black">Black button</a>
-                </div>
-                <div class="py-5">
-                    <a href="#" class="btn btn-white">White button</a>
+                    <a href="#" data-cid="1" class="btn btn-black">Modal test</a>
                 </div>
             </div>
         </div>
-        <f:render partial="Julia" />
 
         <div style="display:none">
             <div id="c1">

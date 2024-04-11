@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{overline}">
+    <span class="block uppercase text-xs mb-1">{overline}</span>
+</f:if>
+<f:switch expression="{headerLayout}">
+    <f:case value="1">
+        <h1 class="{headerStyle}">
+            {header -> f:format.raw()}
+        </h1>
+    </f:case>
+    <f:case value="2">
+        <h2 class="{headerStyle}">
+            {header -> f:format.raw()}
+        </h2>
+    </f:case>
+    <f:case value="3">
+        <h3 class="{headerStyle}">
+            {header -> f:format.raw()}
+        </h3>
+    </f:case>
+    <f:case value="4">
+        <h4 class="{headerStyle}">
+            {header -> f:format.raw()}
+        </h4>
+    </f:case>
+    <f:case value="5">
+        <h5 class="{headerStyle}">
+            {header -> f:format.raw()}
+        </h5>
+    </f:case>
+    <f:case value="100">
+    </f:case>
+    <f:defaultCase>
+        <span class="{headerStyle}">
+            {header -> f:format.raw()}
+        </span>
+    </f:defaultCase>
+</f:switch>
+
+<f:if condition="{subheader}">
+    <span class="block text-lg mt-3">{subheader}</span>
+</f:if>
+</html>

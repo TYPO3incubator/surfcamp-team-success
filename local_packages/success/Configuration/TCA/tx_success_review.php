@@ -6,7 +6,7 @@ defined('TYPO3') or die();
 
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews.item',
+        'title'                    => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews.item',
         'label'                    => 'name',
         'hideTable'                => true,
         'tstamp'                   => 'tstamp',
@@ -25,8 +25,7 @@ return [
     ],
     'columns'   => [
         'name' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews.name',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews.name',
             'config'  => [
                 'type' => 'input',
                 'cols' => 255,
@@ -35,8 +34,7 @@ return [
             ],
         ],
         'review' => [
-            'exclude' => 0,
-            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_ctypes.xlf:reviews.review',
+            'label'   => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:reviews.review',
             'config'  => [
                 'type' => 'text',
                 'cols' => 50,

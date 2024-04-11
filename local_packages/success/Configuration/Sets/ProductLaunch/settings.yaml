@@ -1,9 +1,15 @@
 ui:
   theme: "system"
-  default:
+  layout:
+    navigation:
+      position: "below"
+      isVisible: true
+    radius: "5px"
+    rotate: "3deg"
     font:
       text: "Roboto, sans-serif"
       heading: "Roboto, sans-serif"
+  light:
     color:
       primary: "rgb(235, 183, 35)"
       secondary: "rgb(94, 13, 25)"
@@ -11,17 +17,12 @@ ui:
       primarytext: "black"
       secondarytext: "white"
       lighttext: "black"
-    setting:
-      radius: "5px"
-      rotate: "3deg"
   dark:
     font: []
     color:
       primary: "rgb(235, 183, 35)"
       secondary: "rgb(94, 13, 25)"
       light: "rgb(255, 249, 232)"
-#    storagePid: 123456
-
 
 # DUMMYDATA
 #todo replace this values by backend ui input

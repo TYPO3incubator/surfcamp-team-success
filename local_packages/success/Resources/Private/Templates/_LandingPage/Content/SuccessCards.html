@@ -4,6 +4,8 @@
 >
 <div class="background-light py-12">
     <div class="container px-5 mx-auto">
+        <f:render partial="Content/Header"
+                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
         <div class="grid gap-5 md:grid-cols-3">
             <f:if condition="{data.tx_success_card}">
                 <f:for each="{data.tx_success_card}" as="card">

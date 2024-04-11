@@ -46,6 +46,16 @@ html {
         @apply text-xl font-bold font-heading;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        &.default {
+            @apply text-lg font-bold font-heading;
+        }
+    }
+
     .rte a {
         @apply underline hover:no-underline focus:no-underline focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-primary-200;
     }
@@ -68,5 +78,32 @@ html {
 
     .background-black {
         @apply bg-black text-white;
+    }
+
+    .navigation {
+        @apply  static lg:block lg:visible lg:opacity-100;
+        &.active {
+            @apply transition-all opacity-100 bg-white visible fixed z-50 top-0 left-0 w-full h-svh;
+            & ul {
+                @apply flex flex-col gap-2;
+            }
+            & .hamburger-menu-button {
+                @apply absolute top-3 right-2 z-50
+            }
+        }
+        & ul {
+            @apply hidden lg:flex;
+        }
+    }
+
+    .form-control {
+        @apply bg-white shadow appearance-none rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2
+    }
+
+    .form-checkbox {
+        @apply rounded h-5 w-5 accent-secondary-500;
+    }
+    .form-radio {
+        @apply h-5 w-5 accent-secondary-500;
     }
 }
