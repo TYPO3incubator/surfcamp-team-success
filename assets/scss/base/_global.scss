@@ -34,11 +34,17 @@ html {
         @apply bg-black text-white hover:bg-gray-900 focus:bg-gray-900;
     }
 
+    button[type="submit"] {
+        @extend .btn;
+        @extend .btn-primary;
+    }
+
+
     .heading-xxl {
         @apply text-5xl font-bold font-heading block;
     }
 
-    .heading-xl {
+    .heading-xl, form h2 {
         @apply text-3xl font-bold font-heading block;
     }
 
@@ -52,6 +58,7 @@ html {
     h4,
     h5,
     span {
+        @apply mb-1;
         &.default {
             @apply text-lg font-bold font-heading block;
         }
@@ -89,7 +96,7 @@ html {
                 @apply flex flex-col gap-2;
             }
             & .hamburger-menu-button {
-                @apply absolute top-3 right-2 z-50
+                @apply absolute top-3 right-2 z-50;
             }
         }
         & ul {
@@ -97,14 +104,48 @@ html {
         }
     }
 
-    .form-control {
-        @apply bg-white shadow appearance-none rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2
+    .form {
+        &-label {
+            @apply inline-block mb-1;
+        }
+        &-text {
+            @apply block mt-1;
+        }
+        &-control {
+            @apply bg-white shadow appearance-none rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2 resize-none;
+        }
+        &-check {
+            &-label {
+                @apply flex items-center gap-2;
+            }
+        }
+        &-checkbox {
+            @apply rounded h-5 w-5 accent-secondary-500;
+        }
+        &-radio {
+            @apply h-5 w-5 accent-secondary-500;
+        }
+        &-group {
+            @apply mb-4 last:mb-0;
+        }
     }
 
-    .form-checkbox {
-        @apply rounded h-5 w-5 accent-secondary-500;
+    input {
+        &[type="checkbox"] {
+            @extend .form-checkbox;
+        }
     }
-    .form-radio {
-        @apply h-5 w-5 accent-secondary-500;
+
+    [type="file"] {
+        @apply text-primarytext;
+    }
+    [type="file"]::-webkit-file-upload-button {
+        @extend .btn;
+        @extend .btn-primary;
+        @apply border-0;
+    }
+
+    .required {
+        @apply text-error;
     }
 }
