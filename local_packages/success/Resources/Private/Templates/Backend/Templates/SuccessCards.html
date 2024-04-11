@@ -25,12 +25,12 @@
 
         .card-headline {
             font-size: 18px;
-            padding: 15px 15px 0 15px;
+            padding: 15px;
         }
 
-        .textcontent {
-            font-size: 16px;
-            padding: 0 15px;
+        .card-container .textcontent {
+            font-size: 14px;
+            padding: 15px;
         }
 
         .cards {
@@ -44,6 +44,8 @@
             border: 2px solid wheat;
             border-radius: 15px;
             box-shadow: none;
+            padding: 0 10px;
+            height: fit-content;
         }
 
         .card-container .btn {
@@ -100,9 +102,9 @@
 
     <f:section name="Card">
         <div class="card card-item">
-            <f:if condition="{media}"><img class="card-media" src="{media}"></f:if>
+            <f:if condition="{media}"><f:image class="card-media" src="{media}" width="400" /></f:if>
             <f:if condition="{headline}"><span class="card-headline">{headline}</span></f:if>
-            <f:if condition="{bodytext}"><span class="textcontent"><f:format.raw>{bodytext}</f:format.raw></span></f:if>
+            <f:if condition="{bodytext}"><span class="textcontent"><f:format.html parseFuncTSPath="lib.parseFunc">{bodytext -> f:format.crop(maxCharacters: '300')}</f:format.html></span></f:if>
         </div>
     </f:section>
 </html>

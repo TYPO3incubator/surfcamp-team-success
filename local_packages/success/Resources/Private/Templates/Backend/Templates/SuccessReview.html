@@ -123,11 +123,11 @@
 
     <f:section name="Review">
         <div class="review-item">
-            <f:if condition="{review.name}"><span class="review-name"><f:format.raw>{review.name}</f:format.raw></span></f:if>
+            <f:if condition="{review.name}"><span class="review-name">{review.name}</span></f:if>
             <f:if condition="{review.review}">
                 <input class="review-expand" type="checkbox" >
                 <div class="review-review">
-                    <f:format.raw>{review.review}</f:format.raw>
+                    <f:format.html parseFuncTSPath="lib.parseFunc">{review.review}</f:format.html>
                 </div>
             </f:if>
         </div>

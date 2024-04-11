@@ -134,16 +134,16 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
                     'value' => 'default'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.lovely',
-                    'value' => 'lovely'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.heading-xxl',
+                    'value' => 'heading-xxl'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.fancy',
-                    'value' => 'fancy'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.heading-xl',
+                    'value' => 'heading-xl'
                 ],
                 [
-                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.rainbow',
-                    'value' => 'rainbow'
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.heading-lg',
+                    'value' => 'heading-lg'
                 ]
             ]
         ]
@@ -274,6 +274,22 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
             ],
             'minitems' => 2,
             'maxitems' => 6,
+        ],
+    ],
+    'tx_success_menu_item' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:menuItems',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'tx_success_menu_item',
+            'foreign_field' => 'parentid',
+            'foreign_table_field' => 'parenttable',
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 0,
+                'useSortable' => 1,
+            ],
+            'minitems' => 0,
+            'maxitems' => 7,
         ],
     ],
 ]);
@@ -589,3 +605,35 @@ $GLOBALS['TCA']['tt_content']['types']['success_features'] = [
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_features'] = 'install-manage-features';
+
+// Cards Element
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar',
+        'value' => 'success_topbar',
+        'icon' => 'content-header',
+        'group' => 'default',
+        'description' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.description',
+    ]
+);
+
+$GLOBALS['TCA']['tt_content']['types']['success_topbar'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.logo, assets,
+    --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:menuItems, tx_success_menu_item,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
+];
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_topbar'] = 'content-header';

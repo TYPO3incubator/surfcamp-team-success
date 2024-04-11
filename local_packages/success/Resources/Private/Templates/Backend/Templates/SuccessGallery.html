@@ -25,11 +25,14 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 15px;
         }
 
         .gallery-item {
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
             border-radius: 15px;
             border: 2px solid wheat;
             box-shadow: none;
@@ -42,7 +45,7 @@
             <f:if condition="{header}"><span class="headline">{header}</span></f:if>
             <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
         </div>
-        <div class="cards">
+        <div class="gallery">
             <f:for each="{allAssets}" as="media">
                 <f:render section="Media" arguments="{_all}" />
             </f:for>
@@ -52,7 +55,7 @@
     <f:section name="Media">
         <f:if condition="{media}">
             <div class="gallery-item">
-                <f:image image="{media}" />
+                <f:image image="{media}" width="400" />
             </div>
         </f:if>
     </f:section>

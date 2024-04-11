@@ -123,11 +123,11 @@
 
     <f:section name="Faq">
         <div class="faq-item">
-            <f:if condition="{faq.question}"><span class="faq-question"><f:format.raw>{faq.question}</f:format.raw></span></f:if>
+            <f:if condition="{faq.question}"><span class="faq-question"><f:format.html parseFuncTSPath="lib.parseFunc">{faq.question}</f:format.html></span></f:if>
             <f:if condition="{faq.answer}">
                 <input class="faq-expand" type="checkbox" >
                 <div class="faq-answer">
-                    <f:format.raw>{faq.answer}</f:format.raw>
+                    <f:format.html parseFuncTSPath="lib.parseFunc">{faq.answer}</f:format.html>
                 </div>
             </f:if>
         </div>

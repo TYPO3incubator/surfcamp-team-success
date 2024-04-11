@@ -22,7 +22,7 @@
                                 <div class="font-bold text-lg mb-2">{card.headline}</div>
                             </f:if>
                             <f:if condition="{card.text}">
-                                <div>{card.text -> f:format.html()}</div>
+                                <div>{card.text -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
                             </f:if>
                             <f:if condition="{card.link}">
                                 <div class="mt-5">

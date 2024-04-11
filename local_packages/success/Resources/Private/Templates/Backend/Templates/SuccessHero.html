@@ -60,10 +60,10 @@
         }
     </style>
     <div class="hero-container">
-        <f:if condition="{allmedia.0}"><f:image class="hero-background" image="{allMedia.0}" /></f:if>
+        <f:if condition="{allAssets.0}"><f:image class="hero-background" image="{allAssets.0}" width="400px" /></f:if>
         <f:if condition="{bodytext}">
             <div class="hero-content">
-                <f:format.raw>{bodytext}</f:format.raw>
+                <f:format.html parseFuncTSPath="lib.parseFunc">{bodytext -> f:format.crop(maxCharacters: '300')}</f:format.html>
             </div>
         </f:if>
     </div>
