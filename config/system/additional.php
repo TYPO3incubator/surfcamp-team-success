@@ -37,8 +37,27 @@ $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'
     ],
 ]);
 
-if (\TYPO3\CMS\Core\Core\Environment::getContext() == 'Development') {
-// Use dev server only if it's running ( ddev vite-serve start )
-$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['useDevServer'] = (bool)exec('tmux ls 2>/dev/null | grep vite-sess');
-$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['devServerUri'] = (string)getenv('DDEV_PRIMARY_URL') . ':' . getenv('VITE_PRIMARY_PORT');
+if (\TYPO3\CMS\Core\Core\Environment::getContext()->isDevelopment()) {
+    // Use dev server only if it's running ( ddev vite-serve start )
+    $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['useDevServer'] = (bool)exec('tmux ls 2>/dev/null | grep vite-sess');
+    $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['devServerUri'] = getenv('DDEV_PRIMARY_URL') . ':' . getenv('VITE_PRIMARY_PORT');
+
+    // Disable caching locally
+    $doNotDisableCache = [
+        'fluid_template',
+        'runtime',
+    ];
+    foreach ($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'] as $cacheName => $cacheConfiguration) {
+        if (in_array($cacheName, $doNotDisableCache, true)) {
+            continue;
+        }
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['frontend'])) {
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['frontend'] = \TYPO3\CMS\Core\Cache\Frontend\NullFrontend::class;
+        }
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'])) {
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$cacheName]['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
+        }
+    }
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['fluid_template']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
 }
