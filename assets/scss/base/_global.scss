@@ -131,23 +131,23 @@ html {
 
     .space-after {
         &-extra-small {
-            @apply pt-4;
+            @apply pb-4;
         }
 
         &-small {
-            @apply pt-8;
+            @apply pb-8;
         }
 
         &-medium {
-            @apply pt-12;
+            @apply pb-12;
         }
 
         &-large {
-            @apply pt-16;
+            @apply pb-16;
         }
 
         &-extra-large {
-            @apply pt-20;
+            @apply pb-20;
         }
     }
 }
