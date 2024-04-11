@@ -7,7 +7,7 @@ languages:
   -
     title: English
     enabled: true
-    locale: en_US.UTF-8
+    locale: en-US
     hreflang: ''
     base: /
     websiteTitle: ''

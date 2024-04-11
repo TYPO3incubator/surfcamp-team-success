@@ -1,13 +1,13 @@
-base: 'https://team6.surfcamp.typo3.com/typo3-sets'
+base: 'https://team6.surfcamp.typo3.com/'
 baseVariants:
   -
-    base: 'https://surfcamp-team6.ddev.site/typo3-sets'
+    base: 'https://surfcamp-team6.ddev.site/'
     condition: 'applicationContext == "Development"'
 languages:
   -
     title: English
     enabled: true
-    locale: en_US.UTF-8
+    locale: en-US
     hreflang: ''
     base: /
     websiteTitle: ''
