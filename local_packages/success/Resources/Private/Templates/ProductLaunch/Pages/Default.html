@@ -5,7 +5,8 @@
     xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
 >
     <f:asset.css identifier="theme-settings">
-        <s:themeVariablesProvider variables="{settings.ui.default}" />
+        <s:themeVariablesProvider variables="{settings.ui.layout}" />
+        <s:themeVariablesProvider variables="{settings.ui.light}" />
         <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".dark" />
     </f:asset.css>
 
@@ -23,6 +24,7 @@
                 </div>
             </div>
         </div>
+
         <f:render partial="Julia" />
         <div style="display:none">
             <div id="c1">
