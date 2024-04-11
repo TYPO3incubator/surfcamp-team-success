@@ -48,9 +48,9 @@
 
     <div class="number-container">
         <div class="content">
-            <span class="overline">{overline}</span>
-            <span class="headline">{header}</span>
-            <p class="subline">{subheader}</p>
+            <f:if condition="{overline}"><span class="overline">{overline}</span></f:if>
+            <f:if condition="{header}"><span class="headline">{header}</span></f:if>
+            <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
         </div>
         <div class="numbers">
             <f:for each="{s:previewAssets(localUid: uid, foreignTable: 'tx_success_number_item', foreignField: 'parentid')}" as="number">
@@ -61,8 +61,8 @@
 
     <f:section name="Number">
         <div class="item">
-            <span class="number">{number}{suffix}</span>
-            <span class="label">{label}</span>
+            <f:if condition="{number}"><span class="number">{number}{suffix}</span></f:if>
+            <f:if condition="{label}"><span class="label">{label}</span></f:if>
         </div>
     </f:section>
 </html>

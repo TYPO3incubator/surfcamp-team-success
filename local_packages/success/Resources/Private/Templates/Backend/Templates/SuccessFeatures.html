@@ -98,9 +98,9 @@
 
     <div class="feature-container">
         <div class="content">
-            <span class="overline">{overline}</span>
-            <span class="headline">{header}</span>
-            <p class="subline">{subheader}</p>
+            <f:if condition="{overline}"><span class="overline">{overline}</span></f:if>
+            <f:if condition="{header}"><span class="headline">{header}</span></f:if>
+            <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
         </div>
         <div class="features">
             <f:for each="{s:previewAssets(localUid: uid, foreignTable: 'tx_success_feature', foreignField: 'parentid', hasMedia: 'true')}" as="feature">
@@ -112,10 +112,10 @@
     <f:section name="feature">
         <div class="feature feature-item">
             <div class="feature-header">
-                <img class="feature-media" src="{feature.media}">
-                <span class="feature-headline">{feature.header}</span>
+                <f:if condition="{feature.media}"><img class="feature-media" src="{feature.media}"></f:if>
+                <f:if condition="{feature.header}"><span class="feature-headline">{feature.header}</span></f:if>
             </div>
-            <span class="textcontent"><f:format.raw>{feature.text}</f:format.raw></span>
+            <f:if condition="{feature.text}"><span class="textcontent"><f:format.raw>{feature.text}</f:format.raw></span></f:if>
         </div>
     </f:section>
 </html>

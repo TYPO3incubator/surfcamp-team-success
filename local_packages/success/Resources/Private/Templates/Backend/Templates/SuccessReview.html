@@ -110,24 +110,26 @@
 
     <div class="review-container">
         <div class="content">
-            <span class="overline">{overline}</span>
-            <span class="headline">{header}</span>
-            <p class="subline">{subheader}</p>
+            <f:if condition="{overline}"><span class="overline">{overline}</span></f:if>
+            <f:if condition="{header}"><span class="headline">{header}</span></f:if>
+            <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
         </div>
         <div class="reviews">
             <f:for each="{s:previewAssets(localUid: uid, foreignTable: 'tx_success_review', foreignField: 'parentid')}" as="review">
-                <f:render section="review" arguments="{_all}" />
+                <f:render section="Review" arguments="{_all}" />
             </f:for>
         </div>
     </div>
 
-    <f:section name="review">
+    <f:section name="Review">
         <div class="review-item">
-            <span class="review-name"><f:format.raw>{review.name}</f:format.raw></span>
-            <input class="review-expand" type="checkbox" >
-            <div class="review-review">
-                <f:format.raw>{review.review}</f:format.raw>
-            </div>
+            <f:if condition="{review.name}"><span class="review-name"><f:format.raw>{review.name}</f:format.raw></span></f:if>
+            <f:if condition="{review.review}">
+                <input class="review-expand" type="checkbox" >
+                <div class="review-review">
+                    <f:format.raw>{review.review}</f:format.raw>
+                </div>
+            </f:if>
         </div>
     </f:section>
 </html>
