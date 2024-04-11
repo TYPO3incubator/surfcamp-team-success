@@ -509,6 +509,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
     --palette--;;header, bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
     --palette--;;button,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
+    --linebreak--, imageorient;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient_formlabel,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
     --palette--;;frames,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
@@ -528,12 +529,38 @@ $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
                 'richtextConfiguration' => 'minimal'
             ],
         ],
-        'media' => [
+        'assets' => [
             'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.media',
             'config' => [
                 'type' => 'file',
                 'allowed' => 'common-image-types',
                 'maxitems' => 1,
+            ],
+        ],
+        'imageorient' => [
+            'config' => [
+                'items' => [
+                    [
+                        'icon' => 'content-beside-text-img-centered-right',
+                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.imageorient.background.text_left',
+                        'value' => 0,
+                    ],
+                    [
+                        'icon' => 'content-beside-text-img-centered-left',
+                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.imageorient.background.text_right',
+                        'value' => 1,
+                    ],
+                    [
+                        'icon' => 'content-beside-text-img-right',
+                        'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.9',
+                        'value' => 2,
+                    ],
+                    [
+                        'icon' => 'content-beside-text-img-left',
+                        'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient.I.10',
+                        'value' => 3,
+                    ],
+                ],
             ],
         ],
     ],

@@ -4,27 +4,69 @@
 >
 <f:layout name="Default"/>
 <f:section name="Main">
-<div class="background-black relative min-h-screen flex items-center">
-    <f:if condition="{data.assets}">
-        <f:image image="{data.assets.0}" class="object-cover w-full h-full brightness-50 absolute top-0 left-0" width="1400"></f:image>
+    <f:if condition="{data.imageorient} > 1">
+        <f:then>
+            <f:render section="Beside" arguments="{_all}"/>
+        </f:then>
+        <f:else>
+            <f:render section="Fullwidth" arguments="{_all}"/>
+        </f:else>
     </f:if>
-    <div class="container px-5 py-12 mx-auto z-10 relative">
-        <div class="grid gap-5 md:grid-cols-2">
-            <div>
-                <f:render partial="Content/Header"
-                    arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, overline: data.overline}"/>
+</f:section>
 
-                <f:if condition="{data.bodytext}">
-                    <div class="rte mt-4">{data.bodytext -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
-                </f:if>
+<f:section name="Fullwidth">
+    <div class="background-black relative min-h-screen flex items-center">
+        <f:if condition="{data.assets}">
+            <f:image image="{data.assets.0}" class="object-cover w-full h-full brightness-50 absolute top-0 left-0" width="1400"></f:image>
+        </f:if>
+        <div class="container px-5 py-12 mx-auto z-10 relative">
+            <div class="grid gap-5 md:grid-cols-2">
+                <div class="{f:if(condition: '{data.imageorient} == 1', then: 'col-start-2')}">
+                    <f:render partial="Content/Header"
+                              arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, overline: data.overline}"/>
 
-                <div class="mt-5">
-                    <f:render partial="Content/Button"
-                              arguments="{buttonLink: data.button_link, buttonStyle: data.button_style, buttonLabel: data.button_label}"/>
+                    <f:if condition="{data.bodytext}">
+                        <div class="rte mt-4">{data.bodytext -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
+                    </f:if>
+
+                    <div class="mt-5">
+                        <f:render partial="Content/Button"
+                                  arguments="{buttonLink: data.button_link, buttonStyle: data.button_style, buttonLabel: data.button_label}"/>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</f:section>
+
+<f:section name="Beside">
+    <div class="background-light relative pb-12 min-h-screen flex items-center">
+        <div class="container px-5 mx-auto mt-[6rem]">
+            <div class="grid gap-5 md:grid-cols-2">
+                <div class="flex items-center">
+                    <div>
+                        <f:render partial="Content/Header"
+                                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, overline: data.overline}"/>
+
+                        <f:if condition="{data.bodytext}">
+                            <div class="rte mt-4">{data.bodytext -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
+                        </f:if>
+                        <div class="mt-5">
+                            <f:render partial="Content/Button"
+                                      arguments="{buttonLink: data.button_link, buttonStyle: data.button_style, buttonLabel: data.button_label}"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:flex justify-center items-center{f:if(condition: '{data.imageorient} == 3', then: ' order-first')}">
+                    <div class="aspect-square rounded overflow-hidden rotate-right max-w-80">
+                        <f:if condition="{data.assets}">
+                            <f:image image="{data.assets.0}" class="object-cover h-full w-full" width="1400"></f:image>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </f:section>
 </html>
