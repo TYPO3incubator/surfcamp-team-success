@@ -17,7 +17,14 @@
         }
 
         .media-file {
+            display: flex;
+            justify-content: center;
             width: 50%;
+        }
+        .media-file img {
+            width: 100%;
+            object-fit: cover;
+            max-height: 400px;
         }
 
         .overline {
@@ -33,6 +40,7 @@
         }
 
         .textcontent {
+            width: 85%;
             font-size: 16px;
         }
     </style>
@@ -54,14 +62,14 @@
             <f:if condition="{overline}"><span class="overline">{overline}</span></f:if>
             <f:if condition="{header}"><span class="headline">{header}</span></f:if>
             <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
-            <div><f:format.raw>{bodytext}</f:format.raw></div>
+            <div class="textcontent"><f:format.raw>{bodytext -> f:format.crop(maxCharacters: '300')}</f:format.raw></div>
         </div>
     </f:section>
 
     <f:section name="Media">
         <f:if condition="{allAssets.0}">
             <div class="media-file">
-                <f:image image="{allAssets.0}" />
+                <f:image image="{allAssets.0}" width="400" />
             </div>
         </f:if>
     </f:section>
