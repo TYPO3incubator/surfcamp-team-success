@@ -1,0 +1,30 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+
+<f:debug>{_all}</f:debug>
+<div class="background-light py-12">
+    <div class="container px-5 mx-auto">
+        <f:render partial="Content/Header"
+                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
+
+        <div class="grid gap-5 md:grid-cols-3 mt-10">
+            <f:for each="{data.tx_success_review}" as="review">
+                <div class="flex items-center">
+                    <blockquote class="background-white p-5 rounded w-full relative">
+                        <span class="text-7xl text-primary-500 font-bold absolute right-5 -top-4">&rdquo;</span>
+                        <f:if condition="{review.review}">
+                            <p class="text-lg">{review.review}</p>
+                        </f:if>
+                        <f:if condition="{review.name}">
+                            <footer class="font-bold mt-5">{review.name}</footer>
+                        </f:if>
+                    </blockquote>
+                </div>
+            </f:for>
+        </div>
+    </div>
+</div>
+
+</html>
