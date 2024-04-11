@@ -1,6 +1,6 @@
 <html xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers">
     <style>
-        .partner-container {
+        .gallery-container {
             display: flex;
             flex-direction: column;
             background: rgb(255, 249, 232);
@@ -23,34 +23,34 @@
             font-size: 18px;
         }
 
-        .partners {
+        .gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 15px;
         }
 
-        .logo-item {
+        .gallery-item {
             border-radius: 15px;
             border: 2px solid wheat;
             box-shadow: none;
         }
     </style>
 
-    <div class="partner-container">
+    <div class="gallery-container">
         <div class="content">
             <span class="overline">{overline}</span>
             <span class="headline">{header}</span>
             <p class="subline">{subheader}</p>
         </div>
-        <div class="partners">
-            <f:for each="{allTxSuccessPartner}" as="media">
+        <div class="cards">
+            <f:for each="{allTxSuccessGalleryItem}" as="media">
                 <f:render section="Media" arguments="{_all}" />
             </f:for>
         </div>
     </div>
 
     <f:section name="Media">
-        <div class="logo-item">
+        <div class="gallery-item">
             <f:image image="{media}" />
         </div>
     </f:section>
