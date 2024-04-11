@@ -45,6 +45,18 @@ foreach ($GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'] as
     }
 }
 
+// Override space before and after
+$GLOBALS['TCA']['tt_content']['columns']['space_before_class']['config']['default'] = 'medium';
+$GLOBALS['TCA']['tt_content']['columns']['space_before_class']['config']['items']['0'] = [
+    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:space.none',
+    'value' => 'none',
+];
+$GLOBALS['TCA']['tt_content']['columns']['space_after_class']['config']['default'] = 'medium';
+$GLOBALS['TCA']['tt_content']['columns']['space_after_class']['config']['items']['0'] = [
+    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:space.none',
+    'value' => 'none',
+];
+
 // Palettes
 $GLOBALS['TCA']['tt_content']['palettes']['frames']['showitem'] = '
 layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:layout_formlabel,

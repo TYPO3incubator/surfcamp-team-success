@@ -182,6 +182,10 @@
 				<source>Text</source>
 			</trans-unit>
 
+			<trans-unit id="space.none" resname="space.none">
+				<source>None</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
