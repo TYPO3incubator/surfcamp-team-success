@@ -1,9 +1,11 @@
-<vac:asset.vite entry="assets/js/mobile-navigation.js"/>
 <button
-    class="hambuger-menu-button flex h-5 flex-col justify-between lg:hidden ml-auto"
+    class="hamburger-menu-button lg:hidden ml-auto h-5"
     title="Menu"
 >
-    <span class="h-1 w-8 bg-black"></span>
-    <span class="h-1 w-8 bg-black"></span>
-    <span class="h-1 w-8 bg-black"></span>
+    <span aria-hidden="true" class="hamburger-menu-open w-5 flex flex-col justify-between gap-1">
+        <span class="block h-1 w-full bg-black"></span>
+        <span class="block h-1 w-full bg-black"></span>
+        <span class="block h-1 w-full bg-black"></span>
+    </span>
+    <span aria-hidden="true" class="hamburger-menu-close hidden">&#10006;</span>
 </button>

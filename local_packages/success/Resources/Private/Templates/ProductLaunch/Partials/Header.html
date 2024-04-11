@@ -1,6 +1,6 @@
-<!-- TODO: If logo is missing, but alt is provided - display plain text -->
+<vac:asset.vite entry="assets/js/mobile-navigation.js"/>
 
-<header class="absolute top-0 left-0 z-10 w-full">
+<header class="absolute top-0 left-0 z-50 w-full">
     <f:if condition="{settings.ui.layout.navigation.position} == 'below'">
     <f:then>
         <div class="w-full px-5 py-3 lg:block flex items-center justify-between gap-2">
@@ -10,8 +10,6 @@
                 <f:then>
                     <div class="mt-2 text-black">
                         <f:render partial="Navigation" />
-
-                        <f:render partial="HamburgerMenuButton" />
                     </div>
                 </f:then>
             </f:if>
@@ -24,8 +22,6 @@
                 <div class="px-5 text-black py-3">
                     <div class="flex justify-between items-center gap-2">
                         <f:render partial="Logo" />
-
-                        <f:render partial="HamburgerMenuButton" />
 
                         <f:if condition="{settings.ui.layout.navigation.isVisible}">
                             <f:then>
