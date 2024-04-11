@@ -16,14 +16,14 @@
 			<trans-unit id="header_style.default" resname="header_style.default">
 				<source>Default</source>
 			</trans-unit>
-			<trans-unit id="header_style.lovely" resname="header_style.lovely">
-				<source>Lovely</source>
+			<trans-unit id="header_style.heading-xxl" resname="header_style.heading-xxl">
+				<source>Heading XXLarge</source>
 			</trans-unit>
-			<trans-unit id="header_style.fancy" resname="header_style.fancy">
-				<source>Fancy</source>
+			<trans-unit id="header_style.heading-xl" resname="header_style.heading-xl">
+				<source>Heading XLarge</source>
 			</trans-unit>
-			<trans-unit id="header_style.rainbow" resname="header_style.rainbow">
-				<source>Over the rainbow</source>
+			<trans-unit id="header_style.heading-lg" resname="header_style.heading-lg">
+				<source>Heading Large</source>
 			</trans-unit>
 
 			<trans-unit id="button" resname="button">
@@ -205,6 +205,28 @@
 				<source>None</source>
 			</trans-unit>
 
+			<trans-unit id="topbar" resname="topbar.logo">
+				<source>Topbar</source>
+			</trans-unit>
+			<trans-unit id="topbar.description" resname="topbar.logo">
+				<source>Top bar element to display a logo and navigation</source>
+			</trans-unit>
+			<trans-unit id="topbar.logo" resname="topbar.logo">
+				<source>Logo</source>
+			</trans-unit>
+
+			<trans-unit id="menuItems" resname="menuItems">
+				<source>Menu items</source>
+			</trans-unit>
+			<trans-unit id="menuItems.single" resname="menuItems.single">
+				<source>Menu item</source>
+			</trans-unit>
+			<trans-unit id="menuItems.label" resname="menuItems.label">
+				<source>Label</source>
+			</trans-unit>
+			<trans-unit id="menuItems.link" resname="menuItems.link">
+				<source>Link</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

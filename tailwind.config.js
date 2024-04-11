@@ -1,7 +1,7 @@
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["local_packages/success/**/*.html"],
+  content: ["local_packages/success/**/*.html", "vendor/typo3/**/*.html"],
   theme: {
     fontFamily: {
       text: ['var(--font-text)'],
@@ -37,10 +37,18 @@ export default {
         '500': 'var(--color-light)',
         '700': 'var(--color-light-dark)',
       },
+      error: {
+        DEFAULT: '#f44336'
+      },
       primarytext: 'var(--color-primarytext)',
       secondarytext: 'var(--color-secondarytext)',
       lighttext: 'var(--color-lighttext)',
     },
     extend: {},
+    safelist: [
+      'heading-xxl',
+      'heading-xl',
+      'heading-lg',
+    ]
   },
 }

@@ -63,7 +63,7 @@ class RawRecord implements \ArrayAccess, RecordInterface
     public function getType(): string
     {
         return count(GeneralUtility::revExplode('.', $this->type, 2)) === 1
-            ? (GeneralUtility::revExplode('.', $this->type, 2)[1] ?: '') : '';
+            ? (GeneralUtility::revExplode('.', $this->type, 2)[1] ?? '') : '';
     }
 
     public function toArray(): array

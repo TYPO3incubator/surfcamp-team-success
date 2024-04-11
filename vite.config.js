@@ -16,11 +16,14 @@ const VITE_ENTRYPOINTS = [
   "assets/fonts/lato.js",
   "assets/fonts/merriweather.js",
   "assets/fonts/noto-serif.js",
+  "assets/fonts/open-sans.js",
   "assets/fonts/oswald.js",
   "assets/fonts/playpen-sans.js",
   "assets/fonts/roboto-mono.js",
   "assets/fonts/roboto-slab.js",
   "assets/fonts/roboto.js",
+  "assets/fonts/roboto.js",
+  "assets/js/mobile-navigation.js",
 ];
 
 // Output path for generated assets
