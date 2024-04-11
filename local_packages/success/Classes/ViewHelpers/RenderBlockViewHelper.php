@@ -68,10 +68,11 @@ final class RenderBlockViewHelper extends AbstractViewHelper
         $r = clone $view->getRenderingContext();
         $subView->setRequest($renderingContext->getRequest());
         $subView->getRenderingContext()->setTemplatePaths($r->getTemplatePaths());
-        $templateNameParts = explode('.', $data->getFullType());
-        if(count($templateNameParts) == 2) {
+        $templateName = $data->getFullType();
+        if (count($templateNameParts = explode('.', $templateName)) === 2) {
             $templateName = ucfirst($templateNameParts[0]) . '/' . GeneralUtility::underscoredToUpperCamelCase($templateNameParts[1]);
         }
+        $subView->setTemplate($templateName);
 
         $subView->setTemplate($templateName);
         // @todo: consider using the same variables
