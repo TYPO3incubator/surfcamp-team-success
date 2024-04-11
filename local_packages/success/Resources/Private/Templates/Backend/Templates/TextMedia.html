@@ -51,16 +51,18 @@
 
     <f:section name="Text">
         <div class="text">
-            <span class="overline">{overline}</span>
-            <span class="headline">{header}</span>
-            <p class="subline">{subheader}</p>
+            <f:if condition="{overline}"><span class="overline">{overline}</span></f:if>
+            <f:if condition="{header}"><span class="headline">{header}</span></f:if>
+            <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
             <div><f:format.raw>{bodytext}</f:format.raw></div>
         </div>
     </f:section>
 
     <f:section name="Media">
-        <div class="media-file">
-            <f:image image="{allAssets.0}" />
-        </div>
+        <f:if condition="{allAssets.0}">
+            <div class="media-file">
+                <f:image image="{allAssets.0}" />
+            </div>
+        </f:if>
     </f:section>
 </html>

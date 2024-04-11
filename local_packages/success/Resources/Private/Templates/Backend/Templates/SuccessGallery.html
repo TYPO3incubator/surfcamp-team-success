@@ -38,9 +38,9 @@
 
     <div class="gallery-container">
         <div class="content">
-            <span class="overline">{overline}</span>
-            <span class="headline">{header}</span>
-            <p class="subline">{subheader}</p>
+            <f:if condition="{overline}"><span class="overline">{overline}</span></f:if>
+            <f:if condition="{header}"><span class="headline">{header}</span></f:if>
+            <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
         </div>
         <div class="cards">
             <f:for each="{allAssets}" as="media">
@@ -50,8 +50,10 @@
     </div>
 
     <f:section name="Media">
-        <div class="gallery-item">
-            <f:image image="{media}" />
-        </div>
+        <f:if condition="{media}">
+            <div class="gallery-item">
+                <f:image image="{media}" />
+            </div>
+        </f:if>
     </f:section>
 </html>

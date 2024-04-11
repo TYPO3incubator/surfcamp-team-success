@@ -16,6 +16,7 @@
             left: 15%;
             top: 50%;
             transform: translateY(-50%);
+            max-width: 60%;
             font-size: 18px;
             color: white;
         }
@@ -59,9 +60,11 @@
         }
     </style>
     <div class="hero-container">
-        <f:image class="hero-background" image="{allMedia.0}" />
-        <div class="hero-content">
-            <f:format.raw>{bodytext}</f:format.raw>
-        </div>
+        <f:if condition="{allmedia.0}"><f:image class="hero-background" image="{allMedia.0}" /></f:if>
+        <f:if condition="{bodytext}">
+            <div class="hero-content">
+                <f:format.raw>{bodytext}</f:format.raw>
+            </div>
+        </f:if>
     </div>
 </html>
