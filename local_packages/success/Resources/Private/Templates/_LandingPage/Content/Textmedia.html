@@ -2,22 +2,25 @@
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
+<f:layout name="Default"/>
+<f:section name="Main">
 <div class="background-secondary py-12">
     <div class="container px-5 mx-auto">
         <div class="grid gap-8 md:grid-cols-2">
             <f:switch expression="{data.imageorient}">
                 <f:case value="1">
                     <f:render section="text" arguments="{data: data}"/>
-                    <f:render section="media" arguments="{data: data}"/>
+                    <f:render section="media" arguments="{data: data, rotate: 'rotate-right'}"/>
                 </f:case>
                 <f:defaultCase>
-                    <f:render section="media" arguments="{data: data}"/>
+                    <f:render section="media" arguments="{data: data, rotate: 'rotate-left'}"/>
                     <f:render section="text" arguments="{data: data}"/>
                 </f:defaultCase>
             </f:switch>
         </div>
     </div>
 </div>
+</f:section>
 <f:section name="text">
     <div class="flex items-center">
         <div>
@@ -31,7 +34,7 @@
 </f:section>
 <f:section name="media">
     <div class="md:flex justify-center items-center">
-        <div class="aspect-square rounded overflow-hidden rotate-left max-w-80">
+        <div class="aspect-square rounded overflow-hidden {rotate} max-w-80">
             <f:if condition="{data.assets}">
                 <f:for each="{data.assets}" as="media">
                     <f:image src="{media.uid}" treatIdAsReference="1" class="object-cover h-full w-full" width="400"/>
