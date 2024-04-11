@@ -548,6 +548,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_features'] = [
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,
     --palette--;;headers,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
     --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:features, tx_success_feature,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
     --palette--;;frames,
