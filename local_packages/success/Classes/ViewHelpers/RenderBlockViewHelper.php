@@ -75,6 +75,7 @@ final class RenderBlockViewHelper extends AbstractViewHelper
         }
 
         $subView->assign('data', $data->toArray(true));
+        $subView->assign('rawData', $data->getRecord()->getRawRecord()->toArray());
         $subView->assign('context', $context);
         try {
             $content = $subView->render();

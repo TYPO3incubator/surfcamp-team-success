@@ -2,6 +2,8 @@
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
+<f:layout name="Default"/>
+<f:section name="Main">
 <div class="background-secondary relative">
     <f:if condition="{data.media}">
         <div class="aspect-video md:aspect-auto relative md:static">
@@ -16,14 +18,14 @@
                     <f:image image="{data.media.0}" class="object-cover w-full h-full brightness-50" width="600"></f:image>
                 </div>
             </f:if>
-            
+
             <div></div>
 
             <div class="{f:if(condition: data.media, then: 'md:col-span-2')} py-5 md:p-10 flex items-center">
                 <div>
                     <f:render partial="Content/Header"
                         arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
-        
+
                     <f:for each="{data.tx_success_feature}" as="feature">
                         <div class="mt-8 sm:flex">
                             <f:if condition="{feature.icon}">
@@ -40,7 +42,7 @@
                                 </f:else>
                             </f:if>
 
-                            
+
                             <div>
                                 <h3 class="h3 my-1">{feature.header}</h3>
                                 <div>{feature.text -> f:format.html()}</div>
@@ -52,4 +54,5 @@
         </div>
     </div>
 </div>
+</f:section>
 </html>
