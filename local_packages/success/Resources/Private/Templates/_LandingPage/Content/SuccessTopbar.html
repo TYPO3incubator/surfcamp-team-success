@@ -46,8 +46,8 @@
 <f:section name="Logo">
     <f:if condition="{data.assets}">
         <f:then>
-            <a href="/" title="Home" class="inline-block min-w-24 focus:ring focus:ring-2 focus:ring-primary-200">
-                <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-16 object-contain object-left"/>
+            <a href="/" title="Home" class="TEST inline-block min-w-24 focus:ring focus:ring-2 focus:ring-primary-200">
+                <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-16 object-contain object-left" alt="{data.name}"/>
             </a>
         </f:then>
         <f:else>
@@ -57,7 +57,6 @@
                         <span class="text-lg font-heading font-bold">{data.name}</span>
                     </a>
                 </f:then>
-                <f:else>Please insert a name or logo</f:else>
             </f:if>
         </f:else>
     </f:if>
