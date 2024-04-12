@@ -22,16 +22,7 @@ function applyTheme(theme) {
   const el = document.querySelector('.theme-js');
   el.classList.remove(Theme.DARK, Theme.LIGHT); // Remove both to ensure clean state
   el.classList.add(theme);
-
-  const onButton = document.querySelector('.on');
-  const offButton = document.querySelector('.off');
-  if (theme === Theme.DARK) {
-    onButton.classList.remove('hidden');
-    offButton.classList.add('hidden');
-  } else {
-    onButton.classList.add('hidden');
-    offButton.classList.remove('hidden');
-  }
+  updateToggleButtonState(theme)
 }
 
 function changeTheme(theme, saveToLocalStorage = true) {
@@ -55,7 +46,7 @@ themeToggle.addEventListener("click", function(e) {
 function initTheme() {
   applyTheme(currentThemeSetting);
   colorThemeWatcher();
-  updateLabelVisibility(currentThemeSetting);
+  updateToggleButtonState(currentThemeSetting);
 }
 
 function colorThemeWatcher() {
@@ -67,15 +58,21 @@ function colorThemeWatcher() {
   });
 }
 
-function updateLabelVisibility(theme) {
+function updateToggleButtonState(theme) {
   const onButton = document.querySelector('.on');
   const offButton = document.querySelector('.off');
+  const themeToggleDot = document.querySelector('.themeToggler .dot')
+
   if (theme === Theme.DARK) {
     onButton.classList.remove('hidden');
     offButton.classList.add('hidden');
+    themeToggle.checked = true;
+    themeToggleDot.style.transform = 'translateX(25px)';
   } else {
     onButton.classList.add('hidden');
     offButton.classList.remove('hidden');
+    themeToggle.checked = false;
+    themeToggleDot.style.transform = 'translateX(0)'
   }
 }
 
