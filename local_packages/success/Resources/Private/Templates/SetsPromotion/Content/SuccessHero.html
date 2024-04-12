@@ -23,7 +23,7 @@
             <div class="grid gap-5 md:grid-cols-2">
                 <div class="{f:if(condition: '{data.imageorient} == 1', then: 'col-start-2')}">
                     <f:render partial="Content/Header"
-                              arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
+                              arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, overline: data.overline}"/>
 
                     <f:if condition="{data.bodytext}">
                         <div class="rte mt-4">{data.bodytext -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
@@ -59,9 +59,9 @@
                 </div>
 
                 <div class="order-first md:order-2 mb-5 md:mb-0 md:flex justify-center items-center{f:if(condition: '{data.imageorient} == 3', then: ' order-first')}">
-                    <div class="aspect-square rounded overflow-hidden rotate-right max-w-80">
+                    <div class="aspect-square rounded overflow-hidden rotate-right">
                         <f:if condition="{data.assets}">
-                            <f:image image="{data.assets.0}" class="object-cover h-full w-80" width="450" height="450c"></f:image>
+                            <f:image image="{data.assets.0}" class="object-cover h-full w-100" width="600"></f:image>
                         </f:if>
                     </div>
                 </div>

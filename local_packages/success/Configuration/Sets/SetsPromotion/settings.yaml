@@ -12,10 +12,10 @@ ui:
     color:
       primary: "rgb(255, 135, 0)"
       secondary: "rgb(71, 128, 113)"
-      light: "rgb(163, 208, 196)"
-      primarytext: "var(--color-whitetext)"
-      secondarytext: "var(--color-blacktext)"
-      lighttext: "var(--color-whitetext)"
+      light: "rgb(199, 230, 222)"
+      primarytext: "white"
+      secondarytext: "white"
+      lighttext: "black"
   dark:
     color:
 
