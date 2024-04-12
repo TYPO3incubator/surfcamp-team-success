@@ -37,23 +37,25 @@ class PreviewAssetsViewHelper extends AbstractViewHelper
 
         if (isset($this->arguments['hasMedia'])) {
             foreach ($records as $key => $record) {
-                $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_file_reference');
-                $media = $queryBuilder
-                    ->select('f.*')
-                    ->from('sys_file_reference', 'r')
-                    ->leftJoin('r', 'sys_file', 'f', 'r.uid_local = f.uid')
-                    ->where(
-                        $queryBuilder->expr()->eq('r.uid_foreign', $queryBuilder->createNamedParameter($record['uid']))
-                    )
-                    ->andWhere(
-                        $queryBuilder->expr()->eq('r.tableNames', $queryBuilder->createNamedParameter($tableName))
-                    )
-                    ->andWhere(
-                        $queryBuilder->expr()->eq('r.deleted', $queryBuilder->createNamedParameter(0))
-                    )
-                    ->executeQuery()
-                    ->fetchAssociative();
-                $records[$key]['media'] = '/fileadmin' . $media['identifier'];
+                if ((isset($record['media']) && $record['media'] > 0) || (isset($record['assets']) && $record['assets'] > 0)) {
+                    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_file_reference');
+                    $media = $queryBuilder
+                        ->select('f.*')
+                        ->from('sys_file_reference', 'r')
+                        ->leftJoin('r', 'sys_file', 'f', 'r.uid_local = f.uid')
+                        ->where(
+                            $queryBuilder->expr()->eq('r.uid_foreign', $queryBuilder->createNamedParameter($record['uid']))
+                        )
+                        ->andWhere(
+                            $queryBuilder->expr()->eq('r.tableNames', $queryBuilder->createNamedParameter($tableName))
+                        )
+                        ->andWhere(
+                            $queryBuilder->expr()->eq('r.deleted', $queryBuilder->createNamedParameter(0))
+                        )
+                        ->executeQuery()
+                        ->fetchAssociative();
+                    $records[$key]['media'] = '/fileadmin' . $media['identifier'];
+                }
             }
         }
 

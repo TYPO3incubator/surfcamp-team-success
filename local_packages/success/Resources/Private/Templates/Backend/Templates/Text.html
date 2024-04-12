@@ -1,0 +1,50 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+    <style>
+        .text-container {
+            display: flex;
+            gap: 20px;
+            background: rgb(255, 249, 232);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .overline {
+            font-size: 14px;
+        }
+
+        .headline {
+            font-size: 24px;
+        }
+
+        .subline {
+            font-size: 18px;
+        }
+
+        .textcontent {
+            width: 85%;
+            font-size: 16px;
+        }
+    </style>
+    <div class="text-container">
+        <f:render section="Text" arguments="{_all}"/>
+    </div>
+
+    <f:section name="Text">
+        <div class="text">
+            <f:if condition="{overline}"><span class="overline">{overline}</span></f:if>
+            <f:if condition="{header}"><span class="headline">{header}</span></f:if>
+            <f:if condition="{subheader}"><p class="subline">{subheader}</p></f:if>
+            <div class="textcontent">{bodytext -> f:format.stripTags() -> f:format.crop(maxCharacters: '300')}</div>
+        </div>
+    </f:section>
+</html>

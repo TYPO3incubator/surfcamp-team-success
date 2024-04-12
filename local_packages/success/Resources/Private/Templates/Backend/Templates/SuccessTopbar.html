@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+    <style>
+        .topbar-container {
+            display: flex;
+            gap: 20px;
+            background: rgb(255, 249, 232);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .media-file {
+            display: flex;
+            justify-content: center;
+            max-width: 25%;
+        }
+
+        .media-file img {
+            width: 100%;
+            object-fit: cover;
+            max-height: 400px;
+        }
+    </style>
+    <div class="topbar-container">
+        <f:render section="Media" arguments="{_all}"/>
+    </div>
+
+    <f:section name="Media">
+        <f:if condition="{allAssets.0}">
+            <div class="media-file">
+                <f:image image="{allAssets.0}" width="400"/>
+            </div>
+        </f:if>
+    </f:section>
+</html>
