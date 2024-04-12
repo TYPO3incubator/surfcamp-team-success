@@ -8,21 +8,21 @@
     <div class="container px-5 mx-auto">
         <f:render partial="Content/Header"
                   arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
-        <div class="grid gap-5 md:grid-cols-3">
+        <div class="grid gap-5 md:grid-cols-3 {f:if(condition: data.header, then: 'mt-8')}">
             <f:if condition="{data.tx_success_card}">
                 <f:for each="{data.tx_success_card}" as="card">
                     <div class="background-white rounded overflow-hidden">
                         <div class="aspect-video">
                             <f:if condition="{card.media}">
-                                <f:image src="{card.media.uid}" treatIdAsReference="1" class="object-cover h-full w-full" width="300" loading="lazy" />
+                                <f:image src="{card.media.uid}" treatIdAsReference="1" class="object-cover h-full w-full" width="400" loading="lazy" />
                             </f:if>
                         </div>
                         <div class="p-5">
                             <f:if condition="{card.headline}">
                                 <div class="font-bold text-lg mb-2">{card.headline}</div>
                             </f:if>
-                            <f:if condition="{card.text}">
-                                <div>{card.text -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
+                            <f:if condition="{card.bodytext}">
+                                <div>{card.bodytext -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
                             </f:if>
                             <f:if condition="{card.link}">
                                 <div class="mt-5">
