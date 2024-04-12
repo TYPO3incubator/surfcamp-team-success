@@ -7,7 +7,7 @@
 <f:section name="Main">
     <div class="container px-5 mx-auto max-w-screen-md">
         <f:render partial="Content/Header"
-                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
+                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
         <div class="mt-5">
             <f:cObject typoscriptObjectPath="tt_content.form_formframework.20" data="{rawData}"/>
         </div>

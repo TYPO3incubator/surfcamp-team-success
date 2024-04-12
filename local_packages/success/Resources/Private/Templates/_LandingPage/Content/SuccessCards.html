@@ -7,7 +7,7 @@
 <div>
     <div class="container px-5 mx-auto">
         <f:render partial="Content/Header"
-                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
+                  arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
         <div class="grid gap-5 md:grid-cols-3 {f:if(condition: data.header, then: 'mt-8')}">
             <f:if condition="{data.tx_success_card}">
                 <f:for each="{data.tx_success_card}" as="card">
@@ -26,7 +26,7 @@
                                     <div>{card.bodytext -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>
                                 </f:if>
                             </div>
-                            
+
                             <f:if condition="{card.button_link}">
                                 <div class="mt-5">
                                     <f:render partial="Content/Button"
