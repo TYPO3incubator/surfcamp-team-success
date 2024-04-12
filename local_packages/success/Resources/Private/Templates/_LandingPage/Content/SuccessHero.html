@@ -23,7 +23,7 @@
             <div class="grid gap-5 md:grid-cols-2">
                 <div class="{f:if(condition: '{data.imageorient} == 1', then: 'col-start-2')}">
                     <f:render partial="Content/Header"
-                              arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, overline: data.overline}"/>
+                              arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
 
                     <f:if condition="{data.bodytext}">
                         <div class="rte mt-4">{data.bodytext -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</div>

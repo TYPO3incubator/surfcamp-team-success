@@ -25,7 +25,7 @@
     <div class="flex items-center">
         <div>
             <f:render partial="Content/Header"
-                      arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
+                      arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
             <div class="rte mt-8">
                 <f:format.html parseFuncTSPath="lib.parseFunc">{data.bodytext}</f:format.html>
             </div>
