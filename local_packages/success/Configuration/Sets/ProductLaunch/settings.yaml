@@ -17,7 +17,6 @@ ui:
       secondarytext: "var(--color-blacktext)"
       lighttext: "var(--color-whitetext)"
   dark:
-    font: []
     color:
       primary: "rgb(205, 156, 19)"
       secondary: "rgb(37, 37, 37)"

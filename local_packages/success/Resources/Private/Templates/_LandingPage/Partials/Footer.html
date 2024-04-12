@@ -29,7 +29,7 @@
             </div>
         </f:if>
 
-        <div class="legal-footer grid md:grid-cols-2 gap-3 mt-5">
+        <div class="legal-footer grid md:grid-cols-2 gap-3 {f:if(condition: '{footer -> f:count()} != 0', then: 'mt-5')}">
             <span class="copyright flex">
                 &copy; {settings.info.owner.name} {f:format.date(format: '%Y', date:'now')}
             </span>
