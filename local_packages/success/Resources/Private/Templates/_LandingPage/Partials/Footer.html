@@ -44,6 +44,26 @@
                 </f:link.typolink>
             </div>
         </div>
+
+        <label
+            for="themeToggler"
+            class="autoSaverSwitch relative inline-flex cursor-pointer select-none items-center mt-2"
+        >
+            <input
+                data-theme-toggle
+                type="checkbox"
+                name="themeToggler"
+                id="themeToggler"
+                class="sr-only peer"
+            />
+            <span class="mr-2 flex h-[26px] w-[50px] justify-start peer-checked:justify-end items-center rounded-full bg-[#CCCCCE] dark:bg-dark-2 p-1 duration-200">
+                <span class="h-[18px] w-[18px] rounded-full bg-white duration-200 dot"></span>
+            </span>
+            <span class="label flex items-center text-sm font-medium text-['#000'] dark:text-['#fff']"">
+                <span class="on hidden pl-1">Dark</span>
+                <span class="off hidden pl-1">Light</span>
+            </span>
+        </label>
     </div>
 
 </footer>
