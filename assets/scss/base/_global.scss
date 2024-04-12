@@ -87,19 +87,15 @@ html {
         @apply bg-black text-white;
     }
 
-    .navigation {
-        @apply  static lg:block lg:visible lg:opacity-100;
-        &.active {
-            @apply transition-all opacity-100 bg-white visible fixed z-50 top-0 left-0 w-full h-svh;
-            & ul {
-                @apply flex flex-col gap-2;
-            }
-            & .hamburger-menu-button {
-                @apply absolute top-3 right-2 z-50;
-            }
+    .cross-bar {
+        @apply block w-7 border-b border-b-2 border-black;
+
+        &:first-of-type {
+            @apply rotate-[-45deg];
         }
-        & ul {
-            @apply hidden lg:flex;
+
+        &:last-of-type {
+            transform: rotate(45deg) translateY(-2px) translateX(-1px)
         }
     }
 
