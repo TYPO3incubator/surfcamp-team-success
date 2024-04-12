@@ -165,6 +165,12 @@
 			<trans-unit id="hero.media" resname="hero.media">
 				<source>Media</source>
 			</trans-unit>
+			<trans-unit id="hero.imageorient.background.text_left" resname="hero.imageorient.background.text_left">
+				<source>Behind Text, Text Left</source>
+			</trans-unit>
+			<trans-unit id="hero.imageorient.background.text_right" resname="hero.imageorient.background.text_right">
+				<source>Behind Text, Text Right</source>
+			</trans-unit>
 
 			<trans-unit id="reviews" resname="reviews">
 				<source>Reviews</source>
