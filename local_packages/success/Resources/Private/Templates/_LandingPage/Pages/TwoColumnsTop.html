@@ -18,13 +18,13 @@
 
     <div class="font-text background-{settings.ui.layout.pagebg} theme-{settings.ui.theme} theme-js">
         <main>
-            <section class="grid grid-cols-3">
-                <div class="col-span-2">
+            <section class="grid grid-cols-2">
+                <div class="col-span-1">
                     <f:for each="{content.column11.blocks}" as="block">
                         <s:renderBlock data="{block}" />
                     </f:for>
                 </div>
-                <div class="">
+                <div class="col-span-1">
                     <f:for each="{content.column12.blocks}" as="block">
                         <s:renderBlock data="{block}" />
                     </f:for>
