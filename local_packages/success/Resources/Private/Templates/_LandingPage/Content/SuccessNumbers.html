@@ -4,17 +4,20 @@
 >
 <f:layout name="Default"/>
 <f:section name="Main">
-<div>
+<div data-el="numbers">
     <div class="container px-5 mx-auto">
         <f:render partial="Content/Header"
                   arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
         <f:if condition="{data.tx_success_number_item}">
             <div class="mt-8">
                 <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-5 md:gap-8">
-                    <f:for each="{data.tx_success_number_item}" as="numberItem">
-                        <div class="rounded background-white p-5 text-center">
-                            <div class="font-bold text-4xl"><span
-                                class="inline-block px-2 pb-2 mb-2 border-b border-b-2 border-primary-500">{numberItem.number}{numberItem.suffix}</span>
+                    <f:for each="{data.tx_success_number_item}" as="numberItem" iteration="iterator">
+                        <div class="rounded background-white p-5 text-center" data-el="numbers-item">
+                            <div class="font-bold text-4xl">
+                                <span
+                                data-el-index="number-{iterator.index}"
+                                data-el="number"
+                                class="inline-block px-2 pb-2 mb-2 border-b-2 border-primary-500">{numberItem.number}{numberItem.suffix}</span>
                             </div>
                             <div>{numberItem.label}</div>
                         </div>

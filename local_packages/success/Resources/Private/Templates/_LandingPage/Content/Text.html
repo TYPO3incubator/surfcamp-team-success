@@ -1,0 +1,17 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+<f:layout name="Default"/>
+<f:section name="Main">
+<div>
+    <div class="container px-5 mx-auto">
+        <f:render partial="Content/Header"
+                    arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
+        <div class="rte mt-8">
+            <f:format.html parseFuncTSPath="lib.parseFunc">{data.bodytext}</f:format.html>
+        </div>
+    </div>
+</div>
+</f:section>
+</html>

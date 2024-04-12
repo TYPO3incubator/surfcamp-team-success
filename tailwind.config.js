@@ -18,7 +18,10 @@ export default {
     },
     colors: {
       black: 'var(--color-black)',
-      white: 'var(--color-white)',
+      white: {
+        'variable': 'var(--color-white)',
+        'pure': 'white',
+      },
       gray: {
         '100': 'var(--color-gray-light)',
         '900': 'var(--color-gray-dark)'
@@ -65,7 +68,11 @@ export default {
     'space-after-extra-large',
     'form-group',
     'form-label',
+    'form-control',
     'form-text',
-    'rounded-b-none'
+    'text-black',
+    'text-white-variable',
+    'text-white-pure',
+    'default',
   ]
 }

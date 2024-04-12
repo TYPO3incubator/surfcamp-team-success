@@ -7,7 +7,16 @@
 <f:section name="Main">
     <vac:asset.vite entry="assets/js/mobile-navigation.js"/>
 
-    <header class="absolute top-0 left-0 z-50 w-full text-{data.color}">
+    <f:switch expression="{data.color}">
+        <f:case value="white">
+            <f:variable name="color">white-pure</f:variable>
+        </f:case>
+        <f:defaultCase>
+            <f:variable name="color">{data.color}</f:variable>
+        </f:defaultCase>
+    </f:switch>
+
+    <header class="absolute top-0 left-0 z-50 w-full text-{color} !bg-transparent">
         <div class="container px-5 py-4 mx-auto">
             <div class="flex justify-between items-center">
                 <f:render section="Logo" arguments="{data: data}" />
@@ -37,8 +46,8 @@
 <f:section name="Logo">
     <f:if condition="{data.assets}">
         <f:then>
-            <a href="/" title="Home" class="inline-block min-w-24 focus:ring focus:ring-2 focus:ring-primary-200">
-                <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-10 object-contain object-left"/>
+            <a href="/" title="Home" class="TEST inline-block min-w-24 focus:ring focus:ring-2 focus:ring-primary-200">
+                <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-16 object-contain object-left" alt="{data.name}"/>
             </a>
         </f:then>
         <f:else>
@@ -48,22 +57,23 @@
                         <span class="text-lg font-heading font-bold">{data.name}</span>
                     </a>
                 </f:then>
-                <f:else>Please insert a name or logo</f:else>
             </f:if>
         </f:else>
     </f:if>
 </f:section>
 
 <f:section name="NavigationDesktop">
-    <ul class="hidden md:flex gap-4 items-center -mx-2">
-        <f:for each="{data.tx_success_menu_item}" as="menuItem">
-            <li>
-                <f:link.typolink parameter="{menuItem.link}" class="font-heading font-bold text-lg uppercase transition-colors hover:text-primary-500 focus:text-primary-500 focus:ring focus:ring-2 focus:ring-primary-200 p-1">
-                    {menuItem.label}
-                </f:link.typolink>
-            </li>
-        </f:for>
-    </ul>
+    <nav class="hidden md:block">
+        <ul class="flex gap-4 items-center -mx-2">
+            <f:for each="{data.tx_success_menu_item}" as="menuItem">
+                <li>
+                    <f:link.typolink parameter="{menuItem.link}" class="font-heading font-bold text-lg uppercase transition-colors hover:text-primary-500 focus:text-primary-500 focus:ring focus:ring-2 focus:ring-primary-200 p-1">
+                        {menuItem.label}
+                    </f:link.typolink>
+                </li>
+            </f:for>
+        </ul>
+    </nav>
 </f:section>
 
 <f:section name="NavigationMobile">

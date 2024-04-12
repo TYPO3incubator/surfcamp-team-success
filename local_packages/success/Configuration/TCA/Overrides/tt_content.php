@@ -27,7 +27,6 @@ $removeCE = [
     'menu_subpages',
     'shortcut',
     'table',
-    'text',
     'textpic',
     'uploads',
 ];
@@ -297,6 +296,7 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
         'config' => [
             'type' => 'input',
             'cols' => 50,
+            'eval' => 'trim, required'
         ],
     ],
     'color' => [
@@ -347,6 +347,36 @@ $GLOBALS['TCA']['tt_content']['types']['textmedia'] = [
     --palette--;;button,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
     --linebreak--, imageorient;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:imageorient_formlabel,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+    --palette--;;frames,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+    --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+    --palette--;;hidden,
+    --palette--;;access,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+    ',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:hero.text',
+            'config' => [
+                'type' => 'text',
+                'cols' => 50,
+                'rows' => 5,
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'custom'
+            ],
+        ],
+    ],
+];
+
+// Text Media
+$GLOBALS['TCA']['tt_content']['types']['text'] = [
+    'showitem' => '
+    --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+    --palette--;;general,
+    --palette--;;headers, bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
+    --palette--;;button,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
     --palette--;;frames,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
@@ -455,6 +485,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_gallery'] = [
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media, assets,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
     --palette--;;frames,
+    image_zoom;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:image_zoom_formlabel,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
     --palette--;;language, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
     --palette--;;hidden,

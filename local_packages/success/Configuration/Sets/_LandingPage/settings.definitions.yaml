@@ -33,6 +33,10 @@ settings:
     label: 'Default theme: Headline font'
     type: color
     default: 'rgb(1 97 239)'
+  ui.scrollBehaviour:
+    label: 'Scroll behaviour'
+    type: string
+    default: 'scroll-smooth'
   footer.maxCols:
     label: 'Max Footer columns'
     description: 'Values:Label | auto:auto | 4:4  | 3:3 | 2:2 | 1:1'

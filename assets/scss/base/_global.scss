@@ -26,29 +26,66 @@ html {
     --brightness: 0.4;
 }
 
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+.scroll-auto {
+    scroll-behavior: auto;
+}
+
 @layer components {
     .btn {
-        @apply inline-block py-2 px-5 font-bold rounded transition-colors focus:ring focus:ring-2 focus:ring-primary-200;
+        @apply inline-block py-2 px-5 font-bold rounded transition-colors;
+
+        &:focus {
+            @apply ring ring-2 ring-primary-200;
+        }
     }
 
     .btn-primary {
-        @apply bg-primary-500 text-primarytext hover:bg-primary-700 focus:bg-primary-700;
+        @apply bg-primary-500 text-primarytext;
+
+        &:focus,
+        &:hover {
+            @apply bg-primary-700;
+        }
     }
 
     .btn-secondary {
-        @apply bg-secondary-500 text-secondarytext hover:bg-secondary-700 focus:bg-secondary-700;
+        @apply bg-secondary-500 text-secondarytext;
+
+        &:focus,
+        &:hover {
+            @apply bg-secondary-700;
+        }
     }
 
     .btn-light {
-        @apply bg-light-500 text-lighttext hover:bg-light-700 focus:bg-light-700;
+        @apply bg-light-500 text-lighttext;
+
+        &:focus,
+        &:hover {
+            @apply bg-light-700;
+        }
     }
 
     .btn-white {
-        @apply bg-white text-whitetext hover:bg-gray-100 focus:bg-gray-100;
+        @apply bg-white-variable text-whitetext;
+
+        &:focus,
+        &:hover {
+            @apply bg-gray-100;
+        }
     }
 
     .btn-black {
-        @apply bg-black text-blacktext hover:bg-gray-900 focus:bg-gray-900;
+        @apply bg-black text-blacktext;
+
+        &:focus,
+        &:hover {
+            @apply bg-gray-900;
+        }
     }
 
     button[type="submit"] {
@@ -80,8 +117,52 @@ html {
         }
     }
 
-    .rte a {
-        @apply underline hover:no-underline focus:no-underline focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-primary-200;
+    .rte {
+        a:not(.btn) {
+            @apply underline;
+
+            &:hover,
+            &:focus {
+                @apply no-underline;
+            }
+
+            &:focus {
+                @apply ring ring-2 ring-primary-200
+            }
+        }
+
+        h1 {
+            @apply font-bold font-heading block text-2xl my-5;
+        }
+
+        h2 {
+            @apply font-bold font-heading block text-xl my-4;
+        }
+
+        h3 {
+            @apply font-bold font-heading block text-lg my-3;
+        }
+
+        h4 {
+            @apply font-bold font-heading block my-2;
+        }
+
+        h5,
+        h6 {
+            @apply font-bold block my-1;
+        }
+
+        ul {
+            @apply list-disc list-inside my-2;
+        }
+
+        ol {
+            @apply list-decimal list-inside my-2;
+        }
+
+        p + p {
+            @apply mt-2;
+        }
     }
 
     .background-primary {
@@ -97,7 +178,7 @@ html {
     }
 
     .background-white {
-        @apply bg-white text-whitetext;
+        @apply bg-white-variable text-whitetext;
     }
 
     .background-black {
@@ -126,7 +207,11 @@ html {
         }
 
         &-control {
-            @apply bg-white shadow appearance-none rounded w-full py-2 px-3 text-whitetext leading-tight focus:outline-none focus:ring-2 resize-none;
+            @apply bg-white-variable shadow appearance-none rounded w-full py-2 px-3 text-whitetext leading-tight resize-none;
+
+            &:focus {
+                @apply outline-none ring ring-2 ring-primary-200
+            }
         }
 
         &-check {
@@ -137,10 +222,18 @@ html {
 
         &-checkbox {
             @apply rounded h-5 w-5 accent-secondary-500;
+
+            &:focus {
+                @apply outline-none ring ring-2 ring-primary-200
+            }
         }
 
         &-radio {
             @apply h-5 w-5 accent-secondary-500;
+
+            &:focus {
+                @apply outline-none ring ring-2 ring-primary-200
+            }
         }
 
         &-group {
