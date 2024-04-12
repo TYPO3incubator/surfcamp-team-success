@@ -8,6 +8,7 @@ export default {
       heading: ['var(--font-heading)'],
     },
     borderRadius: {
+      'none': '0px',
       DEFAULT: 'var(--radius)',
       'full': '999px'
     },
@@ -64,6 +65,7 @@ export default {
     'space-after-extra-large',
     'form-group',
     'form-label',
-    'form-text'
+    'form-text',
+    'rounded-b-none'
   ]
 }
