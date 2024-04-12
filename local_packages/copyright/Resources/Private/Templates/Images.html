@@ -1,0 +1,27 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+<f:if condition="{images}">
+    <ul>
+        <f:for as="image" each="{images}">
+            <li>
+                <f:if condition="{image.file.metaData.copyright}">
+                    <span>{image.file.metaData.copyright -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</span>
+                    <f:if condition="{image.pages}">
+                        <f:comment><!-- todo: add translation --></f:comment>
+                        <span>Usage:</span>
+                        <ul>
+                            <f:for as="page" each="{image.pages}">
+                                <li>
+                                    <f:link.typolink parameter="{page}" />
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                </f:if>
+            </li>
+        </f:for>
+    </ul>
+</f:if>
+</html>

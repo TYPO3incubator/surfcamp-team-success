@@ -1,0 +1,17 @@
+{
+	"name": "surfcamp/copyright",
+	"type": "typo3-cms-extension",
+	"description" : "List of images",
+	"license": "GPL-2.0-or-later",
+	"version": "1.0.0",
+	"autoload": {
+		"psr-4": {
+			"Surfcamp\\Copyright\\": "Classes/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "copyright"
+		}
+	}
+}
