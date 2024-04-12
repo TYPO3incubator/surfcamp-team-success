@@ -26,6 +26,14 @@ html {
     --brightness: 0.4;
 }
 
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+.scroll-auto {
+    scroll-behavior: auto;
+}
+
 @layer components {
     .btn {
         @apply inline-block py-2 px-5 font-bold rounded transition-colors focus:ring focus:ring-2 focus:ring-primary-200;
@@ -114,7 +122,7 @@ html {
             @apply list-decimal list-inside my-2;
         }
 
-        
+
     }
 
     .background-primary {
