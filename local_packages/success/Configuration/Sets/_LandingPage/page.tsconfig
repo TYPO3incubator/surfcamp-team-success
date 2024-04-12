@@ -1,2 +1,3 @@
 @import 'EXT:success/Configuration/Sets/_LandingPage/TsConfig/Page/LinkBrowser/ContentInModal.tsconfig'
 @import 'EXT:success/Configuration/Sets/_LandingPage/TsConfig/Page/ContentPreviews/default.tsconfig'
+@import 'EXT:success/Configuration/Sets/_LandingPage/TsConfig/PageLayouts/*.tsconfig'

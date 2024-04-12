@@ -1,0 +1,40 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
+    xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+>
+    <f:asset.css identifier="theme-settings">
+        <s:fontMapping>
+            <s:themeVariablesProvider variables="{settings.ui.layout}" />
+        </s:fontMapping>
+        <s:themeVariablesProvider variables="{settings.ui.light}" />
+        <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".theme-dark" />
+    </f:asset.css>
+
+    <f:render partial="Typography" arguments="{fonts: settings.ui.layout.font}"></f:render>
+
+    <vac:asset.vite entry="assets/global.js"/>
+
+    <div class="font-text background-{settings.ui.layout.pagebg} theme-{settings.ui.theme} theme-js">
+        <main>
+            <section class="grid md:grid-cols-2 relative min-h-screen">
+                <div class="h-full flex items-center flex-col">
+                    <f:for each="{content.column11.blocks}" as="block">
+                        <s:renderBlock data="{block}" />
+                    </f:for>
+                </div>
+                <div class="h-full flex items-center flex-col">
+                    <f:for each="{content.column12.blocks}" as="block">
+                        <s:renderBlock data="{block}" />
+                    </f:for>
+                </div>
+            </section>
+            <f:for as="block" each="{content.column0.blocks}">
+                <s:renderBlock data="{block}" />
+            </f:for>
+        </main>
+        <f:render partial="Footer" arguments="{_all}" />
+        <f:render partial="Page/Modal" />
+    </div>
+</html>
