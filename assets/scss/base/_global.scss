@@ -80,8 +80,41 @@ html {
         }
     }
 
-    .rte a {
-        @apply underline hover:no-underline focus:no-underline focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-primary-200;
+    .rte {
+        a {
+            @apply underline hover:no-underline focus:no-underline focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-primary-200;
+        }
+
+        h1 {
+            @apply font-bold font-heading block text-2xl my-5;
+        }
+
+        h2 {
+            @apply font-bold font-heading block text-xl my-4;
+        }
+
+        h3 {
+            @apply font-bold font-heading block text-lg my-3;
+        }
+
+        h4 {
+            @apply font-bold font-heading block my-2;
+        }
+
+        h5,
+        h6 {
+            @apply font-bold block my-1;
+        }
+
+        ul {
+            @apply list-disc list-inside my-2;
+        }
+
+        ol {
+            @apply list-decimal list-inside my-2;
+        }
+
+        
     }
 
     .background-primary {
