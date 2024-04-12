@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "577d00ca3f020982a3a77bd59fc4dc52",
+    "content-hash": "2094bef3f3ee0e546e9bbc2ca586e2d7",
     "packages": [
         {
             "name": "b13/backendpreviews",
@@ -7612,11 +7612,11 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "8.2.0"
+        "php": "8.3.6"
     },
     "plugin-api-version": "2.6.0"
 }

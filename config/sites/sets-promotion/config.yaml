@@ -18,3 +18,8 @@ rootPageId: 5
 websiteTitle: ''
 dependencies:
   - surfcamp/success-sets-promotion
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=9'
