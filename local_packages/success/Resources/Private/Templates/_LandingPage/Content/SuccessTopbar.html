@@ -7,15 +7,14 @@
 <f:section name="Main">
     <vac:asset.vite entry="assets/js/mobile-navigation.js"/>
 
-    <header class="absolute top-0 left-0 z-50 w-full">
-        
+    <header class="absolute top-0 left-0 z-50 w-full text-{data.color}">
         <div class="container px-5 py-4 mx-auto">
             <div class="flex justify-between items-center">
                 <f:render section="Logo" arguments="{data: data}" />
                 <f:render section="HamburgerMenuButton" arguments="{data: data}"/>
                 <f:render section="NavigationMobile" arguments="{data: data}"/>
 
-                <f:if condition="{settings.ui.layout.navigation.position} == 'beside'">
+                <f:if condition="{data.navigation} == 'beside'">
                     <f:if condition="{data.tx_success_menu_item}">
                         <div class="hidden md:block">
                             <f:render section="NavigationDesktop" arguments="{data: data}"/>
@@ -24,7 +23,7 @@
                 </f:if>
             </div>
 
-            <f:if condition="{settings.ui.layout.navigation.position} == 'below'">
+            <f:if condition="{data.navigation} == 'below'">
                 <f:if condition="{data.tx_success_menu_item}">
                     <div class="hidden md:block md:mt-2">
                         <f:render section="NavigationDesktop" arguments="{data: data}"/>
@@ -37,9 +36,21 @@
 
 <f:section name="Logo">
     <f:if condition="{data.assets}">
-        <a href="/" title="Home" class="inline-block min-w-24">
-            <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-10 object-contain object-left"/>
-        </a>
+        <f:then>
+            <a href="/" title="Home" class="inline-block min-w-24 focus:ring focus:ring-2 focus:ring-primary-200">
+                <f:image src="{data.assets.0.uid}" treatIdAsReference="1" class="w-32 h-10 object-contain object-left"/>
+            </a>
+        </f:then>
+        <f:else>
+            <f:if condition="{data.name}">
+                <f:then>
+                    <a href="/" title="Home" class="inline-block hover:text-primary-500 focus:ring focus:ring-2 focus:ring-primary-200">
+                        <span class="text-lg font-heading font-bold">{data.name}</span>
+                    </a>
+                </f:then>
+                <f:else>Please insert a name or logo</f:else>
+            </f:if>
+        </f:else>
     </f:if>
 </f:section>
 
@@ -75,9 +86,9 @@
         title="Menu"
     >
     <span aria-hidden="true" class="pointer-events-none hamburger-menu-open w-6 flex flex-col justify-between gap-[0.4rem]">
-        <span class="block w-full border-b border-b-2 border-black"></span>
-        <span class="block w-full border-b border-b-2 border-black"></span>
-        <span class="block w-full border-b border-b-2 border-black"></span>
+        <span class="block w-full border-b border-b-2 border-current"></span>
+        <span class="block w-full border-b border-b-2 border-current"></span>
+        <span class="block w-full border-b border-b-2 border-current"></span>
     </span>
         <span aria-hidden="true" class="hamburger-menu-close hidden relative">
             <span class="cross-bar"></span>

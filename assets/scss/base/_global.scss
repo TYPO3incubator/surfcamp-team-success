@@ -105,7 +105,7 @@ html {
     }
 
     .cross-bar {
-        @apply block w-7 border-b border-b-2 border-black;
+        @apply block w-7 border-b border-b-2 border-current;
 
         &:first-of-type {
             @apply rotate-[-45deg];

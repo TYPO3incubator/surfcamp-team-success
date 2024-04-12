@@ -1,9 +1,6 @@
 ui:
   theme: "system"
   layout:
-    navigation:
-      position: "beside"
-      isVisible: true
     radius: "5px"
     rotate: "3deg"
     pagebg: "light"
