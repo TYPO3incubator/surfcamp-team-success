@@ -71,6 +71,7 @@ export default {
     'form-text',
     'text-black',
     'text-white-variable',
-    'text-white-pure'
+    'text-white-pure',
+    'default'
   ]
 }
