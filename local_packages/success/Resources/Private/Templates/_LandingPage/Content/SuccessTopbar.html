@@ -55,15 +55,17 @@
 </f:section>
 
 <f:section name="NavigationDesktop">
-    <ul class="hidden md:flex gap-4 items-center -mx-2">
-        <f:for each="{data.tx_success_menu_item}" as="menuItem">
-            <li>
-                <f:link.typolink parameter="{menuItem.link}" class="font-heading font-bold text-lg uppercase transition-colors hover:text-primary-500 focus:text-primary-500 focus:ring focus:ring-2 focus:ring-primary-200 p-1">
-                    {menuItem.label}
-                </f:link.typolink>
-            </li>
-        </f:for>
-    </ul>
+    <nav class="hidden md:block">
+        <ul class="flex gap-4 items-center -mx-2">
+            <f:for each="{data.tx_success_menu_item}" as="menuItem">
+                <li>
+                    <f:link.typolink parameter="{menuItem.link}" class="font-heading font-bold text-lg uppercase transition-colors hover:text-primary-500 focus:text-primary-500 focus:ring focus:ring-2 focus:ring-primary-200 p-1">
+                        {menuItem.label}
+                    </f:link.typolink>
+                </li>
+            </f:for>
+        </ul>
+    </nav>
 </f:section>
 
 <f:section name="NavigationMobile">
