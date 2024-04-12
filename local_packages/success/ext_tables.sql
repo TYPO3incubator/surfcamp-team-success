@@ -4,7 +4,10 @@ CREATE TABLE tt_content
 	header_style varchar(255) DEFAULT '' NOT NULL,
 	button_link  varchar(2048),
 	button_label varchar(255) DEFAULT '' NOT NULL,
-	button_style varchar(255) DEFAULT '' NOT NULL
+	button_style varchar(255) DEFAULT '' NOT NULL,
+	name varchar(255) DEFAULT '' NOT NULL,
+	color varchar(255) DEFAULT '' NOT NULL,
+	navigation varchar(255) DEFAULT '' NOT NULL
 );
 
 CREATE TABLE tx_success_card

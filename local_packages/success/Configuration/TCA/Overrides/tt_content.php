@@ -633,7 +633,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_features'] = [
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_features'] = 'install-manage-features';
 
-// Cards Element
+// Top Bar Element
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -649,7 +649,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_features'] = 
 $GLOBALS['TCA']['tt_content']['types']['success_topbar'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-    --palette--;;general,
+    --palette--;;general,name,color,navigation,
     --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.logo, assets,
     --div--;LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:menuItems, tx_success_menu_item,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
@@ -661,6 +661,49 @@ $GLOBALS['TCA']['tt_content']['types']['success_topbar'] = [
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
     ',
+    'columnsOverrides' => [
+        'name' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.name',
+            'config' => [
+                'type' => 'input',
+                'cols' => 50,
+            ],
+        ],
+        'color' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color.black',
+                        'value' => 'black',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color.white',
+                        'value' => 'white',
+                    ],
+                ],
+            ],
+        ],
+        'navigation' => [
+            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation.below',
+                        'value' => 'below',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation.beside',
+                        'value' => 'beside',
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_topbar'] = 'content-header';
