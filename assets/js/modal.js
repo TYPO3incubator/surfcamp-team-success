@@ -42,6 +42,7 @@ const openModal = (link) => {
   const modal = document.getElementById('modal');
   const loadingIndicator = document.getElementById('loading-indicator');
   let modalContent = document.getElementById('modal-content');
+  const closeButton = document.querySelector('.modal-close');
 
   // Show loading indicator
   loadingIndicator.style.display = 'block';
@@ -55,7 +56,9 @@ const openModal = (link) => {
       // Search for element with the same id as cid in the modal content
       const elementInModal = modalContent.querySelector(`#c${cid}`);
       if(elementInModal) {
-        modalContent.innerHTML = elementInModal.innerHTML;
+        modalContent.innerHTML = '';
+        modalContent.append(closeButton);
+        modalContent.append(elementInModal);
         if (modalContent) {
           // Display modal
           modal.style.display = 'block';
