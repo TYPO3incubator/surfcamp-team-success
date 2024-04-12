@@ -4,10 +4,10 @@
 >
 <f:layout name="Default"/>
 <f:section name="Main">
-<div class="mt-8">
+<div class="container px-5 mx-auto">
     <f:render partial="Content/Header"
               arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header}"/>
-    <div class="grid md:grid-cols-4 grid-cols-2 gap-5 md:gap-8">
+    <div class="grid md:grid-cols-4 grid-cols-2 gap-5 md:gap-8 {f:if(condition: data.header, then: 'mt-8')}">
         <f:if condition="{data.assets}">
             <f:for each="{data.assets}" as="media">
                 <div class="rounded background-white p-5 flex justify-center">
