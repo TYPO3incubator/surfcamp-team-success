@@ -3,6 +3,7 @@ mod.web_layout.tt_content.preview.view {
   partialRootPaths.10 = EXT:success/Resources/Private/Templates/Backend/Partials
   templateRootPaths.10 = EXT:success/Resources/Private/Templates/Backend/Templates
 }
+mod.web_layout.tt_content.preview.template.text = Text
 mod.web_layout.tt_content.preview.template.textmedia = TextMedia
 mod.web_layout.tt_content.preview.template.success_cards = SuccessCards
 mod.web_layout.tt_content.preview.template.success_numbers = SuccessNumbers
@@ -12,3 +13,4 @@ mod.web_layout.tt_content.preview.template.success_faq = SuccessFaq
 mod.web_layout.tt_content.preview.template.success_hero = SuccessHero
 mod.web_layout.tt_content.preview.template.success_review = SuccessReview
 mod.web_layout.tt_content.preview.template.success_features = SuccessFeatures
+mod.web_layout.tt_content.preview.template.success_topbar = SuccessTopbar

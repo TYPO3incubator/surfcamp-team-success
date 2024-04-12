@@ -140,25 +140,35 @@ class FormPagePreviewRenderer extends StandardContentPreviewRenderer
 
     protected function renderFormFromDefinition(array $formDefinition): string
     {
-        $finishers = $formDefinition['finishers'];
-        $pages = $formDefinition['renderables'];
-        $html = '<style>.form-container{display:flex;flex-direction:column;background:rgb(255,249,232);padding:20px;border-radius:20px;}.content{display:flex;flex-direction:column;align-items:center;width:100%;}.headline{font-size:24px;}.subline{font-size:18px;}.form{display:flex;gap:15px;}.form-page{display:flex;flex-direction:column;gap:10px;overflow:hidden;padding:15px;border-radius:15px;border:2px solid wheat;box-shadow:none;width:100%;}.form-page-label{font-size:16px;font-weight:bold;}</style><div class="form-container"><div class="content"><span class="overline">Overline</span><span class="headline">Header</span><p class="subline">Subheader</p></div><div class="form">';
+        $finishers = isset($formDefinition['finishers']) ? $formDefinition['finishers'] : [];
+        $pages = isset($formDefinition['renderables']) ? $formDefinition['renderables'] : [];
+        $html = '<style>.form-container{display:flex;flex-direction:column;background:rgb(255,249,232);padding:20px;border-radius:20px;}.content{display:flex;flex-direction:column;align-items:center;width:100%;}.headline{font-size:24px;}.subline{font-size:18px;}.form{display:flex;gap:15px;}.form-page{display:flex;flex-direction:column;gap:10px;overflow:hidden;padding:15px;border-radius:15px;border:2px solid wheat;box-shadow:none;width:100%;}.form-page-label{font-size:16px;font-weight:bold;}</style><div class="form-container"><div class="content"><span class="overline">Overline</span><span class="headline">Header</span><p class="subline">Subheader</p></div>';
 
-        foreach ($pages as $page) {
-            $html .= '<div class="form-page"><span class="form-page-label">Page</span>';
-            foreach ($page['renderables'] as $item) {
-                $html .= '<div class="form-field">' . $item['label'] . ': ' . $item['type'] . '</div>';
+        if (is_array($pages) && count($pages) > 0) {
+            $html .= '<div class="form">';
+
+            foreach ($pages as $page) {
+                $html .= '<div class="form-page"><span class="form-page-label">Page</span>';
+                foreach ($page['renderables'] as $item) {
+                    $html .= '<div class="form-field">' . $item['label'] . ': ' . $item['type'] . '</div>';
+                }
+                $html .= '</div>';
             }
+
             $html .= '</div>';
         }
 
-        $html .= '</div><div class="form-field"><span class="form-page-label">Finishers:</span>&nbsp;';
+        if (is_array($finishers) && count($finishers) > 0) {
+            $html .= '<div class="form-field"><span class="form-page-label">Finishers:</span>&nbsp;';
 
-        foreach ($finishers as $finisher) {
-            $html .= '<div class="form-field">' . $finisher['identifier'] . '</div>&nbsp;';
+            foreach ($finishers as $finisher) {
+                $html .= '<div class="form-field">' . $finisher['identifier'] . '</div>&nbsp;';
+            }
+
+            $html .= '</div>';
         }
 
-        $html .= '</div></div>';
+        $html .= '</div>';
 
         return $html;
     }
