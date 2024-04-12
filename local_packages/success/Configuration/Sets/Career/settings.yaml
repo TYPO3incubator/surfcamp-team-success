@@ -1,3 +1,37 @@
-foo:
-  bar:
-    baz: 60
+ui:
+  theme: "light:only"
+  layout:
+    radius: "5px"
+    rotate: "3deg"
+    pagebg: "light"
+    footerbg: "primary"
+    font:
+      text: "roboto"
+      heading: "roboto-slab"
+  light:
+    color:
+      primary: "#FFC27E"
+      secondary: "#A6B067"
+      light: "#F9FBEB"
+      primarytext: "var(--color-whitetext)"
+      secondarytext: "var(--color-blacktext)"
+      lighttext: "var(--color-whitetext)"
+  dark:
+    color:
+      primary: "rgb(205, 156, 19)"
+      secondary: "rgb(37, 37, 37)"
+      light: "rgb(29, 29, 29)"
+      primarytext: "black"
+      secondarytext: "var(--color-blacktext)"
+      lighttext: "var(--color-blacktext)"
+
+# DUMMYDATA
+#todo replace this values by backend ui input
+info:
+  owner:
+    name: "Poolbar Ltd."
+    imprint: "https://www.typo3.com/legal-notice"
+    dataPrivacy: "https://www.typo3.com/privacy-policy"
+footer:
+  maxCols: '3'
+  pageId: 7

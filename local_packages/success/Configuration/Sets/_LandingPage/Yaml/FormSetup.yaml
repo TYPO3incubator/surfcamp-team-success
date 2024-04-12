@@ -1,6 +1,7 @@
 imports:
     - { resource: './Finishers/Notification.yaml' }
     - { resource: './FormElements/Form.yaml' }
+    - { resource: './FormElements/FormLinkedCheckboxes.yaml' }
 
 formManager:
   translationFiles:

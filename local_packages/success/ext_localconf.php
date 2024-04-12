@@ -27,11 +27,11 @@ call_user_func(static function () {
     // Add module configuration
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
         'module.tx_form {
-    settings {
-        yamlConfigurations {
-            110 = EXT:success/Configuration/Sets/_LandingPage/Yaml/FormSetup.yaml
-        }
-    }
-}'
+            settings {
+                yamlConfigurations {
+                    110 = EXT:success/Configuration/Sets/_LandingPage/Yaml/FormSetup.yaml
+                }
+            }
+        }'
     );
 });

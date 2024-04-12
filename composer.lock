@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "577d00ca3f020982a3a77bd59fc4dc52",
+    "content-hash": "2094bef3f3ee0e546e9bbc2ca586e2d7",
     "packages": [
         {
             "name": "b13/backendpreviews",
@@ -2285,7 +2285,10 @@
             "dist": {
                 "type": "path",
                 "url": "local_packages/success",
-                "reference": "ab8633e5ffc7563327368c432c0f8d03753ee44d"
+                "reference": "e82cdae00571b0d3ccb29b0306386c47840abbc6"
+            },
+            "suggest": {
+                "b13/backendpreviews": "It enhances the preview for the backend"
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -5678,12 +5681,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/dashboard.git",
-                "reference": "b1f11a5b028148c748009d3edc949f39e21e0a4a"
+                "reference": "411a82221901c4b9bf7fc4424051da763bfd88c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/dashboard/zipball/b1f11a5b028148c748009d3edc949f39e21e0a4a",
-                "reference": "b1f11a5b028148c748009d3edc949f39e21e0a4a",
+                "url": "https://api.github.com/repos/TYPO3-CMS/dashboard/zipball/411a82221901c4b9bf7fc4424051da763bfd88c5",
+                "reference": "411a82221901c4b9bf7fc4424051da763bfd88c5",
                 "shasum": ""
             },
             "require": {
@@ -5734,7 +5737,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-04-04T05:03:05+00:00"
+            "time": "2024-04-12T13:08:26+00:00"
         },
         {
             "name": "typo3/cms-extbase",
@@ -5742,12 +5745,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/extbase.git",
-                "reference": "b303eeab277f10305c1e3d03b2c64086b49b6e0e"
+                "reference": "685b81f2e9b24677331671254d21d1ab3d16f037"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/extbase/zipball/b303eeab277f10305c1e3d03b2c64086b49b6e0e",
-                "reference": "b303eeab277f10305c1e3d03b2c64086b49b6e0e",
+                "url": "https://api.github.com/repos/TYPO3-CMS/extbase/zipball/685b81f2e9b24677331671254d21d1ab3d16f037",
+                "reference": "685b81f2e9b24677331671254d21d1ab3d16f037",
                 "shasum": ""
             },
             "require": {
@@ -5805,7 +5808,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-04-07T05:58:26+00:00"
+            "time": "2024-04-12T11:00:50+00:00"
         },
         {
             "name": "typo3/cms-extensionmanager",
@@ -6124,12 +6127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/frontend.git",
-                "reference": "8c9f49b2c1ce1f57793f05dab3f4db2433074201"
+                "reference": "6061e601ae18810f232dcbb7e91c0ec3e5166aa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/frontend/zipball/8c9f49b2c1ce1f57793f05dab3f4db2433074201",
-                "reference": "8c9f49b2c1ce1f57793f05dab3f4db2433074201",
+                "url": "https://api.github.com/repos/TYPO3-CMS/frontend/zipball/6061e601ae18810f232dcbb7e91c0ec3e5166aa0",
+                "reference": "6061e601ae18810f232dcbb7e91c0ec3e5166aa0",
                 "shasum": ""
             },
             "require": {
@@ -6182,7 +6185,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-04-07T17:26:46+00:00"
+            "time": "2024-04-12T10:12:23+00:00"
         },
         {
             "name": "typo3/cms-info",
@@ -7612,11 +7615,11 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "8.2.0"
+        "php": "8.3.6"
     },
     "plugin-api-version": "2.6.0"
 }

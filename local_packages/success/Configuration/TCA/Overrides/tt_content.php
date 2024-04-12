@@ -736,3 +736,5 @@ $GLOBALS['TCA']['tt_content']['types']['success_topbar'] = [
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_topbar'] = 'content-header';
+
+$GLOBALS['TCA']['tt_content']['types']['form_formframework']['previewRenderer'] = \Surfcamp\Success\Hooks\FormPagePreviewRenderer::class;

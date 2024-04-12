@@ -13,5 +13,8 @@
     "typo3/cms": {
       "extension-key": "success"
     }
+  },
+  "suggest": {
+	"b13/backendpreviews": "It enhances the preview for the backend"
   }
 }
