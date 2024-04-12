@@ -45,10 +45,23 @@ export default {
       lighttext: 'var(--color-lighttext)',
     },
     extend: {},
-    safelist: [
-      'heading-xxl',
-      'heading-xl',
-      'heading-lg',
-    ]
   },
+  safelist: [
+    'heading-xxl',
+    'heading-xl',
+    'heading-lg',
+    'space-before-extra-small',
+    'space-before-small',
+    'space-before-medium',
+    'space-before-large',
+    'space-before-extra-large',
+    'space-after-extra-small',
+    'space-after-small',
+    'space-after-medium',
+    'space-after-large',
+    'space-after-extra-large',
+    'form-group',
+    'form-label',
+    'form-text'
+  ]
 }
