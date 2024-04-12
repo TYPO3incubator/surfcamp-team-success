@@ -329,4 +329,8 @@ html {
     img.img-darken {
         filter: brightness(var(--brightness));
     }
+
+    .themeToggler .dot {
+        background-color: var(--color-white);
+    }
 }
