@@ -117,6 +117,19 @@ html {
         }
     }
 
+    .link {
+        @apply underline;
+
+        &:hover,
+        &:focus {
+            @apply no-underline;
+        }
+
+        &:focus {
+            @apply ring ring-2 ring-primary-200
+        }
+    }
+
     .rte {
         a:not(.btn) {
             @apply underline;
@@ -129,6 +142,10 @@ html {
             &:focus {
                 @apply ring ring-2 ring-primary-200
             }
+        }
+
+        .btn {
+            @apply my-4;
         }
 
         h1 {
