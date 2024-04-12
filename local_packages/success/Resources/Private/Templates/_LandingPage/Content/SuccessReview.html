@@ -9,7 +9,11 @@
         <f:render partial="Content/Header"
                   arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
 
-        <div class="grid gap-5 md:grid-cols-3 mt-10">
+        <f:variable name="cols">3</f:variable>
+        <f:if condition="{data.tx_success_review -> f:count()} < 3">
+            <f:variable name="cols">{data.tx_success_review -> f:count()}</f:variable>
+        </f:if>
+        <div class="grid gap-5 md:grid-cols-{cols} mt-10">
             <f:for each="{data.tx_success_review}" as="review">
                 <blockquote class="background-white p-5 rounded w-full relative flex justify-between flex-col">
                     <span class="text-7xl text-primary-500 font-bold absolute right-5 -top-4">&rdquo;</span>
