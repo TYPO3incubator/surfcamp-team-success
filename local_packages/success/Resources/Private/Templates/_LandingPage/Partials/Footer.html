@@ -29,25 +29,27 @@
             </div>
         </f:if>
 
-        <label
-        for="themeToggler"
-        class="themeToggler relative inline-flex cursor-pointer select-none items-center mt-4"
-    >
-        <input
-            data-theme-toggle
-            type="checkbox"
-            name="themeToggler"
-            id="themeToggler"
-            class="sr-only"
-        />
-        <span class="mr-2 flex h-[26px] w-[50px] items-center rounded-full bg-[#CCCCCE] dark:bg-dark-2 p-1 duration-200">
-            <span class="h-[18px] w-[18px] rounded-full bg-white duration-200 dot"></span>
-        </span>
-        <span class="label flex items-center text-sm font-medium dark:text-['#fff']"">
-            <span class="on hidden pl-1">Dark</span>
-            <span class="off hidden pl-1">Light</span>
-        </span>
-    </label>
+        <f:if condition="{settings.ui.theme} == 'system'">
+            <label
+                for="themeToggler"
+                class="themeToggler relative inline-flex cursor-pointer select-none items-center mt-4"
+                >
+                <input
+                    data-theme-toggle
+                    type="checkbox"
+                    name="themeToggler"
+                    id="themeToggler"
+                    class="sr-only"
+                />
+                <span class="mr-2 flex h-6 w-12 items-center rounded-full bg-[#CCCCCE] dark:bg-dark-2 p-1 duration-200">
+                    <span class="h-5 w-5 rounded-full bg-white duration-200 dot"></span>
+                </span>
+                <span class="label flex items-center text-sm font-medium dark:text-[#fff]">
+                    <span class="on hidden pl-1">Dark</span>
+                    <span class="off hidden pl-1">Light</span>
+                </span>
+            </label>
+        </f:if>
 
         <div class="legal-footer grid md:grid-cols-2 gap-3 {f:if(condition: '{footer -> f:count()} != 0', then: 'mt-5')}">
             <span class="copyright flex">

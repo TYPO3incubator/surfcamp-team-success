@@ -67,7 +67,7 @@ function updateToggleButtonState(theme) {
     onButton.classList.remove('hidden');
     offButton.classList.add('hidden');
     themeToggle.checked = true;
-    themeToggleDot.style.transform = 'translateX(25px)';
+    themeToggleDot.style.transform = 'translateX(1.25rem)';
   } else {
     onButton.classList.add('hidden');
     offButton.classList.remove('hidden');
