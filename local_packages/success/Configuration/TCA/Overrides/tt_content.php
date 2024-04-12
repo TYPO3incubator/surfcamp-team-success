@@ -292,6 +292,47 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
             'maxitems' => 7,
         ],
     ],
+    'name' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.name',
+        'config' => [
+            'type' => 'input',
+            'cols' => 50,
+        ],
+    ],
+    'color' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color.black',
+                    'value' => 'black',
+                ],
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color.white',
+                    'value' => 'white',
+                ],
+            ],
+        ],
+    ],
+    'navigation' => [
+        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation.below',
+                    'value' => 'below',
+                ],
+                [
+                    'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation.beside',
+                    'value' => 'beside',
+                ],
+            ],
+        ],
+    ],
 ]);
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'header', 'header_style', 'after:header_layout');
@@ -661,49 +702,6 @@ $GLOBALS['TCA']['tt_content']['types']['success_topbar'] = [
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
     ',
-    'columnsOverrides' => [
-        'name' => [
-            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.name',
-            'config' => [
-                'type' => 'input',
-                'cols' => 50,
-            ],
-        ],
-        'color' => [
-            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color.black',
-                        'value' => 'black',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.color.white',
-                        'value' => 'white',
-                    ],
-                ],
-            ],
-        ],
-        'navigation' => [
-            'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation.below',
-                        'value' => 'below',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:topbar.navigation.beside',
-                        'value' => 'beside',
-                    ],
-                ],
-            ],
-        ],
-    ],
 ];
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_topbar'] = 'content-header';
