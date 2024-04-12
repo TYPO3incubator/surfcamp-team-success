@@ -122,7 +122,9 @@ html {
             @apply list-decimal list-inside my-2;
         }
 
-
+        p + p {
+            @apply mt-2;
+        }
     }
 
     .background-primary {

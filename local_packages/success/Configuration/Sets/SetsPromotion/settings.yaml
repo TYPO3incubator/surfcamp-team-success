@@ -6,8 +6,8 @@ ui:
     pagebg: "white"
     footerbg: "secondary"
     font:
-      text: "open-sans"
-      heading: "oswald"
+      text: "roboto"
+      heading: "roboto-mono"
   light:
     color:
       primary: "rgb(255, 135, 0)"

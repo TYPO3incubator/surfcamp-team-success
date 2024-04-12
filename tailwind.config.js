@@ -68,6 +68,7 @@ export default {
     'space-after-extra-large',
     'form-group',
     'form-label',
+    'form-control',
     'form-text',
     'text-black',
     'text-white-variable',
