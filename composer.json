@@ -23,7 +23,7 @@
     "config": {
         "bin-dir": "bin",
         "platform": {
-            "php": "8.2.0"
+            "php": "8.3.6"
         },
         "sort-packages": true,
         "allow-plugins": {
@@ -36,7 +36,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "b13/backendpreviews": "dev-v13-compat",
         "helhum/dotenv-connector": "^3.1",
         "praetorius/vite-asset-collector": "^1.9",
