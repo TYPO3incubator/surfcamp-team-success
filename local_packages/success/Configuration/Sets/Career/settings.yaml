@@ -1,29 +1,23 @@
 ui:
-  theme: "light:only"
+  theme: "light"
   layout:
     radius: "5px"
     rotate: "3deg"
     pagebg: "light"
-    footerbg: "primary"
+    footerbg: "light"
     font:
-      text: "roboto"
-      heading: "roboto-slab"
+      text: "lato"
+      heading: "playpen-sans"
   light:
     color:
       primary: "#FFC27E"
       secondary: "#A6B067"
       light: "#F9FBEB"
-      primarytext: "var(--color-whitetext)"
-      secondarytext: "var(--color-blacktext)"
-      lighttext: "var(--color-whitetext)"
+      primarytext: "black"
+      secondarytext: "white"
+      lighttext: "black"
   dark:
     color:
-      primary: "rgb(205, 156, 19)"
-      secondary: "rgb(37, 37, 37)"
-      light: "rgb(29, 29, 29)"
-      primarytext: "black"
-      secondarytext: "var(--color-blacktext)"
-      lighttext: "var(--color-blacktext)"
 
 # DUMMYDATA
 #todo replace this values by backend ui input
