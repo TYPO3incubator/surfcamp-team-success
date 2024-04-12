@@ -16,11 +16,11 @@ export default {
       left: 'calc(var(--rotate) * (-1))'
     },
     colors: {
-      black: 'black',
-      white: 'white',
+      black: 'var(--color-black)',
+      white: 'var(--color-white)',
       gray: {
-        '100': '#eee',
-        '900': '#333'
+        '100': 'var(--color-gray-light)',
+        '900': 'var(--color-gray-dark)'
       },
       transparent: 'transparent',
       current: 'currentColor',
@@ -43,6 +43,8 @@ export default {
       primarytext: 'var(--color-primarytext)',
       secondarytext: 'var(--color-secondarytext)',
       lighttext: 'var(--color-lighttext)',
+      whitetext: 'var(--color-whitetext)',
+      blacktext: 'var(--color-blacktext)',
     },
     extend: {},
   },
