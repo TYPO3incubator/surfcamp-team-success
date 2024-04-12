@@ -23,8 +23,11 @@ ui:
     font: []
     color:
       primary: "rgb(235, 183, 35)"
-      secondary: "rgb(94, 13, 25)"
-      light: "rgb(255, 249, 232)"
+      secondary: "rgb(37, 37, 37)"
+      light: "rgb(29, 29, 29)"
+      primarytext: "black"
+      secondarytext: "white"
+      lighttext: "white"
 
 # DUMMYDATA
 #todo replace this values by backend ui input

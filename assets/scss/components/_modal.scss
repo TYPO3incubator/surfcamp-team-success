@@ -13,16 +13,16 @@ body.modal-open {
 }
 
 .modal-content {
-    @apply bg-white rounded text-black my-[15%] p-5 shadow-lg;
+    @apply bg-white rounded text-whitetext my-[15%] p-5 shadow-lg;
 }
 
 .modal-close {
     position: absolute;
     top: -20px;
-    @apply bg-white rounded-full text-black w-6 h-6 right-0 text-center align-middle cursor-pointer;
+    @apply bg-white rounded-full text-whitetext w-6 h-6 right-0 text-center align-middle cursor-pointer;
 
     &:hover {
-        @apply bg-black text-white;
+        @apply bg-black text-blacktext;
     }
 }
 

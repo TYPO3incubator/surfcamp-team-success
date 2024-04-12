@@ -7,6 +7,23 @@ html {
     --color-primary-light: color-mix(in srgb,var(--color-primary),#FFF 40%);
     --color-secondary-dark: color-mix(in srgb,var(--color-secondary),#000 15%);
     --color-light-dark: color-mix(in srgb,var(--color-light),#000 15%);
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray-light: #eee;
+    --color-gray-dark: #333;
+    --color-white-text: #000;
+    --color-black-text: #fff;
+    --brightness: 0.5;
+}
+
+.dark {
+    --color-white: #111;
+    --color-black: #000;
+    --color-gray-light: #444;
+    --color-gray-dark: #222;
+    --color-whitetext: #ccc;
+    --color-blacktext: #ccc;
+    --brightness: 0.4;
 }
 
 @layer components {
@@ -27,11 +44,11 @@ html {
     }
 
     .btn-white {
-        @apply bg-white text-black hover:bg-gray-100 focus:bg-gray-100;
+        @apply bg-white text-whitetext hover:bg-gray-100 focus:bg-gray-100;
     }
 
     .btn-black {
-        @apply bg-black text-white hover:bg-gray-900 focus:bg-gray-900;
+        @apply bg-black text-blacktext hover:bg-gray-900 focus:bg-gray-900;
     }
 
     button[type="submit"] {
@@ -80,11 +97,11 @@ html {
     }
 
     .background-white {
-        @apply bg-white text-black;
+        @apply bg-white text-whitetext;
     }
 
     .background-black {
-        @apply bg-black text-white;
+        @apply bg-black text-blacktext;
     }
 
     .navigation {
@@ -113,7 +130,7 @@ html {
         }
 
         &-control {
-            @apply bg-white shadow appearance-none rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:ring-2 resize-none;
+            @apply bg-white shadow appearance-none rounded w-full py-2 px-3 text-whitetext leading-tight focus:outline-none focus:ring-2 resize-none;
         }
 
         &-check {
@@ -197,5 +214,13 @@ html {
         &-extra-large {
             @apply pb-20;
         }
+    }
+
+    .dark img {
+        filter: brightness(0.75);
+    }
+
+    img.img-darken {
+        filter: brightness(var(--brightness));
     }
 }
