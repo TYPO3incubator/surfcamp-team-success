@@ -27,7 +27,6 @@ $removeCE = [
     'menu_subpages',
     'shortcut',
     'table',
-    'text',
     'textpic',
     'uploads',
 ];

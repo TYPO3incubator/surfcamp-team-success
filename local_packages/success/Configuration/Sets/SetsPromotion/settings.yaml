@@ -1,7 +1,7 @@
 ui:
   theme: "light"
   layout:
-    radius: "0px"
+    radius: "3px"
     rotate: "0"
     pagebg: "white"
     footerbg: "secondary"
