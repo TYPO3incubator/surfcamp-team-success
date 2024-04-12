@@ -33,5 +33,5 @@ info:
     imprint: "https://www.typo3.com/legal-notice"
     dataPrivacy: "https://www.typo3.com/privacy-policy"
 footer:
-  maxCols: '3'
-  pageId: 7
+  maxCols: '2'
+  pageId: 0
