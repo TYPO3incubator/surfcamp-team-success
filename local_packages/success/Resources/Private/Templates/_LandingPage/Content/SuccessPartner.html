@@ -10,18 +10,27 @@
         <div class="grid md:grid-cols-4 grid-cols-2 gap-5 md:gap-8 {f:if(condition: data.header, then: 'mt-8')}">
             <f:if condition="{data.assets}">
                 <f:for each="{data.assets}" as="media">
-
-                    <div class="rounded background-white p-5 flex justify-center">
-                        <f:link.typolink parameter="{media.link}"
-                                         title="{media.alternative}" target="_blank">
-                            <f:image src="{media.uid}" treatIdAsReference="1" class="h-16 w-auto object-contain"
-                                     width="400" loading="lazy" alt="{media.uid}"/>
-                        </f:link.typolink>
-                    </div>
+                    <f:if condition="{media.link}">
+                        <f:then>
+                            <f:link.typolink 
+                                parameter="{media.link}"
+                                title="{media.alternative}" 
+                                target="_blank"
+                                class="rounded background-white p-5 flex justify-center block focus:ring focus:ring-2 focus:ring-primary-200">
+                                <f:image src="{media.uid}" treatIdAsReference="1" class="h-16 w-auto object-contain"
+                                        width="400" loading="lazy" alt="{media.uid}"/>
+                            </f:link.typolink>
+                        </f:then>
+                        <f:else>
+                            <div class="rounded background-white p-5 flex justify-center">
+                                <f:image src="{media.uid}" treatIdAsReference="1" class="h-16 w-auto object-contain"
+                                            width="400" loading="lazy" alt="{media.uid}"/>
+                            </div>
+                        </f:else>
+                    </f:if>
                 </f:for>
             </f:if>
         </div>
-
     </div>
 </f:section>
 </html>
