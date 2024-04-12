@@ -21,9 +21,8 @@ ui:
 
 info:
   owner:
-    name: "TYPO3 Surfcamp"
+    name: "Team SUCCESS"
     imprint: "https://typo3.org/legal-notice"
     dataPrivacy: "https://typo3.org/privacy-policy"
 footer:
-  maxCols: '3'
   pageId: 0

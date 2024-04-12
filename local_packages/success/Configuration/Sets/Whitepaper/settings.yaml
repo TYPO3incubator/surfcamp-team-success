@@ -25,5 +25,4 @@ info:
     imprint: "https://typo3.org/legal-notice"
     dataPrivacy: "https://typo3.org/privacy-policy"
 footer:
-  maxCols: '3'
-  pageId: 0
+  pageId: 12
