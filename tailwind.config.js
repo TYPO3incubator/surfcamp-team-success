@@ -73,6 +73,6 @@ export default {
     'text-black',
     'text-white-variable',
     'text-white-pure',
-    'default'
+    'default',
   ]
 }
