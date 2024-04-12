@@ -221,7 +221,7 @@
 				<source>Logo</source>
 			</trans-unit>
 			<trans-unit id="topbar.name" resname="topbar.name">
-				<source>Topbar name</source>
+				<source>Sitename</source>
 			</trans-unit>
 			<trans-unit id="topbar.color" resname="topbar.color">
 				<source>Text color</source>

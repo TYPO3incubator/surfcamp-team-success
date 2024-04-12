@@ -296,6 +296,7 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
         'config' => [
             'type' => 'input',
             'cols' => 50,
+            'eval' => 'trim, required'
         ],
     ],
     'color' => [
