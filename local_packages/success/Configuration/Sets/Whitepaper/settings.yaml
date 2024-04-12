@@ -13,9 +13,9 @@ ui:
       primary: "rgb(255, 135, 0)"
       secondary: "rgb(81, 81, 81)"
       light: "rgb(255, 217, 173)"
-      primarytext: "var(--color-whitetext)"
-      secondarytext: "var(--color-whitetext)"
-      lighttext: "var(--color-whitetext)"
+      primarytext: "white"
+      secondarytext: "white"
+      lighttext: "black"
   dark:
     color:
 
