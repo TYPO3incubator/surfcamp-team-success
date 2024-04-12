@@ -1,3 +1,29 @@
-foo:
-  bar:
-    baz: 99
+ui:
+  theme: "light"
+  layout:
+    radius: "0px"
+    rotate: "0"
+    pagebg: "white"
+    footerbg: "white"
+    font:
+      text: "lato"
+      heading: "roboto-slab"
+  light:
+    color:
+      primary: "rgb(255, 135, 0)"
+      secondary: "rgb(81, 81, 81)"
+      light: "rgb(255, 217, 173)"
+      primarytext: "var(--color-whitetext)"
+      secondarytext: "var(--color-whitetext)"
+      lighttext: "var(--color-whitetext)"
+  dark:
+    color:
+
+info:
+  owner:
+    name: "TYPO3 GmbH"
+    imprint: "https://typo3.org/legal-notice"
+    dataPrivacy: "https://typo3.org/privacy-policy"
+footer:
+  maxCols: '3'
+  pageId: 0
