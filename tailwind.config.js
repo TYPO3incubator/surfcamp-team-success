@@ -18,7 +18,10 @@ export default {
     },
     colors: {
       black: 'var(--color-black)',
-      white: 'var(--color-white)',
+      white: {
+        'variable': 'var(--color-white)',
+        'pure': 'white',
+      },
       gray: {
         '100': 'var(--color-gray-light)',
         '900': 'var(--color-gray-dark)'
@@ -67,6 +70,7 @@ export default {
     'form-label',
     'form-text',
     'text-black',
-    'text-white'
+    'text-white-variable',
+    'text-white-pure'
   ]
 }
