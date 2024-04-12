@@ -66,6 +66,7 @@ export default {
     'form-group',
     'form-label',
     'form-text',
-    'rounded-b-none'
+    'text-black',
+    'text-white'
   ]
 }
