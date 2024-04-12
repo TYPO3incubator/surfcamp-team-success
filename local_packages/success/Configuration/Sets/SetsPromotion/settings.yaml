@@ -15,15 +15,9 @@ ui:
       light: "rgb(163, 208, 196)"
       primarytext: "var(--color-whitetext)"
       secondarytext: "var(--color-blacktext)"
-      lighttext: "var(--color-blacktext)"
+      lighttext: "var(--color-whitetext)"
   dark:
     color:
-      primary: "rgb(205, 156, 19)"
-      secondary: "rgb(37, 37, 37)"
-      light: "rgb(29, 29, 29)"
-      primarytext: "black"
-      secondarytext: "var(--color-blacktext)"
-      lighttext: "var(--color-blacktext)"
 
 info:
   owner:
