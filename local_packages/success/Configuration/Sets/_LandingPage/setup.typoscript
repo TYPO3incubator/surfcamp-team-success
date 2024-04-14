@@ -6,6 +6,8 @@
 
 page = PAGE
 page {
+  bodyTagAdd = data-theme={$ui.theme}
+
   meta {
     viewport = width=device-width, initial-scale=1
     theme-color = {$ui.light.color.primary}
