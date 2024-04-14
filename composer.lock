@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d8f2c7bd74ef42962f4076350430ca8",
+    "content-hash": "2094bef3f3ee0e546e9bbc2ca586e2d7",
     "packages": [
         {
             "name": "b13/backendpreviews",
@@ -2285,7 +2285,7 @@
             "dist": {
                 "type": "path",
                 "url": "local_packages/copyright",
-                "reference": "c84b6da5adc6dccb0cacfeed387cf099e019c8d3"
+                "reference": "4af538aef11838fba3c1779ab3b9714fa6272c91"
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -2312,7 +2312,10 @@
             "dist": {
                 "type": "path",
                 "url": "local_packages/success",
-                "reference": "e82cdae00571b0d3ccb29b0306386c47840abbc6"
+                "reference": "3d58d1387261d7ffdc67d90b79e13ebcfe86519b"
+            },
+            "require": {
+                "surfcamp/copyright": "@dev"
             },
             "suggest": {
                 "b13/backendpreviews": "It enhances the preview for the backend"
@@ -5261,12 +5264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/backend.git",
-                "reference": "d1f0f11a154dae452ff4eda2ebf7097545d76e12"
+                "reference": "9e2212287c12bb4e285023758238b4b8bdcbac47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/backend/zipball/d1f0f11a154dae452ff4eda2ebf7097545d76e12",
-                "reference": "d1f0f11a154dae452ff4eda2ebf7097545d76e12",
+                "url": "https://api.github.com/repos/TYPO3-CMS/backend/zipball/9e2212287c12bb4e285023758238b4b8bdcbac47",
+                "reference": "9e2212287c12bb4e285023758238b4b8bdcbac47",
                 "shasum": ""
             },
             "require": {
@@ -5335,7 +5338,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-04-10T16:21:54+00:00"
+            "time": "2024-04-13T11:50:58+00:00"
         },
         {
             "name": "typo3/cms-belog",
@@ -5566,12 +5569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/core.git",
-                "reference": "2fb7b2e9344938ed52ca1ec1b3392db40d9b8649"
+                "reference": "d623d0e26c78e43d64165aa646826a909a27e548"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/core/zipball/2fb7b2e9344938ed52ca1ec1b3392db40d9b8649",
-                "reference": "2fb7b2e9344938ed52ca1ec1b3392db40d9b8649",
+                "url": "https://api.github.com/repos/TYPO3-CMS/core/zipball/d623d0e26c78e43d64165aa646826a909a27e548",
+                "reference": "d623d0e26c78e43d64165aa646826a909a27e548",
                 "shasum": ""
             },
             "require": {
@@ -5700,7 +5703,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-04-11T18:32:01+00:00"
+            "time": "2024-04-13T11:50:58+00:00"
         },
         {
             "name": "typo3/cms-dashboard",
@@ -5708,12 +5711,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/dashboard.git",
-                "reference": "411a82221901c4b9bf7fc4424051da763bfd88c5"
+                "reference": "a4d03004858aeff45e14e0bba89517cb78024a4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/dashboard/zipball/411a82221901c4b9bf7fc4424051da763bfd88c5",
-                "reference": "411a82221901c4b9bf7fc4424051da763bfd88c5",
+                "url": "https://api.github.com/repos/TYPO3-CMS/dashboard/zipball/a4d03004858aeff45e14e0bba89517cb78024a4e",
+                "reference": "a4d03004858aeff45e14e0bba89517cb78024a4e",
                 "shasum": ""
             },
             "require": {
@@ -5764,7 +5767,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-04-12T13:08:26+00:00"
+            "time": "2024-04-13T08:20:22+00:00"
         },
         {
             "name": "typo3/cms-extbase",
@@ -6871,12 +6874,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "c84ccbc6eb9a97fb6986809427e375f86a48d038"
+                "reference": "1b43da6199cab7867f06b52454a256efa743f170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/c84ccbc6eb9a97fb6986809427e375f86a48d038",
-                "reference": "c84ccbc6eb9a97fb6986809427e375f86a48d038",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1b43da6199cab7867f06b52454a256efa743f170",
+                "reference": "1b43da6199cab7867f06b52454a256efa743f170",
                 "shasum": ""
             },
             "conflict": {
@@ -7182,7 +7185,7 @@
                 "mantisbt/mantisbt": "<2.26.1",
                 "marcwillmann/turn": "<0.3.3",
                 "matyhtf/framework": "<3.0.6",
-                "mautic/core": "<4.4.12",
+                "mautic/core": "<4.4.12|>=5.0.0.0-alpha,<5.0.4",
                 "mediawiki/core": "<1.36.2",
                 "mediawiki/matomo": "<2.4.3",
                 "mediawiki/semantic-media-wiki": "<4.0.2",
@@ -7326,7 +7329,7 @@
                 "really-simple-plugins/complianz-gdpr": "<6.4.2",
                 "redaxo/source": "<=5.15.1",
                 "remdex/livehelperchat": "<4.29",
-                "reportico-web/reportico": "<=7.1.21",
+                "reportico-web/reportico": "<=8.1",
                 "rhukster/dom-sanitizer": "<1.0.7",
                 "rmccue/requests": ">=1.6,<1.8",
                 "robrichards/xmlseclibs": ">=1,<3.0.4",
@@ -7509,6 +7512,7 @@
                 "wikimedia/parsoid": "<0.12.2",
                 "willdurand/js-translation-bundle": "<2.1.1",
                 "winter/wn-backend-module": "<1.2.4",
+                "winter/wn-dusk-plugin": "<2.1",
                 "winter/wn-system-module": "<1.2.4",
                 "wintercms/winter": "<=1.2.3",
                 "woocommerce/woocommerce": "<6.6",
@@ -7610,14 +7614,13 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-12T16:04:40+00:00"
+            "time": "2024-04-12T22:04:12+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "b13/backendpreviews": 20,
-        "surfcamp/copyright": 20,
         "surfcamp/success": 20,
         "typo3/cms-backend": 20,
         "typo3/cms-belog": 20,

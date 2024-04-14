@@ -1,7 +1,7 @@
 {
 	"name": "surfcamp/copyright",
 	"type": "typo3-cms-extension",
-	"description" : "List of images",
+	"description": "List of images",
 	"license": "GPL-2.0-or-later",
 	"version": "1.0.0",
 	"autoload": {
