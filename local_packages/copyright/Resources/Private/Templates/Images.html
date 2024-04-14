@@ -9,8 +9,7 @@
                 <f:if condition="{image.file.metaData.copyright}">
                     <span>{image.file.metaData.copyright -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</span>
                     <f:if condition="{image.pages}">
-                        <f:comment><!-- todo: add translation --></f:comment>
-                        <span>Usage:</span>
+                        <span>{f:translate(key: 'usage')}</span>
                         <ul>
                             <f:for as="page" each="{image.pages}">
                                 <li>
