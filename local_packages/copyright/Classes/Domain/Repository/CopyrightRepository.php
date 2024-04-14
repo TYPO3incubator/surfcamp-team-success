@@ -26,7 +26,7 @@ readonly class CopyrightRepository
     /**
      * @throws Exception
      */
-    public function findBySite(Site $site): array
+    public function findBySite(Site $site, $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/svg+xml']): array
     {
         // first fetch all pages in a specific site
         $pageIds = $this->pageRepository->getDescendantPageIdsRecursive($site->getRootPageId(), 4);
@@ -35,12 +35,16 @@ readonly class CopyrightRepository
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_file_reference');
         $queryBuilder->setRestrictions(GeneralUtility::makeInstance(FrontendRestrictionContainer::class));
         $fileReferences = $queryBuilder
-            ->select('*')
-            ->from('sys_file_reference')
+            ->select('r.*')
+            ->from('sys_file_reference', 'r')
+            ->leftJoin('r', 'sys_file', 'f', 'r.uid_local = f.uid')
+            ->leftJoin('f', 'sys_file_metadata', 'm', 'f.uid = m.file')
             ->where(
-                $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter($pageIds, Connection::PARAM_INT_ARRAY)),
+                $queryBuilder->expr()->in('r.pid', $queryBuilder->createNamedParameter($pageIds, Connection::PARAM_INT_ARRAY)),
+                $queryBuilder->expr()->in('f.mime_type', $queryBuilder->createNamedParameter($allowedMimeTypes, Connection::PARAM_STR_ARRAY)),
+                $queryBuilder->expr()->isNotNull('m.copyright')
             )
-            ->orderBy('pid')
+            ->orderBy('m.title')
             ->executeQuery()
             ->fetchAllAssociative();
 
