@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" date="2011-10-17T20:22:32Z" product-name="copyright">
+		<header/>
+		<body>
+			<trans-unit id="element.label" resname="element.label">
+				<source>Copyright for Images</source>
+			</trans-unit>
+
+			<trans-unit id="element.description" resname="element.description">
+				<source>List of all (visible) images used on a Site with a link to the actual page - used on the imprint page</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
