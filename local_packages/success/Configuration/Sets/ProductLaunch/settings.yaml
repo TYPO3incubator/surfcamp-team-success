@@ -24,6 +24,7 @@ ui:
       primarytext: "black"
       secondarytext: "var(--color-blacktext)"
       lighttext: "var(--color-blacktext)"
+  backToTopButton: true
 
 # DUMMYDATA
 #todo replace this values by backend ui input

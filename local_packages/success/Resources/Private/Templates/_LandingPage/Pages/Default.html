@@ -15,7 +15,7 @@
     <f:render partial="Typography" arguments="{fonts: settings.ui.layout.font}"></f:render>
 
     <vac:asset.vite entry="assets/global.js"/>
-    
+
     <div class="font-text background-{settings.ui.layout.pagebg} theme-{settings.ui.theme} theme-js">
         <main>
             <f:for as="block" each="{content.column0.blocks}">
@@ -24,5 +24,6 @@
         </main>
         <f:render partial="Footer" arguments="{_all}" />
         <f:render partial="Page/Modal" />
+        <f:render partial="Elements/BackToTopButton" arguments="{_all}"/>
     </div>
 </html>

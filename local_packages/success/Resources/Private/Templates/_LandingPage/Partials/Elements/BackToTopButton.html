@@ -1,0 +1,15 @@
+<f:if condition="{settings.ui.backToTopButton} == true">
+    <button class="scroll-to-top
+                       fixed bottom-4 right-4
+                       transition duration-500
+                       hover:ring hover:ring-primary-500 hover:background-secondary group
+                       rounded-full justify-center background-primary
+                       p-3"
+            onclick="scrollToTop()">
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 10 14">
+            <path class="background-primary group-hover:background-secondary transition duration-500" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 13V1m0 0L1 5m4-4 4 4"/>
+        </svg>
+    </button>
+</f:if>
