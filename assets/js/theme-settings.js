@@ -1,12 +1,10 @@
 const Theme = {
-  DARK: 'theme-dark',
+  DARK:  'theme-dark',
   LIGHT: 'theme-light'
 };
 
 const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
-const themeToggle = document.querySelector("[data-theme-toggle]");
-const onButton = themeToggle.querySelector('.on')
-const offButton = themeToggle.querySelector('.off')
+const themeToggle       = document.querySelector("[data-theme-toggle]");
 
 function getCurrentTheme() {
   const storedTheme = localStorage.getItem("theme");
@@ -22,7 +20,10 @@ function applyTheme(theme) {
   const el = document.querySelector('.theme-js');
   el.classList.remove(Theme.DARK, Theme.LIGHT); // Remove both to ensure clean state
   el.classList.add(theme);
-  updateToggleButtonState(theme)
+
+  if (themeToggle) {
+    updateToggleButtonState(theme);
+  }
 }
 
 function changeTheme(theme, saveToLocalStorage = true) {
@@ -38,15 +39,12 @@ function changeTheme(theme, saveToLocalStorage = true) {
   applyTheme(theme);
 }
 
-themeToggle.addEventListener("click", function(e) {
-  e.preventDefault();
-  changeTheme();
-});
-
 function initTheme() {
   applyTheme(currentThemeSetting);
   colorThemeWatcher();
-  updateToggleButtonState(currentThemeSetting);
+  if (themeToggle) {
+    updateToggleButtonState(currentThemeSetting);
+  }
 }
 
 function colorThemeWatcher() {
@@ -59,21 +57,31 @@ function colorThemeWatcher() {
 }
 
 function updateToggleButtonState(theme) {
-  const onButton = document.querySelector('.on');
-  const offButton = document.querySelector('.off');
+  const onButton       = document.querySelector('.on');
+  const offButton      = document.querySelector('.off');
   const themeToggleDot = document.querySelector('.themeToggler .dot')
 
   if (theme === Theme.DARK) {
     onButton.classList.remove('hidden');
     offButton.classList.add('hidden');
-    themeToggle.checked = true;
+    themeToggle.checked            = true;
     themeToggleDot.style.transform = 'translateX(1.25rem)';
   } else {
     onButton.classList.add('hidden');
     offButton.classList.remove('hidden');
-    themeToggle.checked = false;
+    themeToggle.checked            = false;
     themeToggleDot.style.transform = 'translateX(0)'
   }
 }
 
 initTheme();
+
+if (themeToggle) {
+  const onButton  = themeToggle.querySelector('.on')
+  const offButton = themeToggle.querySelector('.off')
+
+  themeToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    changeTheme();
+  });
+}

@@ -16,4 +16,7 @@ const topButtonObserver = new IntersectionObserver(() => {
     });
   });
 });
-topButtonObserver.observe(backToTopButton)
+
+if (backToTopButton) {
+  topButtonObserver.observe(backToTopButton);
+}

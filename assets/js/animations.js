@@ -1,7 +1,6 @@
 import { animateCountUp } from './counter-animation'
 
 const numbersCe = document.querySelector('[data-el="numbers"]');
-const numbers = numbersCe.querySelectorAll('[data-el="number"]')
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -16,4 +15,7 @@ const observer = new IntersectionObserver((entries) => {
     })
 }, { threshold: 0.2 });
 
-observer.observe(numbersCe)
+if (numbersCe) {
+  const numbers = numbersCe.querySelectorAll('[data-el="number"]')
+  observer.observe(numbersCe)
+}
