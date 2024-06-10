@@ -10,8 +10,7 @@
                     <details class="mt-5 rounded overflow-hidden">
                         <summary
                             class="cursor-pointer transition-all focus:ring-2 focus:ring-primary-200 background-white w-full text-left font-bold px-4 py-2 flex justify-between items-center">
-                            {f:if(condition: image.file.metaData.title, then: '{image.file.metaData.title} - ')}
-                            {image.file.metaData.copyright -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}
+                            <span>{f:if(condition: image.file.metaData.title, then: image.file.metaData.title, else: image.file.name)} - {image.file.metaData.copyright -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</span>
                             <span
                                 class="icon shrink-0 rounded-full w-5 h-5 flex items-center justify-center background-primary text-sm ml-3">{image.pages -> f:count()}</span>
                         </summary>

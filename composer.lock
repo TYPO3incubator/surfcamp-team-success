@@ -2280,31 +2280,59 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
-            "name": "surfcamp/copyright",
-            "version": "1.0.0",
+            "name": "schliesser/credits",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schliesser/credits.git",
+                "reference": "9a386c1e30e49ce2108163a7203de0e4450cfae2"
+            },
             "dist": {
-                "type": "path",
-                "url": "local_packages/copyright",
-                "reference": "4af538aef11838fba3c1779ab3b9714fa6272c91"
+                "type": "zip",
+                "url": "https://api.github.com/repos/schliesser/credits/zipball/9a386c1e30e49ce2108163a7203de0e4450cfae2",
+                "reference": "9a386c1e30e49ce2108163a7203de0e4450cfae2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "typo3/cms-filemetadata": "^12.4 || ^v13.0"
+            },
+            "require-dev": {
+                "saschaegerer/phpstan-typo3": "dev-master",
+                "typo3/cms-composer-installers": "^5.0",
+                "typo3/coding-standards": "^0.8.x-dev",
+                "typo3/testing-framework": "^8.0"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "copyright"
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "web-dir": ".Build/Web",
+                    "extension-key": "credits"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Surfcamp\\Copyright\\": "Classes/"
+                    "Schliesser\\Credits\\": "Classes"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "List of images",
-            "transport-options": {
-                "relative": true
-            }
+            "authors": [
+                {
+                    "name": "André Buchmann",
+                    "email": "andy.schliesser@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Give credits: Automatically list all used images with their copyright. Multisite support.",
+            "support": {
+                "issues": "https://github.com/schliesser/credits/issues",
+                "source": "https://github.com/schliesser/credits/tree/v1.0.0"
+            },
+            "time": "2024-06-10T12:23:29+00:00"
         },
         {
             "name": "surfcamp/success",
@@ -2312,10 +2340,10 @@
             "dist": {
                 "type": "path",
                 "url": "local_packages/success",
-                "reference": "3d58d1387261d7ffdc67d90b79e13ebcfe86519b"
+                "reference": "778efaa17f248e7c0b0ca51386005e89bbd8158c"
             },
             "require": {
-                "surfcamp/copyright": "@dev"
+                "schliesser/credits": "^1.0.0"
             },
             "suggest": {
                 "b13/backendpreviews": "It enhances the preview for the backend"
