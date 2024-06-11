@@ -740,7 +740,7 @@ $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['success_topbar'] = 'c
 $GLOBALS['TCA']['tt_content']['types']['form_formframework']['previewRenderer'] = \Surfcamp\Success\Hooks\FormPagePreviewRenderer::class;
 
 // Copright Images
-$GLOBALS['TCA']['tt_content']['types']['copyright_images'] = [
+$GLOBALS['TCA']['tt_content']['types']['credits_images'] = [
     'showitem' => '
     --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
     --palette--;;general,

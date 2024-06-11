@@ -3,7 +3,7 @@
 @import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/RecordLinks/contentInModal.typoscript'
 @import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/Form/setup.typoscript'
 @import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/config.typoscript'
-@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/copyright.typoscript'
+@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/credits.typoscript'
 
 page = PAGE
 page {

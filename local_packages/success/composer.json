@@ -15,7 +15,7 @@
 		}
 	},
 	"require": {
-		"surfcamp/copyright": "@dev"
+		"schliesser/credits": "^1.0.0"
 	},
 	"suggest": {
 		"b13/backendpreviews": "It enhances the preview for the backend"
