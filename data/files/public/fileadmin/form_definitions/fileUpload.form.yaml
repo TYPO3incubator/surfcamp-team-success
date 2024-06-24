@@ -1,0 +1,64 @@
+
+renderingOptions:
+  submitButtonLabel: 'Upload your design'
+type: Form
+identifier: fileUpload
+label: 'File Upload'
+prototypeName: standard
+finishers:
+  -
+    options:
+      message: 'Thank you for uploading the design, we will take a look and get back to you as soon as possible!'
+    identifier: Notification
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    label: 'Design Upload'
+    renderables:
+      -
+        defaultValue: ''
+        type: Text
+        identifier: text-1
+        label: Name
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Email
+        identifier: email-1
+        label: 'Email address'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: EmailAddress
+          -
+            identifier: NotEmpty
+      -
+        properties:
+          saveToFileMount: '1:/user_upload/'
+          allowedMimeTypes:
+            - application/pdf
+          elementDescription: 'Upload your design as PDF'
+          fluidAdditionalAttributes:
+            required: required
+        type: FileUpload
+        identifier: fileupload-1
+        label: Design
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Textarea
+        identifier: textarea-1
+        label: 'Leave some thoughts on your design idea'

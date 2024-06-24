@@ -1,0 +1,45 @@
+
+renderingOptions:
+  submitButtonLabel: Submit
+type: Form
+identifier: newsletter
+label: Newsletter
+prototypeName: standard
+finishers:
+  -
+    options:
+      message: 'Thank you for signing up to our newsletter! Please open your emails now and confirm your subscription.'
+      contentElementUid: ''
+    identifier: Confirmation
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    label: Step
+    renderables:
+      -
+        defaultValue: ''
+        type: Email
+        identifier: email-1
+        label: 'Email address'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: EmailAddress
+          -
+            identifier: NotEmpty
+      -
+        type: Checkbox
+        identifier: checkbox-1
+        label: 'I have read the data privacy statement'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty

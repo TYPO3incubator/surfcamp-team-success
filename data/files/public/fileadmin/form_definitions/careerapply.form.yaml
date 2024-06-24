@@ -1,0 +1,69 @@
+
+renderingOptions:
+  submitButtonLabel: 'Apply with a smile'
+type: Form
+identifier: careerapply
+label: 'Career apply'
+prototypeName: standard
+finishers:
+  -
+    options:
+      message: 'Thank you for your application'
+    identifier: Notification
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    label: 'Design Upload'
+    renderables:
+      -
+        defaultValue: ''
+        type: Text
+        identifier: text-1
+        label: Name
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Email
+        identifier: email-1
+        label: 'Email address'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: EmailAddress
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Telephone
+        identifier: telephone-1
+        label: 'Phone number'
+      -
+        properties:
+          saveToFileMount: '1:/user_upload/'
+          allowedMimeTypes:
+            - application/pdf
+          elementDescription: 'Upload CV design as PDF'
+          fluidAdditionalAttributes:
+            required: required
+        type: FileUpload
+        identifier: fileupload-1
+        label: CV
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Textarea
+        identifier: textarea-1
+        label: 'Just tell us:'
