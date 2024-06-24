@@ -5,6 +5,7 @@ ui:
     rotate: "3deg"
     pagebg: "light"
     footerbg: "light"
+    backToTopButton: true
     font:
       text: "roboto"
       heading: "roboto-slab"
@@ -24,7 +25,6 @@ ui:
       primarytext: "black"
       secondarytext: "var(--color-blacktext)"
       lighttext: "var(--color-blacktext)"
-  backToTopButton: true
 
 # DUMMYDATA
 #todo replace this values by backend ui input

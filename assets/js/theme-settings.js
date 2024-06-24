@@ -1,5 +1,5 @@
 const Theme = {
-  DARK:  'theme-dark',
+  DARK: 'theme-dark',
   LIGHT: 'theme-light'
 };
 
@@ -57,19 +57,19 @@ function colorThemeWatcher() {
 }
 
 function updateToggleButtonState(theme) {
-  const onButton       = document.querySelector('.on');
-  const offButton      = document.querySelector('.off');
+  const onButton = document.querySelector('.on');
+  const offButton = document.querySelector('.off');
   const themeToggleDot = document.querySelector('.themeToggler .dot')
 
   if (theme === Theme.DARK) {
     onButton.classList.remove('hidden');
     offButton.classList.add('hidden');
-    themeToggle.checked            = true;
+    themeToggle.checked = true;
     themeToggleDot.style.transform = 'translateX(1.25rem)';
   } else {
     onButton.classList.add('hidden');
     offButton.classList.remove('hidden');
-    themeToggle.checked            = false;
+    themeToggle.checked = false;
     themeToggleDot.style.transform = 'translateX(0)'
   }
 }
@@ -77,9 +77,6 @@ function updateToggleButtonState(theme) {
 initTheme();
 
 if (themeToggle) {
-  const onButton  = themeToggle.querySelector('.on')
-  const offButton = themeToggle.querySelector('.off')
-
   themeToggle.addEventListener("click", function (e) {
     e.preventDefault();
     changeTheme();
