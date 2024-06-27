@@ -37,6 +37,10 @@ settings:
     label: 'Scroll behaviour'
     type: string
     default: 'scroll-smooth'
+  ui.backToTopButton:
+    label: 'Back to Top Button'
+    type: bool
+    default: false
   footer.maxCols:
     label: 'Max Footer columns'
     description: 'Values:Label | auto:auto | 4:4  | 3:3 | 2:2 | 1:1'

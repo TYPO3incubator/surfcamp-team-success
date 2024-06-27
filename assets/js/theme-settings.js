@@ -4,9 +4,7 @@ const Theme = {
 };
 
 const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
-const themeToggle = document.querySelector("[data-theme-toggle]");
-const onButton = themeToggle.querySelector('.on')
-const offButton = themeToggle.querySelector('.off')
+const themeToggle       = document.querySelector("[data-theme-toggle]");
 
 function getCurrentTheme() {
   const storedTheme = localStorage.getItem("theme");
@@ -22,7 +20,10 @@ function applyTheme(theme) {
   const el = document.querySelector('.theme-js');
   el.classList.remove(Theme.DARK, Theme.LIGHT); // Remove both to ensure clean state
   el.classList.add(theme);
-  updateToggleButtonState(theme)
+
+  if (themeToggle) {
+    updateToggleButtonState(theme);
+  }
 }
 
 function changeTheme(theme, saveToLocalStorage = true) {
@@ -38,15 +39,12 @@ function changeTheme(theme, saveToLocalStorage = true) {
   applyTheme(theme);
 }
 
-themeToggle.addEventListener("click", function(e) {
-  e.preventDefault();
-  changeTheme();
-});
-
 function initTheme() {
   applyTheme(currentThemeSetting);
   colorThemeWatcher();
-  updateToggleButtonState(currentThemeSetting);
+  if (themeToggle) {
+    updateToggleButtonState(currentThemeSetting);
+  }
 }
 
 function colorThemeWatcher() {
@@ -77,3 +75,10 @@ function updateToggleButtonState(theme) {
 }
 
 initTheme();
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+    changeTheme();
+  });
+}

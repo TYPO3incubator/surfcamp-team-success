@@ -5,6 +5,7 @@ ui:
     rotate: "3deg"
     pagebg: "light"
     footerbg: "light"
+    backToTopButton: true
     font:
       text: "roboto"
       heading: "roboto-slab"
