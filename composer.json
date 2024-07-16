@@ -37,7 +37,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.3",
-        "b13/backendpreviews": "dev-v13-compat",
+        "b13/backendpreviews": "^1.1.2",
         "helhum/dotenv-connector": "^3.1",
         "praetorius/vite-asset-collector": "^1.9",
         "surfcamp/success": "@dev",
