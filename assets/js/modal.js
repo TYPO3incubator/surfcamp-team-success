@@ -21,8 +21,9 @@ const handleForm = (event, form, modalContent, cid) => {
       const responseContent = responseElement.querySelector(`#${formId}`);
 
       if (responseContent) {
+        const closeButton = modalContent.querySelector('.modal-close');
         modalContent.innerHTML = responseContent.innerHTML;
-        const hasNotification = showNotification(modalContent);
+        const hasNotification = showNotification(modalContent, closeButton);
         if(!hasNotification) {
           const responseForm = modalContent.querySelector('form');
           if (responseForm) {
@@ -61,7 +62,7 @@ const openModal = (link) => {
         modalContent.append(elementInModal);
         if (modalContent) {
           // Display modal
-          modal.style.display = 'block';
+          modal.showModal();
           document.body.classList.add('modal-open'); // Prevent scrolling on background
           loadingIndicator.style.display = 'none'; // Hide loading indicator
 
@@ -83,7 +84,7 @@ const openModal = (link) => {
 // Close modal function
 const closeModal = () => {
   const modal = document.getElementById('modal');
-  modal.style.display = 'none';
+  modal.close();
   document.body.classList.remove('modal-open');
 };
 
@@ -123,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const showNotification = (modalContent) => {
+const showNotification = (modalContent, closeButton) => {
 
   const notificationElement = modalContent.querySelector('[data-notify]');
   // Get the notification div
@@ -131,7 +132,9 @@ const showNotification = (modalContent) => {
     // Close any open modal
     const modal = document.querySelector('.modal');
     if (modal) {
-      modal.style.display = 'none';
+      modal.close();
+      modal.append(closeButton);
+      document.body.classList.remove('modal-open');
     }
     // Show the notification
     const notification = notificationElement.cloneNode();
