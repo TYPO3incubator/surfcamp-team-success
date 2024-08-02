@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'glightbox/dist/css/glightbox.css';
+
 html {
     --color-primary-dark: color-mix(in srgb,var(--color-primary),#000 15%);
     --color-primary-light: color-mix(in srgb,var(--color-primary),#FFF 40%);
@@ -333,4 +335,10 @@ html {
     .themeToggler .dot {
         background-color: var(--color-white);
     }
+}
+
+.glightbox-clean .gprev,
+.glightbox-clean .gnext {
+    top: 50%;
+    transform: translateY(-50%);
 }

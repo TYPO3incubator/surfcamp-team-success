@@ -31,6 +31,7 @@
 		"@fontsource/playpen-sans": "^5.0.3",
 		"@fontsource/roboto": "^5.0.12",
 		"@fontsource/roboto-mono": "^5.0.17",
-		"@fontsource/roboto-slab": "^5.0.19"
+		"@fontsource/roboto-slab": "^5.0.19",
+		"glightbox": "^3.3.0"
 	}
 }

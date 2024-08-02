@@ -1,0 +1,8 @@
+@import 'glightbox/dist/css/glightbox.css';
+
+// fix position of glightbox buttons
+.glightbox-clean .gprev,
+.glightbox-clean .gnext {
+    top: 50%;
+    transform: translateY(-50%);
+}

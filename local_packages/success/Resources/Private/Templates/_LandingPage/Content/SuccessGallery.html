@@ -1,17 +1,28 @@
 <html
     data-namespace-typo3-fluid="true"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
 <f:layout name="Default"/>
 <f:section name="Main">
 <div>
-    <div class="container px-5 mx-auto image-zoom-active-{f:if(condition: data.image_zoom, then: '1', else: '0')}">
+    <vac:asset.vite entry="assets/js/lightbox.js"/>
+    <div class="container px-5 mx-auto">
         <f:render partial="Content/Header"
                   arguments="{headerLayout: data.header_layout, headerStyle: data.header_style, header: data.header, subheader: data.subheader, overline: data.overline}"/>
         <div class="grid md:grid-cols-6 grid-cols-4 gap-5 md:gap-8 mt-8">
             <f:if condition="{data.assets}">
                 <f:for each="{data.assets}" as="media">
-                    <f:image src="{media.uid}" treatIdAsReference="1" class="object-cover h-full w-full rounded" width="300" height="300c" loading="lazy"/>
+                    <f:if condition="{data.image_zoom}">
+                        <f:then>
+                            <a class="js-lightbox focus:ring-2 focus:ring-primary-200 rounded overflow-hidden cursor-zoom-in" href="{f:uri.image(image:media, width:'1000')}" data-gallery="gallery-{data.uid}" title="Open Gallery">
+                                <f:image src="{media.uid}" treatIdAsReference="1" class="object-cover h-full w-full transition ease-in-out duration-200 hover:scale-105" width="300" height="300c" loading="lazy"/>
+                            </a>
+                        </f:then>
+                        <f:else>
+                            <f:image src="{media.uid}" treatIdAsReference="1" class="object-cover h-full w-full rounded" width="300" height="300c" loading="lazy"/>
+                        </f:else>
+                    </f:if>
                 </f:for>
             </f:if>
         </div>
