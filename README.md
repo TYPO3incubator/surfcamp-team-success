@@ -12,6 +12,7 @@ This Git repository is intended for use by our dedicated teams at the [TYPO3 Sur
 ## Initialization
 
 ```sh
+cp .env.dist .env
 ddev start
 ddev composer install
 ```
