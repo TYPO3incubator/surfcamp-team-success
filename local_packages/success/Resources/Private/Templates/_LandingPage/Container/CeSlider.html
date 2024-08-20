@@ -1,0 +1,17 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+>
+
+<f:layout name="Default"/>
+<f:section name="Main">
+    <f:if condition="{slides}">
+        <div class="slider">
+            <f:for each="{slides}" as="slide">
+                <s:renderBlock data="{slide.record}" />
+            </f:for>
+        </div>
+    </f:if>
+</f:section>
+</html>
