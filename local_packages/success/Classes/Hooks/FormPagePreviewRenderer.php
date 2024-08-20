@@ -59,7 +59,7 @@ class FormPagePreviewRenderer extends StandardContentPreviewRenderer
                         $formPersistenceManager->hasValidFileExtension($persistenceIdentifier)
                         || PathUtility::isExtensionPath($persistenceIdentifier)
                     ) {
-                        $formDefinition = $formPersistenceManager->load($persistenceIdentifier);
+                        $formDefinition = $formPersistenceManager->load($persistenceIdentifier, [], []);
                         $formLabel = $formDefinition['label'];
                         return $this->renderFormFromDefinition($formDefinition);
                     } else {
