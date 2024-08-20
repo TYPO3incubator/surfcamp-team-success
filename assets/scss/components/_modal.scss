@@ -3,9 +3,9 @@ body.modal-open {
 }
 
 .modal {
-    @apply hidden fixed z-10 left-0 top-0 w-full h-full overflow-auto;
-
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    &::backdrop {
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
 }
 
 .modal .container {
@@ -13,7 +13,7 @@ body.modal-open {
 }
 
 .modal-content {
-    @apply bg-white-variable rounded overflow-hidden text-whitetext shadow-lg relative;
+    @apply bg-white-variable rounded overflow-hidden text-whitetext shadow-lg relative block;
 
     > .ce {
         @apply py-5;
