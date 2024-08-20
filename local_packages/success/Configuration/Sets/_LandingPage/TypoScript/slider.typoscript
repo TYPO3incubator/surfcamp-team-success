@@ -1,0 +1,21 @@
+tt_content.ce_slider.20 = FLUIDTEMPLATE
+tt_content.ce_slider.20 {
+  templateName = CeSlider
+  templateRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Content
+  partialRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Partials/Content
+  layoutRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Layouts
+  dataProcessing {
+    10 = site-language
+    10.as = language
+
+    20 = site
+    20.as = site
+
+    100 = B13\Container\DataProcessing\ContainerProcessor
+    100 {
+      colPos = 555
+      as = slides
+    }
+  }
+
+}
