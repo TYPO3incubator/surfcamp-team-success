@@ -7,7 +7,7 @@
 
 page = PAGE
 page {
-  bodyTagAdd = data-theme={$ui.theme}
+  bodyTag = <body class="theme-js theme-{$ui.theme} font-text" data-theme="{$ui.theme}">
 
   meta {
     viewport = width=device-width, initial-scale=1
