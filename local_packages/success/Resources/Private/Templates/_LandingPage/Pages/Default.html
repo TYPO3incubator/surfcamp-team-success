@@ -17,11 +17,13 @@
 <vac:asset.vite entry="assets/global.js"/>
 
 <div class="font-text background-{settings.ui.layout.pagebg}">
-    <main>
-        <f:for as="block" each="{content.main.blocks}">
-            <s:renderBlock data="{block}"/>
-        </f:for>
-    </main>
+    <f:if condition="{content.main.records}">
+        <main>
+            <f:for each="{content.main.records}" as="record">
+                <f:cObject typoscriptObjectPath="tt_content.{record.CType}" data="{record.rawRecord}"/>
+            </f:for>
+        </main>
+    </f:if>
     <f:render partial="Footer" arguments="{_all}"/>
     <f:render partial="Page/Modal"/>
     <f:render partial="Elements/BackToTopButton" arguments="{_all}"/>

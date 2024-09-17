@@ -1,0 +1,5 @@
+config.htmlTag.attributes.class = {$ui.scrollBehaviour}
+
+[applicationContext == "Development"]
+  config.contentObjectExceptionHandler = 0
+[END]

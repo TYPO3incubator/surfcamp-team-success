@@ -1,0 +1,12 @@
+lib.contentElement = FLUIDTEMPLATE
+lib.contentElement {
+  # templateName = MyContentElement
+  templateRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Content
+  partialRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Partials
+  layoutRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Layouts
+  dataProcessing.10 = record-transformation
+  dataProcessing.10 {
+    table = tt_content
+    as = data
+  }
+}

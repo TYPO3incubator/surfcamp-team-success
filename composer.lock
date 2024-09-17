@@ -50,6 +50,69 @@
             "time": "2024-07-15T10:06:28+00:00"
         },
         {
+            "name": "b13/container",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/b13/container.git",
+                "reference": "8d1036b198b2a27656c396bfa50b388d954e825a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/b13/container/zipball/8d1036b198b2a27656c396bfa50b388d954e825a",
+                "reference": "8d1036b198b2a27656c396bfa50b388d954e825a",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-backend": "^11.5 || ^12.4 || ^13.0"
+            },
+            "replace": {
+                "typo3-ter/container": "self.version"
+            },
+            "require-dev": {
+                "b13/container-example": "dev-master",
+                "codeception/codeception": "^4.1 || ^5.1",
+                "codeception/module-asserts": "^1.0 || ^3.0",
+                "codeception/module-db": "^1.0 || ^3.1",
+                "codeception/module-webdriver": "^1.0 || ^4.0",
+                "friendsofphp/php-cs-fixer": "^3.51",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "9.6 || ^10.5",
+                "typo3/cms-fluid-styled-content": "^11.5 || ^12.4 || ^13.0",
+                "typo3/cms-info": "^11.5 || ^12.4 || ^13.0",
+                "typo3/cms-install": "^11.5 || ^12.4 || ^13.0",
+                "typo3/cms-workspaces": "^11.5 || ^12.4 || ^13.0",
+                "typo3/coding-standards": "^0.5.5",
+                "typo3/testing-framework": "^7.0 || ^8.0"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "web-dir": ".Build/Web",
+                    "app-dir": ".Build",
+                    "extension-key": "container"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "B13\\Container\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Create Custom Container Content Elements for TYPO3",
+            "homepage": "https://b13.com",
+            "support": {
+                "issues": "https://github.com/b13/container/issues",
+                "source": "https://github.com/b13/container/tree/master"
+            },
+            "time": "2024-09-07T14:50:57+00:00"
+        },
+        {
             "name": "bacon/bacon-qr-code",
             "version": "v3.0.0",
             "source": {
@@ -2346,9 +2409,10 @@
             "dist": {
                 "type": "path",
                 "url": "local_packages/success",
-                "reference": "778efaa17f248e7c0b0ca51386005e89bbd8158c"
+                "reference": "682eb715d342ac5c5a26184b8d2f32b378246171"
             },
             "require": {
+                "b13/container": "dev-master",
                 "schliesser/credits": "^1.0.0"
             },
             "suggest": {

@@ -1,0 +1,11 @@
+tt_content.ce_slider =< lib.contentElement
+tt_content.ce_slider {
+  templateName = CeSlider
+  dataProcessing {
+    100 = B13\Container\DataProcessing\ContainerProcessor
+    100 {
+      colPos = 555
+      as = slides
+    }
+  }
+}

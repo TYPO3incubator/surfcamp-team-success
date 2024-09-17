@@ -4,37 +4,37 @@
     xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
     xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
 >
-    <f:asset.css identifier="theme-settings">
-        <s:fontMapping>
-            <s:themeVariablesProvider variables="{settings.ui.layout}" />
-        </s:fontMapping>
-        <s:themeVariablesProvider variables="{settings.ui.light}" />
-        <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".theme-dark" />
-    </f:asset.css>
+<f:asset.css identifier="theme-settings">
+    <s:fontMapping>
+        <s:themeVariablesProvider variables="{settings.ui.layout}"/>
+    </s:fontMapping>
+    <s:themeVariablesProvider variables="{settings.ui.light}"/>
+    <s:themeVariablesProvider variables="{settings.ui.dark}" selector=".theme-dark"/>
+</f:asset.css>
 
-    <f:render partial="Typography" arguments="{fonts: settings.ui.layout.font}"></f:render>
+<f:render partial="Typography" arguments="{fonts: settings.ui.layout.font}"></f:render>
 
-    <vac:asset.vite entry="assets/global.js"/>
+<vac:asset.vite entry="assets/global.js"/>
 
-    <div class="font-text background-{settings.ui.layout.pagebg}">
-        <main>
-            <section class="grid lg:grid-cols-2 relative min-h-screen twocolumnstop">
-                <div class="h-full flex items-center flex-col">
-                    <f:for each="{content.column11.blocks}" as="block">
-                        <s:renderBlock data="{block}" />
-                    </f:for>
-                </div>
-                <div class="h-full flex items-center flex-col">
-                    <f:for each="{content.column12.blocks}" as="block">
-                        <s:renderBlock data="{block}" />
-                    </f:for>
-                </div>
-            </section>
-            <f:for as="block" each="{content.column0.blocks}">
-                <s:renderBlock data="{block}" />
-            </f:for>
-        </main>
-        <f:render partial="Footer" arguments="{_all}" />
-        <f:render partial="Page/Modal" />
-    </div>
+<div class="font-text background-{settings.ui.layout.pagebg}">
+    <main>
+        <section class="grid lg:grid-cols-2 relative min-h-screen twocolumnstop">
+            <div class="h-full flex items-center flex-col">
+                <f:for each="{content.left.records}" as="record">
+                    <f:cObject typoscriptObjectPath="tt_content.{record.CType}" data="{record.rawRecord}"/>
+                </f:for>
+            </div>
+            <div class="h-full flex items-center flex-col">
+                <f:for each="{content.right.records}" as="record">
+                    <f:cObject typoscriptObjectPath="tt_content.{record.CType}" data="{record.rawRecord}"/>
+                </f:for>
+            </div>
+        </section>
+        <f:for each="{content.main.records}" as="record">
+            <f:cObject typoscriptObjectPath="tt_content.{record.CType}" data="{record.rawRecord}"/>
+        </f:for>
+    </main>
+    <f:render partial="Footer" arguments="{_all}"/>
+    <f:render partial="Page/Modal"/>
+</div>
 </html>

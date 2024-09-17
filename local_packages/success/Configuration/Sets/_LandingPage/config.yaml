@@ -1,2 +1,5 @@
 name: surfcamp/success-landing-page
 label: Landing page
+
+dependencies:
+  - typo3/form

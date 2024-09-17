@@ -1,35 +1,4 @@
-@import 'EXT:success/Configuration/TypoScript/setup.typoscript'
-@import 'EXT:form/Configuration/TypoScript/setup.typoscript'
-@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/RecordLinks/contentInModal.typoscript'
-@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/Form/setup.typoscript'
-@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/config.typoscript'
-@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/credits.typoscript'
-@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/slider.typoscript'
-
-page = PAGE
-page {
-  bodyTag = <body class="theme-js theme-{$ui.theme} font-text" data-theme="{$ui.theme}">
-
-  meta {
-    viewport = width=device-width, initial-scale=1
-    theme-color = {$ui.light.color.primary}
-  }
-
-  10 = PAGEVIEW
-  10.paths.100 = EXT:success/Resources/Private/Templates/_LandingPage/
-  10.dataProcessing.10 = successContent
-  10.dataProcessing.20 = database-query
-  10.dataProcessing.20 {
-    table = tt_content
-    orderBy = sorting
-    pidInList = {$footer.pageId}
-    as = footer
-    // recursively process the images in the records with the FilesProcessor
-    dataProcessing {
-      10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-      10 {
-        references.fieldName = assets
-      }
-    }
-  }
-}
+@import './TypoScript/page.typoscript'
+@import './TypoScript/Config/*.typoscript'
+@import './TypoScript/Extensions/*.typoscript'
+@import './TypoScript/ContentElements/*.typoscript'

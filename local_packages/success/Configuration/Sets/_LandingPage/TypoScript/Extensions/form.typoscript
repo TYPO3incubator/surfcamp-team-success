@@ -5,3 +5,6 @@ plugin.tx_form {
         }
     }
 }
+
+tt_content.form_formframework =< lib.contentElement
+tt_content.form_formframework.templateName = Form

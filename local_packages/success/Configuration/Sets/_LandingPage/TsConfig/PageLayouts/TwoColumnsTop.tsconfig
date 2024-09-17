@@ -11,10 +11,12 @@ mod.web_layout.BackendLayouts {
               1 {
                 name = Hero Area Left
                 colPos = 11
+                identifier = left
               }
               2 {
                 name = Hero Area Right
                 colPos = 12
+                identifier = right
               }
             }
           }
@@ -24,6 +26,7 @@ mod.web_layout.BackendLayouts {
                 name = Main Content Area
                 colPos = 0
                 colspan = 2
+                identifier = main
               }
             }
           }
