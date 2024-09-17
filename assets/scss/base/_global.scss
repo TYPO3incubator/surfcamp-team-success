@@ -334,3 +334,9 @@ html {
         background-color: var(--color-white);
     }
 }
+
+.glightbox-clean .gprev,
+.glightbox-clean .gnext {
+    top: 50%;
+    transform: translateY(-50%);
+}
