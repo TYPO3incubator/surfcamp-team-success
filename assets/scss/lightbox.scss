@@ -6,3 +6,11 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
+.gdesc-inner {
+    @apply bg-white-variable text-whitetext grid gap-2;
+
+    * {
+        @apply text-whitetext font-text m-0 #{!important};
+    }
+}

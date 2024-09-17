@@ -1,5 +1,5 @@
 import GLightbox from 'glightbox';
-import '../scss/global.scss'
+import '../scss/lightbox.scss'
 
 GLightbox({
   selector: '.js-lightbox',
