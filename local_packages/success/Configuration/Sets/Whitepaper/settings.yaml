@@ -5,6 +5,7 @@ ui:
     rotate: "0"
     pagebg: "white"
     footerbg: "white"
+    backToTopButton: false
     font:
       text: "lato"
       heading: "roboto-slab"
@@ -18,11 +19,11 @@ ui:
       lighttext: "black"
   dark:
     color:
-
 info:
   owner:
     name: "TYPO3 GmbH"
     imprint: "https://typo3.org/legal-notice"
     dataPrivacy: "https://typo3.org/privacy-policy"
 footer:
+  maxCols: 'auto'
   pageId: 12

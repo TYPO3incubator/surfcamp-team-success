@@ -5,6 +5,7 @@ ui:
     rotate: "0"
     pagebg: "white"
     footerbg: "secondary"
+    backToTopButton: false
     font:
       text: "roboto"
       heading: "roboto-mono"
@@ -18,11 +19,11 @@ ui:
       lighttext: "black"
   dark:
     color:
-
 info:
   owner:
     name: "Team SUCCESS"
     imprint: "https://typo3.org/legal-notice"
     dataPrivacy: "https://typo3.org/privacy-policy"
 footer:
+  maxCols: 'auto'
   pageId: 0

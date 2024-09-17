@@ -2,22 +2,24 @@ settings:
   info.owner.name:
     label: "Name/Company Name"
     type: string
-    default: "Successfull Company Name"
+    default: "Successfull Company Name" #would be great to have a placeholder
   info.owner.imprint:
     label: "Imprint Information (Page ID or URL)"
     description: 'Page Id or URL to Imprint Information'
     type: string #string(URL) | TYPO3 PageId (Select-Helper)
-    default: "https://success.typo3.org/imprint"
+    default: "https://success.typo3.org/imprint" #would be great to have a placeholder
   info.owner.dataPrivacy:
     label: "Data Privacy Information"
     description: 'Page Id or URL to Privacy Information'
     type: string #string(URL) | TYPO3 PageId (Select-Helper)
-    default: "https://success.typo3.org/imprint"
+    default: "https://success.typo3.org/imprint" #would be great to have a placeholder
+
   ui.theme:
     label: 'Theme'
     description: 'Values: "system" | "light" | "dark" | "light:only" | "dark:only"'
     type: string #would be great to have a select input
     default: system
+
   ui.layout.radius:
     label: 'Radius'
     description: 'Value should include px, rem, ... f.g "3px" or "0.5rem".'
@@ -38,10 +40,11 @@ settings:
     description: 'Values: "primary" | "secondary" | "light" | "white"'
     type: string #would be great to have a select input
     default: 'light'
-  ui.backToTopButton:
+  ui.layout.backToTopButton:
     label: 'Back to Top Button'
     type: bool
     default: false
+
   ui.font.text:
     label: 'Text font'
     description: 'Values: "Comic Neue" | "Lato" | "Merriweather" | "Noto Serif" | "Open Sans" | "Oswald" | "Playpen Sans" | "Roboto Slab" | "Roboto Mono" | "Roboto"'
@@ -52,6 +55,71 @@ settings:
     description: 'Values: "Comic Neue" | "Lato" | "Merriweather" | "Noto Serif" | "Open Sans" | "Oswald" | "Playpen Sans" | "Roboto Slab" | "Roboto Mono" | "Roboto"'
     type: string  #would be great to have a select input
     default: 'Open Sans'
+
+  ui.light.color.primary:
+    label: 'Light Mode: Primary Color'
+    description: 'Primary color as rgb-value'
+    type: string
+    default: 'rgb(255, 255, 255)'
+  ui.light.color.secondary:
+    label: 'Light Mode: Secondary Color'
+    description: 'Secondary color as rgb-value'
+    type: string
+    default: 'rgb(255, 255, 255)'
+  ui.light.color.light:
+    label: 'Light Mode: Light Color'
+    description: 'Light color as rgb-value'
+    type: string
+    default: 'rgb(255, 255, 255)'
+
+  ui.light.color.primarytext:
+    label: 'Light Mode: Text color of primary background'
+    description: 'Values: "white" | "black" | "rgb(value)"'
+    type: string
+    default: 'black'
+  ui.light.color.secondarytext:
+    label: 'Light Mode: Text color of secondary Color'
+    description: 'Values: "white" | "black" | "rgb(value)"'
+    type: string
+    default: 'black'
+  ui.light.color.lighttext:
+    label: 'Light Mode: Text color of light Color'
+    description: 'Values: "white" | "black" | "rgb(value)"'
+    type: string
+    default: 'black'
+
+  ui.dark.color.primary:
+    label: 'Dark Mode: Primary Color'
+    description: 'Primary color as rgb-value'
+    type: string
+    default: 'rgb(0, 0, 0)'
+  ui.dark.color.secondary:
+    label: 'Dark Mode: Secondary Color'
+    description: 'Secondary color as rgb-value'
+    type: string
+    default: 'rgb(0, 0, 0)'
+  ui.dark.color.light:
+    label: 'Dark Mode: Light Color'
+    description: 'Light color as rgb-value'
+    type: string
+    default: 'rgb(0, 0, 0)'
+
+  ui.dark.color.primarytext:
+    label: 'Dark Mode: Text color of primary background'
+    description: 'Values: "white" | "black" | "rgb(value)"'
+    type: string
+    default: 'white'
+  ui.dark.color.secondarytext:
+    label: 'Dark Mode: Text color of secondary Color'
+    description: 'Values: "white" | "black" | "rgb(value)"'
+    type: string
+    default: 'white'
+  ui.dark.color.lighttext:
+    label: 'Dark Mode: Text color of light Color'
+    description: 'Values: "white" | "black" | "rgb(value)"'
+    type: string
+    default: 'white'
+
   footer.maxCols:
     label: 'Max Footer columns'
     description: 'Values: "auto" | "4" | "3" | "2" | "1"'
@@ -61,4 +129,4 @@ settings:
     label: 'Footer Page Id'
     description: 'The page where all the footer content elements are placed'
     type: int #would be great to have a visual choice for a page
-    default: ''
+    default: 0
