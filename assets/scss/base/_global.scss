@@ -335,8 +335,10 @@ html {
     }
 }
 
-.glightbox-clean .gprev,
-.glightbox-clean .gnext {
-    top: 50%;
-    transform: translateY(-50%);
+.twocolumnstop {
+    .container {
+        @screen md {
+            @apply max-w-screen-md;
+        }
+    }
 }
