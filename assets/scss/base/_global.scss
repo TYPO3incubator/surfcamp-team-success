@@ -334,3 +334,11 @@ html {
         background-color: var(--color-white);
     }
 }
+
+.twocolumnstop {
+    .container {
+        @screen md {
+            @apply max-w-screen-md;
+        }
+    }
+}
