@@ -8,6 +8,7 @@
 *.vscode
 */fileadmin/user_upload/form_*
 */fileadmin/_temp_
+*/fileadmin/user_upload/_temp_
 .vite
 .env
 .DS_Store
