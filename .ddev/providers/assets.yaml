@@ -17,7 +17,7 @@ db_push_command:
     set -eu -o pipefail
     ls /var/www/html/.ddev >/dev/null # This just refreshes stale NFS if possible
     mkdir -p /var/www/html/data/db/
-    mysqldump db > /var/www/html/data/db/db.sql
+    mysqldump --ignore-table-data=db.sys_file_processedfile --ignore-table-data=db.sys_log db > /var/www/html/data/db/db.sql
 
 files_push_command:
   command: |
@@ -25,4 +25,4 @@ files_push_command:
     set -eu -o pipefail
     mkdir -p /var/www/html/public/fileadmin/
     mkdir -p /var/www/html/data/files/public/fileadmin/
-    rsync -avz --delete "/var/www/html/public/fileadmin/" "/var/www/html/data/files/public/fileadmin/"
+    rsync -avz --exclude="_processed_" --delete "/var/www/html/public/fileadmin/" "/var/www/html/data/files/public/fileadmin/"
