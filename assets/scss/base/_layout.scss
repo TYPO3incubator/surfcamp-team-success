@@ -1,0 +1,73 @@
+@layer components {
+    .background-primary {
+        @apply bg-primary-500 text-primarytext;
+    }
+
+    .background-secondary {
+        @apply bg-secondary-500 text-secondarytext;
+    }
+
+    .background-light {
+        @apply bg-light-500 text-lighttext;
+    }
+
+    .background-white {
+        @apply bg-white-variable text-whitetext;
+    }
+
+    .background-black {
+        @apply bg-black text-blacktext;
+    }
+
+    .space-before {
+        &-extra-small {
+            @apply pt-4;
+        }
+
+        &-small {
+            @apply pt-8;
+        }
+
+        &-medium {
+            @apply pt-12;
+        }
+
+        &-large {
+            @apply pt-16;
+        }
+
+        &-extra-large {
+            @apply pt-20;
+        }
+    }
+
+    .space-after {
+        &-extra-small {
+            @apply pb-4;
+        }
+
+        &-small {
+            @apply pb-8;
+        }
+
+        &-medium {
+            @apply pb-12;
+        }
+
+        &-large {
+            @apply pb-16;
+        }
+
+        &-extra-large {
+            @apply pb-20;
+        }
+    }
+}
+
+.twocolumnstop {
+    .container {
+        @screen md {
+            @apply max-w-screen-md;
+        }
+    }
+}
