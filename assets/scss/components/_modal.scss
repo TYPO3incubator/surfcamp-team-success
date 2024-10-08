@@ -3,6 +3,8 @@ body.modal-open {
 }
 
 .modal {
+    @apply bg-transparent;
+
     &::backdrop {
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     }

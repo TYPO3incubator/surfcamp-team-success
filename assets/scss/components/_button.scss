@@ -1,0 +1,72 @@
+
+@layer components {
+    .btn {
+        @apply inline-block py-2 px-5 font-bold rounded transition-colors;
+
+        &:focus {
+            @apply ring ring-2 ring-primary-200;
+        }
+    }
+
+    .btn-primary {
+        @apply bg-primary-500 text-primarytext;
+
+        &:focus,
+        &:hover {
+            @apply bg-primary-700;
+        }
+    }
+
+    .btn-secondary {
+        @apply bg-secondary-500 text-secondarytext;
+
+        &:focus,
+        &:hover {
+            @apply bg-secondary-700;
+        }
+    }
+
+    .btn-light {
+        @apply bg-light-500 text-lighttext;
+
+        &:focus,
+        &:hover {
+            @apply bg-light-700;
+        }
+    }
+
+    .btn-white {
+        @apply bg-white-variable text-whitetext;
+
+        &:focus,
+        &:hover {
+            @apply bg-gray-100;
+        }
+    }
+
+    .btn-black {
+        @apply bg-black text-blacktext;
+
+        &:focus,
+        &:hover {
+            @apply bg-gray-900;
+        }
+    }
+
+    button[type="submit"] {
+        @extend .btn;
+        @extend .btn-primary;
+    }
+    
+    .cross-bar {
+        @apply block w-7 border-b border-b-2 border-current;
+
+        &:first-of-type {
+            @apply rotate-[-45deg];
+        }
+
+        &:last-of-type {
+            transform: rotate(45deg) translateY(-2px) translateX(-1px)
+        }
+    }
+}

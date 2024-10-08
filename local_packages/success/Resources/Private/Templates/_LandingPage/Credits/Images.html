@@ -1,8 +1,10 @@
 <html
     data-namespace-typo3-fluid="true"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
 <f:if condition="{images}">
+    <vac:asset.vite entry="assets/js/components/accordion.js"/>
     <ul class="flex flex-col gap-2 mx-auto">
         <f:for as="image" each="{images}">
             <f:if condition="{image.file.metaData.copyright} && {image.pages}">

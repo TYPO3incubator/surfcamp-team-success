@@ -1,0 +1,90 @@
+
+@layer components {
+    .heading-xxl {
+        @apply text-5xl font-bold font-heading block;
+    }
+
+    .heading-xl {
+        @apply text-3xl font-bold font-heading block;
+    }
+
+    .heading-lg {
+        @apply text-xl font-bold font-heading block;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    span {
+        &.default {
+            @apply text-lg font-bold font-heading block;
+        }
+    }
+
+    .link {
+        @apply underline;
+
+        &:hover,
+        &:focus {
+            @apply no-underline;
+        }
+
+        &:focus {
+            @apply ring ring-2 ring-primary-200
+        }
+    }
+
+    .rte {
+        a:not(.btn) {
+            @apply underline;
+
+            &:hover,
+            &:focus {
+                @apply no-underline;
+            }
+
+            &:focus {
+                @apply ring ring-2 ring-primary-200
+            }
+        }
+
+        .btn {
+            @apply my-4;
+        }
+
+        h1 {
+            @apply font-bold font-heading block text-2xl my-5;
+        }
+
+        h2 {
+            @apply font-bold font-heading block text-xl my-4;
+        }
+
+        h3 {
+            @apply font-bold font-heading block text-lg my-3;
+        }
+
+        h4 {
+            @apply font-bold font-heading block my-2;
+        }
+
+        h5,
+        h6 {
+            @apply font-bold block my-1;
+        }
+
+        ul {
+            @apply list-disc list-inside my-2;
+        }
+
+        ol {
+            @apply list-decimal list-inside my-2;
+        }
+
+        p + p {
+            @apply mt-2;
+        }
+    }
+}

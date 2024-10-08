@@ -1,4 +1,10 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
 <f:if condition="{settings.ui.layout.backToTopButton} == true">
+    <vac:asset.vite entry="assets/js/components/back-to-top.js"/>
     <button class="scroll-to-top
                        fixed bottom-4 right-4
                        transition duration-500
@@ -12,3 +18,4 @@
         </svg>
     </button>
 </f:if>
+</html>

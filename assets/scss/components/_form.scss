@@ -1,0 +1,66 @@
+
+@layer components {
+    .form {
+        &-label {
+            @apply inline-block mb-1 font-bold;
+        }
+
+        &-text {
+            @apply block mt-1 text-xs;
+        }
+
+        &-control {
+            @apply bg-white-variable shadow appearance-none rounded w-full py-2 px-3 text-whitetext leading-tight resize-none;
+
+            &:focus {
+                @apply outline-none ring ring-2 ring-primary-200
+            }
+        }
+
+        &-check {
+            &-label {
+                @apply flex items-center gap-2;
+            }
+        }
+
+        &-checkbox {
+            @apply rounded h-5 w-5 accent-secondary-500;
+
+            &:focus {
+                @apply outline-none ring ring-2 ring-primary-200
+            }
+        }
+
+        &-radio {
+            @apply h-5 w-5 accent-secondary-500;
+
+            &:focus {
+                @apply outline-none ring ring-2 ring-primary-200
+            }
+        }
+
+        &-group {
+            @apply mb-4 last:mb-0;
+        }
+    }
+
+    input {
+        &[type="checkbox"] {
+            @extend .form-checkbox;
+        }
+    }
+
+    [type="file"] {
+        @apply text-primarytext;
+    }
+
+    [type="file"]::-webkit-file-upload-button {
+        @extend .btn;
+        @extend .btn-primary;
+        @apply border-0;
+    }
+
+    .required {
+        @apply text-error;
+    }
+}
