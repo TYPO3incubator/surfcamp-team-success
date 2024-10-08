@@ -63,6 +63,7 @@
         "typo3/cms-tstemplate": "dev-main"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest"
+        "roave/security-advisories": "dev-latest",
+        "typo3/coding-standards": "^0.8"
     }
 }

@@ -20,8 +20,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend'] = [
 
 $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates'][] = 'success/Configuration/TypoScript/';
 
-
-#TODO This is a workaround only because currently it is not possible to add it through a set
+//TODO This is a workaround only because currently it is not possible to add it through a set
 call_user_func(static function () {
 
     // Add module configuration

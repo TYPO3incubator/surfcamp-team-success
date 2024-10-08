@@ -120,17 +120,18 @@ class Record implements \ArrayAccess, RecordInterface
         return $this->getUid();
     }
 
-    protected function enhancePropertiesFromRawProperties(array $properties): void {
-        if(isset($properties['uid'])) {
+    protected function enhancePropertiesFromRawProperties(array $properties): void
+    {
+        if (isset($properties['uid'])) {
             $this->properties['uid'] = $properties['uid'];
         }
-        if(isset($properties['pid'])) {
+        if (isset($properties['pid'])) {
             $this->properties['pid'] = $properties['pid'];
         }
-        if(isset($properties['_ORIG_uid'])) {
+        if (isset($properties['_ORIG_uid'])) {
             $this->properties['_ORIG_uid'] = $properties['_ORIG_uid'];
         }
-        if(isset($properties['_LOCALIZED_UID'])) {
+        if (isset($properties['_LOCALIZED_UID'])) {
             $this->properties['_LOCALIZED_UID'] = $properties['_LOCALIZED_UID'];
         }
     }

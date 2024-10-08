@@ -106,7 +106,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'maxitems' => 1,
-                'allowed' => 'svg'
+                'allowed' => 'svg',
             ],
         ],
         'header' => [
@@ -125,7 +125,7 @@ return [
                 'cols' => 50,
                 'rows' => 5,
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'minimal'
+                'richtextConfiguration' => 'minimal',
             ],
         ],
     ],

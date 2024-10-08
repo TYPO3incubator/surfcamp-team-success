@@ -4,9 +4,7 @@ namespace Surfcamp\Success\ViewHelpers;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
-
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class PreviewAssetsViewHelper extends AbstractViewHelper

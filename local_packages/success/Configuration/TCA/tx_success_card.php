@@ -141,7 +141,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'maxitems' => 1,
-                'allowed' => 'common-image-types'
+                'allowed' => 'common-image-types',
             ],
         ],
         'button_link' => [
@@ -149,7 +149,7 @@ return [
             'config' => [
                 'type' => 'link',
                 'allowedTypes' => ['page', 'url', 'record'],
-            ]
+            ],
         ],
         'button_label' => [
             'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_label',
@@ -167,25 +167,25 @@ return [
                 'items' => [
                     [
                         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.primary',
-                        'value' => 'primary'
+                        'value' => 'primary',
                     ],
                     [
                         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.secondary',
-                        'value' => 'secondary'
+                        'value' => 'secondary',
                     ],
                     [
                         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.light',
-                        'value' => 'light'
+                        'value' => 'light',
                     ],
                     [
                         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.black',
-                        'value' => 'black'
+                        'value' => 'black',
                     ],
                     [
                         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.white',
-                        'value' => 'white'
-                    ]
-                ]
+                        'value' => 'white',
+                    ],
+                ],
             ],
         ],
     ],

@@ -17,10 +17,10 @@ declare(strict_types=1);
 
 namespace Surfcamp\Success\DataProcessing;
 
-use TYPO3\CMS\Core\Page\PageLayoutResolver;
 use Surfcamp\Success\Content\ContentSlideMode;
 use Surfcamp\Success\Content\RecordCollector;
 use Surfcamp\Success\Content\RecordEnricher;
+use TYPO3\CMS\Core\Page\PageLayoutResolver;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
