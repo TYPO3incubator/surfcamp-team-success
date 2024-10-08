@@ -6,9 +6,9 @@
 *.idea
 *.project
 *.vscode
-*/fileadmin/user_upload/form_*
-*/fileadmin/_temp_
-*/fileadmin/user_upload/_temp_
+data/files/public/fileadmin/user_upload/form_*
+data/files/public/fileadmin/user_upload/_temp_
+data/files/public/fileadmin/_temp_
 .vite
 .env
 .DS_Store
