@@ -50,6 +50,69 @@
             "time": "2024-07-15T10:06:28+00:00"
         },
         {
+            "name": "b13/container",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/b13/container.git",
+                "reference": "5a5007b9fdf06440db833eeaef378830d5555694"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/b13/container/zipball/5a5007b9fdf06440db833eeaef378830d5555694",
+                "reference": "5a5007b9fdf06440db833eeaef378830d5555694",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-backend": "^11.5 || ^12.4 || ^13.0"
+            },
+            "replace": {
+                "typo3-ter/container": "self.version"
+            },
+            "require-dev": {
+                "b13/container-example": "dev-master",
+                "codeception/codeception": "^4.1 || ^5.1",
+                "codeception/module-asserts": "^1.0 || ^3.0",
+                "codeception/module-db": "^1.0 || ^3.1",
+                "codeception/module-webdriver": "^1.0 || ^4.0",
+                "friendsofphp/php-cs-fixer": "^3.51",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "9.6 || ^10.5",
+                "typo3/cms-fluid-styled-content": "^11.5 || ^12.4 || ^13.0",
+                "typo3/cms-info": "^11.5 || ^12.4 || ^13.0",
+                "typo3/cms-install": "^11.5 || ^12.4 || ^13.0",
+                "typo3/cms-workspaces": "^11.5 || ^12.4 || ^13.0",
+                "typo3/coding-standards": "^0.5.5",
+                "typo3/testing-framework": "^7.0 || ^8.0"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "web-dir": ".Build/Web",
+                    "app-dir": ".Build",
+                    "extension-key": "container"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "B13\\Container\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Create Custom Container Content Elements for TYPO3",
+            "homepage": "https://b13.com",
+            "support": {
+                "issues": "https://github.com/b13/container/issues",
+                "source": "https://github.com/b13/container/tree/master"
+            },
+            "time": "2024-10-04T15:57:11+00:00"
+        },
+        {
             "name": "bacon/bacon-qr-code",
             "version": "v3.0.1",
             "source": {
@@ -1386,16 +1449,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a"
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3abf7425cd284141dc5d8d14a9ee444de3345d1a",
-                "reference": "3abf7425cd284141dc5d8d14a9ee444de3345d1a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8eea230464783aa9671db8eea6f8c6ac5285794b",
+                "reference": "8eea230464783aa9671db8eea6f8c6ac5285794b",
                 "shasum": ""
             },
             "require": {
@@ -1438,9 +1501,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
             },
-            "time": "2024-09-29T13:56:26+00:00"
+            "time": "2024-10-08T18:51:32+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2346,9 +2409,10 @@
             "dist": {
                 "type": "path",
                 "url": "local_packages/success",
-                "reference": "778efaa17f248e7c0b0ca51386005e89bbd8158c"
+                "reference": "682eb715d342ac5c5a26184b8d2f32b378246171"
             },
             "require": {
+                "b13/container": "dev-master",
                 "schliesser/credits": "^1.0.0"
             },
             "suggest": {
@@ -5294,12 +5358,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/backend.git",
-                "reference": "e1b9f44829f331e059393b5f510b980ccb52f347"
+                "reference": "486ac0d08ffb326dff9e4a2492ac4bcaf697fee1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/backend/zipball/e1b9f44829f331e059393b5f510b980ccb52f347",
-                "reference": "e1b9f44829f331e059393b5f510b980ccb52f347",
+                "url": "https://api.github.com/repos/TYPO3-CMS/backend/zipball/486ac0d08ffb326dff9e4a2492ac4bcaf697fee1",
+                "reference": "486ac0d08ffb326dff9e4a2492ac4bcaf697fee1",
                 "shasum": ""
             },
             "require": {
@@ -5368,7 +5432,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-10-08T15:24:10+00:00"
+            "time": "2024-10-08T19:20:54+00:00"
         },
         {
             "name": "typo3/cms-belog",
@@ -5942,12 +6006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/filelist.git",
-                "reference": "e7229dd6cd1548395256a7a0ef9875aad9e1c476"
+                "reference": "6f5f617faf021a77ae51035c5887fbbab43a4d7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/filelist/zipball/e7229dd6cd1548395256a7a0ef9875aad9e1c476",
-                "reference": "e7229dd6cd1548395256a7a0ef9875aad9e1c476",
+                "url": "https://api.github.com/repos/TYPO3-CMS/filelist/zipball/6f5f617faf021a77ae51035c5887fbbab43a4d7a",
+                "reference": "6f5f617faf021a77ae51035c5887fbbab43a4d7a",
                 "shasum": ""
             },
             "require": {
@@ -5995,7 +6059,7 @@
                 "issues": "https://forge.typo3.org",
                 "source": "https://github.com/typo3/typo3"
             },
-            "time": "2024-10-02T23:01:26+00:00"
+            "time": "2024-10-08T19:20:54+00:00"
         },
         {
             "name": "typo3/cms-filemetadata",

@@ -15,6 +15,7 @@
 		}
 	},
 	"require": {
+		"b13/container": "dev-master",
 		"schliesser/credits": "^1.0.0"
 	},
 	"suggest": {
