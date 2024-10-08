@@ -5,6 +5,7 @@ ui:
     rotate: "3deg"
     pagebg: "light"
     footerbg: "light"
+    backToTopButton: false
     font:
       text: "lato"
       heading: "playpen-sans"
@@ -18,9 +19,6 @@ ui:
       lighttext: "black"
   dark:
     color:
-
-# DUMMYDATA
-#todo replace this values by backend ui input
 info:
   owner:
     name: "Poolbar Ltd."
