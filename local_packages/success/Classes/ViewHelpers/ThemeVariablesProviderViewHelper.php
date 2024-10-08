@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Surfcamp\Success\ViewHelpers;
 
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class ThemeVariablesProviderViewHelper extends AbstractViewHelper
@@ -16,20 +15,20 @@ class ThemeVariablesProviderViewHelper extends AbstractViewHelper
         $this->registerArgument('prefix', 'string', 'Theme variables', false, '');
     }
 
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext): string
+    public function render(): string
     {
-        if (empty($arguments['variables']) || empty($arguments['selector'])) {
+        if (empty($this->arguments['variables']) || empty($this->arguments['selector'])) {
             return '';
         }
 
-        $content = $arguments['selector'] . ' {' . LF;
-        $content .= self::buildVariables($arguments['variables'], $arguments['prefix'] ?? '');
+        $content = $this->arguments['selector'] . ' {' . LF;
+        $content .= $this->buildVariables($this->arguments['variables'], $this->arguments['prefix'] ?? '');
         $content .= '}';
 
         return $content;
     }
 
-    private static function buildVariables(array $variables, string $prefix = ''): string
+    private function buildVariables(array $variables, string $prefix = ''): string
     {
         $content = '';
 

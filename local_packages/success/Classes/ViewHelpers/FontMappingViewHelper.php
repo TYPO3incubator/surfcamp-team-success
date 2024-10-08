@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 namespace Surfcamp\Success\ViewHelpers;
 
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 class FontMappingViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     protected $escapeOutput = false;
 
     /**
@@ -33,8 +29,8 @@ class FontMappingViewHelper extends AbstractViewHelper
         'roboto' => 'Roboto, sans-serif',
     ];
 
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext): mixed
+    public function render(): mixed
     {
-        return str_replace(array_keys(self::$fonts), self::$fonts, $renderChildrenClosure());
+        return str_replace(array_keys(self::$fonts), self::$fonts, $this->renderChildren());
     }
 }
