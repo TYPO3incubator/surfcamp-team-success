@@ -117,7 +117,7 @@ return [
                 'cols' => 50,
                 'rows' => 5,
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'minimal'
+                'richtextConfiguration' => 'minimal',
             ],
         ],
     ],

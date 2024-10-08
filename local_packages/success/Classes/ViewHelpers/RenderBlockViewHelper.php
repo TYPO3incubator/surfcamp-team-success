@@ -85,12 +85,12 @@ final class RenderBlockViewHelper extends AbstractViewHelper
             $cObjectViewHelper = $view->getViewHelperResolver()->createViewHelperInstance('f', 'cObject');
             $blockType = $data->getFullType();
             if (str_starts_with($blockType, 'content')) {
-                $blockType = 'tt_' . $blockType. '.20';
+                $blockType = 'tt_' . $blockType . '.20';
             }
             $cObjectViewHelper->setArguments([
                 'typoscriptObjectPath' => $blockType,
                 'data' => $data->getRecord()->getRawRecord()->toArray(),
-                'context' => $context
+                'context' => $context,
             ]);
             $cObjectViewHelper->setRenderingContext($subView->getRenderingContext());
             $content = $cObjectViewHelper->render();

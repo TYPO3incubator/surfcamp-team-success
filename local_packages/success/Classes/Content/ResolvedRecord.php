@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Surfcamp\Success\Content;
-
 
 use Surfcamp\Success\Domain\RecordInterface;
 
@@ -33,7 +33,8 @@ class ResolvedRecord implements RecordInterface
         return $this->record->getType();
     }
 
-    public function getRecord(): RecordInterface {
+    public function getRecord(): RecordInterface
+    {
         return $this->record;
     }
 

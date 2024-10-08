@@ -119,7 +119,6 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
     ],
 ];
 
-
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', [
     'header_style' => [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style',
@@ -130,22 +129,22 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
             'items' => [
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.default',
-                    'value' => 'default'
+                    'value' => 'default',
                 ],
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.heading-xxl',
-                    'value' => 'heading-xxl'
+                    'value' => 'heading-xxl',
                 ],
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.heading-xl',
-                    'value' => 'heading-xl'
+                    'value' => 'heading-xl',
                 ],
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:header_style.heading-lg',
-                    'value' => 'heading-lg'
-                ]
-            ]
-        ]
+                    'value' => 'heading-lg',
+                ],
+            ],
+        ],
     ],
     'overline' => [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:overline',
@@ -160,7 +159,7 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
         'config' => [
             'type' => 'link',
             'allowedTypes' => ['page', 'url', 'record'],
-        ]
+        ],
     ],
     'button_label' => [
         'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_label',
@@ -178,25 +177,25 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
             'items' => [
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.primary',
-                    'value' => 'primary'
+                    'value' => 'primary',
                 ],
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.secondary',
-                    'value' => 'secondary'
+                    'value' => 'secondary',
                 ],
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.light',
-                    'value' => 'light'
+                    'value' => 'light',
                 ],
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.black',
-                    'value' => 'black'
+                    'value' => 'black',
                 ],
                 [
                     'label' => 'LLL:EXT:success/Resources/Private/Language/locallang_db.xlf:button_style.white',
-                    'value' => 'white'
-                ]
-            ]
+                    'value' => 'white',
+                ],
+            ],
         ],
     ],
     'tx_success_card' => [
@@ -296,7 +295,7 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
         'config' => [
             'type' => 'input',
             'cols' => 50,
-            'eval' => 'trim, required'
+            'eval' => 'trim, required',
         ],
     ],
     'color' => [
@@ -364,7 +363,7 @@ $GLOBALS['TCA']['tt_content']['types']['textmedia'] = [
                 'cols' => 50,
                 'rows' => 5,
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'custom'
+                'richtextConfiguration' => 'custom',
             ],
         ],
     ],
@@ -394,7 +393,7 @@ $GLOBALS['TCA']['tt_content']['types']['text'] = [
                 'cols' => 50,
                 'rows' => 5,
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'custom'
+                'richtextConfiguration' => 'custom',
             ],
         ],
     ],
@@ -598,7 +597,7 @@ $GLOBALS['TCA']['tt_content']['types']['success_hero'] = [
                 'cols' => 50,
                 'rows' => 5,
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'minimal'
+                'richtextConfiguration' => 'minimal',
             ],
         ],
         'assets' => [

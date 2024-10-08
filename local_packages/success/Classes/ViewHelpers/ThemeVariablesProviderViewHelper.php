@@ -11,7 +11,7 @@ class ThemeVariablesProviderViewHelper extends AbstractViewHelper
 {
     public function initializeArguments(): void
     {
-        $this->registerArgument('selector', 'string', 'Theme variables', false,':root');
+        $this->registerArgument('selector', 'string', 'Theme variables', false, ':root');
         $this->registerArgument('variables', 'array', 'Theme variables', true);
         $this->registerArgument('prefix', 'string', 'Theme variables', false, '');
     }
@@ -37,7 +37,7 @@ class ThemeVariablesProviderViewHelper extends AbstractViewHelper
             if (is_array($value)) {
                 $content .= self::buildVariables($value, $prefix . $name . '-');
             } else {
-                $content .= '--'. $prefix. $name . ': ' .$value . ';' . LF;
+                $content .= '--' . $prefix . $name . ': ' . $value . ';' . LF;
             }
         }
         return $content;

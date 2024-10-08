@@ -18,20 +18,20 @@ declare(strict_types=1);
 namespace Surfcamp\Success\Hooks;
 
 use Psr\Log\LoggerInterface;
-use TYPO3\CMS\Core\Error\Exception;
-use TYPO3\CMS\Core\Utility\PathUtility;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Service\FlexFormService;
-use TYPO3\CMS\Core\Localization\LanguageService;
-use TYPO3\CMS\Core\Messaging\FlashMessageService;
-use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer;
 use TYPO3\CMS\Backend\View\BackendLayout\Grid\GridColumnItem;
+use TYPO3\CMS\Core\Error\Exception;
+use TYPO3\CMS\Core\Localization\LanguageService;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageService;
+use TYPO3\CMS\Core\Service\FlexFormService;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Form\Mvc\Configuration\Exception\NoSuchFileException;
 use TYPO3\CMS\Form\Mvc\Configuration\Exception\ParseErrorException;
-use TYPO3\CMS\Form\Mvc\Persistence\FormPersistenceManagerInterface;
 use TYPO3\CMS\Form\Mvc\Persistence\Exception\PersistenceManagerException;
+use TYPO3\CMS\Form\Mvc\Persistence\FormPersistenceManagerInterface;
 
 /**
  * Contains a preview rendering for the page module of CType="form_formframework"
@@ -62,12 +62,12 @@ class FormPagePreviewRenderer extends StandardContentPreviewRenderer
                         $formDefinition = $formPersistenceManager->load($persistenceIdentifier, [], []);
                         $formLabel = $formDefinition['label'];
                         return $this->renderFormFromDefinition($formDefinition);
-                    } else {
-                        $formLabel = sprintf(
-                            $this->getLanguageService()->sL(self::L10N_PREFIX . 'tt_content.preview.inaccessiblePersistenceIdentifier'),
-                            $persistenceIdentifier
-                        );
                     }
+                    $formLabel = sprintf(
+                        $this->getLanguageService()->sL(self::L10N_PREFIX . 'tt_content.preview.inaccessiblePersistenceIdentifier'),
+                        $persistenceIdentifier
+                    );
+
                 } catch (ParseErrorException $e) {
                     $formLabel = sprintf(
                         $this->getLanguageService()->sL(self::L10N_PREFIX . 'tt_content.preview.invalidPersistenceIdentifier'),
@@ -178,8 +178,5 @@ class FormPagePreviewRenderer extends StandardContentPreviewRenderer
         return $GLOBALS['LANG'];
     }
 
-    function setLogger(LoggerInterface $logger): void
-    {
-
-    }
+    public function setLogger(LoggerInterface $logger): void {}
 }
