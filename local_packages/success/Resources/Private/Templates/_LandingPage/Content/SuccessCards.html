@@ -14,7 +14,7 @@
                     <div class="background-white rounded overflow-hidden flex flex-col">
                         <div class="aspect-video">
                             <f:if condition="{card.media}">
-                                <f:image src="{card.media.uid}" treatIdAsReference="1" class="object-cover h-full w-full" width="600" height="340c" loading="lazy" />
+                                <f:image image="{card.media.0}" class="object-cover h-full w-full" width="600" height="340c" loading="lazy" />
                             </f:if>
                         </div>
                         <div class="p-5 flex justify-between flex-col grow">

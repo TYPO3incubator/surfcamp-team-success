@@ -16,7 +16,7 @@ page {
 
   10 = PAGEVIEW
   10.paths.100 = EXT:success/Resources/Private/Templates/_LandingPage/
-  10.dataProcessing.10 = successContent
+  10.dataProcessing.10 = page-content
   10.dataProcessing.20 = database-query
   10.dataProcessing.20 {
     table = tt_content
