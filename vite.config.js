@@ -11,7 +11,12 @@ const VITE_TYPO3_ROOT = "./";
 // Vite input files (relative to TYPO3 root path)
 const VITE_ENTRYPOINTS = [
   "assets/global.js",
-  "assets/product-launch.js",
+  "assets/js/components/accordion.js",
+  "assets/js/components/back-to-top.js",
+  "assets/js/components/counter-animation.js",
+  "assets/js/components/lightbox.js",
+  "assets/js/components/mobile-navigation.js",
+  "assets/js/components/modal.js",
   "assets/fonts/comic-neue.js",
   "assets/fonts/lato.js",
   "assets/fonts/merriweather.js",
@@ -23,8 +28,6 @@ const VITE_ENTRYPOINTS = [
   "assets/fonts/roboto-slab.js",
   "assets/fonts/roboto.js",
   "assets/fonts/roboto.js",
-  "assets/js/mobile-navigation.js",
-  "assets/js/lightbox.js",
 ];
 
 // Output path for generated assets

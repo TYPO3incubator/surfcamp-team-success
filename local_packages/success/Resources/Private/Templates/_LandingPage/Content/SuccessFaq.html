@@ -1,9 +1,11 @@
 <html
     data-namespace-typo3-fluid="true"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 >
 <f:layout name="Default"/>
 <f:section name="Main">
+<vac:asset.vite entry="assets/js/components/accordion.js"/>
 <div>
     <div class="container px-5 mx-auto">
         <f:render partial="Content/Header"

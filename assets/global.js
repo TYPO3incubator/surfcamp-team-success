@@ -1,6 +1,2 @@
 import './scss/global.scss'
-import './js/modal.js'
-import './js/theme-settings.js'
-import './js/animations.js'
-import './js/accordion.js'
-import './js/back-to-top.js'
+import './js/global/theme-settings.js'
