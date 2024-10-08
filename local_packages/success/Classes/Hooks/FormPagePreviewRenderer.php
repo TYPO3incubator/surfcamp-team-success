@@ -46,8 +46,12 @@ class FormPagePreviewRenderer extends StandardContentPreviewRenderer
         $row = $item->getRecord();
         $itemContent = $this->linkEditContent('<strong>' . htmlspecialchars($item->getContext()->getContentTypeLabels()['form_formframework']) . '</strong>', $row) . '<br />';
 
-        $flexFormData = GeneralUtility::makeInstance(FlexFormService::class)
-            ->convertFlexFormContentToArray($row['pi_flexform']);
+        if (isset($row['pi_flexform'])) {
+            $flexFormData = GeneralUtility::makeInstance(FlexFormService::class)
+                ->convertFlexFormContentToArray($row['pi_flexform']);
+        } else {
+            $flexFormData = [];
+        }
 
         $persistenceIdentifier = $flexFormData['settings']['persistenceIdentifier'] ?? '';
         if (!empty($persistenceIdentifier)) {

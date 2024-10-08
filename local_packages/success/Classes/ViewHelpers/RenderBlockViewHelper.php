@@ -17,14 +17,13 @@ declare(strict_types=1);
 
 namespace Surfcamp\Success\ViewHelpers;
 
-use Surfcamp\Success\Domain\RecordInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Domain\RecordInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Fluid\ViewHelpers\CObjectViewHelper;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 use TYPO3Fluid\Fluid\View\Exception\InvalidTemplateResourceException;
 
 /**
@@ -32,8 +31,6 @@ use TYPO3Fluid\Fluid\View\Exception\InvalidTemplateResourceException;
  */
 final class RenderBlockViewHelper extends AbstractViewHelper
 {
-    use CompileWithRenderStatic;
-
     /**
      * @var bool
      */
@@ -42,19 +39,17 @@ final class RenderBlockViewHelper extends AbstractViewHelper
     public function initializeArguments(): void
     {
         parent::initializeArguments();
-        $this->registerArgument('data', RecordInterface::class, 'Block data', false, []);
+        $this->registerArgument('data', RecordInterface::class, 'Record object');
         $this->registerArgument('context', 'array', 'Context information', false, []);
     }
 
-    /**
-     * @return mixed
-     */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
+    public function render()
     {
-        $data = $arguments['data'];
-        $context = $arguments['context'] ?: [];
+        $data = $this->arguments['data'];
+        $context = $this->arguments['context'] ?: [];
 
-        $view = $renderingContext->getViewHelperVariableContainer()->getView();
+        $outerRenderingContext = $this->renderingContext;
+        $view = $this->renderingContext->getViewHelperVariableContainer()->getView();
         if (!$view) {
             throw new Exception(
                 'The f:renderBlock ViewHelper was used in a context where the ViewHelperVariableContainer does not contain ' .
@@ -67,29 +62,31 @@ final class RenderBlockViewHelper extends AbstractViewHelper
         $subView = GeneralUtility::makeInstance(StandaloneView::class);
         $r = clone $view->getRenderingContext();
 
-        $subView->setRequest($renderingContext->getRequest());
+        $request = $outerRenderingContext->getAttribute(ServerRequestInterface::class);
+        $subView->getRenderingContext()->setAttribute(ServerRequestInterface::class, $request);
         $subView->getRenderingContext()->setTemplatePaths($r->getTemplatePaths());
         if (count($templateNameParts = explode('.', $data->getFullType())) === 2) {
+            $templateNameParts[0] = ($templateNameParts[0] === 'tt_content' ? 'content' : $templateNameParts[0]);
             $subView->getRenderingContext()->setControllerName(ucfirst($templateNameParts[0]));
             $subView->getRenderingContext()->setControllerAction(GeneralUtility::underscoredToLowerCamelCase($templateNameParts[1]));
         }
-        $subView->assign('settings', $renderingContext->getVariableProvider()->get('settings'));
+        $subView->assign('settings', $this->renderingContext->getVariableProvider()->get('settings'));
         $subView->assign('data', $data->toArray(true));
-        $subView->assign('rawData', $data->getRecord()->getRawRecord()->toArray());
+        $subView->assign('rawData', $data->getRawRecord()->toArray());
         $subView->assign('context', $context);
         try {
             $content = $subView->render();
-        } catch (InvalidTemplateResourceException $ex) {
+        } catch (InvalidTemplateResourceException) {
             // Render via TypoScript as fallback
             /** @var CObjectViewHelper $cObjectViewHelper */
-            $cObjectViewHelper = $view->getViewHelperResolver()->createViewHelperInstance('f', 'cObject');
+            $cObjectViewHelper = $view->getRenderingContext()->getViewHelperResolver()->createViewHelperInstance('f', 'cObject');
             $blockType = $data->getFullType();
             if (str_starts_with($blockType, 'content')) {
                 $blockType = 'tt_' . $blockType . '.20';
             }
             $cObjectViewHelper->setArguments([
                 'typoscriptObjectPath' => $blockType,
-                'data' => $data->getRecord()->getRawRecord()->toArray(),
+                'data' => $data->getRawRecord()->toArray(),
                 'context' => $context,
             ]);
             $cObjectViewHelper->setRenderingContext($subView->getRenderingContext());

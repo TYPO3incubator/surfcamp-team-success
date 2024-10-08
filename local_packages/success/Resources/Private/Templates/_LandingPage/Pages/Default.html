@@ -18,8 +18,8 @@
 
 <div class="font-text background-{settings.ui.layout.pagebg}">
     <main>
-        <f:for as="block" each="{content.main.blocks}">
-            <s:renderBlock data="{block}"/>
+        <f:for as="record" each="{content.main.records}">
+            <s:renderBlock data="{record}"/>
         </f:for>
     </main>
     <f:render partial="Footer" arguments="{_all}"/>

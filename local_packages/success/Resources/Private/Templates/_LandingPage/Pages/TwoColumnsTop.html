@@ -20,18 +20,18 @@
         <main>
             <section class="grid lg:grid-cols-2 relative min-h-screen twocolumnstop">
                 <div class="h-full flex items-center flex-col">
-                    <f:for each="{content.column11.blocks}" as="block">
-                        <s:renderBlock data="{block}" />
+                    <f:for each="{content.heroAreaLeft.records}" as="record">
+                        <s:renderBlock data="{record}" />
                     </f:for>
                 </div>
                 <div class="h-full flex items-center flex-col">
-                    <f:for each="{content.column12.blocks}" as="block">
-                        <s:renderBlock data="{block}" />
+                    <f:for each="{content.heroAreaRight.records}" as="record">
+                        <s:renderBlock data="{record}" />
                     </f:for>
                 </div>
             </section>
-            <f:for as="block" each="{content.column0.blocks}">
-                <s:renderBlock data="{block}" />
+            <f:for as="record" each="{content.main.records}">
+                <s:renderBlock data="{record}" />
             </f:for>
         </main>
         <f:render partial="Footer" arguments="{_all}" />
