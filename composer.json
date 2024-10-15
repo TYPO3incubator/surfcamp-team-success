@@ -38,6 +38,7 @@
     "require": {
         "php": "^8.3",
         "b13/backendpreviews": "^1.1.2",
+        "cweagans/composer-patches": "^1.7",
         "helhum/dotenv-connector": "^3.1",
         "praetorius/vite-asset-collector": "^1.9",
         "surfcamp/success": "@dev",
@@ -56,6 +57,7 @@
         "typo3/cms-info": "^13.4.0",
         "typo3/cms-install": "^13.4.0",
         "typo3/cms-lowlevel": "^13.4.0",
+        "typo3/cms-recycler": "^13.4.0",
         "typo3/cms-rte-ckeditor": "^13.4.0",
         "typo3/cms-scheduler": "^13.4.0",
         "typo3/cms-seo": "^13.4.0",
@@ -65,5 +67,12 @@
     "require-dev": {
         "roave/security-advisories": "dev-latest",
         "typo3/coding-standards": "^0.8"
-    }
+    },
+	"extra": {
+		"patches": {
+			"typo3/cms-dashboard": {
+				"#86607": "patches/86607.patch"
+			}
+		}
+	}
 }
