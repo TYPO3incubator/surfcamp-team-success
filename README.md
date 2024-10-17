@@ -19,7 +19,7 @@ ddev composer install
 
 ## Credentials
 
-- Backend: https://surfcamp-team3.ddev.site/typo3
+- Backend: https://surfcamp-team6.ddev.site/typo3
 - Username: `admin`
 - Password: `John3:16`
 
