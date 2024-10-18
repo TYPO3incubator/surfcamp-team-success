@@ -24,22 +24,17 @@ services:
       - TYPO3_MAIL_DEFAULTMAILFROMADDRESS=${TYPO3_MAIL_DEFAULTMAILFROMADDRESS:-noreply@example.com}
       - TYPO3_MAIL_DEFAULTMAILFROMNAME=${TYPO3_MAIL_DEFAULTMAILFROMNAME:-TYPO3 Surfcamp}
       - TYPO3_SYS_ENCRYPTIONKEY=${TYPO3_SYS_ENCRYPTIONKEY:-}
-    volumes:
-      - typo3-fileadmin:/var/www/html/public/fileadmin
-      - typo3-var:/var/www/html/var
     depends_on:
       - db
       - mailer
     healthcheck:
       test: [ "CMD-SHELL", "curl -f curl --insecure --silent --location --show-error --fail http://localhost:8080$HEALTHCHECK_PATH || exit 1" ]
       interval: 5s
-      timeout: 20s
+      timeout: 10s
       retries: 10
   db:
     build:
       dockerfile: ./docker/db/Dockerfile
-    volumes:
-      - mariadb-data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE=${MYSQL_DATABASE:-db}
@@ -53,7 +48,6 @@ services:
   mailer:
     image: axllent/mailpit
     volumes:
-      - "mailpit-data:/data"
       - type: bind
         source: ./htpasswd
         target: /data/htpasswd
