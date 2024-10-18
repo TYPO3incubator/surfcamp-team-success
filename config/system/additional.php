@@ -1,8 +1,17 @@
 <?php
+
+use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+if (!empty($_ENV['TYPO3_BE_INSTALLTOOLPASSWORD'])) {
+    $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('BE');
+    $hashedPassword = $hashInstance->getHashedPassword($_ENV['TYPO3_BE_INSTALLTOOLPASSWORD']);
+}
+
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], [
     'BE' => [
         'debug' => $_ENV['TYPO3_BE_DEBUG'] ?? 0,
-        'installToolPassword' => $_ENV['TYPO3_BE_INSTALLTOOLPASSWORD'] ?? '',
+        'installToolPassword' => $hashedPassword ?? '',
     ],
     'FE' => [
         'debug' => $_ENV['TYPO3_FE_DEBUG'] ?? 0,
