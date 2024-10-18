@@ -1,8 +1,4 @@
-base: 'https://team6.surfcamp.typo3.com/dream-career'
-baseVariants:
-  -
-    base: 'https://surfcamp-team6.ddev.site/dream-career'
-    condition: 'applicationContext == "Development"'
+base: '/dream-career/'
 languages:
   -
     title: English

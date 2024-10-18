@@ -1,8 +1,4 @@
-base: 'https://team6.surfcamp.typo3.com/product-launch'
-baseVariants:
-  -
-    base: 'https://surfcamp-team6.ddev.site/product-launch'
-    condition: 'applicationContext == "Development"'
+base: '/product-launch/'
 languages:
   -
     title: English

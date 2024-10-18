@@ -1,0 +1,77 @@
+# to test custom images locally
+services:
+  web:
+    build:
+      dockerfile: ./docker/web/Dockerfile
+    environment:
+      - PHP_POST_MAX_SIZE=64M
+      - PHP_UPLOAD_MAX_FILE_SIZE=64M
+      - PHP_DATE_TIMEZONE=Europe/Berlin
+      - PHP_OPCACHE_ENABLE=1
+      - HEALTHCHECK_PATH=/healthcheck
+      - TYPO3_CONTEXT=Production
+      - TYPO3_BE_INSTALLTOOLPASSWORD=John3:16
+      - TYPO3_DB_CONNECTIONS_DEFAULT_DBNAME=db
+      - TYPO3_DB_CONNECTIONS_DEFAULT_HOST=db
+      - TYPO3_DB_CONNECTIONS_DEFAULT_PASSWORD=db
+      - TYPO3_DB_CONNECTIONS_DEFAULT_PORT=3306
+      - TYPO3_DB_CONNECTIONS_DEFAULT_USER=db
+      - TYPO3_DB_CONNECTIONS_DEFAULT_DRIVER=pdo_mysql
+      - TYPO3_MAIL_TRANSPORT=smtp
+      - TYPO3_MAIL_TRANSPORT_SMTP_SERVER=mailer:1025
+      - TYPO3_MAIL_DEFAULTMAILFROMADDRESS=noreply@example.com
+      - TYPO3_MAIL_DEFAULTMAILFROMNAME=TYPO3 Surfcamp
+      - TYPO3_SYS_ENCRYPTIONKEY=a287830a91e1c2c42e061a64060026163e49945a75772a0dc7ab3480ced22a964a43d8a5e587107caeb5969b3a52d98f43472b57231a8b795e285559e55cbea3
+      - TYPO3_SYS_REVERSEPROXYIP=
+      - TYPO3_SYS_REVERSEPROXYSSL=
+      - TYPO3_SYS_SYSTEMLOCALE=en_US.UTF-8
+      - TYPO3_BE_DEBUG=1
+      - TYPO3_FE_DEBUG=1
+      - TYPO3_BE_USER_NAME=admin
+      - TYPO3_BE_USER_PASSWORD=Password.1
+    depends_on:
+      db:
+        condition: service_healthy
+      mailer:
+        condition: service_started
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: [ "CMD", "/usr/local/bin/php-fpm-healthcheck" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  db:
+    build:
+      dockerfile: ./docker/db/Dockerfile
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=db
+      - MYSQL_PASSWORD=db
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 5s
+      timeout: 20s
+      retries: 10
+  mailer:
+    image: axllent/mailpit
+    environment:
+      - MP_MAX_MESSAGES=5000
+      - MP_DATABASE=/mailpit.db
+      - MP_SMTP_AUTH_ACCEPT_ANY=1
+      - MP_SMTP_AUTH_ALLOW_INSECURE=1
+    ports:
+      - 8025:8025
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/mailpit",
+          "readyz",
+        ]
+      interval: 5s
+      timeout: 20s
+      retries: 10
