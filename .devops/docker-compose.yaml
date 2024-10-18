@@ -8,6 +8,7 @@ services:
       - PHP_POST_MAX_SIZE=${PHP_POST_MAX_SIZE:-64M}
       - PHP_UPLOAD_MAX_FILE_SIZE=${PHP_UPLOAD_MAX_FILE_SIZE:-64M}
       - PHP_DATE_TIMEZONE=${TIMEZONE:-Europe/Berlin}
+      - PHP_OPCACHE_ENABLE=1
       - HEALTHCHECK_PATH=${HEALTHCHECK_PATH:-/}
       - TYPO3_CONTEXT=${TYPO3_CONTEXT:-Production}
       - TYPO3_BE_INSTALLTOOLPASSWORD=$SERVICE_PASSWORD_INSTALLTOOL
@@ -21,15 +22,13 @@ services:
       - TYPO3_SYS_ENCRYPTIONKEY=$SERVICE_BASE64_64_ENCRYPTIONKEY
     volumes:
       - typo3-fileadmin:/var/www/html/public/fileadmin
-      - typo3-log:/var/www/html/var/log
-      - typo3-session:/var/www/html/var/session
-      - typo3-labels:/var/www/html/var/labels
-#    Wait for helhum/typo3-console
+      - typo3-var:/var/www/html/var/log
     command:
       - /bin/sh
       - -c
       - |
         cd /var/www/html
+        bin/typo3 cache:flush
         bin/typo3 language:update
     depends_on:
       - db
