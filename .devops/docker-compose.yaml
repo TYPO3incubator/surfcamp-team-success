@@ -16,8 +16,8 @@ services:
       - TYPO3_DB_CONNECTIONS_DEFAULT_PASSWORD=$SERVICE_PASSWORD_DATABASE
       - TYPO3_DB_CONNECTIONS_DEFAULT_PORT=3306
       - TYPO3_DB_CONNECTIONS_DEFAULT_USER=$SERVICE_USER_DATABASE
-      - TYPO3_MAIL_DEFAULTMAILFROMADDRESS=${SERVICE_MAIL_FROM_ADDRESS:-"noreply@example.com"}
-      - TYPO3_MAIL_DEFAULTMAILFROMNAME=${SERVICE_MAIL_FROM_NAME:-"TYPO3 Surfcamp"}
+      - TYPO3_MAIL_DEFAULTMAILFROMADDRESS=${SERVICE_MAIL_FROM_ADDRESS:-noreply@example.com}
+      - TYPO3_MAIL_DEFAULTMAILFROMNAME=${SERVICE_MAIL_FROM_NAME:-TYPO3 Surfcamp}
       - TYPO3_SYS_ENCRYPTIONKEY=$SERVICE_BASE64_64_ENCRYPTIONKEY
     volumes:
       - typo3-fileadmin:/var/www/html/public/fileadmin
@@ -32,8 +32,7 @@ services:
         cd /var/www/html
         bin/typo3 language:update
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     healthcheck:
       test: [ "CMD-SHELL", "curl -f curl --insecure --silent --location --show-error --fail http://localhost:8080$HEALTHCHECK_PATH || exit 1" ]
       interval: 30s
