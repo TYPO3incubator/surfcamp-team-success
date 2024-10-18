@@ -1,0 +1,92 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: .devops/Dockerfile
+    environment:
+      - SERVICE_FQDN_TYPO3_8080
+      - PHP_POST_MAX_SIZE="64M"
+      - PHP_UPLOAD_MAX_FILE_SIZE="64M"
+      - PHP_DATE_TIMEZONE=${TIMEZONE:-Europe/Berlin}
+      - NGINX_WEBROOT="/var/www/html/public"
+      - HEALTHCHECK_PATH=/
+      - TYPO3_CONTEXT=Development
+      - TYPO3_BE_INSTALLTOOLPASSWORD="$argon2id$v=19$m=65536,t=16,p=1$VktrT0J2cXU3SHNtY0c4SA$36zwyPIHD9iUteTlw04ft6NYYmhVA9FtzkR5py/5B0w" # John3:16
+      - TYPO3_DB_CONNECTIONS_DEFAULT_DBNAME="db"
+      - TYPO3_DB_CONNECTIONS_DEFAULT_HOST="db"
+      - TYPO3_DB_CONNECTIONS_DEFAULT_PASSWORD=$SERVICE_PASSWORD_DATABASE
+      - TYPO3_DB_CONNECTIONS_DEFAULT_PORT=3306
+      - TYPO3_DB_CONNECTIONS_DEFAULT_USER=$SERVICE_USER_DATABASE
+      - TYPO3_MAIL_DEFAULTMAILFROMADDRESS="noreply@{SERVICE_FQDN_TYPO3}"
+      - TYPO3_MAIL_DEFAULTMAILFROMNAME="- TYPO3 Surfcamp"
+      - TYPO3_MAIL_TRANSPORT="sendmail"
+      - TYPO3_MAIL_TRANSPORT_SENDMAIL_COMMAND="/usr/local/bin/mailpit sendmail -t --smtp-addr mailpit:1025"
+      - TYPO3_MAIL_TRANSPORT_SMTP_ENCRYPT=""
+      - TYPO3_MAIL_TRANSPORT_SMTP_PASSWORD=""
+      - TYPO3_MAIL_TRANSPORT_SMTP_SERVER=""
+      - TYPO3_MAIL_TRANSPORT_SMTP_USERNAME=""
+      - TYPO3_MAIL_TRANSPORT_MBOX_FILE=""
+      - TYPO3_SYS_ENCRYPTIONKEY=$SERVICE_BASE64_64_ENCRYPTIONKEY
+      - TYPO3_BE_DEBUG=0
+      - TYPO3_FE_DEBUG=0
+    volumes:
+      - typo3-fileadmin:/var/www/html/public/fileadmin
+      - typo3-log:/var/www/html/var/log
+      - typo3-session:/var/www/html/var/session
+      - typo3-labels:/var/www/html/var/labels
+#    Wait for helhum/typo3-console
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cd /var/www/html
+        bin/typo3 language:update
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f curl --insecure --silent --location --show-error --fail http://localhost:8080$HEALTHCHECK_PATH || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+  db:
+    image: mariadb:11
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=$SERVICE_PASSWORD_DBROOT
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=$SERVICE_USER_DATABASE
+      - MYSQL_PASSWORD=$SERVICE_PASSWORD_DATABASE
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 5s
+      timeout: 20s
+      retries: 10
+  mailpit:
+    image: axllent/mailpit
+    volumes:
+      - "mailpit-data:/data"
+      - type: bind
+        source: ./htpasswd
+        target: /data/htpasswd
+        isDirectory: false
+        content: ""
+    environment:
+      - SERVICE_FQDN_MAILPIT_8025
+      - MP_MAX_MESSAGES=5000
+      - MP_DATABASE=/data/mailpit.db
+      - MP_SMTP_AUTH_ACCEPT_ANY=1
+      - MP_SMTP_AUTH_ALLOW_INSECURE=1
+      - MP_UI_AUTH_FILE=/data/htpasswd
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/mailpit",
+          "readyz",
+        ]
+      interval: 5s
+      timeout: 20s
+      retries: 10
