@@ -1,3 +1,4 @@
+# to run on coolify
 services:
   web:
     build:
@@ -11,18 +12,18 @@ services:
       - PHP_OPCACHE_ENABLE=1
       - HEALTHCHECK_PATH=${HEALTHCHECK_PATH:-/}
       - TYPO3_CONTEXT=${TYPO3_CONTEXT:-Production}
-      - TYPO3_BE_INSTALLTOOLPASSWORD=$SERVICE_PASSWORD_INSTALLTOOL
-      - TYPO3_DB_CONNECTIONS_DEFAULT_DBNAME="db"
-      - TYPO3_DB_CONNECTIONS_DEFAULT_HOST="db"
-      - TYPO3_DB_CONNECTIONS_DEFAULT_PASSWORD=$SERVICE_PASSWORD_DATABASE
+      - TYPO3_BE_INSTALLTOOLPASSWORD=$TYPO3_BE_INSTALLTOOLPASSWORD
+      - TYPO3_DB_CONNECTIONS_DEFAULT_DBNAME=$SERVICE_DATABASE_MARIADB
+      - TYPO3_DB_CONNECTIONS_DEFAULT_HOST=mariadb
+      - TYPO3_DB_CONNECTIONS_DEFAULT_PASSWORD=$SERVICE_PASSWORD_MARIADB
       - TYPO3_DB_CONNECTIONS_DEFAULT_PORT=3306
-      - TYPO3_DB_CONNECTIONS_DEFAULT_USER=$SERVICE_USER_DATABASE
-      - TYPO3_MAIL_DEFAULTMAILFROMADDRESS=${SERVICE_MAIL_FROM_ADDRESS:-noreply@example.com}
-      - TYPO3_MAIL_DEFAULTMAILFROMNAME=${SERVICE_MAIL_FROM_NAME:-TYPO3 Surfcamp}
-      - TYPO3_SYS_ENCRYPTIONKEY=$SERVICE_BASE64_64_ENCRYPTIONKEY
+      - TYPO3_DB_CONNECTIONS_DEFAULT_USER=$SERVICE_USER_MARIADB
+      - TYPO3_MAIL_DEFAULTMAILFROMADDRESS=${TYPO3_MAIL_DEFAULTMAILFROMADDRESS:-noreply@example.com}
+      - TYPO3_MAIL_DEFAULTMAILFROMNAME=${TYPO3_MAIL_DEFAULTMAILFROMNAME:-TYPO3 Surfcamp}
+      - TYPO3_SYS_ENCRYPTIONKEY=$TYPO3_SYS_ENCRYPTIONKEY
     volumes:
       - typo3-fileadmin:/var/www/html/public/fileadmin
-      - typo3-var:/var/www/html/var/log
+      - typo3-var:/var/www/html/var
     command:
       - /bin/sh
       - -c
@@ -31,22 +32,22 @@ services:
         bin/typo3 cache:flush
         bin/typo3 language:update
     depends_on:
-      - db
+      - mariadb
     healthcheck:
       test: [ "CMD-SHELL", "curl -f curl --insecure --silent --location --show-error --fail http://localhost:8080$HEALTHCHECK_PATH || exit 1" ]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 15s
-  db:
+  mariadb:
     image: mariadb:11
     volumes:
       - mariadb-data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=$SERVICE_PASSWORD_DBROOT
-      - MYSQL_DATABASE=db
-      - MYSQL_USER=$SERVICE_USER_DATABASE
-      - MYSQL_PASSWORD=$SERVICE_PASSWORD_DATABASE
+      - MYSQL_ROOT_PASSWORD=$SERVICE_PASSWORD_MARIADBROOT
+      - MYSQL_DATABASE=$SERVICE_DATABASE_MARIADB
+      - MYSQL_USER=$SERVICE_USER_MARIADB
+      - MYSQL_PASSWORD=$SERVICE_PASSWORD_MARIADB
     healthcheck:
       test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
       interval: 5s
