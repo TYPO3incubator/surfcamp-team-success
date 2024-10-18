@@ -18,6 +18,7 @@ FROM serversideup/php:8.3-fpm-nginx-alpine
 COPY --chown=www-data ./config /var/www/html/config
 COPY ./local_packages /var/www/html/local_packages
 COPY --chmod=755 ./docker/web/entrypoint.d/ /etc/entrypoint.d/
+COPY ./docker/web/zzz-typo3-php.ini /usr/local/etc/php/conf.d/
 COPY ./docker/web/typo3.conf /etc/nginx/server-opts.d/
 COPY --from=build-frontend /app/local_packages/success/Resources/Public/Vite /var/www/html/local_packages/success/Resources/Public/Vite
 COPY --from=build-app /app/vendor /var/www/html/vendor
