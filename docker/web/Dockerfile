@@ -17,8 +17,10 @@ RUN npm run build:production
 FROM serversideup/php:8.3-fpm-nginx-alpine
 COPY ./config /var/www/html/config
 COPY ./local_packages /var/www/html/local_packages
-COPY ./.devops/typo3.conf /etc/nginx/server-opts.d/
+COPY --chmod=755 ./docker/web/entrypoint.d/ /etc/entrypoint.d/
+COPY ./docker/web/typo3.conf /etc/nginx/server-opts.d/
 COPY --from=build-frontend /app/local_packages/success/Resources/Public/Vite /var/www/html/local_packages/success/Resources/Public/Vite
 COPY --from=build-app /app/vendor /var/www/html/vendor
 COPY --from=build-app /app/bin /var/www/html/bin
 COPY --from=build-app /app/public /var/www/html/public
+COPY ./data/files/public/fileadmin /var/www/html/public/fileadmin

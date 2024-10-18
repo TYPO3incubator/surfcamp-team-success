@@ -2,8 +2,7 @@
 services:
   web:
     build:
-      context: .
-      dockerfile: .devops/Dockerfile
+      dockerfile: ./docker/web/Dockerfile
     environment:
       - SERVICE_FQDN_TYPO3_8080
       - PHP_POST_MAX_SIZE=${PHP_POST_MAX_SIZE:-64M}
@@ -28,24 +27,17 @@ services:
     volumes:
       - typo3-fileadmin:/var/www/html/public/fileadmin
       - typo3-var:/var/www/html/var
-    command:
-      - /bin/sh
-      - -c
-      - |
-        cd /var/www/html
-        bin/typo3 cache:flush
-        bin/typo3 language:update
     depends_on:
       - db
       - mailer
     healthcheck:
       test: [ "CMD-SHELL", "curl -f curl --insecure --silent --location --show-error --fail http://localhost:8080$HEALTHCHECK_PATH || exit 1" ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
+      interval: 5s
+      timeout: 20s
+      retries: 10
   db:
-    image: mariadb:11
+    build:
+      dockerfile: ./docker/db/Dockerfile
     volumes:
       - mariadb-data:/var/lib/mysql
     environment:
