@@ -15,6 +15,10 @@ COPY ./local_packages ./local_packages
 RUN npm run build:production
 
 FROM serversideup/php:8.3-fpm-nginx-alpine
+USER root
+# Install needed php extensions https://docs.typo3.org/m/typo3/tutorial-getting-started/main/en-us/Installation/SystemRequirements/Index.html
+RUN install-php-extensions pdo session xml filter SPL standard tokenizer mbstring intl pdo_mysql mysqli fileinfo gd zip zlib openssl
+USER www-data
 COPY --chown=www-data ./config /var/www/html/config
 COPY ./local_packages /var/www/html/local_packages
 COPY --chmod=755 ./docker/web/entrypoint.d/ /etc/entrypoint.d/
