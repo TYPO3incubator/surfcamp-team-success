@@ -1,0 +1,23 @@
+.swiper-button-next,
+.swiper-button-prev {
+    @apply w-8 h-8 rounded-full bg-white-variable items-center justify-center opacity-80;
+
+    &:hover,
+    &:focus {
+        @apply opacity-100;
+    }
+
+    &:after {
+        @apply text-whitetext text-xl;
+    }
+}
+
+.swiper-pagination-bullet {
+    --swiper-pagination-bullet-horizontal-gap: 0.5rem;
+
+    @apply w-4 h-4 bg-white-variable;
+
+    &-active {
+        @apply bg-primary-500;
+    }
+}
