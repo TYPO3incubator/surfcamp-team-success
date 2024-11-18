@@ -4,6 +4,7 @@
 @import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/Form/setup.typoscript'
 @import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/config.typoscript'
 @import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/credits.typoscript'
+@import 'EXT:success/Configuration/Sets/_LandingPage/TypoScript/slider.typoscript'
 
 page = PAGE
 page {

@@ -1,0 +1,18 @@
+tt_content.ce_slider = FLUIDTEMPLATE
+tt_content.ce_slider {
+  templateName = CeSlider
+  templateRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Content
+  # Workaround to actually load this typoscript definition for the CeSlider
+  templateRootPaths.20 = EXT:success/Resources/Private/Templates/_LandingPage/Container
+  partialRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Partials
+  layoutRootPaths.10 = EXT:success/Resources/Private/Templates/_LandingPage/Layouts
+  dataProcessing {
+    10 = container
+    10 {
+      skipRenderingChildContent = 1
+      colPos = 555
+      as = slides
+      dataProcessing.10 = record-transformation
+    }
+  }
+}

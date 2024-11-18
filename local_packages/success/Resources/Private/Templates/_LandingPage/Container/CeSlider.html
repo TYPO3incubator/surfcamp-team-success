@@ -1,0 +1,29 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
+    xmlns:s="http://typo3.org/ns/Surfcamp/Success/ViewHelpers"
+>
+
+<f:layout name="Default"/>
+<f:section name="Main">
+    <f:if condition="{slides}">
+        <vac:asset.vite entry="assets/js/components/slider.js"/>
+        <div class="swiper items-center">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <f:for each="{slides}" as="slide">
+                    <div class="swiper-slide">
+                        <s:renderBlock data="{slide.record}" />
+                    </div>
+                </f:for>
+            </div>
+            <div class="swiper-pagination mt-8 !relative"></div>
+
+            <button class="swiper-button-prev !hidden md:!flex" title="Go to previous slide" ></button>
+            <button class="swiper-button-next !hidden md:!flex" title="Go to next slide" ></button>
+        </div>
+    </f:if>
+</f:section>
+</html>
