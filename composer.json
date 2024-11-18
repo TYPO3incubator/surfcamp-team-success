@@ -29,8 +29,7 @@
         "allow-plugins": {
             "typo3/class-alias-loader": true,
             "typo3/cms-composer-installers": true,
-            "helhum/dotenv-connector": true,
-            "cweagans/composer-patches": true
+            "helhum/dotenv-connector": true
         }
     },
     "minimum-stability": "dev",

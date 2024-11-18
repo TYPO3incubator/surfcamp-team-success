@@ -2,7 +2,6 @@ FROM composer:latest as build-app
 WORKDIR /app
 COPY composer.* ./
 COPY ./local_packages ./local_packages
-COPY ./patches ./patches
 RUN composer install --ignore-platform-reqs --no-dev
 
 FROM node:20 as build-frontend
