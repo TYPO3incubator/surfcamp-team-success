@@ -40,9 +40,9 @@ function changeTheme(theme, saveToLocalStorage = true) {
 }
 
 function initTheme() {
-    applyTheme(currentThemeSetting);
-    colorThemeWatcher();
     if (themeToggle) {
+        applyTheme(currentThemeSetting);
+        colorThemeWatcher();
         updateToggleButtonState(currentThemeSetting);
     }
 }
