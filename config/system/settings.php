@@ -13,7 +13,7 @@ return [
             'Default' => [
                 'charset' => 'utf8mb4',
                 'dbname' => '<set in dotenv>',
-                'driver' => 'mysqli',
+                'driver' => '<set in dotenv>',
                 'host' => '<set in dotenv>',
                 'password' => '<set in dotenv>',
                 'port' => '<set in dotenv>',
@@ -22,6 +22,13 @@ return [
                     'collate' => 'utf8mb4_unicode_ci',
                 ],
                 'user' => '<set in dotenv>',
+            ],
+        ],
+    ],
+    'EXTCONF' => [
+        'lang' => [
+            'availableLanguages' => [
+                'de',
             ],
         ],
     ],
@@ -81,12 +88,12 @@ return [
         ],
     ],
     'MAIL' => [
-        'transport' => 'sendmail',
-        'transport_sendmail_command' => '/usr/local/bin/mailpit sendmail -t --smtp-addr 127.0.0.1:1025',
-        'transport_smtp_encrypt' => '',
-        'transport_smtp_password' => '',
-        'transport_smtp_server' => '',
-        'transport_smtp_username' => '',
+        'transport' => '<set in dotenv>',
+        'transport_sendmail_command' => '<set in dotenv>',
+        'transport_smtp_encrypt' => '<set in dotenv>',
+        'transport_smtp_password' => '<set in dotenv>',
+        'transport_smtp_server' => '<set in dotenv>',
+        'transport_smtp_username' => '<set in dotenv>',
     ],
     'SYS' => [
         'UTF8filesystem' => true,
@@ -116,6 +123,7 @@ return [
         'sitename' => 'Surfcamp Template',
         'systemMaintainers' => [
             1,
+            2,
         ],
         'trustedHostsPattern' => '.*',
     ],

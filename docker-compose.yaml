@@ -1,0 +1,80 @@
+# to run on coolify
+services:
+  web:
+    build:
+      dockerfile: ./docker/web/Dockerfile
+    environment:
+      - SERVICE_FQDN_TYPO3_8080
+      - PHP_POST_MAX_SIZE=${PHP_POST_MAX_SIZE:-64M}
+      - PHP_UPLOAD_MAX_FILE_SIZE=${PHP_UPLOAD_MAX_FILE_SIZE:-64M}
+      - PHP_DATE_TIMEZONE=${TIMEZONE:-Europe/Berlin}
+      - PHP_OPCACHE_ENABLE=1
+      - HEALTHCHECK_PATH=${HEALTHCHECK_PATH:-/healthcheck}
+      - TYPO3_CONTEXT=${TYPO3_CONTEXT:-Production}
+      - TYPO3_BE_INSTALLTOOLPASSWORD=${TYPO3_BE_INSTALLTOOLPASSWORD:-}
+      - TYPO3_DB_CONNECTIONS_DEFAULT_DBNAME=$MYSQL_DATABASE
+      - TYPO3_DB_CONNECTIONS_DEFAULT_HOST=db
+      - TYPO3_DB_CONNECTIONS_DEFAULT_PASSWORD=$MYSQL_PASSWORD
+      - TYPO3_DB_CONNECTIONS_DEFAULT_PORT=3306
+      - TYPO3_DB_CONNECTIONS_DEFAULT_USER=$MYSQL_USER
+      - TYPO3_DB_CONNECTIONS_DEFAULT_DRIVER=${TYPO3_DB_CONNECTIONS_DEFAULT_DRIVER:-pdo_mysql}
+      - TYPO3_MAIL_TRANSPORT=${TYPO3_MAIL_TRANSPORT:-smtp}
+      - TYPO3_MAIL_TRANSPORT_SMTP_SERVER=${TYPO3_MAIL_TRANSPORT_SMTP_SERVER:-mailer:1025}
+      - TYPO3_MAIL_TRANSPORT_SMTP_USERNAME=${TYPO3_MAIL_TRANSPORT_SMTP_USERNAME:-}
+      - TYPO3_MAIL_TRANSPORT_MBOX_FILE=${TYPO3_MAIL_TRANSPORT_SMTP_USERNAME:-}
+      - TYPO3_MAIL_DEFAULTMAILFROMADDRESS=${TYPO3_MAIL_DEFAULTMAILFROMADDRESS:-noreply@example.com}
+      - TYPO3_MAIL_DEFAULTMAILFROMNAME=${TYPO3_MAIL_DEFAULTMAILFROMNAME:-TYPO3 Surfcamp}
+      - TYPO3_SYS_ENCRYPTIONKEY=${TYPO3_SYS_ENCRYPTIONKEY:-}
+      - TYPO3_SYS_REVERSEPROXYIP=${TYPO3_SYS_REVERSEPROXYIP:-}
+      - TYPO3_SYS_REVERSEPROXYSSL=${TYPO3_SYS_REVERSEPROXYSSL:-}
+      - TYPO3_SYS_SYSTEMLOCALE=${TYPO3_SYS_SYSTEMLOCALE:-en_US.UTF-8}
+      - TYPO3_BE_USER_NAME=$TYPO3_BE_USER_NAME
+      - TYPO3_BE_USER_PASSWORD=$TYPO3_BE_USER_PASSWORD
+    depends_on:
+      db:
+        condition: service_healthy
+      mailer:
+        condition: service_started
+    healthcheck:
+      test: [ "CMD", "/usr/local/bin/php-fpm-healthcheck" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  db:
+    build:
+      dockerfile: ./docker/db/Dockerfile
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-db}
+      - MYSQL_USER=${MYSQL_USER:-db}
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 5s
+      timeout: 20s
+      retries: 10
+  mailer:
+    image: axllent/mailpit
+    volumes:
+      - type: bind
+        source: ./htpasswd
+        target: /data/htpasswd
+        isDirectory: false
+        content: ""
+    environment:
+      - SERVICE_FQDN_MAILPIT_8025
+      - MP_MAX_MESSAGES=5000
+      - MP_DATABASE=/data/mailpit.db
+      - MP_SMTP_AUTH_ACCEPT_ANY=1
+      - MP_SMTP_AUTH_ALLOW_INSECURE=1
+      - MP_UI_AUTH_FILE=/data/htpasswd
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/mailpit",
+          "readyz",
+        ]
+      interval: 5s
+      timeout: 20s
+      retries: 10

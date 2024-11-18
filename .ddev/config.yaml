@@ -13,6 +13,11 @@ database:
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
+hooks:
+  post-import-db:
+    - exec: bin/typo3 extension:setup -n
+    - exec: bin/typo3 cache:flush -n
+    - exec: bin/typo3 backend:user:create -u admin -p John3:16 -a -m -n
 
 # Key features of DDEV's config.yaml:
 

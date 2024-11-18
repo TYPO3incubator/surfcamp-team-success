@@ -49,10 +49,8 @@ CREATE TABLE `backend_layout` (
 -- Dumping data for table `backend_layout`
 --
 
-LOCK TABLES `backend_layout` WRITE;
 /*!40000 ALTER TABLE `backend_layout` DISABLE KEYS */;
 /*!40000 ALTER TABLE `backend_layout` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `be_dashboards`
@@ -77,19 +75,18 @@ CREATE TABLE `be_dashboards` (
   PRIMARY KEY (`uid`),
   KEY `identifier` (`identifier`),
   KEY `parent` (`pid`,`deleted`,`hidden`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `be_dashboards`
 --
 
-LOCK TABLES `be_dashboards` WRITE;
 /*!40000 ALTER TABLE `be_dashboards` DISABLE KEYS */;
 INSERT INTO `be_dashboards` VALUES
-(1,0,1712413418,1712413418,0,0,0,0,'63c9a2bbacaa9437def12e0a32aa2dd3d4a4a64b',1,'My dashboard','{\"f328b519f535be3b39da21c8ce726b5180a59e69\":{\"identifier\":\"t3information\"},\"13a73244f711dc49ec30a3020b2af73227aa4aa2\":{\"identifier\":\"seo-pagesWithoutMetaDescription\"},\"644b96c839747c667cbbe773c4c99b790791c203\":{\"identifier\":\"sysLogErrors\"},\"5d6816a6ee4bbcfa14adfef137f57fc3bf126405\":{\"identifier\":\"latestChangedPages\"},\"abaabe1b474514421da089cbb4f7a13f4f60e7b1\":{\"identifier\":\"typeOfUsers\"},\"87e7a2c2ed57696ebd86401b09ae7d43cd55580a\":{\"identifier\":\"docGettingStarted\"},\"571133a3c375c9ea9f4a050f5d0e1b21cb6bd520\":{\"identifier\":\"failedLogins\"}}');
+(1,0,1712413418,1712413418,0,0,0,0,'63c9a2bbacaa9437def12e0a32aa2dd3d4a4a64b',1,'My dashboard','{\"f328b519f535be3b39da21c8ce726b5180a59e69\":{\"identifier\":\"t3information\"},\"13a73244f711dc49ec30a3020b2af73227aa4aa2\":{\"identifier\":\"seo-pagesWithoutMetaDescription\"},\"644b96c839747c667cbbe773c4c99b790791c203\":{\"identifier\":\"sysLogErrors\"},\"5d6816a6ee4bbcfa14adfef137f57fc3bf126405\":{\"identifier\":\"latestChangedPages\"},\"abaabe1b474514421da089cbb4f7a13f4f60e7b1\":{\"identifier\":\"typeOfUsers\"},\"87e7a2c2ed57696ebd86401b09ae7d43cd55580a\":{\"identifier\":\"docGettingStarted\"},\"571133a3c375c9ea9f4a050f5d0e1b21cb6bd520\":{\"identifier\":\"failedLogins\"}}'),
+(2,0,1729542896,1729542896,0,0,0,0,'7e2ec4fd0645e7b8717f0a67e83fdb78246b77d0',6,'My dashboard','{\"54f591470e45de86d1838835d2062b4cb1eff360\":{\"identifier\":\"t3information\"},\"30ec767ef328e82099a3452f8c5d06d25170425a\":{\"identifier\":\"docGettingStarted\"}}');
 /*!40000 ALTER TABLE `be_dashboards` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `be_groups`
@@ -133,10 +130,8 @@ CREATE TABLE `be_groups` (
 -- Dumping data for table `be_groups`
 --
 
-LOCK TABLES `be_groups` WRITE;
 /*!40000 ALTER TABLE `be_groups` DISABLE KEYS */;
 /*!40000 ALTER TABLE `be_groups` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `be_sessions`
@@ -198,21 +193,8 @@ CREATE TABLE `be_users` (
   PRIMARY KEY (`uid`),
   KEY `username` (`username`),
   KEY `parent` (`pid`,`deleted`,`disable`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `be_users`
---
-
-LOCK TABLES `be_users` WRITE;
-/*!40000 ALTER TABLE `be_users` DISABLE KEYS */;
-INSERT INTO `be_users` VALUES
-(1,0,1712413406,1712413406,0,0,0,0,NULL,'admin','default','','a:11:{s:10:\"moduleData\";a:19:{s:28:\"dashboard/current_dashboard/\";s:40:\"63c9a2bbacaa9437def12e0a32aa2dd3d4a4a64b\";s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";a:0:{}s:10:\"FormEngine\";a:2:{i:0;a:1:{s:32:\"ac7e41ab76a23d8aa53a22fc0cc56923\";a:5:{i:0;s:0:\"\";i:1;a:5:{s:4:\"edit\";a:1:{s:10:\"tt_content\";a:1:{i:53;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:34:\"&edit%5Btt_content%5D%5B53%5D=edit\";i:3;a:5:{s:5:\"table\";s:10:\"tt_content\";s:3:\"uid\";i:53;s:3:\"pid\";i:4;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:0:\"\";}}i:1;s:32:\"e1aea061d7bf74cfffe2efbdf153a45d\";}s:16:\"opendocs::recent\";a:8:{s:32:\"e1aea061d7bf74cfffe2efbdf153a45d\";a:5:{i:0;s:6:\"editor\";i:1;a:5:{s:4:\"edit\";a:1:{s:8:\"be_users\";a:1:{i:4;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:31:\"&edit%5Bbe_users%5D%5B4%5D=edit\";i:3;a:5:{s:5:\"table\";s:8:\"be_users\";s:3:\"uid\";i:4;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:83:\"/typo3/module/system/user-management?token=7d262530b411b2f68241746f693af0a46d700fcc\";}s:32:\"696addfecc296b326ff6e9f04c7ff3e1\";a:5:{i:0;s:14:\"Product Launch\";i:1;a:5:{s:4:\"edit\";a:1:{s:5:\"pages\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:28:\"&edit%5Bpages%5D%5B1%5D=edit\";i:3;a:5:{s:5:\"table\";s:5:\"pages\";s:3:\"uid\";i:1;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:76:\"/typo3/module/web/layout?token=1fd3d1637c1bb6c7ded3f144cdb9b81714a8eda6&id=1\";}s:32:\"581106f297d9eed8dec1190ee4d6b04d\";a:5:{i:0;s:41:\"How to get your custom designed surfboard\";i:1;a:5:{s:4:\"edit\";a:1:{s:10:\"tt_content\";a:1:{i:3;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:33:\"&edit%5Btt_content%5D%5B3%5D=edit\";i:3;a:5:{s:5:\"table\";s:10:\"tt_content\";s:3:\"uid\";i:3;s:3:\"pid\";i:1;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:97:\"/typo3/module/web/layout?token=553f246112699250a476f77f6e0dc890292f5b70&id=1#element-tt_content-3\";}s:32:\"4f2cad50dba42b646a99cae38880741e\";a:5:{i:0;s:41:\"person-carries-surfboard-on-the-beach.jpg\";i:1;a:5:{s:4:\"edit\";a:1:{s:17:\"sys_file_metadata\";a:1:{i:17;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:41:\"&edit%5Bsys_file_metadata%5D%5B17%5D=edit\";i:3;a:5:{s:5:\"table\";s:17:\"sys_file_metadata\";s:3:\"uid\";i:17;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:132:\"/typo3/module/file/list?token=dcbf2194f00ab3fdb6c7fa2644fa1a084a32a085&currentPage=1&id=1:/impressions/&expandFolder=1:/impressions/\";}s:32:\"fbfaf23b1c9739d5c6b269b91a9d9c98\";a:5:{i:0;s:24:\"the-lonely-surfboard.jpg\";i:1;a:5:{s:4:\"edit\";a:1:{s:17:\"sys_file_metadata\";a:1:{i:18;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:41:\"&edit%5Bsys_file_metadata%5D%5B18%5D=edit\";i:3;a:5:{s:5:\"table\";s:17:\"sys_file_metadata\";s:3:\"uid\";i:18;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:132:\"/typo3/module/file/list?token=dcbf2194f00ab3fdb6c7fa2644fa1a084a32a085&currentPage=1&id=1:/impressions/&expandFolder=1:/impressions/\";}s:32:\"510bff341b74bd1dd855126938b0235e\";a:5:{i:0;s:33:\"yojistic-3Q848rifJQ0-unsplash.jpg\";i:1;a:5:{s:4:\"edit\";a:1:{s:17:\"sys_file_metadata\";a:1:{i:24;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:41:\"&edit%5Bsys_file_metadata%5D%5B24%5D=edit\";i:3;a:5:{s:5:\"table\";s:17:\"sys_file_metadata\";s:3:\"uid\";i:24;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:132:\"/typo3/module/file/list?token=dcbf2194f00ab3fdb6c7fa2644fa1a084a32a085&currentPage=1&id=1:/impressions/&expandFolder=1:/impressions/\";}s:32:\"b474d45535d713d338cd95c4148b76e1\";a:5:{i:0;s:34:\"tyler-nix-9kY6iayVGIk-unsplash.jpg\";i:1;a:5:{s:4:\"edit\";a:1:{s:17:\"sys_file_metadata\";a:1:{i:25;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:41:\"&edit%5Bsys_file_metadata%5D%5B25%5D=edit\";i:3;a:5:{s:5:\"table\";s:17:\"sys_file_metadata\";s:3:\"uid\";i:25;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:132:\"/typo3/module/file/list?token=dcbf2194f00ab3fdb6c7fa2644fa1a084a32a085&currentPage=1&id=1:/impressions/&expandFolder=1:/impressions/\";}s:32:\"401fce87ffd73a544adad20ccb5fbe0a\";a:5:{i:0;s:38:\"trent-bradley-GIfK6UZA1kY-unsplash.jpg\";i:1;a:5:{s:4:\"edit\";a:1:{s:17:\"sys_file_metadata\";a:1:{i:29;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;}i:2;s:41:\"&edit%5Bsys_file_metadata%5D%5B29%5D=edit\";i:3;a:5:{s:5:\"table\";s:17:\"sys_file_metadata\";s:3:\"uid\";i:29;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}i:4;s:132:\"/typo3/module/file/list?token=dcbf2194f00ab3fdb6c7fa2644fa1a084a32a085&currentPage=1&id=1:/impressions/&expandFolder=1:/impressions/\";}}s:12:\"pagetsconfig\";a:1:{s:6:\"action\";s:18:\"pagetsconfig_pages\";}s:6:\"web_ts\";a:1:{s:6:\"action\";s:17:\"typoscript_active\";}s:25:\"web_typoscript_infomodify\";a:1:{s:23:\"selectedTemplatePerPage\";a:5:{i:1;i:-1;i:2;i:2;i:3;i:3;i:4;i:4;i:5;i:5;}}s:15:\"system_BelogLog\";a:1:{s:10:\"constraint\";s:337:\"O:39:\"TYPO3\\CMS\\Belog\\Domain\\Model\\Constraint\":11:{s:14:\"\0*\0userOrGroup\";s:1:\"0\";s:9:\"\0*\0number\";i:20;s:15:\"\0*\0workspaceUid\";i:-99;s:10:\"\0*\0channel\";s:3:\"php\";s:8:\"\0*\0level\";s:5:\"debug\";s:17:\"\0*\0startTimestamp\";i:0;s:15:\"\0*\0endTimestamp\";i:0;s:18:\"\0*\0manualDateStart\";N;s:17:\"\0*\0manualDateStop\";N;s:9:\"\0*\0pageId\";i:0;s:8:\"\0*\0depth\";i:0;}\";}s:8:\"web_info\";a:1:{s:6:\"action\";s:17:\"web_info_overview\";}s:13:\"system_config\";a:1:{s:4:\"tree\";s:8:\"confVars\";}s:23:\"backend_user_management\";a:1:{s:13:\"defaultAction\";s:5:\"index\";}s:17:\"typoscript_active\";a:6:{s:18:\"sortAlphabetically\";b:1;s:28:\"displayConstantSubstitutions\";b:1;s:15:\"displayComments\";b:1;s:23:\"selectedTemplatePerPage\";a:1:{i:1;i:-1;}s:18:\"constantConditions\";a:0:{}s:15:\"setupConditions\";a:0:{}}s:38:\"tools_ExtensionmanagerExtensionmanager\";a:1:{s:6:\"filter\";s:5:\"Local\";}s:16:\"browse_links.php\";a:1:{s:12:\"expandFolder\";s:20:\"1:/company/partners/\";}s:9:\"clipboard\";a:5:{s:5:\"tab_1\";a:0:{}s:5:\"tab_2\";a:0:{}s:5:\"tab_3\";a:0:{}s:7:\"current\";s:6:\"normal\";s:6:\"normal\";a:2:{s:2:\"el\";a:1:{s:13:\"tt_content|78\";s:1:\"1\";}s:4:\"mode\";s:4:\"copy\";}}s:16:\"media_management\";a:5:{s:13:\"displayThumbs\";b:1;s:9:\"clipBoard\";b:1;s:4:\"sort\";s:4:\"name\";s:7:\"reverse\";s:1:\"0\";s:8:\"viewMode\";s:4:\"list\";}s:29:\"web_typoscript_constanteditor\";a:2:{s:23:\"selectedTemplatePerPage\";a:1:{i:1;i:-1;}s:16:\"selectedCategory\";s:0:\"\";}s:18:\"list/displayFields\";a:1:{s:10:\"tt_content\";a:2:{i:0;s:6:\"header\";i:1;s:6:\"crdate\";}}s:10:\"system_log\";a:1:{s:10:\"constraint\";s:337:\"O:39:\"TYPO3\\CMS\\Belog\\Domain\\Model\\Constraint\":11:{s:14:\"\0*\0userOrGroup\";s:1:\"0\";s:9:\"\0*\0number\";i:20;s:15:\"\0*\0workspaceUid\";i:-99;s:10:\"\0*\0channel\";s:3:\"php\";s:8:\"\0*\0level\";s:5:\"debug\";s:17:\"\0*\0startTimestamp\";i:0;s:15:\"\0*\0endTimestamp\";i:0;s:18:\"\0*\0manualDateStart\";N;s:17:\"\0*\0manualDateStop\";N;s:9:\"\0*\0pageId\";i:0;s:8:\"\0*\0depth\";i:0;}\";}}s:14:\"emailMeAtLogin\";i:0;s:8:\"titleLen\";i:50;s:20:\"edit_docModuleUpload\";s:1:\"1\";s:15:\"moduleSessionID\";a:19:{s:28:\"dashboard/current_dashboard/\";s:40:\"48dfe2b81ef353fd078842ffd47a97508b1ed08f\";s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";s:40:\"e421dfdd3a5a7a591a5b7ae83e4f4daa2f6a587c\";s:10:\"FormEngine\";s:40:\"e421dfdd3a5a7a591a5b7ae83e4f4daa2f6a587c\";s:16:\"opendocs::recent\";s:40:\"e421dfdd3a5a7a591a5b7ae83e4f4daa2f6a587c\";s:12:\"pagetsconfig\";s:40:\"b5baebc7654fd0b8d5294bacdaf25dd0872c9c9d\";s:6:\"web_ts\";s:40:\"a737f64b0b20db6191a777a4ee074500fdc02e7c\";s:25:\"web_typoscript_infomodify\";s:40:\"bc0688f65af96e0cdc4e64baf83954f506e5ee52\";s:15:\"system_BelogLog\";s:40:\"baa8fbd66acb02176f30a4771a493b78a078b5eb\";s:8:\"web_info\";s:40:\"529bb6ff7630d9d44a0d8ffc41857c34212ef3c8\";s:13:\"system_config\";s:40:\"bc0688f65af96e0cdc4e64baf83954f506e5ee52\";s:23:\"backend_user_management\";s:40:\"e421dfdd3a5a7a591a5b7ae83e4f4daa2f6a587c\";s:17:\"typoscript_active\";s:40:\"b0ca749a304f351c333909b3365ce5af64bc4d87\";s:38:\"tools_ExtensionmanagerExtensionmanager\";s:40:\"bc0688f65af96e0cdc4e64baf83954f506e5ee52\";s:16:\"browse_links.php\";s:40:\"f8dcbd69bec1ebe422b7dc4fc83cad9d65517da7\";s:9:\"clipboard\";s:40:\"9d5018dd19275035089f4f8929bb67fe2c62e54a\";s:16:\"media_management\";s:40:\"393ffc05ff3805c1fd6c66792e1bb94f5b2dac9c\";s:29:\"web_typoscript_constanteditor\";s:40:\"90ca3e1dab038029429d9e41182818c992958c4d\";s:18:\"list/displayFields\";s:40:\"54649a366bad699fd8a500cea35f8225ed2298bd\";s:10:\"system_log\";s:40:\"e421dfdd3a5a7a591a5b7ae83e4f4daa2f6a587c\";}s:17:\"systeminformation\";s:84:\"{\"system_BelogLog\":{\"lastAccess\":1719237198},\"system_log\":{\"lastAccess\":1728999571}}\";s:10:\"navigation\";a:1:{s:5:\"width\";s:3:\"300\";}s:10:\"inlineView\";s:3090:\"{\"tt_content\":{\"1\":{\"sys_file_reference\":{\"0\":2,\"2\":\"\"}},\"NEW6616b2b472d25850143834\":{\"tx_success_feature\":[3]},\"NEW6616b34e9209d057950177\":{\"sys_file_reference\":[4]},\"5\":{\"sys_file_reference\":[5]},\"NEW6616b4b3d3bcd346978789\":{\"sys_file_reference\":[6]},\"NEW6616b4d65469d399845397\":{\"tx_success_review\":[1,2,3]},\"NEW6616b53f9d58d210197435\":{\"tx_success_number_item\":[1,2,3]},\"NEW6616b5ffba340318931741\":{\"sys_file_reference\":[8,9,10,11,12]},\"NEW6616b640778e8826332959\":{\"tx_success_number_item\":[4,5,6]},\"NEW6616b695f33de827062297\":{\"tx_success_faq\":[1,2]},\"12\":{\"tx_success_faq\":{\"1\":11}},\"13\":{\"sys_file_reference\":[13,14]},\"NEW6616b6f4a86d7674057652\":{\"sys_file_reference\":[15]},\"14\":{\"sys_file_reference\":[\"15\",89,90,92,\"\",96]},\"NEW6616b84122d8c004427622\":{\"tx_success_faq\":[3,4]},\"15\":{\"tx_success_faq\":[5]},\"NEW6616b8c7c80a4404982542\":{\"sys_file_reference\":[16]},\"17\":{\"tx_success_review\":[4,5]},\"NEW6616c094b6f82172308938\":{\"tx_success_feature\":[4,5]},\"3\":{\"tx_success_feature\":{\"1\":9,\"2\":\"10\",\"6\":\"2\",\"7\":\"3\",\"8\":\"8\",\"9\":\"1\"},\"sys_file_reference\":[30,32,33,34,35,36,37,38,40,\"\",66,80]},\"7\":{\"tx_success_review\":{\"0\":\"3\",\"1\":\"1\",\"3\":14,\"4\":\"9\"}},\"2\":{\"sys_file_reference\":[\"\",70]},\"26\":{\"tx_success_review\":[\"6\",8]},\"25\":{\"tx_success_feature\":[\"6\",\"7\"],\"sys_file_reference\":{\"1\":\"\"}},\"11\":{\"tx_success_number_item\":[\"4\",\"5\",\"6\",10]},\"NEW6618012b44cee283505393\":{\"sys_file_reference\":[41]},\"36\":{\"sys_file_reference\":[\"\",73,74]},\"6\":{\"sys_file_reference\":{\"0\":46,\"1\":50,\"3\":55,\"4\":56,\"5\":57,\"6\":58,\"11\":\"\"}},\"8\":{\"sys_file_reference\":[67,68,69,71]},\"35\":{\"sys_file_reference\":[72]},\"NEW66181b858e79e327473094\":{\"tx_success_menu_item\":[1]},\"39\":{\"sys_file_reference\":[76,83,84,\"\",138],\"tx_success_menu_item\":[2,3,4]},\"4\":{\"sys_file_reference\":[77,78,79],\"tx_success_card\":[1,2,3]},\"40\":{\"sys_file_reference\":{\"1\":\"\"}},\"41\":{\"sys_file_reference\":[82]},\"NEW661920a6f06da518491923\":{\"sys_file_reference\":[87],\"tx_success_card\":[4]},\"42\":{\"tx_success_card\":[6,\"5\",10,\"4\"],\"sys_file_reference\":[100,101,118,122]},\"43\":{\"sys_file_reference\":[97]},\"NEW66193c308ef4f678685647\":{\"tx_success_number_item\":[11,12,13,14]},\"NEW66193e0665a03360279801\":{\"sys_file_reference\":[98]},\"NEW66193e3cb18e5942444507\":{\"tx_success_review\":[15]},\"51\":{\"sys_file_reference\":[\"\",120,121]},\"NEW66195414adfde242725359\":{\"sys_file_reference\":[103]},\"NEW66195491233b9902068838\":{\"sys_file_reference\":[105,106,107,108,109]},\"50\":{\"sys_file_reference\":[\"\",140],\"tx_success_menu_item\":[5,6,7]},\"46\":{\"tx_success_review\":[\"15\"]},\"53\":{\"sys_file_reference\":[112]},\"NEW6619604355acc001787018\":{\"sys_file_reference\":[113,114],\"tx_success_card\":[8,9]},\"66\":{\"tx_success_card\":{\"2\":\"9\"},\"sys_file_reference\":[115]},\"NEW661966e50c8cf814732870\":{\"sys_file_reference\":[116]},\"NEW6619678e47e9a851603655\":{\"sys_file_reference\":[117]},\"55\":{\"sys_file_reference\":[\"110\"]},\"NEW66197552b49a8748577958\":{\"sys_file_reference\":[123,124,125,126]},\"76\":{\"sys_file_reference\":[127,128,129]},\"NEW66197a48d3907855195109\":{\"sys_file_reference\":[132,133]},\"77\":{\"sys_file_reference\":{\"1\":\"132\",\"5\":\"\"}},\"44\":{\"tx_success_number_item\":{\"1\":\"\"}}}}\";s:10:\"modulemenu\";s:2:\"{}\";s:17:\"BackendComponents\";a:1:{s:6:\"States\";a:1:{s:17:\"typo3-module-menu\";a:1:{s:9:\"collapsed\";s:5:\"false\";}}}s:11:\"tx_recycler\";a:3:{s:14:\"depthSelection\";i:999;s:14:\"tableSelection\";s:0:\"\";s:11:\"resultLimit\";i:25;}}',0,NULL,'',NULL,1728998961,0,'',1,0,0,NULL,NULL,'$argon2id$v=19$m=65536,t=16,p=1$WkxFYnNGaTA0T05ER2tnWQ$dbAlY7TkmR5AftcEh+V2fKvNfzzB1BuyqWXGLuLMSj8','','',NULL,NULL,''),
-(2,0,1712415247,1712415247,0,0,0,0,NULL,'_cli_','default','','a:4:{s:10:\"moduleData\";a:0:{}s:14:\"emailMeAtLogin\";i:0;s:8:\"titleLen\";i:50;s:20:\"edit_docModuleUpload\";s:1:\"1\";}',0,NULL,'',NULL,0,0,'',1,0,0,NULL,NULL,'$argon2id$v=19$m=65536,t=16,p=1$NDlqNUFobmdSMWpQV0kwRg$ArLXdNQnANOxXDhSuroLYOXThHNKFjJ+CR3ne4+NXhI','','',NULL,NULL,''),
-(4,0,1728999516,1728999511,0,0,0,0,'','editor','default','',NULL,0,NULL,'','0',0,0,'',0,3,1,'','','$argon2id$v=19$m=65536,t=16,p=1$RnF1QVhRRWdyNS5hbGNMTQ$FvHllKpGB/Wu99tfOA0a+7L32TkrA+4e4mh6dOz/wEQ','','','readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile','','');
-/*!40000 ALTER TABLE `be_users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `fe_groups`
@@ -240,10 +222,8 @@ CREATE TABLE `fe_groups` (
 -- Dumping data for table `fe_groups`
 --
 
-LOCK TABLES `fe_groups` WRITE;
 /*!40000 ALTER TABLE `fe_groups` DISABLE KEYS */;
 /*!40000 ALTER TABLE `fe_groups` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `fe_sessions`
@@ -315,10 +295,8 @@ CREATE TABLE `fe_users` (
 -- Dumping data for table `fe_users`
 --
 
-LOCK TABLES `fe_users` WRITE;
 /*!40000 ALTER TABLE `fe_users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `fe_users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `pages`
@@ -417,7 +395,6 @@ CREATE TABLE `pages` (
 -- Dumping data for table `pages`
 --
 
-LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` VALUES
 (1,0,1712918585,1712502196,0,0,0,0,'',256,'',0,0,0,0,NULL,'{\"doktype\":\"\",\"title\":\"\",\"slug\":\"\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"\",\"no_follow\":\"\",\"canonical_link\":\"\",\"sitemap_changefreq\":\"\",\"sitemap_priority\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"og_image\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"twitter_image\":\"\",\"twitter_card\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"lastUpdated\":\"\",\"layout\":\"\",\"newUntil\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"content_from_pid\":\"\",\"target\":\"\",\"cache_timeout\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"\",\"no_search\":\"\",\"php_tree_stop\":\"\",\"module\":\"\",\"media\":\"\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"\",\"hidden\":\"\",\"nav_hide\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"extendToSubpages\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"categories\":\"\",\"rowDescription\":\"\"}',0,0,0,0,1,0,31,27,0,'Product Launch','','','','',1712918585,'','',0,0,0,'Customize your own surfboard!','','',0.5,0,0,0,'/',0,0,0,'',0,0,0,0,1,0,0,0,'','','Immerse yourself in a world of individuality and freedom - with our customized surfboards that reflect your personality. ','','','',0,'',1,0,0,0,'','','','','','summary'),
@@ -434,7 +411,6 @@ INSERT INTO `pages` VALUES
 (12,2,1712939303,1712939295,0,0,0,0,'',128,NULL,0,0,0,0,NULL,'{\"hidden\":\"\"}',0,0,0,0,1,0,31,27,0,'Footer','','','','',0,'','',0,0,0,'','','',0.5,0,0,0,'/footer',0,0,0,'',0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,'',254,0,0,0,'','','','','','summary'),
 (14,4,1713865741,1713864994,0,0,0,0,'',128,NULL,0,0,0,0,NULL,'{\"doktype\":\"\",\"title\":\"\",\"slug\":\"\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"\",\"no_follow\":\"\",\"sitemap_changefreq\":\"\",\"sitemap_priority\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"og_image\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"twitter_image\":\"\",\"twitter_card\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"lastUpdated\":\"\",\"layout\":\"\",\"newUntil\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"content_from_pid\":\"\",\"target\":\"\",\"cache_timeout\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"\",\"no_search\":\"\",\"php_tree_stop\":\"\",\"module\":\"\",\"media\":\"\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"\",\"hidden\":\"\",\"nav_hide\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"extendToSubpages\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"categories\":\"\",\"rowDescription\":\"\"}',0,0,0,0,1,0,31,27,0,'Copyright','','','','',1713865741,'','',0,0,0,'','','',0.5,0,0,0,'/copyright',0,0,0,'',0,0,0,0,0,0,1,1,NULL,NULL,NULL,NULL,NULL,NULL,0,'',1,0,0,0,'','','','','','summary');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_be_shortcuts`
@@ -460,10 +436,8 @@ CREATE TABLE `sys_be_shortcuts` (
 -- Dumping data for table `sys_be_shortcuts`
 --
 
-LOCK TABLES `sys_be_shortcuts` WRITE;
 /*!40000 ALTER TABLE `sys_be_shortcuts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_be_shortcuts` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_category`
@@ -506,10 +480,8 @@ CREATE TABLE `sys_category` (
 -- Dumping data for table `sys_category`
 --
 
-LOCK TABLES `sys_category` WRITE;
 /*!40000 ALTER TABLE `sys_category` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_category` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_category_record_mm`
@@ -535,10 +507,8 @@ CREATE TABLE `sys_category_record_mm` (
 -- Dumping data for table `sys_category_record_mm`
 --
 
-LOCK TABLES `sys_category_record_mm` WRITE;
 /*!40000 ALTER TABLE `sys_category_record_mm` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_category_record_mm` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_csp_resolution`
@@ -563,10 +533,8 @@ CREATE TABLE `sys_csp_resolution` (
 -- Dumping data for table `sys_csp_resolution`
 --
 
-LOCK TABLES `sys_csp_resolution` WRITE;
 /*!40000 ALTER TABLE `sys_csp_resolution` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_csp_resolution` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_file`
@@ -608,7 +576,6 @@ CREATE TABLE `sys_file` (
 -- Dumping data for table `sys_file`
 --
 
-LOCK TABLES `sys_file` WRITE;
 /*!40000 ALTER TABLE `sys_file` DISABLE KEYS */;
 INSERT INTO `sys_file` VALUES
 (1,0,1712758509,1712758509,'/form_definitions/contact.form.yaml','19a089c220d515942cd17aa5731776a8ce4227cf','c62e3e70a526a59f0f0b7687864947eab72d7d3f','yaml','text/plain','contact.form.yaml','8bb64c21d9a620c030f8f0689f66e26513e501cf',1712758509,1712758509,0,0,1321,1,1),
@@ -714,7 +681,6 @@ INSERT INTO `sys_file` VALUES
 (113,0,1728998001,1728998001,'/user_upload/icons_career_pool_bar.svg','ba7c9d7017bdf2cce7f448d7097407eec047f6a5','19669f1e02c2f16705ec7587044c66443be70725','svg','image/svg+xml','icons_career_pool_bar.svg','cfdbaa7e84c68a7259587afc5bca6e58f6ad568f',1728998001,1728998001,0,0,2618143,1,2),
 (114,0,1728998328,1728998328,'/user_upload/career_pool_bar.svg','5fda068e4ee65a7457300a8c35bd8ba3136f6398','19669f1e02c2f16705ec7587044c66443be70725','svg','image/svg+xml','career_pool_bar.svg','faec65d2622f0db949ca54a75b81afc89fae1713',1728998328,1728998328,0,0,1876397,1,2);
 /*!40000 ALTER TABLE `sys_file` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_file_collection`
@@ -757,10 +723,8 @@ CREATE TABLE `sys_file_collection` (
 -- Dumping data for table `sys_file_collection`
 --
 
-LOCK TABLES `sys_file_collection` WRITE;
 /*!40000 ALTER TABLE `sys_file_collection` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_file_collection` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_file_metadata`
@@ -826,7 +790,6 @@ CREATE TABLE `sys_file_metadata` (
 -- Dumping data for table `sys_file_metadata`
 --
 
-LOCK TABLES `sys_file_metadata` WRITE;
 /*!40000 ALTER TABLE `sys_file_metadata` DISABLE KEYS */;
 INSERT INTO `sys_file_metadata` VALUES
 (1,0,1712757920,1712757920,0,0,NULL,'',0,0,0,0,NULL,NULL,'','','','','','','','','',0.00000000000000,0.00000000000000,0,'',0,0,0,0,NULL,NULL,NULL,NULL,NULL,0,0,0,1,0,'','',NULL),
@@ -932,7 +895,6 @@ INSERT INTO `sys_file_metadata` VALUES
 (113,0,1728998001,1728998001,0,0,NULL,'',0,0,0,0,NULL,NULL,'','','','','','','','','',0.00000000000000,0.00000000000000,0,'',0,0,0,1,NULL,NULL,NULL,NULL,NULL,64,64,0,113,0,'','',NULL),
 (114,0,1728998328,1728998328,0,0,NULL,'',0,0,0,0,NULL,NULL,'','','','','','','','','',0.00000000000000,0.00000000000000,0,'',0,0,0,1,NULL,NULL,NULL,NULL,NULL,1024,1024,0,114,0,'','',NULL);
 /*!40000 ALTER TABLE `sys_file_metadata` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_file_processedfile`
@@ -1011,7 +973,6 @@ CREATE TABLE `sys_file_reference` (
 -- Dumping data for table `sys_file_reference`
 --
 
-LOCK TABLES `sys_file_reference` WRITE;
 /*!40000 ALTER TABLE `sys_file_reference` DISABLE KEYS */;
 INSERT INTO `sys_file_reference` VALUES
 (1,1,1712763553,1712763553,0,0,0,0,NULL,'',0,0,0,0,'tt_content','media',4,NULL,NULL,0,'{\"default\":{\"cropArea\":{\"x\":0,\"y\":0,\"width\":1,\"height\":1},\"selectedRatio\":\"NaN\",\"focusArea\":null}}',NULL,'',2,1),
@@ -1104,7 +1065,6 @@ INSERT INTO `sys_file_reference` VALUES
 (138,1,1728997479,1728997479,0,0,0,0,NULL,'',0,0,0,0,'tt_content','assets',112,NULL,NULL,0,'{\"default\":{\"cropArea\":{\"x\":0,\"y\":0,\"width\":1,\"height\":1},\"selectedRatio\":\"NaN\",\"focusArea\":null}}',NULL,'',39,1),
 (140,4,1728998333,1728998333,0,0,0,0,NULL,'',0,0,0,0,'tt_content','assets',114,NULL,NULL,0,'{\"default\":{\"cropArea\":{\"x\":0,\"y\":0,\"width\":1,\"height\":1},\"selectedRatio\":\"NaN\",\"focusArea\":null}}',NULL,'',50,1);
 /*!40000 ALTER TABLE `sys_file_reference` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_file_storage`
@@ -1139,12 +1099,10 @@ CREATE TABLE `sys_file_storage` (
 -- Dumping data for table `sys_file_storage`
 --
 
-LOCK TABLES `sys_file_storage` WRITE;
 /*!40000 ALTER TABLE `sys_file_storage` DISABLE KEYS */;
 INSERT INTO `sys_file_storage` VALUES
 (1,0,1712501872,1712501872,0,'This is the local fileadmin/ directory. This storage mount has been created automatically by TYPO3.','fileadmin',1,NULL,1,1,1,1,0,'<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>\n<T3FlexForms>\n    <data>\n        <sheet index=\"sDEF\">\n            <language index=\"lDEF\">\n                <field index=\"basePath\">\n                    <value index=\"vDEF\">fileadmin/</value>\n                </field>\n                <field index=\"pathType\">\n                    <value index=\"vDEF\">relative</value>\n                </field>\n                <field index=\"caseSensitive\">\n                    <value index=\"vDEF\">1</value>\n                </field>\n            </language>\n        </sheet>\n    </data>\n</T3FlexForms>','Local');
 /*!40000 ALTER TABLE `sys_file_storage` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_filemounts`
@@ -1173,10 +1131,8 @@ CREATE TABLE `sys_filemounts` (
 -- Dumping data for table `sys_filemounts`
 --
 
-LOCK TABLES `sys_filemounts` WRITE;
 /*!40000 ALTER TABLE `sys_filemounts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_filemounts` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_history`
@@ -1200,14 +1156,13 @@ CREATE TABLE `sys_history` (
   PRIMARY KEY (`uid`),
   KEY `recordident_1` (`tablename`(100),`recuid`),
   KEY `recordident_2` (`tablename`(100),`tstamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=1184 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1185 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_history`
 --
 
-LOCK TABLES `sys_history` WRITE;
 /*!40000 ALTER TABLE `sys_history` DISABLE KEYS */;
 INSERT INTO `sys_history` VALUES
 (1,1712502196,1,'BE',1,0,1,'pages','{\"doktype\":\"1\",\"slug\":\"\\/\",\"hidden\":\"1\",\"starttime\":0,\"endtime\":0,\"l10n_parent\":0,\"categories\":\"0\",\"l10n_diffsource\":\"\",\"layout\":\"0\",\"lastUpdated\":0,\"newUntil\":0,\"cache_timeout\":\"0\",\"shortcut\":0,\"shortcut_mode\":\"0\",\"content_from_pid\":0,\"mount_pid\":0,\"module\":\"\",\"sitemap_priority\":\"0.5\",\"twitter_card\":\"summary\",\"pid\":0,\"sorting\":256,\"perms_userid\":1,\"perms_groupid\":0,\"perms_user\":31,\"perms_group\":27,\"perms_everybody\":0,\"title\":\"Product Launch\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"0\",\"no_follow\":\"0\",\"sitemap_changefreq\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"target\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"0\",\"no_search\":\"0\",\"php_tree_stop\":\"0\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"0\",\"nav_hide\":\"0\",\"extendToSubpages\":\"0\",\"fe_group\":\"\",\"editlock\":\"0\",\"rowDescription\":\"\",\"crdate\":1712502196,\"t3ver_stage\":0,\"tstamp\":1712502196,\"uid\":1}',0,'0400$b5e369a234d85c43b7ec3135ace9828e:e175f7045d7ccbfb26ffcf279422c2e5'),
@@ -2392,9 +2347,9 @@ INSERT INTO `sys_history` VALUES
 (1180,1728999109,4,'BE',1,0,4,'sys_template',NULL,0,'0400$07815afbeb6d58a38b12d10bafa62d75:dd5a25a295f53aea07abb5b4e121100d'),
 (1181,1728999109,4,'BE',1,0,4,'sys_template',NULL,0,'0400$07815afbeb6d58a38b12d10bafa62d75:dd5a25a295f53aea07abb5b4e121100d'),
 (1182,1728999511,1,'BE',1,0,4,'be_users','{\"admin\":\"0\",\"options\":\"3\",\"file_permissions\":\"readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile\",\"workspace_perms\":1,\"lang\":\"default\",\"lastlogin\":0,\"disable\":\"1\",\"starttime\":0,\"endtime\":0,\"pid\":0,\"username\":\"editor\",\"password\":\"$argon2id$v=19$m=65536,t=16,p=1$RnF1QVhRRWdyNS5hbGNMTQ$FvHllKpGB\\/Wu99tfOA0a+7L32TkrA+4e4mh6dOz\\/wEQ\",\"usergroup\":\"\",\"realName\":\"\",\"email\":\"\",\"userMods\":\"\",\"allowed_languages\":\"\",\"db_mountpoints\":\"\",\"file_mountpoints\":\"\",\"category_perms\":0,\"TSconfig\":\"\",\"description\":\"\",\"crdate\":1728999511,\"tstamp\":1728999511,\"uid\":4}',0,'0400$af6f84b03b7a3c292ebd3d76736c7d01:aac4b550575ba72e5642bbb582eeb2cf'),
-(1183,1728999516,2,'BE',1,0,4,'be_users','{\"oldRecord\":{\"disable\":1},\"newRecord\":{\"disable\":\"0\"}}',0,'0400$337756153ecd344d315e4635b14ba08c:aac4b550575ba72e5642bbb582eeb2cf');
+(1183,1728999516,2,'BE',1,0,4,'be_users','{\"oldRecord\":{\"disable\":1},\"newRecord\":{\"disable\":\"0\"}}',0,'0400$337756153ecd344d315e4635b14ba08c:aac4b550575ba72e5642bbb582eeb2cf'),
+(1184,1729542871,1,'BE',5,0,6,'be_users','{\"admin\":1,\"options\":3,\"file_permissions\":\"readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile\",\"workspace_perms\":1,\"lang\":\"default\",\"lastlogin\":0,\"disable\":0,\"starttime\":0,\"endtime\":0,\"pid\":0,\"username\":\"admin\",\"password\":\"$argon2id$v=19$m=65536,t=16,p=1$V0l2VWltOVRKc2J6bE9ETQ$xXv6NPB4nuNpcV2Q2LGBTltoUhKDpKvp5l2CNIxKGJw\",\"email\":\"\",\"usergroup\":\"\",\"crdate\":1729542871,\"tstamp\":1729542871,\"uid\":6}',0,'0400$9addb83e02664a63345e83bbcf71d8e5:2196eadf702de069f4b28b6c91a43894');
 /*!40000 ALTER TABLE `sys_history` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_http_report`
@@ -2428,7 +2383,6 @@ CREATE TABLE `sys_http_report` (
 -- Dumping data for table `sys_http_report`
 --
 
-LOCK TABLES `sys_http_report` WRITE;
 /*!40000 ALTER TABLE `sys_http_report` DISABLE KEYS */;
 INSERT INTO `sys_http_report` VALUES
 ('00201941-9bc2-417e-b436-684384f93446',0,1728999056,1728999056,'csp-report','backend',1728999056034785,'{\"addr\":\"192.168.192.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/129.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/module\\/web\\/recycler?id=1\",\"referrer\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/module\\/web\\/recycler?id=5\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-VLzWeOsf1KnEWT8B2VjtrsSSKRYJu7A9FbjIfLK7ig5T-1iWmapNxg\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1728999056034785\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','42e67248b3fecd45bc6668b11dcec0e70f8e2701'),
@@ -2526,6 +2480,7 @@ INSERT INTO `sys_http_report` VALUES
 ('13f63846-8f9f-488f-888e-7f30c9bead48',0,1713867043,1713867043,'csp-report','backend',1713867042807398,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B51%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?currentPage=1&id=1%3A%2Fimpressions%2F&expandFolder=1%3A%2Fimpressions%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-62-fTFkuX0XKPe2hUFnFKMSnvjnSRfyQ1Jn72LcP4yKcoouQCDMclw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713867042807398\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('145cfb9c-aa8a-4702-8907-6bfe8a060402',0,1712858038,1712858038,'csp-report','backend',1712858037828258,'{\"addr\":\"145.224.124.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/list?id=0_1\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=0_1\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-NKkFQpOIwKiAM2ouu5LbE1cDFmkjRB-1hLiYMGSVJ_oFMCEAiRYHGg\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712858037828258\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('1476c8dc-8ab8-489c-915f-598c8f89581d',0,1712502672,1712502672,'csp-report','backend',1712502671845541,'{\"addr\":\"109.43.115.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_template%5D%5B1%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Ftyposcript%2Foverview%3Ftoken%3D4f67157d8a25e14fc8c36031bc89e65639cf5580%26id%3D1&columnsOnly=title\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/typoscript\\/overview?id=1\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-FDmPbvEF7oO95MNIucTH63NKiJxJfrcXLVSjq7h9CkZCQJVHEIc-Xg\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712502671845541\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
+('151392fd-9eb2-4644-bd5e-0aa95b82d095',0,1729542903,1729542903,'csp-report','backend',1729542901897065,'{\"addr\":\"192.168.160.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/129.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/module\\/user\\/setup\",\"referrer\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/module\\/system\\/user-management\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-_oRjf-c9ch5PqLQYVh2tkA5VjeO_uvzSiswmodKx5Eubu3pdHQM8lg\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1729542901897065\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','42e67248b3fecd45bc6668b11dcec0e70f8e2701'),
 ('1525595c-d6f1-4460-990f-36d9db883ec4',0,1713866619,1713866619,'csp-report','backend',1713866618605954,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B74%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26id%3D1%253A%252Foverview%252F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?id=1%3A%2Foverview%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-Q_Gk4t_0SKq3yw13GOLTpVHypeuRFMMem3Tg4C_jij4g1j-K6Pl5zw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713866618605954\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('153619b6-92a1-4b44-99cf-0dc19900e4d3',0,1712937836,1712937836,'csp-report','backend',1712937835870885,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/FormFormbuilder\\/FormEditor\\/index?formPersistenceIdentifier=1%3A%2Fform_definitions%2Fcareerapply.form.yaml\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/FormFormbuilder\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-WZdX60NT4yVBASkbapVLOYGnZ5bx0M_VG393WN5kz5wAdsyt0FHh1Q\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712937835870885\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
 ('1540ab1a-8f3b-41bd-ab59-500aead63bea',0,1712763902,1712763902,'csp-report','backend',1712763901706673,'{\"addr\":\"109.43.112.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/list?id=6\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B5%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D8a51c401b5cf0953e0153c97fba125033a0309d5%26id%3D6\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-VXz8AN9rO95tNUsGn_e5zUJTCUzJJjY6qid2aW4ybglzqJq2greFYQ\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712763901706673\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
@@ -2731,6 +2686,7 @@ INSERT INTO `sys_http_report` VALUES
 ('4692cd1b-a0b1-49dc-b5fa-21d802aa1aa2',0,1713867735,1713867735,'csp-report','backend',1713867734492015,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?currentPage=1&id=1%3A%2Fimpressions%2F&expandFolder=1%3A%2Fimpressions%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B37%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-ttnCsWmyYzAntqQqDngQAvREwjIEXpzvFrxrQmwNYJB0t8gRYqCSUA\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713867734492015\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('46a2b618-cc67-4fbd-a9f9-d69802d694fc',0,1712942066,1712942066,'csp-report','backend',1712942065575882,'{\"addr\":\"145.224.124.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?currentPage=1&id=1%3A%2F&expandFolder=1%3A%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?id=1%3A%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-4HiVDjskbaUOxXLUVW8glkMCuHFmo59ZRF6DNenpWQqKKtV4-9EUcg\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712942065575882\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('475c0adb-2a5b-452a-a9fe-4761a2920e4d',0,1713867425,1713867425,'csp-report','backend',1713867425039266,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?currentPage=1&id=1%3A%2Fimpressions%2F&expandFolder=1%3A%2Fimpressions%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B53%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-pmGUwU31vXyhPFbrRJTk_9snSxeQ9zEyFm6LJbKuRzbpnZApHYmzEw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713867425039266\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
+('486ce6f6-54f3-4387-8862-2c2e0ae3546c',0,1729542898,1729542898,'csp-report','backend',1729542895712800,'{\"addr\":\"192.168.160.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/129.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/module\\/dashboard\",\"referrer\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/main\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-6zdmX8C9CLvAXwD3Dvit2paze_r25B4SegOK8dfHtENWipg0ph8Ufg\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1729542895712800\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','42e67248b3fecd45bc6668b11dcec0e70f8e2701'),
 ('48d76583-c1ef-45b8-a1b2-01a0e906c46b',0,1712856779,1712856779,'csp-report','backend',1712856778624574,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/wizard\\/link\\/browse?act=contentInModal&P%5Bparams%5D%5BallowedTypes%5D=page%2Curl%2CcontentInModal&P%5Btable%5D=tt_content&P%5Buid%5D=16&P%5Bpid%5D=6&P%5Bfield%5D=button_link&P%5BformName%5D=editform&P%5BitemName%5D=data%5Btt_content%5D%5B16%5D%5Bbutton_link%5D&P%5Bhmac%5D=6aba9a7d4513b490586f467371a841ddb71feb71&P%5BfieldChangeFunc%5D%5B0%5D%5Bname%5D=typo3-backend-form-update-value&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5BtableName%5D=tt_content&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5Bidentifier%5D=16&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5BfieldName%5D=button_link&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5BelementName%5D=data%5Btt_content%5D%5B16%5D%5Bbutton_link%5D&P%5BfieldChangeFuncHash%5D=5fa13087c62eac2be9294256dbbcad53d9d013e8&P%5BcurrentValue%5D=t3%3A%2F%2Fpage%3Fuid%3D10%2334&P%5BcurrentSelectedValues%5D=t3%3A%2F%2Fpage%3Fuid%3D10%2334\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/wizard\\/link\\/browse?P%5Bparams%5D%5BallowedTypes%5D=page%2Curl%2CcontentInModal&P%5Btable%5D=tt_content&P%5Buid%5D=16&P%5Bpid%5D=6&P%5Bfield%5D=button_link&P%5BformName%5D=editform&P%5BitemName%5D=data%5Btt_content%5D%5B16%5D%5Bbutton_link%5D&P%5Bhmac%5D=6aba9a7d4513b490586f467371a841ddb71feb71&P%5BfieldChangeFunc%5D%5B0%5D%5Bname%5D=typo3-backend-form-update-value&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5BtableName%5D=tt_content&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5Bidentifier%5D=16&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5BfieldName%5D=button_link&P%5BfieldChangeFunc%5D%5B0%5D%5Bdata%5D%5BelementName%5D=data%5Btt_content%5D%5B16%5D%5Bbutton_link%5D&P%5BfieldChangeFuncHash%5D=5fa13087c62eac2be9294256dbbcad53d9d013e8&P%5BcurrentValue%5D=t3%3A%2F%2Fpage%3Fuid%3D10%2334&P%5BcurrentSelectedValues%5D=t3%3A%2F%2Fpage%3Fuid%3D10%2334\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-SarFCwDxgDmTblq--ZIrjJw2USsht8mvZ-a4T0DE-MbfcsSvYrrTQw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712856778624574\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
 ('48db1030-4696-4095-b22a-7b0b6a404304',0,1713867908,1713867908,'csp-report','backend',1713867908058238,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B35%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B35%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-FlBVtsKrwLZSGnGfZAsaYoSHMBip4kVM6N6dKyBWjI0wV2s5AwQe6A\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713867908058238\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('48dedf14-0d5e-4fb9-ae05-35cbf804083a',0,1726599633,1726599633,'csp-report','backend',1726599632939869,'{\"addr\":\"172.18.0.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko\\/20100101 Firefox\\/130.0\"}','{\"blocked-uri\":\"eval\",\"column-number\":1,\"disposition\":\"enforce\",\"document-uri\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/main?redirect=site_settings\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-kJpzISUefAZHzu13LrzRQHbyuHow6nAezxVdco-b8teTPXaoiSae4A\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: https:\\/\\/*.ytimg.com https:\\/\\/*.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' https:\\/\\/*.youtube-nocookie.com https:\\/\\/*.youtube.com https:\\/\\/*.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1726599632939869\",\"referrer\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/\",\"script-sample\":\";(function n(e,t=!1){const o=\\\"6.0\\\";let r\\u2026\",\"status-code\":200,\"violated-directive\":\"script-src\"}','08e4ad9bd4b946a14e0f1ef924039fa17fedb0eb'),
@@ -3048,6 +3004,7 @@ INSERT INTO `sys_http_report` VALUES
 ('8ed794b0-219a-4365-b4bf-28e754fec414',0,1712826218,1712826218,'csp-report','backend',1712826217482568,'{\"addr\":\"109.43.112.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B-18%5D=new&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D6d0e95da4ee9a4b5cb2b484fc9487c8ce4a1012f%26id%3D6&defVals%5Btt_content%5D%5BCType%5D=form_formframework&defVals%5Btt_content%5D%5BcolPos%5D=0&defVals%5Btt_content%5D%5Bsys_language_uid%5D=0\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=6\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-A98hDq_L08TPg3AMKI4tJ6tz3lcx_jizrpjOVh24PdaILhVA8P3Y9g\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712826217482568\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('8efcee86-5c00-4deb-9c6f-2e3cfc1fd10c',0,1712935896,1712935896,'csp-report','backend',1712935896435209,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B51%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D742b0eb7f58d46e8e9533ba49eb2924a43a46e8b%26id%3D4\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B-50%5D=new&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D742b0eb7f58d46e8e9533ba49eb2924a43a46e8b%26id%3D4&defVals%5Btt_content%5D%5BCType%5D=success_hero&defVals%5Btt_content%5D%5BcolPos%5D=0&defVals%5Btt_content%5D%5Bsys_language_uid%5D=0\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-8DJKmscDaqXRP5v7xXP3gYc9HLGiv6xCueKsIzqdeBd2cIisbgdb9Q\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712935896435209\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
 ('8f25b53a-a2e8-4330-a205-d62659112b33',0,1712769101,1712769101,'csp-report','backend',1712769100486623,'{\"addr\":\"109.43.112.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=7\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B21%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D8a51c401b5cf0953e0153c97fba125033a0309d5%26id%3D7\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-o5i5CdNhJEx9zZJ6HnDZZz-4mfYfwn39_x-FGT3LAC_G1kHgbx65yQ\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712769100486623\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
+('8f319d54-3317-4069-9bda-3c235e66ee1b',0,1729542897,1729542897,'csp-report','backend',1729542894723280,'{\"addr\":\"192.168.160.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/129.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"about\",\"referrer\":\"\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-aZVBiFNWJoE39R60LbIAQlsfYzUFIuyv7zGe3k-s3bsG9QY9GDiglA\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1729542894723280\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":0,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','42e67248b3fecd45bc6668b11dcec0e70f8e2701'),
 ('8f793d7d-9a57-4d39-a25d-cb2f5580e2d2',0,1718022584,1718022584,'csp-report','backend',1718022584555125,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/125.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B79%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D6d0fe37e38027be3d958eedb4713c5d0ae6b7395%26id%3D14%23element-tt_content-79\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B79%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D6d0fe37e38027be3d958eedb4713c5d0ae6b7395%26id%3D14%23element-tt_content-79\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-uSKmOSakN4n9ynZ5VebTTUrcqlMcOFw4B0ccYo93BXALpMmGA0k1_Q\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1718022584555125\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('8fb67fca-d08e-488e-a99b-7acdb9483ff2',0,1717761194,1717761194,'csp-report','backend',1717761193180018,'{\"addr\":\"2a01:36d:3200:941::\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/125.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/main?redirect=site_configuration.edit&redirectParams=site%3Dsets-promotion\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/login?loginProvider=1433416747\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-to_0Ej9q9fYqw9HgC13PZuZMqI9UfHQGCF503STZQPmAGfQD7RLS1A\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1717761193180018\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":569869,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
 ('902d551c-e3b9-4d14-93dc-86dba9cec7dd',0,1712870226,1712870226,'csp-report','backend',1712870221838406,'{\"addr\":\"145.224.124.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"about\",\"referrer\":\"\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-3YIvwhdn3VsbJxHVyqssVLImUCqopT9pRXZIfhQTLs78M2IsJnALlg\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712870221838406\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":0,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
@@ -3113,11 +3070,12 @@ INSERT INTO `sys_http_report` VALUES
 ('9ff2f518-9879-45f6-874f-4640887d0c24',0,1712866885,1712866885,'csp-report','backend',1712866884365180,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=1\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=1\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-xb6zqZTscSMffaLo0uaRKDHsRNXc-koyxExX1c4x47aPGdKljJNyhA\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712866884365180\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
 ('a0310c5c-8e69-4c31-bea3-b93de780caad',0,1713867080,1713867080,'csp-report','backend',1713867080234075,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?currentPage=1&id=1%3A%2Fimpressions%2F&expandFolder=1%3A%2Fimpressions%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B51%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-bjPZ_QbIwFsMtLvxyRUHI5N_YBIn172OmANlXVFhTXFtqHoz0Ib1sw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713867080234075\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('a044a217-2e5e-4d4b-9b3a-159e09e59c77',0,1712765958,1712765958,'csp-report','backend',1712765957611413,'{\"addr\":\"109.43.112.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/sudo-mode\\/module?claim=a5ec00ab75f5a8d7a35d7190bb8e95b99aa6b095&hash=d39d8d41e51fe1d907e8b84473511850cc06102e\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/tools\\/maintenance\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-Io_bhSrz1Qkh6lBDFIZuC5HrawXrxthyohluwqtZqZ6ZAfvKlXN9yQ\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712765957611413\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
-('a0af1e4c-6142-4fd7-a3d1-39270bbdf344',0,1712842347,1712842347,'csp-report','backend',1712842346746733,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B34%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D3332c275a25c87eb90baf62530515459a142b576%26id%3D10\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B10%5D=new&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D3332c275a25c87eb90baf62530515459a142b576%26id%3D10&defVals%5Btt_content%5D%5BCType%5D=form_formframework&defVals%5Btt_content%5D%5BcolPos%5D=0&defVals%5Btt_content%5D%5Bsys_language_uid%5D=0\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-AzEn2xvK4je6MaDVX6sw4LhSnA9LScTAKb2wTmkCv1m7b2teVZ4PHQ\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712842346746733\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
+('a0af1e4c-6142-4fd7-a3d1-39270bbdf344',0,1712842347,1712842347,'csp-report','backend',1712842346746733,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B34%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D3332c275a25c87eb90baf62530515459a142b576%26id%3D10\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B10%5D=new&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D3332c275a25c87eb90baf62530515459a142b576%26id%3D10&defVals%5Btt_content%5D%5BCType%5D=form_formframework&defVals%5Btt_content%5D%5BcolPos%5D=0&defVals%5Btt_content%5D%5Bsys_language_uid%5D=0\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-AzEn2xvK4je6MaDVX6sw4LhSnA9LScTAKb2wTmkCv1m7b2teVZ4PHQ\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712842346746733\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f');
+INSERT INTO `sys_http_report` VALUES
 ('a0f52268-070d-4930-aae2-e6e9d9a9d290',0,1712575769,1712575769,'csp-report','backend',1712575768601082,'{\"addr\":\"109.43.243.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B1%5D=new&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D96122fbda27782e5e009640ba8551aed4a4ced05%26id%3D1&defVals%5Btt_content%5D%5BCType%5D=textmedia&defVals%5Btt_content%5D%5BcolPos%5D=0&defVals%5Btt_content%5D%5Bsys_language_uid%5D=0\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=1\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-0NrQQAuaXFGtE2BkVXmAMkR0Bv3gZITR-KTwE-ezIe3OiO0jTpZa7g\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712575768601082\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('a130f379-fe85-4638-99cd-4e0c6a54c997',0,1726599706,1726599706,'csp-report','backend',1726599705594808,'{\"addr\":\"172.18.0.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko\\/20100101 Firefox\\/130.0\"}','{\"blocked-uri\":\"eval\",\"column-number\":1,\"disposition\":\"enforce\",\"document-uri\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/main?redirect=site_settings.edit&redirectParams=site%3Dadvent\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-0RG_TZ7QGaU9zA1H-fn-AL36z_xcDS_NoiiMeuyJYNVzfO_rXzsixw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: https:\\/\\/*.ytimg.com https:\\/\\/*.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' https:\\/\\/*.youtube-nocookie.com https:\\/\\/*.youtube.com https:\\/\\/*.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1726599705594808\",\"referrer\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/\",\"script-sample\":\";(function n(e){let t=1e3,n=10;function \\u2026\",\"status-code\":200,\"violated-directive\":\"script-src\"}','bf961a4ded1205cf665febcfc2566248134b2797'),
-('a15efaf0-7b06-4be2-bbc0-d11c4433e4d8',0,1713866878,1713866878,'csp-report','backend',1713866877354180,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B23%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?currentPage=1&id=1%3A%2Fimpressions%2F&expandFolder=1%3A%2Fimpressions%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-YysdhKzqcnIn0_rXQoJHZIel11dlgyPbH9PcvLcB4wFg6nMeAgcn_w\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713866877354180\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62');
-INSERT INTO `sys_http_report` VALUES
+('a1343385-e68a-488f-9123-9ddcd8b61d64',0,1729542899,1729542899,'csp-report','backend',1729542897556469,'{\"addr\":\"192.168.160.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/129.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/module\\/system\\/user-management\",\"referrer\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/module\\/dashboard\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-neeCnMZqIBQmKrffBUx1NmAM2ChL8XsH33RoBP32edSZWBOhBb18SA\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1729542897556469\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','42e67248b3fecd45bc6668b11dcec0e70f8e2701'),
+('a15efaf0-7b06-4be2-bbc0-d11c4433e4d8',0,1713866878,1713866878,'csp-report','backend',1713866877354180,'{\"addr\":\"92.216.94.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/124.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Bsys_file_metadata%5D%5B23%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Ffile%2Flist%3Ftoken%3Ddcbf2194f00ab3fdb6c7fa2644fa1a084a32a085%26currentPage%3D1%26id%3D1%3A%2Fimpressions%2F%26expandFolder%3D1%3A%2Fimpressions%2F\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/file\\/list?currentPage=1&id=1%3A%2Fimpressions%2F&expandFolder=1%3A%2Fimpressions%2F\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-YysdhKzqcnIn0_rXQoJHZIel11dlgyPbH9PcvLcB4wFg6nMeAgcn_w\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1713866877354180\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('a18a5ad7-86b8-4f22-8be1-07719f06a21d',0,1712856663,1712856663,'csp-report','backend',1712856662186175,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=1\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B2%5D=edit&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D3332c275a25c87eb90baf62530515459a142b576%26id%3D1%23element-tt_content-2\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-xZbqCkXF2Jx3hR6tIOShr0SLrxRAdUU4_ttOmszsYaZ1kTwgt2IklA\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712856662186175\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
 ('a1a74d07-3934-48a4-b30a-9f94fe6930a5',0,1712856985,1712856985,'csp-report','backend',1712856984078295,'{\"addr\":\"145.224.124.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=1\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/main?redirect=web_layout&redirectParams=id%3D1\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-O8rLzYG_CoFD25I2EBDPWDwaspXYIS4b-gYWKX8I8-GROqPc1f0-CQ\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712856984078295\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":2,\"column-number\":28941,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
 ('a1f327fe-486d-41a0-87cd-5b3fd4e18fac',0,1712936383,1712936383,'csp-report','backend',1712936383217970,'{\"addr\":\"83.57.17.0\",\"agent\":\"Mozilla\\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B-55%5D=new&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D742b0eb7f58d46e8e9533ba49eb2924a43a46e8b%26id%3D4&defVals%5Btt_content%5D%5BCType%5D=success_faq&defVals%5Btt_content%5D%5BcolPos%5D=0&defVals%5Btt_content%5D%5Bsys_language_uid%5D=0\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=4\",\"violated-directive\":\"script-src\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-kKzOm3ONJb-7DImet_Ph5Zt5aRgiUIRE-i0c7JBi5Sp9M4bYlZFp2g\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712936383217970\",\"disposition\":\"enforce\",\"blocked-uri\":\"wasm-eval\",\"line-number\":1,\"column-number\":594887,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\"\"}','26f9f86eb90f1274a2ac369b2ac978084e122c7f'),
@@ -3533,7 +3491,6 @@ INSERT INTO `sys_http_report` VALUES
 ('ffa7260b-1d0e-4f76-9f4e-06c99da1dd35',0,1712765128,1712765128,'csp-report','backend',1712765127764695,'{\"addr\":\"109.43.112.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/123.0.0.0 Safari\\/537.36\"}','{\"document-uri\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/record\\/edit?edit%5Btt_content%5D%5B-15%5D=new&returnUrl=%2Ftypo3%2Fmodule%2Fweb%2Flayout%3Ftoken%3D8a51c401b5cf0953e0153c97fba125033a0309d5%26id%3D6&defVals%5Btt_content%5D%5BCType%5D=success_hero&defVals%5Btt_content%5D%5BcolPos%5D=0&defVals%5Btt_content%5D%5Bsys_language_uid%5D=0\",\"referrer\":\"https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/module\\/web\\/layout?id=6\",\"violated-directive\":\"script-src-elem\",\"effective-directive\":\"script-src-elem\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-xzMU-d6GNNV7JgFXpXnF3z1GPGcPnie42IgugFiU7zyoE5_lisfZvw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: *.ytimg.com *.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' *.youtube-nocookie.com *.youtube.com *.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/team6.surfcamp.typo3.com\\/typo3\\/@http-reporting?csp=report&requestTime=1712765127764695\",\"disposition\":\"enforce\",\"blocked-uri\":\"inline\",\"line-number\":1,\"column-number\":348,\"source-file\":\"chrome-extension\",\"status-code\":200,\"script-sample\":\";(function o(e,t=!1){const n=\\\"6.0\\\";let r\"}','589e6d28726ff949c5ed8822e517021604d7fd62'),
 ('fff963c7-86e9-437f-9fa5-c6f0050cf369',0,1728996378,1728996378,'csp-report','backend',1728996377820072,'{\"addr\":\"172.18.0.0\",\"agent\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko\\/20100101 Firefox\\/131.0\"}','{\"blocked-uri\":\"eval\",\"column-number\":1,\"disposition\":\"enforce\",\"document-uri\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/main\",\"effective-directive\":\"script-src\",\"original-policy\":\"default-src \'self\'; script-src \'self\' \'nonce-GpqDJSMkbuPUCnMScsPFic9NJXlQkFLZhhbqOKHS2dNbm9vSyDO-iw\' \'report-sample\'; style-src \'self\' \'unsafe-inline\' \'report-sample\'; style-src-attr \'unsafe-inline\' \'report-sample\'; img-src \'self\' data: https:\\/\\/*.ytimg.com https:\\/\\/*.vimeocdn.com https:\\/\\/extensions.typo3.org; worker-src \'self\' blob:; frame-src \'self\' https:\\/\\/*.youtube-nocookie.com https:\\/\\/*.youtube.com https:\\/\\/*.vimeo.com; base-uri \'none\'; object-src \'none\'; report-uri https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/@http-reporting?csp=report&requestTime=1728996377820072\",\"referrer\":\"https:\\/\\/surfcamp-team6.ddev.site\\/typo3\\/\",\"script-sample\":\";(function n(e){let t=1e3,n=10;function \\u2026\",\"status-code\":200,\"violated-directive\":\"script-src\"}','bf961a4ded1205cf665febcfc2566248134b2797');
 /*!40000 ALTER TABLE `sys_http_report` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_lockedrecords`
@@ -3560,10 +3517,8 @@ CREATE TABLE `sys_lockedrecords` (
 -- Dumping data for table `sys_lockedrecords`
 --
 
-LOCK TABLES `sys_lockedrecords` WRITE;
 /*!40000 ALTER TABLE `sys_lockedrecords` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_lockedrecords` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_log`
@@ -3605,7 +3560,7 @@ CREATE TABLE `sys_log` (
   KEY `errorcount` (`tstamp`,`error`),
   KEY `index_channel` (`channel`),
   KEY `index_level` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=3019 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3021 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3634,10 +3589,8 @@ CREATE TABLE `sys_messenger_messages` (
 -- Dumping data for table `sys_messenger_messages`
 --
 
-LOCK TABLES `sys_messenger_messages` WRITE;
 /*!40000 ALTER TABLE `sys_messenger_messages` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_messenger_messages` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_news`
@@ -3666,10 +3619,8 @@ CREATE TABLE `sys_news` (
 -- Dumping data for table `sys_news`
 --
 
-LOCK TABLES `sys_news` WRITE;
 /*!40000 ALTER TABLE `sys_news` DISABLE KEYS */;
 /*!40000 ALTER TABLE `sys_news` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_refindex`
@@ -3712,7 +3663,6 @@ CREATE TABLE `sys_refindex` (
 -- Dumping data for table `sys_refindex`
 --
 
-LOCK TABLES `sys_refindex` WRITE;
 /*!40000 ALTER TABLE `sys_refindex` DISABLE KEYS */;
 INSERT INTO `sys_refindex` VALUES
 ('00adf100d410e6f7bbf1c27f9ee3e9aa','tt_content',42,'tx_success_card','','','',0,0,'tx_success_card',4,'',0,0,2147483647,0,'',0,0,2147483647,0,0),
@@ -4179,7 +4129,6 @@ INSERT INTO `sys_refindex` VALUES
 ('fdac21ac7f91c672e4b344d6ce39e503','sys_file',53,'storage','','','',0,0,'sys_file_storage',1,'',0,0,2147483647,0,'',0,0,2147483647,0,0),
 ('fe80a6589cac9798aa13ab5e0192cb56','sys_file',1,'metadata','','','',0,0,'sys_file_metadata',1,'',0,0,2147483647,0,'',0,0,2147483647,0,0);
 /*!40000 ALTER TABLE `sys_refindex` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_registry`
@@ -4195,14 +4144,13 @@ CREATE TABLE `sys_registry` (
   `entry_value` mediumblob DEFAULT NULL,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `entry_identifier` (`entry_namespace`,`entry_key`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `sys_registry`
 --
 
-LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
 INSERT INTO `sys_registry` VALUES
 (2,'extensionDataImport','typo3/cms-core/ext_tables_static+adt.sql','s:0:\"\";'),
@@ -4241,9 +4189,10 @@ INSERT INTO `sys_registry` VALUES
 (39,'core','formProtectionSessionToken:1','s:64:\"32df0aa7644426598a6a3753d7fe81e500174299fd1ad01680d7507969376f90\";'),
 (40,'extensionDataImport','b13/backendpreviews/ext_tables_static+adt.sql','s:0:\"\";'),
 (41,'extensionDataImport','surfcamp/copyright/ext_tables_static+adt.sql','s:0:\"\";'),
-(42,'extensionDataImport','schliesser/credits/ext_tables_static+adt.sql','s:0:\"\";');
+(42,'extensionDataImport','schliesser/credits/ext_tables_static+adt.sql','s:0:\"\";'),
+(43,'extensionDataImport','typo3/cms-recycler/ext_tables_static+adt.sql','s:0:\"\";'),
+(44,'core','formProtectionSessionToken:6','s:64:\"0725caca6ce7a964cdfdf909c850b0fb1919d0c1018a877ce9db8ac3f5dcc74f\";');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sys_template`
@@ -4282,12 +4231,10 @@ CREATE TABLE `sys_template` (
 -- Dumping data for table `sys_template`
 --
 
-LOCK TABLES `sys_template` WRITE;
 /*!40000 ALTER TABLE `sys_template` DISABLE KEYS */;
 INSERT INTO `sys_template` VALUES
 (6,1,1712858044,1712856346,0,1,0,0,256,'','Test',0,0,0,'','','','',0);
 /*!40000 ALTER TABLE `sys_template` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tt_content`
@@ -4391,7 +4338,6 @@ CREATE TABLE `tt_content` (
 -- Dumping data for table `tt_content`
 --
 
-LOCK TABLES `tt_content` WRITE;
 /*!40000 ALTER TABLE `tt_content` DISABLE KEYS */;
 INSERT INTO `tt_content` VALUES
 (1,6,1712856707,1712759425,0,0,0,0,'',256,'',0,0,0,0,NULL,'{\"CType\":\"\",\"colPos\":\"\",\"overline\":\"\",\"header\":\"\",\"header_layout\":\"\",\"header_style\":\"\",\"subheader\":\"\",\"bodytext\":\"\",\"button_link\":\"\",\"button_label\":\"\",\"button_style\":\"\",\"assets\":\"\",\"imageorient\":\"\",\"layout\":\"\",\"space_before_class\":\"\",\"space_after_class\":\"\",\"sys_language_uid\":\"\",\"hidden\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"rowDescription\":\"\"}',0,0,0,0,'Textmedia Header','default',0,'Textmedia Subheader','',NULL,0,NULL,0,0,2,0,0,0,0,1,0,0,0,NULL,NULL,NULL,NULL,'<p>Textmedia Bodytext</p>\r\n<p>Multiline</p>\r\n\r\n<p><a class=\"btn btn-primary\" href=\"https://typo3.org\" target=\"_blank\">Test</a></p>','',0,0,'textmedia',0,'none','none',0,2,'',0,2,0,0,'','','','','',124,0,0,0,'lovely','Textmedia Overline',0,0,0,0,0,'t3://page?uid=10#34','Test me','primary',0,'','',''),
@@ -4464,7 +4410,6 @@ INSERT INTO `tt_content` VALUES
 (79,14,1718022584,1713865013,0,0,0,0,'',256,'',0,0,0,0,NULL,'{\"CType\":\"\",\"colPos\":\"\",\"overline\":\"\",\"header\":\"\",\"header_layout\":\"\",\"header_style\":\"\",\"subheader\":\"\",\"layout\":\"\",\"space_before_class\":\"\",\"space_after_class\":\"\",\"sys_language_uid\":\"\",\"hidden\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"rowDescription\":\"\"}',0,0,0,0,'Image sources','default',0,'','',NULL,0,NULL,0,0,0,0,0,0,0,1,0,0,0,NULL,NULL,NULL,NULL,NULL,'',0,0,'credits_images',2,'medium','medium',0,0,'',0,2,0,0,'','','','','',124,0,0,0,'default','#copyright',0,0,0,0,0,'','','primary',0,'','',''),
 (80,6,1718022632,1713868152,0,0,0,0,'',2560,'',0,0,0,0,NULL,'{\"CType\":\"\",\"colPos\":\"\",\"overline\":\"\",\"header\":\"\",\"header_layout\":\"\",\"header_style\":\"\",\"subheader\":\"\",\"layout\":\"\",\"space_before_class\":\"\",\"space_after_class\":\"\",\"sys_language_uid\":\"\",\"hidden\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"rowDescription\":\"\"}',0,0,0,0,'Image sources','default',0,'','',NULL,0,'0',0,0,0,0,0,0,0,1,0,0,0,'','','',NULL,NULL,'',0,0,'credits_images',0,'medium','medium',0,0,'',0,2,0,0,'','','','','',124,0,0,0,'default','#copyright',0,0,0,0,0,'','','primary',0,'','','');
 /*!40000 ALTER TABLE `tt_content` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_extensionmanager_domain_model_extension`
@@ -4513,10 +4458,8 @@ CREATE TABLE `tx_extensionmanager_domain_model_extension` (
 -- Dumping data for table `tx_extensionmanager_domain_model_extension`
 --
 
-LOCK TABLES `tx_extensionmanager_domain_model_extension` WRITE;
 /*!40000 ALTER TABLE `tx_extensionmanager_domain_model_extension` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tx_extensionmanager_domain_model_extension` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_scheduler_task`
@@ -4547,10 +4490,8 @@ CREATE TABLE `tx_scheduler_task` (
 -- Dumping data for table `tx_scheduler_task`
 --
 
-LOCK TABLES `tx_scheduler_task` WRITE;
 /*!40000 ALTER TABLE `tx_scheduler_task` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tx_scheduler_task` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_scheduler_task_group`
@@ -4578,10 +4519,8 @@ CREATE TABLE `tx_scheduler_task_group` (
 -- Dumping data for table `tx_scheduler_task_group`
 --
 
-LOCK TABLES `tx_scheduler_task_group` WRITE;
 /*!40000 ALTER TABLE `tx_scheduler_task_group` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tx_scheduler_task_group` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_success_card`
@@ -4630,7 +4569,6 @@ CREATE TABLE `tx_success_card` (
 -- Dumping data for table `tx_success_card`
 --
 
-LOCK TABLES `tx_success_card` WRITE;
 /*!40000 ALTER TABLE `tx_success_card` DISABLE KEYS */;
 INSERT INTO `tx_success_card` VALUES
 (1,1,1712923306,1712918463,0,1,0,0,0,0,'Personalize Your Ride',NULL,1,4,'tt_content','<p>Choose from a range of customization options to make your surfboard truly yours. From selecting your favorite image to adding personalized text or graphics, unleash your creativity and design a board that reflects your unique style and personality.</p>',0,0,0,0,0,0,NULL,0,'{\"headline\":\"\",\"media\":\"\",\"bodytext\":\"\",\"button_link\":\"\",\"button_label\":\"\",\"button_style\":\"\",\"sys_language_uid\":\"\",\"hidden\":\"\",\"starttime\":\"\",\"endtime\":\"\"}','t3://record?identifier=contentInModal&uid=12','FAQ','primary'),
@@ -4644,7 +4582,6 @@ INSERT INTO `tx_success_card` VALUES
 (9,4,1712939711,1712939403,0,3,0,0,0,0,'Giant sinker',NULL,1,66,'tt_content','<ul><li>2 oz. gin</li><li>1 oz. blue curaçao</li><li>1/2 oz. freshly squeezed lemon juice</li><li>1/2 oz. simple syrup</li><li>1/2 oz. coconut cream</li><li>Splash of soda water</li><li>Ice cubes</li><li>Lemon twist for garnish</li></ul>',0,0,0,0,0,0,NULL,0,'{\"headline\":\"\",\"media\":\"\",\"bodytext\":\"\",\"button_link\":\"\",\"button_label\":\"\",\"button_style\":\"\",\"sys_language_uid\":\"\",\"hidden\":\"\",\"starttime\":\"\",\"endtime\":\"\"}','','','primary'),
 (10,5,1712942570,1712940230,0,3,0,0,0,0,'Career',NULL,1,42,'tt_content','<p>Visit our vibrant Career Landing Page, where opportunities shine in every hue. Explore a world of colorful careers that celebrate diversity and creativity. Join us and paint your professional journey with bold strokes of innovation.</p>',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}','t3://page?uid=4 _blank','Explore the set','secondary');
 /*!40000 ALTER TABLE `tx_success_card` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_success_faq`
@@ -4688,7 +4625,6 @@ CREATE TABLE `tx_success_faq` (
 -- Dumping data for table `tx_success_faq`
 --
 
-LOCK TABLES `tx_success_faq` WRITE;
 /*!40000 ALTER TABLE `tx_success_faq` DISABLE KEYS */;
 INSERT INTO `tx_success_faq` VALUES
 (1,1,1712917833,1712764600,0,1,0,0,0,0,'How long will it take for my customized surfboard to be ready?','<p>The production time for customized surfboards is usually around 4-6 weeks, depending on the complexity of the design and the current order situation.<br />&nbsp;</p>',12,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}'),
@@ -4708,7 +4644,6 @@ INSERT INTO `tx_success_faq` VALUES
 (15,4,1712938380,1712936510,0,4,0,0,0,0,'Are there opportunities for advancement within the hotel?','<p>Yes, we believe in promoting from within whenever possible. As you gain experience and demonstrate your skills and dedication, there are opportunities for career growth and advancement within our organization.</p>',56,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}'),
 (16,4,1712938380,1712936510,0,5,0,0,0,0,'What is the dress code for pool bar staff?','<p>Our pool bar staff are required to maintain a neat and professional appearance. We provide uniforms for all employees to ensure a consistent and polished look while on duty.</p>\r\n\r\n\r\n\r\n\r\n',56,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}');
 /*!40000 ALTER TABLE `tx_success_faq` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_success_feature`
@@ -4753,7 +4688,6 @@ CREATE TABLE `tx_success_feature` (
 -- Dumping data for table `tx_success_feature`
 --
 
-LOCK TABLES `tx_success_feature` WRITE;
 /*!40000 ALTER TABLE `tx_success_feature` DISABLE KEYS */;
 INSERT INTO `tx_success_feature` VALUES
 (1,1,1712919567,1712763702,0,1,0,0,0,0,1,'Design Upload','<p>Select your favorite image to appear on your surfboard.</p>',3,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}'),
@@ -4773,7 +4707,6 @@ INSERT INTO `tx_success_feature` VALUES
 (15,4,1712938841,1712936215,0,5,0,0,0,0,1,'Work in a Vibrant and Supportive Team Environment','',53,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}'),
 (16,4,1712938841,1712936215,0,6,0,0,0,0,1,'Enjoy the Stunning Views and Atmosphere of Fuerteventura','',53,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}');
 /*!40000 ALTER TABLE `tx_success_feature` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_success_menu_item`
@@ -4818,7 +4751,6 @@ CREATE TABLE `tx_success_menu_item` (
 -- Dumping data for table `tx_success_menu_item`
 --
 
-LOCK TABLES `tx_success_menu_item` WRITE;
 /*!40000 ALTER TABLE `tx_success_menu_item` DISABLE KEYS */;
 INSERT INTO `tx_success_menu_item` VALUES
 (2,1,1728997479,1712921864,0,0,0,0,1,0,0,0,NULL,0,'{\"hidden\":\"\"}',0,0,0,0,'Request','',39,'tt_content','t3://page?uid=1#3'),
@@ -4828,7 +4760,6 @@ INSERT INTO `tx_success_menu_item` VALUES
 (6,4,1728998333,1712937976,0,0,0,0,2,0,0,0,NULL,0,'{\"hidden\":\"\"}',0,0,0,0,'FAQ','',50,'tt_content','t3://page?uid=4#56'),
 (7,4,1728998333,1713865504,0,0,0,0,3,0,0,0,NULL,0,'{\"hidden\":\"\"}',0,0,0,0,'Copyright','',50,'tt_content','t3://record?identifier=contentInModal&uid=79');
 /*!40000 ALTER TABLE `tx_success_menu_item` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_success_number_item`
@@ -4873,7 +4804,6 @@ CREATE TABLE `tx_success_number_item` (
 -- Dumping data for table `tx_success_number_item`
 --
 
-LOCK TABLES `tx_success_number_item` WRITE;
 /*!40000 ALTER TABLE `tx_success_number_item` DISABLE KEYS */;
 INSERT INTO `tx_success_number_item` VALUES
 (1,6,1712764397,1712764397,0,1,0,0,0,0,50,'K','Test',9,'tt_content',0,0,0,0,0,0,NULL,0,NULL),
@@ -4891,7 +4821,6 @@ INSERT INTO `tx_success_number_item` VALUES
 (13,5,1713007020,1712929932,0,4,0,0,0,0,6,'','Days in Fuerteventura',44,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}'),
 (14,5,1713007020,1712929932,0,1,0,0,0,0,1,'','Code Basis',44,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}');
 /*!40000 ALTER TABLE `tx_success_number_item` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `tx_success_review`
@@ -4935,7 +4864,6 @@ CREATE TABLE `tx_success_review` (
 -- Dumping data for table `tx_success_review`
 --
 
-LOCK TABLES `tx_success_review` WRITE;
 /*!40000 ALTER TABLE `tx_success_review` DISABLE KEYS */;
 INSERT INTO `tx_success_review` VALUES
 (4,6,1712767240,1712765207,0,1,0,0,0,0,'Foo Bar','<p>Lorem ipsum dolor si<strong>t amet, consectetuer adipiscing elit. A</strong>enean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>',17,'tt_content',0,0,0,0,0,0,NULL,0,NULL),
@@ -4951,7 +4879,6 @@ INSERT INTO `tx_success_review` VALUES
 (14,1,1712919711,1712847009,0,6,0,0,0,0,'Rafal P.','<p>The process of designing my surfboard was <strong>simple and straightforward</strong>. The result is a unique surfboard that will earn me many envious looks on the beach!</p>',7,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}'),
 (15,2,1712944121,1712930392,0,1,0,0,0,0,'Sarah T., TYPO3 Website Owner','<p>Thanks to this white paper, migrating from WordPress to TYPO3 was a breeze! TYPO3\'s flexibility has transformed our website, driving more traffic and engagement than ever before. Highly recommend for those ready to elevate their online presence!\"</p>',46,'tt_content',0,0,0,0,0,0,NULL,0,'{\"hidden\":\"\"}');
 /*!40000 ALTER TABLE `tx_success_review` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -4962,4 +4889,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-15 13:40:09
+-- Dump completed on 2024-10-21 20:59:53
+ALTER TABLE `be_users` AUTO_INCREMENT = 1;

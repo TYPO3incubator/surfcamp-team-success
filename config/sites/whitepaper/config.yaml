@@ -1,8 +1,4 @@
-base: 'https://team6.surfcamp.typo3.com/whitepaper'
-baseVariants:
-  -
-    base: 'https://surfcamp-team6.ddev.site/whitepaper'
-    condition: 'applicationContext == "Development"'
+base: '/whitepaper/'
 languages:
   -
     title: English
