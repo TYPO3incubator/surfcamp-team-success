@@ -3,40 +3,42 @@
 <f:if condition="{overline}">
     <span class="block uppercase text-xs mb-1">{overline}</span>
 </f:if>
-<f:switch expression="{headerLayout}">
-    <f:case value="1">
-        <h1 class="{headerStyle}">
-            {header}
-        </h1>
-    </f:case>
-    <f:case value="2">
-        <h2 class="{headerStyle}">
-            {header}
-        </h2>
-    </f:case>
-    <f:case value="3">
-        <h3 class="{headerStyle}">
-            {header}
-        </h3>
-    </f:case>
-    <f:case value="4">
-        <h4 class="{headerStyle}">
-            {header}
-        </h4>
-    </f:case>
-    <f:case value="5">
-        <h5 class="{headerStyle}">
-            {header}
-        </h5>
-    </f:case>
-    <f:case value="100">
-    </f:case>
-    <f:defaultCase>
-        <span class="{headerStyle}">
-            {header}
-        </span>
-    </f:defaultCase>
-</f:switch>
+<f:if condition="{header}">
+    <f:switch expression="{headerLayout}">
+        <f:case value="1">
+            <h1 class="{headerStyle}">
+                {header}
+            </h1>
+        </f:case>
+        <f:case value="2">
+            <h2 class="{headerStyle}">
+                {header}
+            </h2>
+        </f:case>
+        <f:case value="3">
+            <h3 class="{headerStyle}">
+                {header}
+            </h3>
+        </f:case>
+        <f:case value="4">
+            <h4 class="{headerStyle}">
+                {header}
+            </h4>
+        </f:case>
+        <f:case value="5">
+            <h5 class="{headerStyle}">
+                {header}
+            </h5>
+        </f:case>
+        <f:case value="100">
+        </f:case>
+        <f:defaultCase>
+            <span class="{headerStyle}">
+                {header}
+            </span>
+        </f:defaultCase>
+    </f:switch>
+</f:if>
 
 <f:if condition="{headerStyle} == 'heading-xxl'">
     <span aria-hidden="true" class="w-12 border-b-4 border-primary-500 inline-block"></span>

@@ -16,7 +16,7 @@
         <div class="grid gap-5 md:grid-cols-{cols} mt-10">
             <f:for each="{data.tx_success_review}" as="review">
                 <blockquote class="background-white p-5 rounded w-full relative flex justify-between flex-col">
-                    <span class="text-7xl text-primary-500 font-bold absolute right-5 -top-4">&rdquo;</span>
+                    <span class="text-7xl text-primary-500 font-bold absolute right-5 -top-4" aria-hidden="true">&rdquo;</span>
                     <f:if condition="{review.review}">
                         <p class="text-lg">{review.review -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</p>
                     </f:if>

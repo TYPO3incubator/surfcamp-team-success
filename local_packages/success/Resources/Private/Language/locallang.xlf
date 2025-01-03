@@ -9,6 +9,9 @@
 			<trans-unit id="dataPrivacy.label" resname="dataPrivacy.label">
 				<source>Data Privacy</source>
 			</trans-unit>
+			<trans-unit id="backtotop.label" resname="backtotop.label">
+				<source>Back to top</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
