@@ -15,7 +15,7 @@ ui:
       secondary: "#A6B067"
       light: "#F9FBEB"
       primarytext: "black"
-      secondarytext: "white"
+      secondarytext: "black"
       lighttext: "black"
   dark:
     color:
