@@ -39,3 +39,8 @@ html {
         background-color: var(--color-white);
     }
 }
+
+/* Fix debugger view */
+details.extbase-debugger-tree {
+    height: auto !important;
+}
