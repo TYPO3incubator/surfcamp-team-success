@@ -1,4 +1,4 @@
-/*M!999999\- enable the sandbox mode */ 
+/*M!999999\- enable the sandbox mode */
 -- MariaDB dump 10.19  Distrib 10.11.10-MariaDB, for debian-linux-gnu (aarch64)
 --
 -- Host: db    Database: db
@@ -3686,15 +3686,6 @@ CREATE TABLE `sys_lockedrecords` (
   KEY `event` (`userid`,`tstamp`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1039 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sys_lockedrecords`
---
-
-/*!40000 ALTER TABLE `sys_lockedrecords` DISABLE KEYS */;
-INSERT INTO `sys_lockedrecords` VALUES
-(1038,2,1736796772,'pages',14,0,'admin',0);
-/*!40000 ALTER TABLE `sys_lockedrecords` ENABLE KEYS */;
 
 --
 -- Table structure for table `sys_log`
