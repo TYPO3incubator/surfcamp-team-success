@@ -1,9 +1,9 @@
-/*M!999999\- enable the sandbox mode */ 
--- MariaDB dump 10.19  Distrib 10.11.9-MariaDB, for debian-linux-gnu (x86_64)
+/*M!999999\- enable the sandbox mode */
+-- MariaDB dump 10.19  Distrib 10.11.10-MariaDB, for debian-linux-gnu (aarch64)
 --
 -- Host: db    Database: db
 -- ------------------------------------------------------
--- Server version	10.11.9-MariaDB-ubu2204-log
+-- Server version	10.11.10-MariaDB-ubu2204-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -400,7 +400,7 @@ CREATE TABLE `pages` (
 INSERT INTO `pages` VALUES
 (1,0,1712918585,1712502196,0,0,0,0,'',256,'',0,0,0,0,NULL,'{\"doktype\":\"\",\"title\":\"\",\"slug\":\"\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"\",\"no_follow\":\"\",\"canonical_link\":\"\",\"sitemap_changefreq\":\"\",\"sitemap_priority\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"og_image\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"twitter_image\":\"\",\"twitter_card\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"lastUpdated\":\"\",\"layout\":\"\",\"newUntil\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"content_from_pid\":\"\",\"target\":\"\",\"cache_timeout\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"\",\"no_search\":\"\",\"php_tree_stop\":\"\",\"module\":\"\",\"media\":\"\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"\",\"hidden\":\"\",\"nav_hide\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"extendToSubpages\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"categories\":\"\",\"rowDescription\":\"\"}',0,0,0,0,1,0,31,27,0,'Product Launch','','','','',1712918585,'','',0,0,0,'Customize your own surfboard!','','',0.5,0,0,0,'/',0,0,0,'',0,0,0,0,1,0,0,0,'','','Immerse yourself in a world of individuality and freedom - with our customized surfboards that reflect your personality. ','','','',0,'',1,0,0,0,'','','','','','summary'),
 (2,0,1712943510,1712502225,0,0,0,0,'',512,NULL,0,0,0,0,NULL,'{\"doktype\":\"\",\"title\":\"\",\"slug\":\"\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"\",\"no_follow\":\"\",\"canonical_link\":\"\",\"sitemap_changefreq\":\"\",\"sitemap_priority\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"og_image\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"twitter_image\":\"\",\"twitter_card\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"lastUpdated\":\"\",\"layout\":\"\",\"newUntil\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"content_from_pid\":\"\",\"target\":\"\",\"cache_timeout\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"\",\"no_search\":\"\",\"php_tree_stop\":\"\",\"module\":\"\",\"media\":\"\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"\",\"hidden\":\"\",\"nav_hide\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"extendToSubpages\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"categories\":\"\",\"rowDescription\":\"\"}',0,0,0,0,1,0,31,27,0,'Whitepaper','','','','',1712943510,'','',0,0,0,'','','',0.5,0,0,0,'/',0,0,0,'',0,0,0,0,1,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,'',1,0,0,0,'','pagets__twoColumnsTop','','','','summary'),
-(3,0,1712502330,1712502310,0,0,0,0,'',768,NULL,0,0,0,0,NULL,'{\"doktype\":\"\",\"title\":\"\",\"slug\":\"\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"\",\"no_follow\":\"\",\"canonical_link\":\"\",\"sitemap_changefreq\":\"\",\"sitemap_priority\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"og_image\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"twitter_image\":\"\",\"twitter_card\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"lastUpdated\":\"\",\"layout\":\"\",\"newUntil\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"content_from_pid\":\"\",\"target\":\"\",\"cache_timeout\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"\",\"no_search\":\"\",\"php_tree_stop\":\"\",\"module\":\"\",\"media\":\"\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"\",\"hidden\":\"\",\"nav_hide\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"extendToSubpages\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"categories\":\"\",\"rowDescription\":\"\"}',0,0,0,0,1,0,31,27,0,'Advent of TYPO3','','','','',1712502330,'','',0,0,0,'','','',0.5,0,0,0,'/',0,0,0,'',0,0,0,0,1,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,'',1,0,0,0,'','','','','','summary'),
+(3,0,1736796892,1712502310,1,0,0,0,'',768,NULL,0,0,0,0,NULL,'{\"doktype\":\"\",\"title\":\"\",\"slug\":\"\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"\",\"no_follow\":\"\",\"canonical_link\":\"\",\"sitemap_changefreq\":\"\",\"sitemap_priority\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"og_image\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"twitter_image\":\"\",\"twitter_card\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"lastUpdated\":\"\",\"layout\":\"\",\"newUntil\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"content_from_pid\":\"\",\"target\":\"\",\"cache_timeout\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"\",\"no_search\":\"\",\"php_tree_stop\":\"\",\"module\":\"\",\"media\":\"\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"\",\"hidden\":\"\",\"nav_hide\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"extendToSubpages\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"categories\":\"\",\"rowDescription\":\"\"}',0,0,0,0,1,0,31,27,0,'Advent of TYPO3','','','','',1712502330,'','',0,0,0,'','','',0.5,0,0,0,'/',0,0,0,'',0,0,0,0,1,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,'',1,0,0,0,'','','','','','summary'),
 (4,0,1712502424,1712502413,0,0,0,0,'',1024,NULL,0,0,0,0,NULL,'{\"doktype\":\"\",\"title\":\"\",\"slug\":\"\",\"nav_title\":\"\",\"subtitle\":\"\",\"seo_title\":\"\",\"description\":\"\",\"no_index\":\"\",\"no_follow\":\"\",\"canonical_link\":\"\",\"sitemap_changefreq\":\"\",\"sitemap_priority\":\"\",\"og_title\":\"\",\"og_description\":\"\",\"og_image\":\"\",\"twitter_title\":\"\",\"twitter_description\":\"\",\"twitter_image\":\"\",\"twitter_card\":\"\",\"abstract\":\"\",\"keywords\":\"\",\"author\":\"\",\"author_email\":\"\",\"lastUpdated\":\"\",\"layout\":\"\",\"newUntil\":\"\",\"backend_layout\":\"\",\"backend_layout_next_level\":\"\",\"content_from_pid\":\"\",\"target\":\"\",\"cache_timeout\":\"\",\"cache_tags\":\"\",\"is_siteroot\":\"\",\"no_search\":\"\",\"php_tree_stop\":\"\",\"module\":\"\",\"media\":\"\",\"tsconfig_includes\":\"\",\"TSconfig\":\"\",\"l18n_cfg\":\"\",\"hidden\":\"\",\"nav_hide\":\"\",\"starttime\":\"\",\"endtime\":\"\",\"extendToSubpages\":\"\",\"fe_group\":\"\",\"editlock\":\"\",\"categories\":\"\",\"rowDescription\":\"\"}',0,0,0,0,1,0,31,27,0,'Dream career','','','','',1712502424,'','',0,0,0,'','','',0.5,0,0,0,'/',0,0,0,'',0,0,0,0,1,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,'',1,0,0,0,'','','','','','summary'),
 (5,0,1712828922,1712502560,0,0,0,0,'',128,NULL,0,0,0,0,NULL,'{\"title\":\"\"}',0,0,0,0,1,0,31,27,0,'Landingpages Overview','','','','',1712828922,'','',0,0,0,'','','',0.5,0,0,0,'/',0,0,0,'',0,0,0,0,1,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,'',1,0,0,0,'','','','','','summary'),
 (6,1,1735894126,1712759334,1,1,0,0,'0',256,NULL,0,0,0,0,NULL,'',0,0,0,0,1,0,31,27,0,'Content-Elements','','','','',1712759334,'','',0,0,0,'','','',0.5,0,0,0,'/content-elements',0,0,0,'',0,0,0,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,'',1,0,0,0,'','','','','','summary'),
@@ -889,7 +889,7 @@ CREATE TABLE `sys_file_processedfile` (
   PRIMARY KEY (`uid`),
   KEY `combined_1` (`original`,`task_type`(100),`configurationsha1`),
   KEY `identifier` (`storage`,`identifier`(180))
-) ENGINE=InnoDB AUTO_INCREMENT=1750 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1820 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1109,7 +1109,7 @@ CREATE TABLE `sys_history` (
   PRIMARY KEY (`uid`),
   KEY `recordident_1` (`tablename`(100),`recuid`),
   KEY `recordident_2` (`tablename`(100),`tstamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=1394 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1396 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2510,7 +2510,9 @@ INSERT INTO `sys_history` VALUES
 (1390,1735896733,2,'BE',2,0,2,'tx_success_card','{\"oldRecord\":{\"l10n_diffsource\":\"{\\\"hidden\\\":\\\"\\\"}\"},\"newRecord\":{\"l10n_diffsource\":\"{\\\"headline\\\":\\\"\\\",\\\"media\\\":\\\"\\\",\\\"bodytext\\\":\\\"\\\",\\\"button_link\\\":\\\"\\\",\\\"button_label\\\":\\\"\\\",\\\"button_style\\\":\\\"\\\",\\\"sys_language_uid\\\":\\\"\\\",\\\"hidden\\\":\\\"\\\",\\\"starttime\\\":\\\"\\\",\\\"endtime\\\":\\\"\\\"}\"}}',0,'0400$1982c92ecd4aefdab3a7b4d533347254:1febfb14949759f80b420b20181f1597'),
 (1391,1735896733,4,'BE',2,0,78,'sys_file_reference',NULL,0,'0400$1982c92ecd4aefdab3a7b4d533347254:9d93ff564ed492db98c5583488b7e071'),
 (1392,1735897273,2,'BE',2,0,65,'sys_file_metadata','{\"oldRecord\":{\"title\":null,\"status\":\"\",\"l10n_diffsource\":\"\"},\"newRecord\":{\"title\":\"TYPO3 logo\",\"status\":\"1\",\"l10n_diffsource\":\"{\\\"title\\\":\\\"\\\",\\\"description\\\":\\\"\\\",\\\"ranking\\\":\\\"\\\",\\\"keywords\\\":\\\"\\\",\\\"alternative\\\":\\\"\\\",\\\"caption\\\":\\\"\\\",\\\"download_name\\\":\\\"\\\",\\\"sys_language_uid\\\":\\\"\\\",\\\"creator\\\":\\\"\\\",\\\"creator_tool\\\":\\\"\\\",\\\"publisher\\\":\\\"\\\",\\\"source\\\":\\\"\\\",\\\"copyright\\\":\\\"\\\",\\\"language\\\":\\\"\\\",\\\"location_country\\\":\\\"\\\",\\\"location_region\\\":\\\"\\\",\\\"location_city\\\":\\\"\\\",\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"content_creation_date\\\":\\\"\\\",\\\"content_modification_date\\\":\\\"\\\",\\\"visible\\\":\\\"\\\",\\\"status\\\":\\\"\\\",\\\"fe_groups\\\":\\\"\\\",\\\"categories\\\":\\\"\\\"}\"}}',0,'0400$e2909a50f49c783c6890bd75cf6d9c85:644407d85caf14448534fc65a8e8ef2b'),
-(1393,1735897299,2,'BE',2,0,66,'sys_file_metadata','{\"oldRecord\":{\"title\":null,\"alternative\":null,\"status\":\"\",\"l10n_diffsource\":\"\"},\"newRecord\":{\"title\":\"B13 logo\",\"alternative\":\"B13 logo\",\"status\":\"1\",\"l10n_diffsource\":\"{\\\"title\\\":\\\"\\\",\\\"description\\\":\\\"\\\",\\\"ranking\\\":\\\"\\\",\\\"keywords\\\":\\\"\\\",\\\"alternative\\\":\\\"\\\",\\\"caption\\\":\\\"\\\",\\\"download_name\\\":\\\"\\\",\\\"sys_language_uid\\\":\\\"\\\",\\\"creator\\\":\\\"\\\",\\\"creator_tool\\\":\\\"\\\",\\\"publisher\\\":\\\"\\\",\\\"source\\\":\\\"\\\",\\\"copyright\\\":\\\"\\\",\\\"language\\\":\\\"\\\",\\\"location_country\\\":\\\"\\\",\\\"location_region\\\":\\\"\\\",\\\"location_city\\\":\\\"\\\",\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"content_creation_date\\\":\\\"\\\",\\\"content_modification_date\\\":\\\"\\\",\\\"visible\\\":\\\"\\\",\\\"status\\\":\\\"\\\",\\\"fe_groups\\\":\\\"\\\",\\\"categories\\\":\\\"\\\"}\"}}',0,'0400$10ce67f1c5f7b4e6758db4bc917cd1f9:5dae05b2d8af43888d35c2c29e450eb6');
+(1393,1735897299,2,'BE',2,0,66,'sys_file_metadata','{\"oldRecord\":{\"title\":null,\"alternative\":null,\"status\":\"\",\"l10n_diffsource\":\"\"},\"newRecord\":{\"title\":\"B13 logo\",\"alternative\":\"B13 logo\",\"status\":\"1\",\"l10n_diffsource\":\"{\\\"title\\\":\\\"\\\",\\\"description\\\":\\\"\\\",\\\"ranking\\\":\\\"\\\",\\\"keywords\\\":\\\"\\\",\\\"alternative\\\":\\\"\\\",\\\"caption\\\":\\\"\\\",\\\"download_name\\\":\\\"\\\",\\\"sys_language_uid\\\":\\\"\\\",\\\"creator\\\":\\\"\\\",\\\"creator_tool\\\":\\\"\\\",\\\"publisher\\\":\\\"\\\",\\\"source\\\":\\\"\\\",\\\"copyright\\\":\\\"\\\",\\\"language\\\":\\\"\\\",\\\"location_country\\\":\\\"\\\",\\\"location_region\\\":\\\"\\\",\\\"location_city\\\":\\\"\\\",\\\"latitude\\\":\\\"\\\",\\\"longitude\\\":\\\"\\\",\\\"content_creation_date\\\":\\\"\\\",\\\"content_modification_date\\\":\\\"\\\",\\\"visible\\\":\\\"\\\",\\\"status\\\":\\\"\\\",\\\"fe_groups\\\":\\\"\\\",\\\"categories\\\":\\\"\\\"}\"}}',0,'0400$10ce67f1c5f7b4e6758db4bc917cd1f9:5dae05b2d8af43888d35c2c29e450eb6'),
+(1394,1736796584,1,'BE',1,0,2,'be_users','{\"admin\":1,\"options\":3,\"file_permissions\":\"readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,replaceFile,moveFile,copyFile,deleteFile\",\"workspace_perms\":1,\"lang\":\"default\",\"lastlogin\":0,\"disable\":0,\"starttime\":0,\"endtime\":0,\"pid\":0,\"username\":\"admin\",\"password\":\"$argon2id$v=19$m=65536,t=16,p=1$NVpJVGdhTUNHaHI2ZmM3YQ$R+FEvL+s0z7cHGugS7XiGpsD9ZOJ3oF6yvoPlC4B118\",\"email\":\"\",\"usergroup\":\"\",\"crdate\":1736796584,\"tstamp\":1736796584,\"uid\":2}',0,'0400$c4d7804c5926e3fa28050321b92feaca:c98a59192960d7c1b8e415cda9ffe933'),
+(1395,1736796892,4,'BE',2,0,3,'pages',NULL,0,'0400$b0d4304dff210bae4df7fc703311efde:fe15eeb7d49e64e2cea91ab53fcf0db1');
 /*!40000 ALTER TABLE `sys_history` ENABLE KEYS */;
 
 --
@@ -3682,17 +3684,8 @@ CREATE TABLE `sys_lockedrecords` (
   `feuserid` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=1037 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1039 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sys_lockedrecords`
---
-
-/*!40000 ALTER TABLE `sys_lockedrecords` DISABLE KEYS */;
-INSERT INTO `sys_lockedrecords` VALUES
-(1036,2,1735897300,'sys_file_metadata',66,0,'admin',0);
-/*!40000 ALTER TABLE `sys_lockedrecords` ENABLE KEYS */;
 
 --
 -- Table structure for table `sys_log`
@@ -3734,7 +3727,7 @@ CREATE TABLE `sys_log` (
   KEY `errorcount` (`tstamp`,`error`),
   KEY `index_channel` (`channel`),
   KEY `index_level` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=3383 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3390 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4333,7 +4326,7 @@ INSERT INTO `sys_registry` VALUES
 (43,'extensionDataImport','typo3/cms-recycler/ext_tables_static+adt.sql','s:0:\"\";'),
 (44,'core','formProtectionSessionToken:6','s:64:\"0725caca6ce7a964cdfdf909c850b0fb1919d0c1018a877ce9db8ac3f5dcc74f\";'),
 (45,'extensionDataImport','b13/container/ext_tables_static+adt.sql','s:0:\"\";'),
-(46,'core','formProtectionSessionToken:2','s:64:\"da0cad6c981b3bacaf99ebf30fb102c56c3a21eaffd0d62393aab04b2c43a0f5\";');
+(46,'core','formProtectionSessionToken:2','s:64:\"562b3010cb3335b339074e3bbb313ecb5e6f22c92297a0d534a955a544e5a948\";');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 
 --
@@ -5039,5 +5032,5 @@ INSERT INTO `tx_success_review` VALUES
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-03 10:48:02
+-- Dump completed on 2025-01-13 20:35:12
 ALTER TABLE `be_users` AUTO_INCREMENT = 1;
