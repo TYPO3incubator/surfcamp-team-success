@@ -1,10 +1,8 @@
 <html
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" 
-    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
     xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" 
     data-namespace-typo3-fluid="true">
 <formvh:renderRenderable renderable="{element}">
-    <vac:asset.vite entry="assets/js/components/fileupload.js"/>
     <f:render partial="Field/Field" arguments="{element: element}" contentAs="elementContent">
         <formvh:form.uploadedResource
             property="{element.identifier}"

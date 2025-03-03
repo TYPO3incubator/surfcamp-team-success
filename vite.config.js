@@ -18,7 +18,6 @@ const VITE_ENTRYPOINTS = [
   "assets/js/components/mobile-navigation.js",
   "assets/js/components/modal.js",
   "assets/js/components/slider.js",
-  "assets/js/components/fileupload.js",
   "assets/fonts/comic-neue.js",
   "assets/fonts/lato.js",
   "assets/fonts/merriweather.js",

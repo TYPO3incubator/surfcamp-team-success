@@ -66,6 +66,9 @@ const openModal = (link) => {
                     document.body.classList.add('modal-open'); // Prevent scrolling on background
                     loadingIndicator.style.display = 'none'; // Hide loading indicator
 
+                    const event = new Event("openmodal");
+                    document.dispatchEvent(event);
+
                     // Handle form submission if form exists in modal content
                     const form = modalContent.querySelector('form');
                     if (form) {
