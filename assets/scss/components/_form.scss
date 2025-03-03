@@ -100,3 +100,12 @@
         @apply grid gap-2;
     }
 }
+
+.filepond .filepond--panel-root {
+    @apply bg-transparent;
+
+    &.filepond--panel {
+        @apply rounded shadow;
+        @apply bg-white-variable #{!important};
+    }
+}
