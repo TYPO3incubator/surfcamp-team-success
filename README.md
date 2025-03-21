@@ -70,3 +70,34 @@ Build JS, CSS for production use:
 ```
 ddev npm run build:production
 ```
+
+
+### How to add custom fonts to the project
+
+#### Choose a font
+
+Search within https://fontsource.org/ for a font of your choice. Select
+the "Install" button on the very right top.
+
+#### Install the font
+
+Install the font via npm `npm install @fontsource-variable/roboto-mono` which
+adds the font into `node_modules/@fontsource/roboto-mono` in this example.
+
+Now, also create a new file within `assets/fonts/roboto-mono.js` (based on the
+name of the font you've chosen), and add imports to the font variants from
+the node_modules - see the existing fonts for examples.
+
+#### Allow to choose the font in the UI
+
+Edit `local_packages/success/Configuration/Sets/_LandingPage/settings.defintion.yaml`
+and add the font to the `fonts` section (ui.layout.font.heading and ui.layout.font.text).
+Choose to install
+
+#### Add a mapping to the font in the templates
+
+You need to map the font name of the variable in the site setting to the newly
+created JavaScript file within `local_packages/success/Classes/ViewHelpers/FontMappingViewHelper.php`.
+
+Et voila - you can now choose the new font now in the Settings module
+and clear the cache, and the file is there.

@@ -75,13 +75,13 @@ settings:
     default: false
     category: layout
 
-  ui.font.text:
+  ui.layout.font.text:
     label: 'Text font'
     description: 'Values: "Comic Neue" | "Lato" | "Merriweather" | "Noto Serif" | "Open Sans" | "Oswald" | "Playpen Sans" | "Roboto Slab" | "Roboto Mono" | "Roboto"'
     type: string #would be great to have a select input
     default: 'Open Sans'
     category: font
-  ui.font.heading:
+  ui.layout.font.heading:
     label: 'Headline font'
     description: 'Values: "Comic Neue" | "Lato" | "Merriweather" | "Noto Serif" | "Open Sans" | "Oswald" | "Playpen Sans" | "Roboto Slab" | "Roboto Mono" | "Roboto"'
     type: string  #would be great to have a select input
