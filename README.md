@@ -1,7 +1,10 @@
 # TYPO3 Surfcamp Team 6 (Landing Page)
 
-This Git repository is intended for use by our dedicated teams at the [TYPO3 Surfcamp](https://surfcamp.typo3.com/). The configuration happens via `.env` thanks to the underlying package `vlucas/phpdotenv`.
+This Git repository is intended for use by our dedicated teams at the [TYPO3 Surfcamp](https://surfcamp.typo3.com/). The configuration happens via `.env` thanks to the underlying package `helhum/dotenv-connector`.
 
+## Demo
+
+Visit our demo: https://success.surfcamp.schliesser.dev/
 
 ## Requirements
 
@@ -17,7 +20,7 @@ ddev start
 ddev composer install
 ```
 
-## Credentials
+## Credentials (local development)
 
 - Backend: https://surfcamp-team3.ddev.site/typo3
 - Username: `admin`
