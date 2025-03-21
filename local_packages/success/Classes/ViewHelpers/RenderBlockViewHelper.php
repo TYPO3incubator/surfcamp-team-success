@@ -20,11 +20,13 @@ namespace Surfcamp\Success\ViewHelpers;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Domain\RecordInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
+use TYPO3\CMS\Fluid\View\FluidViewAdapter;
 use TYPO3\CMS\Fluid\ViewHelpers\CObjectViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 use TYPO3Fluid\Fluid\View\Exception\InvalidTemplateResourceException;
+use TYPO3Fluid\Fluid\View\TemplateView;
 
 /**
  * ViewHelper to render a block from a record
@@ -36,62 +38,83 @@ final class RenderBlockViewHelper extends AbstractViewHelper
      */
     protected $escapeOutput = false;
 
+    public function __construct(private readonly RenderingContextFactory $renderingContextFactory) {}
+
     public function initializeArguments(): void
     {
         parent::initializeArguments();
-        $this->registerArgument('data', RecordInterface::class, 'Record object');
+        $this->registerArgument('record', RecordInterface::class, 'Record object');
+        $this->registerArgument('template', 'string', 'Alternative template name for this record');
         $this->registerArgument('context', 'array', 'Context information', false, []);
     }
 
-    public function render()
+    public function render(): string
     {
-        $data = $this->arguments['data'];
-        $context = $this->arguments['context'] ?: [];
-
+        /** @var RecordInterface $record */
+        $record = $this->arguments['record'];
+        /** @var string|null $templateFileName */
+        $templateFileName = $this->arguments['template'] ?? null;
         $outerRenderingContext = $this->renderingContext;
-        $view = $this->renderingContext->getViewHelperVariableContainer()->getView();
-        if (!$view) {
-            throw new Exception(
-                'The f:renderBlock ViewHelper was used in a context where the ViewHelperVariableContainer does not contain ' .
-                'a reference to the View. Normally this is taken care of by the TemplateView, so most likely this ' .
-                'error is because you overrode AbstractTemplateView->initializeRenderingContext() and did not call ' .
-                '$renderingContext->getViewHelperVariableContainer()->setView($this) or parent::initializeRenderingContext. ' .
-                'This is an issue you must fix in your code as f:renderBlock is fully unable to render anything without a View.'
-            );
-        }
-        $subView = GeneralUtility::makeInstance(StandaloneView::class);
-        $r = clone $view->getRenderingContext();
-
         $request = $outerRenderingContext->getAttribute(ServerRequestInterface::class);
-        $subView->getRenderingContext()->setAttribute(ServerRequestInterface::class, $request);
-        $subView->getRenderingContext()->setTemplatePaths($r->getTemplatePaths());
-        if (count($templateNameParts = explode('.', $data->getFullType())) === 2) {
-            $templateNameParts[0] = ($templateNameParts[0] === 'tt_content' ? 'content' : $templateNameParts[0]);
-            $subView->getRenderingContext()->setControllerName(ucfirst($templateNameParts[0]));
-            $subView->getRenderingContext()->setControllerAction(GeneralUtility::underscoredToLowerCamelCase($templateNameParts[1]));
-        }
-        $subView->assign('settings', $this->renderingContext->getVariableProvider()->get('settings'));
-        $subView->assign('data', $data->toArray(true));
-        $subView->assign('rawData', $data->getRawRecord()->toArray());
-        $subView->assign('context', $context);
+
+        // Create new rendering context
+        $innerRenderingContext = $this->renderingContextFactory->create([], $request);
+        $innerRenderingContext->setTemplatePaths(clone $outerRenderingContext->getTemplatePaths());
+
+        // Selectively pass variables from the parent to the sub view:
+        // * settings (inherited in getScopeCopy())
+        // * data, which contains the provided record object
+        // * site, page and language, which are also present in templates initiated with PageViewContentObject
+        // * additional variables, provided to the ViewHelpers in the "arguments" argument
+        $innerVariableProvider = $outerRenderingContext->getVariableProvider()->getScopeCopy([
+            'data' => $record,
+            'site' => $request->getAttribute('site'),
+            'language' => $request->getAttribute('language'),
+            'page' => $request->getAttribute('frontend.page.information'),
+            ...(array)$this->arguments['arguments'],
+        ]);
+        $innerRenderingContext->setVariableProvider($innerVariableProvider);
+
+        // Create the actual view object based on the rendering context. FluidViewAdapter is used here as
+        // preparation for a potential use of different view implementations in the future
+        $innerView = new FluidViewAdapter(new TemplateView($innerRenderingContext));
+
+        $typeCamelCase = GeneralUtility::underscoredToUpperCamelCase(str_replace('tt_content', 'content', $record->getFullType()));
+        $typeCamelCase = str_replace(' ','/',ucwords(str_replace('.', ' ', $typeCamelCase)));
+        $templateFileName = $templateFileName ?? $typeCamelCase;
+        debug($templateFileName);
         try {
-            $content = $subView->render();
-        } catch (InvalidTemplateResourceException) {
-            // Render via TypoScript as fallback
-            /** @var CObjectViewHelper $cObjectViewHelper */
-            $cObjectViewHelper = $view->getRenderingContext()->getViewHelperResolver()->createViewHelperInstance('f', 'cObject');
-            $blockType = $data->getFullType();
-            if (str_starts_with($blockType, 'content')) {
-                $blockType = 'tt_' . $blockType . '.20';
+            return $innerView->render($templateFileName);
+        } catch (InvalidTemplateResourceException $e) {
+            // Fallback to TypoScript rendering for:
+            // * content elements without matching template file
+            // * more complex content elements, like ExtBase plugins
+            try {
+                $blockType = $record->getFullType();
+                $content = $outerRenderingContext->getViewHelperInvoker()->invoke(
+                    CObjectViewHelper::class,
+                    [
+                        'typoscriptObjectPath' => $blockType,
+                        'data' => $record->getRawRecord()?->toArray(),
+                        'table' => $record->getMainType(),
+                    ],
+                    $outerRenderingContext,
+                );
+                if ($content === '') {
+                    $content = $outerRenderingContext->getViewHelperInvoker()->invoke(
+                        CObjectViewHelper::class,
+                        [
+                            'typoscriptObjectPath' => $blockType . '.20',
+                            'data' => $record->getRawRecord()?->toArray(),
+                            'table' => $record->getMainType(),
+                        ],
+                        $outerRenderingContext,
+                    );
+                }
+                return is_string($content) ? $content : '';
+            } catch (Exception) {
+                throw new InvalidTemplateResourceException($e->getMessage(), $e->getCode(), $e);
             }
-            $cObjectViewHelper->setArguments([
-                'typoscriptObjectPath' => $blockType,
-                'data' => $data->getRawRecord()->toArray(),
-                'context' => $context,
-            ]);
-            $cObjectViewHelper->setRenderingContext($subView->getRenderingContext());
-            $content = $cObjectViewHelper->render();
         }
-        return $content;
     }
 }

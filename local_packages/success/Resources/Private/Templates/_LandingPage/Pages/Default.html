@@ -19,7 +19,7 @@
 <div class="font-text background-{settings.ui.layout.pagebg}">
     <main>
         <f:for as="record" each="{content.main.records}">
-            <s:renderBlock data="{record}" context="{site: site, page: page, language: language}"/>
+            <s:renderBlock record="{record}" context="{site: site, page: page, language: language}"/>
         </f:for>
     </main>
     <f:render partial="Footer" arguments="{_all}"/>
