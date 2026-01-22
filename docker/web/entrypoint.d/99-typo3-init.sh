@@ -9,3 +9,4 @@ else
     /var/www/html/bin/typo3 backend:user:create -a -m -n || exit 0
 fi
 /var/www/html/bin/typo3 language:update -n
+/var/www/html/bin/typo3 cache:warmup -n
