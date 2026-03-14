@@ -1,4 +1,6 @@
-@import 'glightbox/dist/css/glightbox.css';
+@use "sass:meta";
+
+@include meta.load-css("glightbox/dist/css/glightbox.css");
 
 // fix position of glightbox buttons
 .glightbox-clean .gprev,

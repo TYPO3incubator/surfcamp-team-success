@@ -4,7 +4,7 @@ COPY composer.* ./
 COPY ./local_packages ./local_packages
 RUN composer install --ignore-platform-reqs --no-dev
 
-FROM node:20 as build-frontend
+FROM node:24 as build-frontend
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
@@ -13,7 +13,7 @@ COPY ./assets/ ./assets/
 COPY ./local_packages ./local_packages
 RUN npm run build:production
 
-FROM serversideup/php:8.3-fpm-nginx-alpine
+FROM serversideup/php:8.4-fpm-nginx-alpine
 USER root
 # Install needed php extensions https://docs.typo3.org/m/typo3/tutorial-getting-started/main/en-us/Installation/SystemRequirements/Index.html
 RUN install-php-extensions intl gd zip zlib exif

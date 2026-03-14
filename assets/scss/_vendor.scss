@@ -1,0 +1,4 @@
+@use "sass:meta";
+
+@include meta.load-css("filepond/dist/filepond.min.css");
+@include meta.load-css("filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css");

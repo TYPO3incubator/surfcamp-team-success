@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import autoOrigin from 'vite-plugin-auto-origin';
 
 const port = 5173;
 const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
@@ -66,10 +65,8 @@ export default defineConfig(({command, mode}) => {
   },
     plugins: [
       // ViteImageOptimizer(),
-      autoOrigin(),
     ],
   }
 });
-
 
 

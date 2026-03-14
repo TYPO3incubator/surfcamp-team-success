@@ -1,8 +1,8 @@
 name: surfcamp-team6
 type: typo3
 docroot: public
-php_version: "8.3"
-nodejs_version: "20"
+php_version: "8.4"
+nodejs_version: "24"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []

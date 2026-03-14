@@ -1,10 +1,9 @@
-@import "filepond/dist/filepond.min.css";
-@import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+@use "vendor";
 
-@import 'base/global';
-@import 'base/reset';
-@import 'base/layout';
-@import 'components/button';
-@import 'components/form';
-@import 'components/typography';
-@import 'components/slider';
+@use "base/global";
+@use "base/reset";
+@use "base/layout";
+@use "components/button";
+@use "components/form";
+@use "components/typography";
+@use "components/slider";
